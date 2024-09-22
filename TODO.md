@@ -4,7 +4,7 @@
 * [ ] https://github.com/metamath/set.mm/issues/4145
 * [ ] https://github.com/metamath/set.mm/pull/4201#issuecomment-2351380865
 * [x] https://github.com/metamath/set.mm/pull/4201#pullrequestreview-2319751501
-* [ ] https://github.com/metamath/set.mm/pull/4220
+* [x] https://github.com/metamath/set.mm/pull/4220
 * [ ] ``|- sec = ( ( invr ` CCfld ) o. cos )``
 * [ ] ``|- csc = ( ( invr ` CCfld ) o. sin )``
 * [ ] ``|- ( invr ` CCfld ) = ( x e. ( CC \ { 0 } ) |-> ( 1 /  x ) )`` from
