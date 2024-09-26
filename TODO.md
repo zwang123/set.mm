@@ -6,8 +6,12 @@
 * [x] https://github.com/metamath/set.mm/pull/4201#pullrequestreview-2319751501
 * [x] https://github.com/metamath/set.mm/pull/4220
 * [ ] Delete branch thin-cat after thin-cat-2 is merged
-* [ ] https://github.com/metamath/set.mm/pull/4239
+* [x] https://github.com/metamath/set.mm/pull/4239
+* [ ] https://github.com/metamath/set.mm/pull/4242
+* [ ] Delete branch thin-cat-2 after thin-cat-3 is merged
 * [ ] ``|- sec = ( ( invr ` CCfld ) o. cos )``
 * [ ] ``|- csc = ( ( invr ` CCfld ) o. sin )``
 * [ ] ``|- ( invr ` CCfld ) = ( x e. ( CC \ { 0 } ) |-> ( 1 /  x ) )`` from
       `cnfldinv`
+* [ ] Move pospropd and theorems from poslubmo to posglbd to after meetcom
+      -> Not doable because some theorems depend on ODual
