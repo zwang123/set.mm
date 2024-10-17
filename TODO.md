@@ -5,10 +5,10 @@
 * [x] https://github.com/metamath/set.mm/pull/4201#issuecomment-2351380865
 * [x] https://github.com/metamath/set.mm/pull/4201#pullrequestreview-2319751501
 * [x] https://github.com/metamath/set.mm/pull/4220
-* [ ] Delete branch thin-cat after thin-cat-2 is merged
+* [x] Delete branch thin-cat after thin-cat-2 is merged
 * [x] https://github.com/metamath/set.mm/pull/4239
-* [ ] https://github.com/metamath/set.mm/pull/4242
-* [ ] Delete branch thin-cat-2 after thin-cat-3 is merged
+* [x] https://github.com/metamath/set.mm/pull/4242
+* [x] Delete branch thin-cat-2 after thin-cat-3 is merged
 * [ ] ``|- sec = ( ( invr ` CCfld ) o. cos )``
 * [ ] ``|- csc = ( ( invr ` CCfld ) o. sin )``
 * [ ] ``|- ( invr ` CCfld ) = ( x e. ( CC \ { 0 } ) |-> ( 1 /  x ) )`` from
