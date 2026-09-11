@@ -72345,6 +72345,20 @@ $)
       VOCVGDULZABVAVGUMRUIABVGUJSVHVMVDVMCVGVPABVAVGUKRUNUOUPDVCVEUQS $.
   $}
 
+  ${
+    $d A x $.  $d F x $.  $d G x $.  $d R x $.  $d ph x $.
+    ofrfidc.f $e |- ( ph -> F Fn A ) $.
+    ofrfidc.g $e |- ( ph -> G Fn A ) $.
+    ofrfidc.dc $e |- ( ph -> A. x e. A DECID ( F ` x ) R ( G ` x ) ) $.
+    ofrfidc.fi $e |- ( ph -> A e. Fin ) $.
+    $( Decidability of a relation applied to two functions.  (Contributed by
+       Jim Kingdon, 6-Sep-2026.) $)
+    ofrfidc $p |- ( ph -> DECID F oR R G ) $=
+      ( cofr wbr wdc cv cfv wral cfn wcel dcfi eqidd syl2anc inidm dcbid mpbird
+      wa ofrfval ) AEFDKLZMBNZEOZUHFOZDLZBCPZMZACQRUKMBCPUMJIUKBCSUAAUGULABCCUI
+      UJDCEFQQGHJJCUBAUHCRUEZUITUNUJTUFUCUD $.
+  $}
+
 
 $(
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -128846,6 +128860,32 @@ $)
       WNVHYHYEWNWNWANMWBWCWFWDWECBAWTXAXOWGWPBEWHWIOWJWK $.
   $}
 
+  ${
+    $d A u v w x y $.  $d F r u v w x y $.  $d ph u v w x y $.
+    fiidxsupcl.f $e |- ( ph -> F : A --> ZZ ) $.
+    fiidxsupcl.fi $e |- ( ph -> A e. Fin ) $.
+    $( A set of integers indexed by a finite set has an upper bound.
+       (Contributed by Jim Kingdon, 8-Sep-2026.) $)
+    fiidxsupcl $p |- ( ph -> E. x e. ZZ A. y e. A ( F ` y ) <_ x ) $=
+      ( vr cv cle wbr wral cz wrex c0 wceq wcel wa syl2anc zred vw vu cfv raleq
+      vv csn cun rexbidv c1 1z ral0 brralrspcev mp2an a1i cfn wss cdif cpr csup
+      cr clt simprl wf ad3antrrr simplrr eldifad ffvelcdmd zmaxcl simplr sseldd
+      ad5antr simpllr ad2antrr simprr maxcl simpr maxle1 letrd ex ralimdva impr
+      maxle2 cvv fveq2 breq1d ralunsn sylanbrc rexlimdvaa breq2 ralbidv cbvrexv
+      wb elv imbitrrdi findcard2sd ) ACIZEUCZBIZJKZCUAIZLZBMNWSCOLZBMNZWSCUBIZL
+      ZBMNZWSCXDUEIZUFUGZLZBMNZWSCDLZBMNUAUBUEDWTOPXAXBBMWSCWTOUDUHWTXDPXAXEBMW
+      SCWTXDUDUHWTXHPXAXIBMWSCWTXHUDUHWTDPXAXKBMWSCWTDUDUHXCAUIMQWQUIJKZCOLXCUJ
+      XLCUKBCWQUIJMOULUMUNAXDUOQZRZXDDUPZXGDXDUQQZRZRZXFWQHIZJKZCXHLZHMNZXJXRXE
+      YBBMXRWRMQZXERZRZWRXGEUCZURUTVAUSZMQZWQYGJKZCXHLZYBYEYCYFMQYHXRYCXEVBZYED
+      MXGEADMEVCZXMXQYDFVDYEXGDXDXNXOXPYDVEVFVGZWRYFVHSYEYICXDLZYFYGJKZYJXRYCXE
+      YNXRYCRZWSYICXDYPWPXDQZRZWSYIYRWSRZWQWRYGYSWQYSDMWPEAYLXMXQYCYQWSFVKYSXDD
+      WPXRXOYCYQWSXNXOXPVBVDYPYQWSVIVJVGTYSWRXRYCYQWSVLTZYSWRUTQZYFUTQZYGUTQYTX
+      RUUBYCYQWSXRYFXRDMXGEAYLXMXQFVMXRXGDXDXNXOXPVNVFVGTVDZWRYFVOSYRWSVPYSUUAU
+      UBWRYGJKYTUUCWRYFVQSVRVSVTWAYEUUAUUBYOYEWRYKTYEYFYMTWRYFWBSYJYNYORWLUEYIY
+      OCXDXGWCWPXGPWQYFYGJWPXGEWDWEWFWMWGHCWQYGJMXHULSWHXIYABHMWRXSPWSXTCXHWRXS
+      WQJWIWJWKWNGWO $.
+  $}
+
 
 $(
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -181463,6 +181503,47 @@ $)
         UVBPZXFUUPWLUUQYOUUPUVCSXFYOUUPYPWKEUUIMCWMTRWNZWOQUURWPTUUQUUJUUSUUQUU
         JUVAUUSUVDXFUUJUVAUUSPSZUUPXFXMUVEYJEUUIMXGWMTWKWQWSWJVPHUUFXKWTWIXFYFX
         HXJXLPSYHABXGEOFWBTWRUUOXA $.
+    $}
+
+    ${
+      $d D p q x y $.  $d D r x y $.  $d F f $.  $d F p q x y z $.
+      $d F r x y z $.  $d G f $.  $d I f $.  $d I p q x y z $.  $d I r x y z $.
+      $( There are finitely many bags dominated by a given bag.  (Contributed
+         by Mario Carneiro, 29-Dec-2014.)  (Revised by Mario Carneiro,
+         25-Jan-2015.)  (Revised by Jim Kingdon, 28-Jul-2026.) $)
+      psrbaglefifi $p |- ( ( F e. D /\ I e. Fin )
+          -> { y e. D | y oR <_ F } e. Fin ) $=
+        ( wcel cfn wa cv cfv cle wbr cz cn0 a1i elmapd cc0 ad2antrr adantr wral
+        vx vz vp vq vr cofr crab cmap co simpl wceq psrbagfi adantl eleqtrd cvv
+        wf nn0ex simpr mpbid nn0ssz fssd fiidxsupcl fveq2 breq1d cbvralv anbi2i
+        wss cfz 0zd simplrl fzfigd biimpa fz0ssnn0 simp-4r syl eleqtrrd wfn crn
+        wb mpbird ad3antrrr ffnd wrex fvelrnb simprl ad4antr frnd nn0zd nn0ge0d
+        sselda zred ad5antr ffvelcdmd nn0red inidm eqidd ofrval mpd3an23 simprr
+        simplrr rspcdva letrd elfzd rexlimddv ex df-f sylanbrc impbida pm5.32rd
+        ssrdv rabbidva2 mapfi syl2anc wdc ffvelcdmda ralrimiva ofrfidc eqeltrrd
+        zdcle ssfirab sylan2b ) DBGZEHGZIZAJZDKZUBJZLMZAEUAZYFDLUGMZABUHZHGZUBN
+        YEUBAEDYEEONDYEDOEUIUJZGEODUQZYEDBYNYCYDUKYDBYNULZYCBCEFUMZUNZUOYEOEDUP
+        HOUPGZYEURPYCYDUSZQUTZONVHYEVAPVBYTVCYHNGZYJIYEUUBUCJZDKZYHLMZUCEUAZIZY
+        MYJUUFUUBYIUUEAUCEYFUUCULYGUUDYHLYFUUCDVDVEVFVGYEUUGIZYKARYHVIUJZEUIUJZ
+        UHYLHUUHYKYKAUUJBUUHYKYFUUJGZYFBGZUUHYKUUKUULVTUUHYKIZUUKUULUUMUUKIZYFY
+        NBUUNYFYNGZEOYFUQZUUNEUUIOYFUUMUUKEUUIYFUQZUUMUUIEYFHHUUMRYHUUMVJYEUUBU
+        UFYKVKVLYEYDUUGYKYTSQVMUUIOVHZUUNYHVNZPVBUUNOEYFUPHYSUUNURPYCYDUUGYKUUK
+        VOZQWAUUNYDYPUUTYQVPVQUUMUULIZUUKUUQUVAYFEVRZYFVSZUUIVHUUQUVAEOYFUVAUUO
+        UUPUVAYFBYNUUMUULUSYEYPUUGYKUULYRWBUOUVAOEYFUPHYSUVAURPYCYDUUGYKUULVOZQ
+        UTZWCZUVAUDUVCUUIUVAUDJZUVCGZUVGUUIGZUVAUVHIZUEJZYFKUVGULZUVIUEEUVAUVHU
+        VLUEEWDZUVAUVBUVHUVMVTUVFUEEUVGYFWEVPVMUVJUVKEGZUVLIZIZUVGRYHUVPVJUUHUU
+        BYKUULUVHUVOYEUUBUUFWFZWGZUVJUVGNGUVOUVJUVGUVAUVCOUVGUVAEOYFUVEWHWKZWIT
+        ZUVJRUVGLMUVOUVJUVGUVSWJTUVPUVGUVKDKZYHUVPUVGUVTWLUVPUWAUVPEOUVKDYEYOUU
+        GYKUULUVHUVOUUAWMUVJUVNUVLWFZWNWOUVPYHUVRWLUVPYKUVNUVGUWALMUUHYKUULUVHU
+        VOVOUWBUVPEEUVGUWALEYFDHHUVKUVAUVBUVHUVOUVFSYEDEVRZUUGYKUULUVHUVOYEEODU
+        UAWCZWMUVAYDUVHUVOUVDSZUWEEWPUVJUVNUVLUVNXAUVPUVNIUWAWQWRWSUVPUUEUWAYHL
+        MUCEUVKUUCUVKULUUDUWAYHLUUCUVKDVDVEUUHUUFYKUULUVHUVOYEUUBUUFWTWGUWBXBXC
+        XDXEXFXKEUUIYFXGXHUVAUUIEYFHHUUHUUIHGZYKUULUUHRYHUUHVJUVQVLZSUVDQWAXIXF
+        XJXLUUHYKAUUJUUHUWFYDUUJHGUWGYEYDUUGYTTZUUIEXMXNUUHYKXOAUUJUUHUUKIZUFEL
+        YFDUWIEUUIYFUWIUUKUUQUUHUUKUSUWIUUIEYFHHUUHUWFUUKUWGTUUHYDUUKUWHTZQUTZW
+        CYEUWCUUGUUKUWDSUWIUFJZYFKZUWLDKZLMXOZUFEUWIUWLEGZIZUWMNGUWNNGUWOUWQUWM
+        UWIEOUWLYFUWIEUUIOYFUWKUURUWIUUSPVBXPWIUWQUWNUWQEOUWLDYEYOUUGUUKUWPUUAW
+        BUWIUWPUSWNWIUWMUWNXTXNXQUWJXRXQYAXSYBXE $.
     $}
 
     psrbagconf1o.s $e |- S = { y e. D | y oR <_ F } $.
