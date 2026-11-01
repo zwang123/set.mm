@@ -882629,6 +882629,13 @@ $)
   $}
 
   ${
+    $( Every positive integer is a nonzero integer.  (Contributed by Zhi Wang,
+       2-Nov-2026.) $)
+    nnznz $p |- ( A e. NN -> A e. ( ZZ \ { 0 } ) ) $=
+      ( cn wcel cz cc0 nnz nnne0 eldifsnd ) ABCADEAFAGH $.
+  $}
+
+  ${
     $d A p q $.
     $( Express the signed prime Omega function at a nonzero integer as a sum of
        prime multiplicities over its prime divisors.  For ` A e. NN ` , this
@@ -882650,37 +882657,35 @@ $)
   ${
     $d A p q $.
     $( The prime Omega function takes nonnegative integer values.  (Contributed
-       by Zhi Wang, 17-Oct-2026.) $)
+       by Zhi Wang, 17-Oct-2026.)  (Proof shortened by Zhi Wang,
+       2-Nov-2026.) $)
     bomnncl $p |- ( A e. NN -> ( Omega ` A ) e. NN0 ) $=
-      ( vq vp cn wcel cbom cfv cv cdvds wbr cprime cpc co csu cn0 cz cc0 wa syl
-      crab csn cdif wne nnz nnne0 eldifsn sylibr bomzval prmdvdsfi simpr elrabi
-      wceq jca simpl pccld fsumnn0cl eqeltrd ) ADEZAFGZBHAIJZBKTZCHZALMZCNZOURA
-      PQUAUBEZUSVDULURAPEZAQUCZRVEURVFVGAUDAUEUMAPQUFUGABCUHSURVAVCCABUIURVBVAE
-      ZRZVBAVIVHVBKEURVHUJUTBVBKUKSURVHUNUOUPUQ $.
+      ( vq vp cn wcel cbom cfv cv cdvds wbr cprime crab cpc csu cn0 cc0 csn syl
+      co cz cdif wceq nnznz bomzval prmdvdsfi wa simpr elrabi fsumnn0cl eqeltrd
+      simpl pccld ) ADEZAFGZBHAIJZBKLZCHZAMSZCNZOUMATPQUAEUNUSUBAUCABCUDRUMUPUR
+      CABUEUMUQUPEZUFZUQAVAUTUQKEUMUTUGUOBUQKUHRUMUTUKULUIUJ $.
   $}
 
   ${
     $d P p q $.
     $( The prime Omega function has value one at every prime.  (Contributed by
-       Zhi Wang, 17-Oct-2026.) $)
+       Zhi Wang, 17-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     bomprm $p |- ( P e. Prime -> ( Omega ` P ) = 1 ) $=
-      ( vp vq cprime wcel cbom cfv cpc co c1 csn cv csu crab wceq cc0 syl eqtrd
-      cz syl2anc cdvds wbr cn prmnn wne wa nnz nnne0 jca eldifsn sylibr bomzval
-      cdif wb c2 prmuz2 dvdsprm sylan ancoms rabbidva rabsn sumeq1d cc id pccld
-      cuz nn0cnd oveq1 sumsn cexp nncnd exp1d oveq2d 1z a1i pcid eqtr3d ) ADEZA
-      FGZAAHIZJVRVSAKZBLZAHIZBMZVTVRVSCLZAUAUBZCDNZWCBMZWDVRAUCEZVSWHOZAUDZWIAS
-      PKUMEZWJWIASEZAPUEZUFWLWIWMWNAUGAUHUIASPUJUKACBULQQVRWGWAWCBVRWGWEAOZCDNW
-      AVRWFWOCDWEDEZVRWFWOUNZWPWEUOVFGEVRWQWEUPAWEUQURUSUTCDAVARVBRVRVRVTVCEWDV
-      TOVRVDZVRVTVRAAWRWKVEVGWCVTBADWBAAHVHVITRVRAAJVJIZHIZVTJVRWSAAHVRAVRAWKVK
-      VLVMVRVRJSEZWTJOWRXAVRVNVOJAVPTVQR $.
+      ( vp vq cprime wcel cbom cfv cpc co c1 csn cv csu cdvds crab cz syl eqtrd
+      wceq syl2anc wbr cn prmnn cc0 cdif nnznz bomzval wb c2 cuz prmuz2 dvdsprm
+      sylan ancoms rabbidva rabsn sumeq1d cc pccld oveq1 sumsn cexp nncnd exp1d
+      id nn0cnd oveq2d 1z a1i pcid eqtr3d ) ADEZAFGZAAHIZJVLVMAKZBLZAHIZBMZVNVL
+      VMCLZANUAZCDOZVQBMZVRVLAUBEZVMWBSZAUCZWCAPUDKUEEWDAUFACBUGQQVLWAVOVQBVLWA
+      VSASZCDOVOVLVTWFCDVSDEZVLVTWFUHZWGVSUIUJGEVLWHVSUKAVSULUMUNUOCDAUPRUQRVLV
+      LVNUREVRVNSVLVEZVLVNVLAAWIWEUSVFVQVNBADVPAAHUTVATRVLAAJVBIZHIZVNJVLWJAAHV
+      LAVLAWEVCVDVGVLVLJPEZWKJSWIWLVLVHVIJAVJTVKR $.
   $}
 
   ${
     $( Every positive integer is a nonzero rational.  (Contributed by Zhi Wang,
-       27-Oct-2026.) $)
+       27-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     nnqnz $p |- ( A e. NN -> A e. ( QQ \ { 0 } ) ) $=
-      ( cn wcel cq cc0 wne wa csn cdif nnq nnne0 jca eldifsn sylibr ) ABCADCAEF
-      GADEHICABCADCAEFAJAKLADEMN $.
+      ( cn wcel cq cc0 nnq nnne0 eldifsnd ) ABCADEAFAGH $.
   $}
 
   ${
@@ -883295,16 +883300,15 @@ $)
     bomnnss.4 $e |- ( ph -> { q e. Prime | q || A } C_ B ) $.
     $( Evaluate the prime Omega function using a finite set of primes
        containing all prime divisors of the input.  (Contributed by Zhi Wang,
-       17-Oct-2026.) $)
+       17-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     bomnnss $p |- ( ph -> ( Omega ` A ) = sum_ p e. B ( p pCnt A ) ) $=
-      ( cv cdvds wbr cprime wcel cz cc0 wa syl adantl adantr cbom cfv cpc co cn
-      crab csu wceq csn cdif wne nnz nnne0 eldifsn sylibr bomzval elrabi nn0cnd
-      jca pccld wn eldifn wb eldifi sseldd breq1 elrab baib mtbid pceq0 syl2anc
-      wss mpbird fsumss eqtrd ) ABUAUBZDJZBKLZDMUFZEJZBUCUDZEUGZCWAEUGABUENZVPW
-      BUHZFWCBOPUIUJNZWDWCBONZBPUKZQWEWCWFWGBULBUMUSBOPUNUOBDEUPRRAVSCWAEIAVTVS
-      NZQZWAWIVTBWHVTMNZAVRDVTMUQSAWCWHFTUTURAVTCVSUJNZQZWAPUHZVTBKLZVAZWLWHWNW
-      KWHVAAVTCVSVBSWLWJWHWNVCWLCMVTACMVLWKHTWKVTCNAVTCVSVDSVEZWHWJWNVRWNDVTMVQ
-      VTBKVFVGVHRVIWLWJWCWMWOVCWPAWCWKFTVTBVJVKVMGVNVO $.
+      ( cv cdvds wbr cprime csu wcel wceq cc0 syl adantl adantr cbom cfv cpc co
+      crab cn cz csn cdif nnznz bomzval wa elrabi pccld nn0cnd wn eldifn wb wss
+      eldifi sseldd breq1 elrab baib mtbid pceq0 syl2anc mpbird fsumss eqtrd )
+      ABUAUBZDJZBKLZDMUEZEJZBUCUDZENZCVPENABUFOZVKVQPZFVRBUGQUHUIOVSBUJBDEUKRRA
+      VNCVPEIAVOVNOZULZVPWAVOBVTVOMOZAVMDVOMUMSAVRVTFTUNUOAVOCVNUIOZULZVPQPZVOB
+      KLZUPZWDVTWFWCVTUPAVOCVNUQSWDWBVTWFURWDCMVOACMUSWCHTWCVOCOAVOCVNUTSVAZVTW
+      BWFVMWFDVOMVLVOBKVBVCVDRVEWDWBVRWEWGURWHAVRWCFTVOBVFVGVHGVIVJ $.
   $}
 
   ${
@@ -883449,16 +883453,15 @@ $)
   ${
     $d n p q $.
     $( The restriction of the signed prime Omega function to positive integers
-       is the prime multiplicity sum.  (Contributed by Zhi Wang,
-       27-Oct-2026.) $)
+       is the prime multiplicity sum.  (Contributed by Zhi Wang, 27-Oct-2026.)
+       (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     bomres $p |- ( Omega |` NN ) =
       ( n e. NN |-> sum_ p e. { q e. Prime | q || n } ( p pCnt n ) ) $=
-      ( vx cbom cn cres cfv cmpt cdvds wbr cprime crab cc0 cdif wceq eqtri wcel
-      cv cz cpc co csu cq csn bomfn dffn5 mpbi reseq1i nnqnz ssriv resmpt ax-mp
-      wfn wss wne wa nnz nnne0 jca eldifsn sylibr bomzval syl mpteq2ia ) EFGZAF
-      ASZEHZIZAFBSVGJKBLMCSVGUAUBCUCZIVFAUDNUEZOZVHIZFGZVIEVMFEVLUNEVMPUFAVLEUG
-      UHUIFVLUOVNVIPDFVLDSUJUKAVLFVHULUMQAFVHVJVGFRZVGTVKORZVHVJPVOVGTRZVGNUPZU
-      QVPVOVQVRVGURVGUSUTVGTNVAVBVGBCVCVDVEQ $.
+      ( vx cbom cn cres cv cfv cmpt cdvds wbr cprime crab cpc co cdif wceq wcel
+      eqtri csu cq cc0 csn wfn bomfn dffn5 reseq1i wss nnqnz ssriv resmpt ax-mp
+      mpbi cz nnznz bomzval syl mpteq2ia ) EFGZAFAHZEIZJZAFBHVAKLBMNCHVAOPCUAZJ
+      UTAUBUCUDZQZVBJZFGZVCEVGFEVFUEEVGRUFAVFEUGUNUHFVFUIVHVCRDFVFDHUJUKAVFFVBU
+      LUMTAFVBVDVAFSVAUOVEQSVBVDRVAUPVABCUQURUST $.
   $}
 
   ${
@@ -883571,18 +883574,6 @@ $)
       ( ( lam ` A ) = 1 <-> ( lam ` A ) =/= -u 1 ) ) $=
       ( cq cc0 csn cdif wcel cliou cfv c1 wceq cneg liounzneg1 necon2bbid df-ne
       wn wne bitr4di ) ABCDEFZAGHZIJSIKZJZOSTPRUASIALMSTNQ $.
-  $}
-
-  ${
-    liounznotposd.1 $e |- ( ph -> A e. ( QQ \ { 0 } ) ) $.
-    liounznotposd.2 $e |- ( ph -> -. ( lam ` A ) = 1 ) $.
-    $( If Liouville's function is not one at a nonzero rational, it is minus
-       one there.  In particular, this holds when ` ( ph -> A e. NN ) ` .
-       Deduction from ~ liounzneg1 .  (Contributed by Zhi Wang, 17-Oct-2026.)
-       (Revised by Zhi Wang, 2-Nov-2026.) $)
-    liounznotposd $p |- ( ph -> ( lam ` A ) = -u 1 ) $=
-      ( cliou cfv c1 cneg wceq wne neqned cq cc0 cdif wcel wb liounzneg1 mpbird
-      csn syl ) ABEFZGHIZUAGJZAUAGDKABLMSNOUBUCPCBQTR $.
   $}
 
   ${
@@ -884360,22 +884351,21 @@ $)
     $d N p q $.
     $( On positive integers, Liouville's function agrees with the M&ouml;bius
        function exactly where the latter is nonzero.  (Contributed by Zhi Wang,
-       27-Oct-2026.) $)
+       27-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     liousqf $p |- ( N e. NN ->
       ( ( lam ` N ) = ( mmu ` N ) <-> ( mmu ` N ) =/= 0 ) ) $=
-      ( vq vp cn wcel cfv wceq cc0 wne wa simpr c1 syl adantr cdvds cprime cexp
-      wbr co cz cliou cmu cneg cpr liounncl signne0 eqnetrrd ex crab chash cbom
-      cv simpl cq csn cdif nnqnz liouval cpc csu nnz jca eldifsn sylibr bomzval
-      nnne0 cle breq1 elrab biimpi adantl simpld sqfpc syl3anc wb simprd pcelnn
-      syl2anc mpbird nnle1eq1 mpbid sumeq2dv prmdvdsfi fsumconst1 3eqtrd oveq2d
-      cfn eqtrd muval2 eqtr4d impbid ) ADEZAUAFZAUBFZGZWNHIZWLWOWPWLWOJWMWNHWLW
-      OKWLWMHIZWOWLWMLUCZLUDEWQAUEWMUFMNUGUHWLWPWOWLWPJZWMWRBULZAORZBPUIZUJFZQS
-      ZWNWSWMWRAUKFZQSZXDWSWLWMXFGZWLWPUMZWLAUNHUOZUPEXGAUQAURMMWSXEXCWRQWSXEXB
-      CULZAUSSZCUTZXBLCUTZXCWSWLXEXLGZXHWLATXIUPEZXNWLATEZAHIZJXOWLXPXQAVAAVFVB
-      ATHVCVDABCVEMMWSXBXKLCWSXJXBEZJZXKLVGRZXKLGZXSWLWPXJPEZXTWSWLXRXHNZWSWPXR
-      WLWPKNXSYBXJAORZXRYBYDJZWSXRYEXAYDBXJPWTXJAOVHVIVJVKZVLZAXJVMVNXSXKDEZXTY
-      AVOXSYHYDXSYBYDYFVPXSYBWLYHYDVOYGYCXJAVQVRVSXKVTMWAWBWSXBWGEZXMXCGWSWLYIX
-      HABWCMXBCWDMWEWFWHABWIWJUHWK $.
+      ( vq vp cn wcel cfv wceq cc0 wne wa simpr c1 syl adantr ex cdvds wbr cexp
+      cprime co cliou cmu cneg cpr liounncl signne0 eqnetrrd cv crab chash cbom
+      simpl cq csn cdif nnqnz liouval cpc csu cz nnznz bomzval cle breq1 biimpi
+      elrab adantl simpld sqfpc syl3anc wb simprd pcelnn syl2anc nnle1eq1 mpbid
+      mpbird cfn prmdvdsfi fsumconst1 3eqtrd oveq2d eqtrd muval2 eqtr4d impbid
+      sumeq2dv ) ADEZAUAFZAUBFZGZWJHIZWHWKWLWHWKJWIWJHWHWKKWHWIHIZWKWHWILUCZLUD
+      EWMAUEWIUFMNUGOWHWLWKWHWLJZWIWNBUHZAPQZBSUIZUJFZRTZWJWOWIWNAUKFZRTZWTWOWH
+      WIXBGZWHWLULZWHAUMHUNZUOEXCAUPAUQMMWOXAWSWNRWOXAWRCUHZAURTZCUSZWRLCUSZWSW
+      OWHXAXHGZXDWHAUTXEUOEXJAVAABCVBMMWOWRXGLCWOXFWREZJZXGLVCQZXGLGZXLWHWLXFSE
+      ZXMWOWHXKXDNZWOWLXKWHWLKNXLXOXFAPQZXKXOXQJZWOXKXRWQXQBXFSWPXFAPVDVFVEVGZV
+      HZAXFVIVJXLXGDEZXMXNVKXLYAXQXLXOXQXSVLXLXOWHYAXQVKXTXPXFAVMVNVQXGVOMVPWGW
+      OWRVREZXIWSGWOWHYBXDABVSMWRCVTMWAWBWCABWDWEOWF $.
   $}
 
   ${
@@ -887003,13 +886993,12 @@ $)
     nnnegabsboundd.2 $e |- ( ph -> R < N ) $.
     $( Negating a positive integer gives an integer whose absolute value is
        positive and satisfies the same strict upper bound.  (Contributed by Zhi
-       Wang, 20-Oct-2026.) $)
+       Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     nnnegabsboundd $p |- ( ph -> ( -u R e. ZZ /\ ( abs ` -u R ) e. NN /\ (
       abs ` -u R ) < N ) ) $=
-      ( cneg cz wcel cabs cfv cn clt wbr nnzd znegcld nncnd absnegd nnred cc0
-      cr 0re a1i nngt0 syl ltled absidd eqtrd eqeltrd eqbrtrd 3jca ) ABFZGHUKIJ
-      ZKHULCLMABABDNOAULBKAULBIJBABABDPQABABDRZASBSTHAUAUBUMABKHSBLMDBUCUDUEUFU
-      GZDUHAULBCLUNEUIUJ $.
+      ( cneg cz wcel cabs cfv cn clt wbr nnzd znegcld nncnd absnegd wceq nnnn0d
+      cn0 nn0absid syl eqtrd eqeltrd eqbrtrd 3jca ) ABFZGHUGIJZKHUHCLMABABDNOAU
+      HBKAUHBIJZBABABDPQABTHUIBRABDSBUAUBUCZDUDAUHBCLUJEUEUF $.
   $}
 
   ${
@@ -887017,13 +887006,14 @@ $)
     nnsubabsboundd.2 $e |- ( ph -> R e. NN ) $.
     nnsubabsboundd.3 $e |- ( ph -> R < N ) $.
     $( A proper positive difference has a smaller positive absolute value.
-       (Contributed by Zhi Wang, 20-Oct-2026.) $)
+       (Contributed by Zhi Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang,
+       2-Nov-2026.) $)
     nnsubabsboundd $p |- ( ph -> ( ( N - R ) e. ZZ /\ ( abs ` ( N - R ) ) e.
       NN /\ ( abs ` ( N - R ) ) < N ) ) $=
-      ( cmin co cz wcel cabs cfv cn clt wbr nnsubbothd simpld nnzd nnred cc0 cr
-      0re a1i nngt0 syl ltled absidd eqeltrd simprd eqbrtrd 3jca ) ACBGHZIJULKL
-      ZMJUMCNOAULAULMJZULCNOZACBDEFPZQZRAUMULMAULAULUQSZATULTUAJAUBUCURAUNTULNO
-      UQULUDUEUFUGZUQUHAUMULCNUSAUNUOUPUIUJUK $.
+      ( cmin co cz wcel cabs cfv cn clt wbr nnsubbothd simpld nnzd cn0 wceq syl
+      nnnn0d nn0absid eqeltrd simprd eqbrtrd 3jca ) ACBGHZIJUHKLZMJUICNOAUHAUHM
+      JZUHCNOZACBDEFPZQZRAUIUHMAUHSJUIUHTAUHUMUBUHUCUAZUMUDAUIUHCNUNAUJUKULUEUF
+      UG $.
   $}
 
   ${
@@ -887734,35 +887724,35 @@ $)
     oddextstripcertd.9 $e |- ( ph -> -. 3 || Q ) $.
     $( Inside the narrow strip, an adjacent odd multiple and a halved remainder
        supply the bounded signed congruence witnesses of ~ oddextcertd .
-       (Contributed by Zhi Wang, 20-Oct-2026.) $)
+       (Contributed by Zhi Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang,
+       2-Nov-2026.) $)
     oddextstripcertd $p |- ( ph -> E. k e. NN E. d e. ZZ ( ( k < Q /\ ( abs `
       d ) e. NN /\ ( abs ` d ) < N ) /\ ( ( ( ( 2 x. k ) x. N ) mod P ) = ( d
       mod P ) \/ ( ( ( 3 x. k ) x. N ) mod P ) = ( ( 2 x. d ) mod P ) ) ) )
       $=
-      ( cmo co wcel cmul adantr c3 c1 wceq cv clt wbr cabs cfv cn c2 wo wa wrex
+      ( cmo co wceq cmul adantr c3 c1 cv clt wbr cabs cfv cn wcel c2 wo wa wrex
       w3a cz caddc cmin cdiv nn2adjacentd simprd simpld 3nn cr nnred nnzd simpr
-      a1i mod3dblp1d nndivmulbndd simp1d narrowstriphalvesd cc0 0re nngt0 ltled
-      simp2d syl absidd eqeltrd eqbrtrd 3jca simp3d oveq1d zmulcld eqcomd eqtrd
-      subremcongd olcd oddextshortexd mod3dblm1d nnnegabsboundd negsubhalfcongd
-      jca cneg nncnd mod3ndvdsd mpjaodan ) ACUAPQZUBUCZDUDZCUEUFFUDZUGUHZUIRXBE
-      UEUFUNUJWTSQESQBPQXABPQUCUAWTSQESQBPQUJXASQBPQUCUKULFUOUMDUIUMWRUJUCZAWSU
-      LZUJCSQZUBUPQZESQZBUQQZUJURQZBCDXFUAURQZEFXDXJUIRZXJCUEUFZUAXJSQZXFUCZXDX
-      FUACAXFUIRZWSAXOXFUACSQZUEUFZAXEUBUQQZUIRZXRXPUEUFZULZXOXQULZACGJUSZUTZVA
-      ZTAUAUIRZWSYFAVBVGZTACVCRZWSACGVDZTXDCACUORZWSACGVEZTAWSVFVHAXQWSAXOXQYDU
-      TTVIZVJAXIUORWSAXIAXIUIRZXIEUEUFZUJXISQZXHUCZAYMYNYPUNZBXRESQZUQQZUJURQZU
-      IRZYTEUEUFZUJYTSQYSUCZUNZABCEGHIJKLMNVKZVAZVJZVETXDXLXIUGUHZUIRZUUHEUEUFZ
-      UNUJXJSQESQBPQXIBPQUCZXMESQZBPQZYOBPQZUCZUKXDXLUUIUUJXDXKXLXNYLVPAUUIWSAU
-      UHXIUIAXIAXIUUGVDZAVLXIVLVCRAVMVGUUPAYMVLXIUEUFUUGXIVNVQVOVRZUUGVSTAUUJWS
-      AUUHXIEUEUUQAYMYNYPUUFVPVTTWAXDUUOUUKXDUUMXGBPQZUUNXDUULXGBPXDXMXFESXDXKX
-      LXNYLWBWCWCAUURUUNUCWSAXGYOBIAXFEAXFYEVEAEHVEZWDAYOXHAYMYNYPUUFWBWEWGTWFW
-      HWMWIAXCULZYTWNZBCDXRUAURQZEFUUTUVBUIRZUVBCUEUFZUAUVBSQZXRUCZUUTXRUACAXSX
-      CAXSXTAYAYBYCVAZVAZTAYFXCYGTAYHXCYITUUTCAYJXCYKTAXCVFWJAXTXCAXSXTUVGUTTVI
-      ZVJAUVAUORZXCAUVJUVAUGUHZUIRZUVKEUEUFZAYTEAUUAUUBUUCAYQUUDUUEUTZVJZAUUAUU
-      BUUCUVNVPWKZVJTUUTUVDUVLUVMUNUJUVBSQESQBPQUVABPQUCZUVEESQZBPQZUJUVASQBPQZ
-      UCZUKUUTUVDUVLUVMUUTUVCUVDUVFUVIVPAUVLXCAUVJUVLUVMUVPVPTAUVMXCAUVJUVLUVMU
-      VPWBTWAUUTUWAUVQUUTUVSYRBPQZUVTUUTUVRYRBPUUTUVEXRESUUTUVCUVDUVFUVIWBWCWCA
-      UWBUVTUCXCAYRBYTIAXREAXRUVHVEUUSWDAYTUVOWOAUUAUUBUUCUVNWBWLTWFWHWMWIACYKO
-      WPWQ $.
+      a1i mod3dblp1d nndivmulbndd simp1d narrowstriphalvesd simp2d cn0 nn0absid
+      nnnn0d syl eqeltrd eqbrtrd simp3d oveq1d zmulcld eqcomd subremcongd eqtrd
+      3jca olcd oddextshortexd cneg mod3dblm1d nncnd negsubhalfcongd mod3ndvdsd
+      jca nnnegabsboundd mpjaodan ) ACUAPQZUBRZDUCZCUDUEFUCZUFUGZUHUIWTEUDUEUNU
+      JWRSQESQBPQWSBPQRUAWRSQESQBPQUJWSSQBPQRUKULFUOUMDUHUMWPUJRZAWQULZUJCSQZUB
+      UPQZESQZBUQQZUJURQZBCDXDUAURQZEFXBXHUHUIZXHCUDUEZUAXHSQZXDRZXBXDUACAXDUHU
+      IZWQAXMXDUACSQZUDUEZAXCUBUQQZUHUIZXPXNUDUEZULZXMXOULZACGJUSZUTZVAZTAUAUHU
+      IZWQYDAVBVGZTACVCUIZWQACGVDZTXBCACUOUIZWQACGVEZTAWQVFVHAXOWQAXMXOYBUTTVIZ
+      VJAXGUOUIWQAXGAXGUHUIZXGEUDUEZUJXGSQZXFRZAYKYLYNUNZBXPESQZUQQZUJURQZUHUIZ
+      YREUDUEZUJYRSQYQRZUNZABCEGHIJKLMNVKZVAZVJZVETXBXJXGUFUGZUHUIZUUFEUDUEZUNU
+      JXHSQESQBPQXGBPQRZXKESQZBPQZYMBPQZRZUKXBXJUUGUUHXBXIXJXLYJVLAUUGWQAUUFXGU
+      HAXGVMUIUUFXGRAXGUUEVOXGVNVPZUUEVQTAUUHWQAUUFXGEUDUUNAYKYLYNUUDVLVRTWEXBU
+      UMUUIXBUUKXEBPQZUULXBUUJXEBPXBXKXDESXBXIXJXLYJVSVTVTAUUOUULRWQAXEYMBIAXDE
+      AXDYCVEAEHVEZWAAYMXFAYKYLYNUUDVSWBWCTWDWFWMWGAXAULZYRWHZBCDXPUAURQZEFUUQU
+      USUHUIZUUSCUDUEZUAUUSSQZXPRZUUQXPUACAXQXAAXQXRAXSXTYAVAZVAZTAYDXAYETAYFXA
+      YGTUUQCAYHXAYITAXAVFWIAXRXAAXQXRUVDUTTVIZVJAUURUOUIZXAAUVGUURUFUGZUHUIZUV
+      HEUDUEZAYREAYSYTUUAAYOUUBUUCUTZVJZAYSYTUUAUVKVLWNZVJTUUQUVAUVIUVJUNUJUUSS
+      QESQBPQUURBPQRZUVBESQZBPQZUJUURSQBPQZRZUKUUQUVAUVIUVJUUQUUTUVAUVCUVFVLAUV
+      IXAAUVGUVIUVJUVMVLTAUVJXAAUVGUVIUVJUVMVSTWEUUQUVRUVNUUQUVPYPBPQZUVQUUQUVO
+      YPBPUUQUVBXPESUUQUUTUVAUVCUVFVSVTVTAUVSUVQRXAAYPBYRIAXPEAXPUVEVEUUPWAAYRU
+      VLWJAYSYTUUAUVKVSWKTWDWFWMWGACYIOWLWO $.
   $}
 
   ${
@@ -888428,10 +888418,12 @@ $)
     liounopairposd.5 $e |- ( ph -> ( lam ` A ) = 1 ) $.
     $( If ` N ` has no positive-positive pair, a positive-integer summand with
        Liouville value one has a complement with value minus one.  (Contributed
-       by Zhi Wang, 20-Oct-2026.) $)
+       by Zhi Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang,
+       2-Nov-2026.) $)
     liounopairposd $p |- ( ph -> ( lam ` B ) = -u 1 ) $=
-      ( cn wcel cq cc0 csn cdif nnqnz syl c1 liounopairsgnd liounznotposd ) ACA
-      CLMCNOPQMHCRSABCTDEFGHIJKUAUB $.
+      ( cliou cfv c1 cneg wceq wo cpr wcel syl cn liounncl elpri liounopairsgnd
+      wn wi orel2 mpd ) ACLMZNOZPZUINPZQZUKAUIUJNRSZUMACUASUNHCUBTUIUJNUCTAULUE
+      UMUKUFABCNDEFGHIJKUDULUKUGTUH $.
   $}
 
   ${
@@ -888494,15 +888486,16 @@ $)
     liougb4posd.6 $e |- ( ph -> ( lam ` A ) = 1 ) $.
     $( If four times ` M ` has no negative-negative pair, a positive-integer
        summand of twice ` M ` with Liouville value one has a complement with
-       value minus one.  (Contributed by Zhi Wang, 17-Oct-2026.) $)
+       value minus one.  (Contributed by Zhi Wang, 17-Oct-2026.)  (Proof
+       shortened by Zhi Wang, 2-Nov-2026.) $)
     liougb4posd $p |- ( ph -> ( lam ` B ) = -u 1 ) $=
-      ( cn wcel c1 c2 cmul co wceq wrex cq cc0 csn cdif nnqnz syl 2nn a1i cliou
-      cfv cneg liou2 oveq2i neg1cn mullidi eqtri cv caddc w3a c4 wb nncnd 2t2e4
-      mul32d oveq1i eqtrdi lioupaireq mtbird liounopairmuld liounznotposd ) ACA
-      CMNCUAUBUCUDNICUEUFABCOPPDQRZEFHIPMNAUGUHZJLOPUIUJZQRZOUKZSAVNOVOQRVOVMVO
-      OQULUMVOUNUOUPUHAVKPQRZEUQZFUQZURRZSVQUIUJVOSZVRUIUJVOSZUSFMTEMTZUTDQRZVS
-      SVTWAUSFMTEMTZKAVPWCSWBWDVAAVPPPQRZDQRWCAPDPAPVLVBZADGVBWFVDWEUTDQVCVEVFV
-      OWCVPEFVGUFVHVIVJ $.
+      ( cliou cfv c1 wceq c2 cmul co cn cneg wne wcel 2nn oveq2i neg1cn mullidi
+      a1i liou2 eqtri cv caddc w3a wrex c4 nncnd mul32d 2t2e4 oveq1i lioupaireq
+      wb eqtrdi syl mtbird liounopairmuld neqned cc0 csn cdif liounzneg1 mpbird
+      cq nnqnz ) ACMNZOUAZPZVNOUBZAVNOABCOQQDRSZEFHIQTUCAUDUHZJLOQMNZRSZVOPAWAO
+      VORSVOVTVOORUIUEVOUFUGUJUHAVRQRSZEUKZFUKZULSZPWCMNVOPZWDMNVOPZUMFTUNETUNZ
+      UODRSZWEPWFWGUMFTUNETUNZKAWBWIPWHWJVAAWBQQRSZDRSWIAQDQAQVSUPZADGUPWLUQWKU
+      ODRURUSVBVOWIWBEFUTVCVDVEVFACVLVGVHVIUCZVPVQVAACTUCWMICVMVCCVJVCVK $.
   $}
 
   ${
@@ -888867,18 +888860,19 @@ $)
     liougb4antisumd.5 $e |- ( ph -> -. 3 || M ) $.
     $( If four times ` M ` has no negative-negative pair and three does not
        divide ` M ` , two positive integers summing to ` M ` have opposite
-       Liouville values.  (Contributed by Zhi Wang, 17-Oct-2026.) $)
+       Liouville values.  (Contributed by Zhi Wang, 17-Oct-2026.)  (Proof
+       shortened by Zhi Wang, 2-Nov-2026.) $)
     liougb4antisumd $p |- ( ph -> ( lam ` B ) = -u ( lam ` A ) ) $=
-      ( cliou cfv c1 cneg wceq wa cn adantr wcel caddc co nnaddcld eqeltrd cmul
-      c4 cv wrex wn simpr liougb4negd negeqd ax-1cn negnegi eqtrdi eqtr4d ex cq
-      w3a cc0 csn cdif nnqnz syl c3 cdvds wbr liougb4pospaird liounznotposd cpr
-      mtod wo liounncl elpri mpjaod ) ABLMZNOZPZCLMZVPOZPZVPNPZAVRWAAVRQZVSNVTW
-      CBCDEFWCDBCUAUBZRADWDPZVRISZWCBCABRTZVRGSZACRTZVRHSZUCUDWHWJWFAUFDUEUBEUG
-      ZFUGZUAUBPWKLMVQPWLLMVQPUSFRUHERUHZUIZVRJSAVRUJZUKWCVTVQONWCVPVQWOULNUMUN
-      UOUPUQAWBWAAWBQZVSVQVTWPCWPWICURUTVAVBTAWIWBHSZCVCVDWPVSNPZWMAWNWBJSWPWRW
-      MWPWRQBCDEFWPWGWRAWGWBGSSWPWIWRWQSWPWEWRAWEWBISSWPWBWRAWBUJZSWPWRUJWPVEDV
-      FVGUIZWRAWTWBKSSVHUQVKVIWPVPNWSULUPUQAVPVQNVJTZVRWBVLAWGXAGBVMVDVPVQNVNVD
-      VO $.
+      ( cliou cfv c1 cneg wceq cn adantr wcel syl wa caddc nnaddcld eqeltrd w3a
+      co c4 cmul cv wn simpr liougb4negd negeqd ax-1cn negnegi eqtrdi eqtr4d ex
+      wrex wo cpr liounncl elpri wi c3 cdvds wbr liougb4pospaird mtod orel2 mpd
+      mpjaod ) ABLMZNOZPZCLMZVMOZPZVMNPZAVOVRAVOUAZVPNVQVTBCDEFVTDBCUBUFZQADWAP
+      ZVOIRZVTBCABQSZVOGRZACQSZVOHRZUCUDWEWGWCAUGDUHUFEUIZFUIZUBUFPWHLMVNPWILMV
+      NPUEFQUSEQUSZUJZVOJRAVOUKZULVTVQVNONVTVMVNWLUMNUNUOUPUQURAVSVRAVSUAZVPVNV
+      QWMVPVNPZVPNPZUTZWNWMVPVNNVAZSZWPWMWFWRAWFVSHRZCVBTVPVNNVCTWMWOUJWPWNVDWM
+      WOWJAWKVSJRWMWOWJWMWOUABCDEFWMWDWOAWDVSGRRWMWFWOWSRWMWBWOAWBVSIRRWMVSWOAV
+      SUKZRWMWOUKWMVEDVFVGUJZWOAXAVSKRRVHURVIWOWNVJTVKWMVMNWTUMUQURAVMWQSZVOVSU
+      TAWDXBGBVBTVMVNNVCTVL $.
   $}
 
   ${
@@ -889767,14 +889761,14 @@ $)
     $( Every positive multiple of four has a negative-negative pair for
        Liouville's function, deduction version.  Split the positive parameter
        according to its two possible function values.  (Contributed by Zhi
-       Wang, 17-Oct-2026.) $)
+       Wang, 17-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
     liougb4nnd $p |- ( ph -> E. a e. NN E. b e. NN ( ( 4 x. A ) = ( a + b
     ) /\ ( lam ` a ) = -u 1 /\ ( lam ` b ) = -u 1 ) ) $=
-      ( cliou cfv c1 wceq c4 cmul co cv cn wrex wa wcel adantr simpr ex syl2anc
-      caddc cneg w3a liougb4pos wn cq cc0 csn cdif syl liounznotposd liougb4neg
-      nnqnz pm2.61d ) ABFGHIZJBKLCMZDMZUBLIUQFGHUCZIURFGUSIUDDNOCNOZAUPUTAUPPBN
-      QZUPUTAVAUPERAUPSBCDUEUATAUPUFZUTAVBPZBCDAVAVBERZVCBVCVABUGUHUIUJQVDBUNUK
-      AVBSULUMTUO $.
+      ( cliou cfv c1 wceq c4 co cv cn wrex wa wcel adantr simpr ex syl cmul w3a
+      caddc liougb4pos syl2anc wn wo cpr liounncl elpri wi orel2 mpd liougb4neg
+      cneg pm2.61d ) ABFGZHIZJBUAKCLZDLZUCKIUSFGHUOZIUTFGVAIUBDMNCMNZAURVBAUROB
+      MPZURVBAVCUREQAURRBCDUDUESAURUFZVBAVDOZBCDAVCVDEQZVEUQVAIZURUGZVGVEUQVAHU
+      HPZVHVEVCVIVFBUITUQVAHUJTVEVDVHVGUKAVDRURVGULTUMUNSUP $.
   $}
 
   ${
