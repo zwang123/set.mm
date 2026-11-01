@@ -882752,6 +882752,17 @@ $)
 
   ${
     $d A p $.
+    nnprmexd.1 $e |- ( ph -> A e. NN ) $.
+    nnprmexd.2 $e |- ( ph -> 1 < A ) $.
+    $( A positive integer above one has a prime divisor, in deduction form.
+       (Contributed by Zhi Wang, 20-Oct-2026.) $)
+    nnprmexd $p |- ( ph -> E. p e. Prime p || A ) $=
+      ( c2 cuz cfv wcel cv cdvds wbr cprime wrex cn c1 clt wa jca eluz2b2 syl
+      sylibr exprmfct ) ABFGHICJBKLCMNABOIPBQLRBFGHIABOIPBQLDESBTUBBCUCUA $.
+  $}
+
+  ${
+    $d A p $.
     $( The primes with nonzero valuation at a nonzero rational are exactly the
        prime divisors of its absolute numerator or denominator.  (Contributed
        by Zhi Wang, 27-Oct-2026.) $)
@@ -883216,21 +883227,6 @@ $)
   $}
 
   ${
-    $( On rationals, the value of Liouville's function lies between minus one
-       and one, including its value at zero.  This includes the
-       positive-integer case ` A e. NN ` .  The value at zero is given by
-       ~ liou0 .  (Contributed by Zhi Wang, 20-Oct-2026.)  (Revised by Zhi
-       Wang, 2-Nov-2026.) $)
-    lioubounds $p |- ( A e. QQ -> ( -u 1 <_ ( lam ` A ) /\ ( lam ` A ) <_ 1 ) )
-      $=
-      ( cq wcel c1 cneg cliou cfv cle wbr wa cc0 wceq neg1rr 0re neg1lt0 ltleii
-      a1i fveq2 liou0 eqtrdi breqtrrd 0le1 eqbrtrd jca wne csn cdif eldifsn cpr
-      adantl liounzcl signbounds syl sylbir pm2.61dane ) ABCZDEZAFGZHIZURDHIZJZ
-      AKUPAKLZJZUSUTVCUQKURHUQKHIVCUQKMNOPQVBURKLUPVBURKFGKAKFRSTUJZUAVCURKDHVD
-      KDHIVCUBQUCUDUPAKUEJABKUFUGCZVAABKUHVEURUQDUICVAAUKURULUMUNUO $.
-  $}
-
-  ${
     $( Liouville's function takes one of two signs on positive integers.
        Specialization of ~ liounzcl .  (Contributed by Zhi Wang, 17-Oct-2026.)
        (Proof shortened by Zhi Wang, 27-Oct-2026.) $)
@@ -883309,6 +883305,13 @@ $)
       wa wne csn cdif c1 eldifsn cneg cpr liounzcl signre syl sylbir pm2.61dane
       ) ABCZADEZFCZAGUIAGHZPZUJGFULUJGHUIULUJGDEGAGDIJKLGFCUMMNOUIAGQPABGRSCZUK
       ABGUAUNUJTUBTUCCUKAUDUJUEUFUGUH $.
+  $}
+
+  ${
+    $( Liouville's function takes real values on positive integers.
+       Specialization of ~ lioure .  (Contributed by Zhi Wang, 20-Oct-2026.) $)
+    liounnre $p |- ( A e. NN -> ( lam ` A ) e. RR ) $=
+      ( cn wcel cq cliou cfv cr nnq lioure syl ) ABCADCAEFGCAHAIJ $.
   $}
 
   ${
@@ -883561,10 +883564,18 @@ $)
   $}
 
   ${
-    $( Liouville's function takes real values on positive integers.
-       Specialization of ~ lioure .  (Contributed by Zhi Wang, 20-Oct-2026.) $)
-    liounnre $p |- ( A e. NN -> ( lam ` A ) e. RR ) $=
-      ( cn wcel cq cliou cfv cr nnq lioure syl ) ABCADCAEFGCAHAIJ $.
+    $( On rationals, the value of Liouville's function lies between minus one
+       and one, including its value at zero.  This includes the
+       positive-integer case ` A e. NN ` .  The value at zero is given by
+       ~ liou0 .  (Contributed by Zhi Wang, 20-Oct-2026.)  (Revised by Zhi
+       Wang, 2-Nov-2026.) $)
+    lioubounds $p |- ( A e. QQ -> ( -u 1 <_ ( lam ` A ) /\ ( lam ` A ) <_ 1 ) )
+      $=
+      ( cq wcel c1 cneg cliou cfv cle wbr wa cc0 wceq neg1rr 0re neg1lt0 ltleii
+      a1i fveq2 liou0 eqtrdi breqtrrd 0le1 eqbrtrd jca wne csn cdif eldifsn cpr
+      adantl liounzcl signbounds syl sylbir pm2.61dane ) ABCZDEZAFGZHIZURDHIZJZ
+      AKUPAKLZJZUSUTVCUQKURHUQKHIVCUQKMNOPQVBURKLUPVBURKFGKAKFRSTUJZUAVCURKDHVD
+      KDHIVCUBQUCUDUPAKUEJABKUFUGCZVAABKUHVEURUQDUICVAAUKURULUMUNUO $.
   $}
 
   ${
@@ -883576,17 +883587,6 @@ $)
       a1i cfv liou1 eqtrdi adantr eqtr3d ex mtod neqned ) ABDABDEDDFEADDFDDFGAD
       HIDDFGJDKLRMABDEDDFEABDENBOSDDFABDENBOSDOSDABDENBDOABDEPQTUAABOSDFEBDECUB
       UCUDUEUF $.
-  $}
-
-  ${
-    $d A p $.
-    nnprmexd.1 $e |- ( ph -> A e. NN ) $.
-    nnprmexd.2 $e |- ( ph -> 1 < A ) $.
-    $( A positive integer above one has a prime divisor, in deduction form.
-       (Contributed by Zhi Wang, 20-Oct-2026.) $)
-    nnprmexd $p |- ( ph -> E. p e. Prime p || A ) $=
-      ( c2 cuz cfv wcel cv cdvds wbr cprime wrex cn c1 clt wa jca eluz2b2 syl
-      sylibr exprmfct ) ABFGHICJBKLCMNABOIPBQLRBFGHIABOIPBQLDESBTUBBCUCUA $.
   $}
 
   ${
@@ -885918,6 +885918,34 @@ $)
   $}
 
   ${
+    nnnegabsboundd.1 $e |- ( ph -> R e. NN ) $.
+    nnnegabsboundd.2 $e |- ( ph -> R < N ) $.
+    $( Negating a positive integer gives an integer whose absolute value is
+       positive and satisfies the same strict upper bound.  (Contributed by Zhi
+       Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
+    nnnegabsboundd $p |- ( ph -> ( -u R e. ZZ /\ ( abs ` -u R ) e. NN /\ (
+      abs ` -u R ) < N ) ) $=
+      ( cneg cz wcel cabs cfv cn clt wbr nnzd znegcld nncnd absnegd wceq nnnn0d
+      cn0 nn0absid syl eqtrd eqeltrd eqbrtrd 3jca ) ABFZGHUGIJZKHUHCLMABABDNOAU
+      HBKAUHBIJZBABABDPQABTHUIBRABDSBUAUBUCZDUDAUHBCLUJEUEUF $.
+  $}
+
+  ${
+    nnsubabsboundd.1 $e |- ( ph -> N e. NN ) $.
+    nnsubabsboundd.2 $e |- ( ph -> R e. NN ) $.
+    nnsubabsboundd.3 $e |- ( ph -> R < N ) $.
+    $( A proper positive difference has a smaller positive absolute value.
+       (Contributed by Zhi Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang,
+       2-Nov-2026.) $)
+    nnsubabsboundd $p |- ( ph -> ( ( N - R ) e. ZZ /\ ( abs ` ( N - R ) ) e.
+      NN /\ ( abs ` ( N - R ) ) < N ) ) $=
+      ( cmin co cz wcel cabs cfv cn clt wbr nnsubbothd simpld nnzd cn0 wceq syl
+      nnnn0d nn0absid eqeltrd simprd eqbrtrd 3jca ) ACBGHZIJUHKLZMJUICNOAUHAUHM
+      JZUHCNOZACBDEFPZQZRAUIUHMAUHSJUIUHTAUHUMUBUHUCUAZUMUDAUIUHCNUNAUJUKULUEUF
+      UG $.
+  $}
+
+  ${
     ltp1sub1d.1 $e |- ( ph -> A e. RR ) $.
     ltp1sub1d.2 $e |- ( ph -> B e. RR ) $.
     ltp1sub1d.3 $e |- ( ph -> A < ( B - 1 ) ) $.
@@ -886956,34 +886984,6 @@ $)
       syl2anc nnred nnrpd ltdivmuld nnne0d divcan2d 3jca ) ABCJKLMBCJKDNOCBCJKP
       KBQACBROBCJKLMHABLMCLMCBROBCJKLMSEFBCUAUDUBABCJKDNOBCDPKNOIABDCABEUEGACFU
       FUGUCABCABETACFTACFUHUIUJ $.
-  $}
-
-  ${
-    nnnegabsboundd.1 $e |- ( ph -> R e. NN ) $.
-    nnnegabsboundd.2 $e |- ( ph -> R < N ) $.
-    $( Negating a positive integer gives an integer whose absolute value is
-       positive and satisfies the same strict upper bound.  (Contributed by Zhi
-       Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang, 2-Nov-2026.) $)
-    nnnegabsboundd $p |- ( ph -> ( -u R e. ZZ /\ ( abs ` -u R ) e. NN /\ (
-      abs ` -u R ) < N ) ) $=
-      ( cneg cz wcel cabs cfv cn clt wbr nnzd znegcld nncnd absnegd wceq nnnn0d
-      cn0 nn0absid syl eqtrd eqeltrd eqbrtrd 3jca ) ABFZGHUGIJZKHUHCLMABABDNOAU
-      HBKAUHBIJZBABABDPQABTHUIBRABDSBUAUBUCZDUDAUHBCLUJEUEUF $.
-  $}
-
-  ${
-    nnsubabsboundd.1 $e |- ( ph -> N e. NN ) $.
-    nnsubabsboundd.2 $e |- ( ph -> R e. NN ) $.
-    nnsubabsboundd.3 $e |- ( ph -> R < N ) $.
-    $( A proper positive difference has a smaller positive absolute value.
-       (Contributed by Zhi Wang, 20-Oct-2026.)  (Proof shortened by Zhi Wang,
-       2-Nov-2026.) $)
-    nnsubabsboundd $p |- ( ph -> ( ( N - R ) e. ZZ /\ ( abs ` ( N - R ) ) e.
-      NN /\ ( abs ` ( N - R ) ) < N ) ) $=
-      ( cmin co cz wcel cabs cfv cn clt wbr nnsubbothd simpld nnzd cn0 wceq syl
-      nnnn0d nn0absid eqeltrd simprd eqbrtrd 3jca ) ACBGHZIJUHKLZMJUICNOAUHAUHM
-      JZUHCNOZACBDEFPZQZRAUIUHMAUHSJUIUHTAUHUMUBUHUCUAZUMUDAUIUHCNUNAUJUKULUEUF
-      UG $.
   $}
 
   ${
