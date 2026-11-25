@@ -896317,6 +896317,205 @@ $)
       SUSUTUSUOURUOUQURUDUOUQURUEUFUTUOUQURUOURUGZUTUOUQVBBUHUIUOURUJUKUMUL $.
   $}
 
+  ${
+    $d A t x y $.  $d B y $.  $d D t x y $.  $d E t x y $.  $d F t x y $.
+    $d G
+ t x y $.  $d ph t x y $.
+    holidrect.o1 $e |- ( ph -> D e. ( TopOpen ` CCfld ) ) $.
+    holidrect.o2 $e |- ( ph -> E e. ( TopOpen ` CCfld ) ) $.
+    holidrect.c1 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t D ) e. Conn ) $.
+    holidrect.c2 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t E ) e. Conn ) $.
+    holidrect.a1 $e |- ( ph -> A C_ D ) $.
+    holidrect.a2 $e |- ( ph -> B C_ E ) $.
+    holidrect.l1 $e |- ( ph -> ( ( limPt ` ( ( TopOpen ` CCfld ) |`t D ) ) ` A
+      ) =/= (/) ) $.
+    holidrect.l2 $e |- ( ph -> ( ( limPt ` ( ( TopOpen ` CCfld ) |`t E ) ) ` B
+      ) =/= (/) ) $.
+    holidrect.f $e |- ( ph -> F : ( D X. E ) --> CC ) $.
+    holidrect.f1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t F y )
+      ) ) = D ) $.
+    holidrect.f2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x F t )
+      ) ) = E ) $.
+    holidrect.g $e |- ( ph -> G : ( D X. E ) --> CC ) $.
+    holidrect.g1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t G y )
+      ) ) = D ) $.
+    holidrect.g2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x G t )
+      ) ) = E ) $.
+    holidrect.v $e |- ( ( ph /\ ( x e. A /\ y e. B ) ) -> ( x F y ) = ( x G y )
+      ) $.
+    $( Identity theorem on a product of two connected open complex domains.
+       Two separately holomorphic functions are equal if they agree on a
+       Cartesian product whose factors each have an accumulation point in the
+       corresponding domain.  For each first coordinate in ` A ` , apply
+       ~ holidt in the second variable.  For each second coordinate in ` E ` ,
+       apply it in the first variable.  (Contributed by Zhi Wang,
+       25-Nov-2026.) $)
+    holidrect $p |- ( ph -> F = G ) $=
+      ( wceq cv co wral wcel cmpt cfv simpl simprr jca ccnfld ctopn crest cconn
+      wa syl wss clp c0 wne cc wf simpll simpr fovcdmd eqid fmptd simplr simprl
+      cxp sseldd cdv cdm id oveq2d ovex 3eqtr4d ralrimiva holidt fveq1d 3eqtr3d
+      fvmpt oveq1d ralrimivva wfn wb ffnd eqfnov2 syl2anc mpbird ) AIJUFZBUGZCU
+      GZIUHZWQWRJUHZUFZCHUIBGUIZAXABCGHAWQGUJZWRHUJZUTZUTZWQDGDUGZWRIUHZUKZULZW
+      QDGXGWRJUHZUKZULZWSWTXFWQXIXLXFAXDUTZXIXLUFXFAXDAXEUMAXCXDUNUOXNBEGXIXLXN
+      AGUPUQULZUJAXDUMZKVAXNAXOGURUHZUSUJXPMVAXNAEGVBZXPOVAXNAEXQVCULULVDVEXPQV
+      AXNDGXHVFXIXNXGGUJZUTZXGWRVFGHIXTAGHVOZVFIVGZAXDXSVHZSVAXNXSVIZXTXNXDXNXS
+      UMAXDVIVAZVJXIVKZVLTXNDGXKVFXLXTXGWRVFGHJXTAYAVFJVGZYCUBVAYDYEVJXLVKZVLUC
+      XNXJXMUFBEXNWQEUJZUTZWSWTXJXMYJAYIXDUTZUTZXAYJAYKAXDYIVHZYJYIXDXNYIVIZAXD
+      YIVMUOUOYLWRDHWQXGIUHZUKZULZWRDHWQXGJUHZUKZULZWSWTYLWRYPYSYLAYIUTZYPYSUFY
+      LAYIAYKUMAYIXDVNUOUUACFHYPYSUUAAHXOUJAYIUMZLVAUUAAXOHURUHZUSUJUUBNVAUUAAF
+      HVBZUUBPVAUUAAFUUCVCULULVDVEUUBRVAUUADHYOVFYPUUAXGHUJZUTZWQXGVFGHIUUFAYBA
+      YIUUEVHZSVAUUFUUAXCUUAUUEUMUUAEGWQUUAAXRUUBOVAAYIVIVPZVAZUUAUUEVIZVJYPVKZ
+      VLUUAAXCUTZVFYPVQUHVRHUFUUAAXCUUBUUHUOZUAVAUUADHYRVFYSUUFWQXGVFGHJUUFAYGU
+      UGUBVAUUIUUJVJYSVKZVLUUAUULVFYSVQUHVRHUFUUMUDVAUUAYQYTUFCFUUAWRFUJZUTZWSW
+      TYQYTUUPAYIUUOUTZUTXAUUPAUUQAYIUUOVHZUUPYIUUOAYIUUOVMUUAUUOVIZUOUOUEVAUUP
+      XDYQWSUFZUUPFHWRUUPAUUDUURPVAUUSVPZDWRYOWSHYPXGWRUFZXGWRWQIUVBVSZVTUUKWQW
+      RIWAZWGZVAUUPXDYTWTUFZUVADWRYRWTHYSUVBXGWRWQJUVCVTUUNWQWRJWAZWGZVAWBWCWDV
+      AWEYLXDUUTAYIXDUNZUVEVAYLXDUVFUVIUVHVAWFVAYJXCXJWSUFZYJEGWQYJAXRYMOVAYNVP
+      ZDWQXHWSGXIXGWQUFZXGWQWRIUVLVSZWHYFUVDWGZVAYJXCXMWTUFZUVKDWQXKWTGXLUVLXGW
+      QWRJUVMWHYHUVGWGZVAWBWCWDVAWEXFXCUVJAXCXDVNZUVNVAXFXCUVOUVQUVPVAWFWIAIYAW
+      JJYAWJWPXBWKAYAVFISWLAYAVFJUBWLBCGHIJWMWNWO $.
+  $}
+
+  ${
+    $d D t x y $.  $d E t x y $.  $d F t u v x y $.  $d G t u v x y $.
+    $d U r
+ u v $.  $d U t u v x y $.  $d X r u v $.  $d X t u v x y $.
+    $d Y r u v $.  $d Y t u v x y $.  $d ph t u v x y $.
+    holidtx.o1 $e |- ( ph -> D e. ( TopOpen ` CCfld ) ) $.
+    holidtx.o2 $e |- ( ph -> E e. ( TopOpen ` CCfld ) ) $.
+    holidtx.c1 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t D ) e. Conn ) $.
+    holidtx.c2 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t E ) e. Conn ) $.
+    holidtx.s1 $e |- ( ph -> X C_ D ) $.
+    holidtx.s2 $e |- ( ph -> Y C_ E ) $.
+    holidtx.p1 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t X ) e. Perf ) $.
+    holidtx.p2 $e |- ( ph -> ( ( TopOpen ` CCfld ) |`t Y ) e. Perf ) $.
+    holidtx.u $e |- ( ph -> U e. ( ( ( TopOpen ` CCfld ) |`t X ) tX ( ( TopOpen
+      ` CCfld ) |`t Y ) ) ) $.
+    holidtx.n $e |- ( ph -> U =/= (/) ) $.
+    holidtx.f $e |- ( ph -> F : ( D X. E ) --> CC ) $.
+    holidtx.f1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t F y ) )
+      ) = D ) $.
+    holidtx.f2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x F t ) )
+      ) = E ) $.
+    holidtx.g $e |- ( ph -> G : ( D X. E ) --> CC ) $.
+    holidtx.g1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t G y ) )
+      ) = D ) $.
+    holidtx.g2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x G t ) )
+      ) = E ) $.
+    holidtx.v $e |- ( ( ph /\ x U y ) -> ( x F y ) = ( x G y ) ) $.
+    $( Two separately holomorphic functions on a product of connected open
+       complex domains are equal if they agree on a nonempty relatively open
+       subset of the product of two perfect subspaces.  Apply ~ eltx to find a
+       nonempty rectangle.  Its sides have accumulation points in the
+       corresponding domains by ~ subopnsslp , so ~ holidrect applies.
+       (Contributed by Zhi Wang, 25-Nov-2026.) $)
+    holidtx $p |- ( ph -> F = G ) $=
+      ( vu vv vr cv cxp c0 wne wss wceq ccnfld ctopn cfv crest wcel simplll syl
+      wa co cconn cuni simpllr elssuni ctop eqid cnfldtop sstrd restuni syl2anc
+      a1i sseqtrrd simplr clp cperf subopnsslp simprl xpnz sylibr simpld simprd
+      ssn0 cc wf cmpt cdv cdm adantr simpr jca wbr simpl simprr ssbrd holidrect
+      brxp mpd wrex wral ctx cvv wb ovex eltx mpbid ne0i reximi ralimi wi rspn0
+      r19.29vva ) AUIULZUJULZUMZUNUOZXTFUPZVEZHIUQUIUJURUSUTZJVAVFZYDKVAVFZAXRY
+      EVBZVEZXSYFVBZVEZYCVEZBCDXRXSEGHIYKAEYDVBZAYGYIYCVCZLVDZYKAGYDVBZYMMVDZYK
+      AYDEVAVFZVGVBYMNVDYKAYDGVAVFZVGVBYMOVDYKXRJEYKXRYEVHZJYKYGXRYSUPAYGYIYCVI
+      ZXRYEVJVDYKYDVKVBZJYDVHZUPJYSUQUUAYKYDYDVLVMVQZYKJEUUBYKAJEUPYMPVDZYKYLEU
+      UBUPYNEYDVJVDZVNZJYDUUBUUBVLZVOVPVRUUDVNZYKXSKGYKXSYFVHZKYKYIXSUUIUPYHYIY
+      CVSZXSYFVJVDYKUUAKUUBUPKUUIUQUUCYKKGUUBYKAKGUPYMQVDZYKYOGUUBUPYPGYDVJVDZV
+      NZKYDUUBUUGVOVPVRUUKVNZYKXRXRYQVTUTUTZUPXRUNUOZUUOUNUOYKXREJYDUUCUUEUUFUU
+      HYKAYEWAVBYMRVDYTWBYKUUPXSUNUOZYKYAUUPUUQVEYJYAYBWCXRXSWDWEZWFXRUUOWHVPYK
+      XSXSYRVTUTUTZUPUUQUUSUNUOYKXSGKYDUUCUULUUMUUNYKAYFWAVBYMSVDUUJWBYKUUPUUQU
+      URWGXSUUSWHVPYKAEGUMZWIHWJYMUBVDYKCULZGVBZVEZAUVBVEZWIDEDULZUVAHVFWKWLVFW
+      MEUQUVCAUVBYKAUVBYMWNYKUVBWOWPZUCVDYKBULZEVBZVEZAUVHVEZWIDGUVGUVEHVFWKWLV
+      FWMGUQUVIAUVHYKAUVHYMWNYKUVHWOWPZUDVDYKAUUTWIIWJYMUEVDUVCUVDWIDEUVEUVAIVF
+      WKWLVFWMEUQUVFUFVDUVIUVJWIDGUVGUVEIVFWKWLVFWMGUQUVKUGVDYKUVGXRVBUVAXSVBVE
+      ZVEZAUVGUVAFWQZVEUVGUVAHVFUVGUVAIVFUQUVMAUVNYKAUVLYMWNUVMUVGUVAXTWQZUVNUV
+      MUVLUVOYKUVLWOUVGUVAXRXSXBWEUVMXTFUVGUVAUVMYKYBYKUVLWRYJYAYBWSVDWTXCWPUHV
+      DXAAYCUJYFXDZUIYEXDZUKFXEZUVQAUKULZXTVBZYBVEZUJYFXDZUIYEXDZUKFXEZUVRAFYEY
+      FXFVFVBZUWDTAYEXGVBZYFXGVBZUWEUWDXHUWFAYDJVAXIVQUWGAYDKVAXIVQUIUJFYEYFXGX
+      GUKXJVPXKUWCUVQUKFUWBUVPUIYEUWAYCUJYFUWAYAYBUWAUVTYAUVTYBWRXTUVSXLVDUVTYB
+      WOWPXMXMXNVDAFUNUOUVRUVQXOUAUVQUKFXPVDXCXQ $.
+  $}
+
+  ${
+    $d F a k s t x y $.  $d U a s t x y $.  $d a k s t x y $.
+    ishurz2.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
+    ishurz2.e $e |- E = ( CC \ { 1 } ) $.
+    ishurz2.h $e |- H = ( `' Re " ( 1 (,) +oo ) ) $.
+    ishurz2.j $e |- J = ( TopOpen ` CCfld ) $.
+    $( Characterization of the Hurwitz zeta function by separate holomorphy and
+       its defining series on any nonempty open part of the region of
+       convergence.  The forward implication uses ~ hurzsum .  For the
+       converse, the slit plane and the open half-plane are perfect subspaces,
+       so agreement on ` U ` determines the function by ~ holidtx .  Compare
+       ~ ishurz .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    ishurz2 $p |- ( ( U e. ( ( J |`t D ) tX ( J |`t H ) ) /\
+                      U =/= (/) ) ->
+      ( F = HurZ <->
+        ( ( F : ( D X. E ) --> CC /\
+            A. a e. D dom ( CC _D ( s e. E |-> ( a F s ) ) ) = E /\
+            A. s e. E dom ( CC _D ( a e. D |-> ( a F s ) ) ) = D ) /\
+          A. a A. s ( a U s -> ( a F s ) =
+            sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) ) ) $=
+      ( co wcel wa wceq cc c1 cdv vx vy vt vw crest ctx wne churz cmnf cc0 cioc
+      c0 cdif csn cxp wf cv cmpt cdm wral w3a wbr cn0 caddc cneg ccxp csu wi wb
+      wal ccnfld ctopn cfv ccnv cpnf cioo cima oveq12i eleq2i anbi1i simpr eqid
+      cre crp hurzprop simpld syl simplr oveqd clt cop cuni wss simplll elssuni
+      ctopon cnfldtopon logdmopn ax-mp toponunii sseqtrri resttopon cr ccn ssid
+      mp2an eleqtri df-br sylib sseldd opelxp1 opelxp2 elrepreimaioopnf hurzsum
+      sseqtrrdi simprd syl3anc a1i ax-1cn cconn cperf perfopn id oveq1d cbvmptv
+      oveq2i dmeqi oveq2d mpteq2dv dmeqd eqeq1d simplrl rspcdva eqtr3id cvv vex
+      oveq12d mpteq1i eqeq12i raleqbii ccncf recncf cncfcn toponrestid eleqtrri
+      ax-resscn oveq1i crn ctg iooretop tgioo2 cnima txtopon eqtrd alrimivv jca
+      ccld cha cnfldhaus sncld cldopn logdmconn cndifsnconn biimpi ltne syl2anc
+      ex 1re fveq2 re1 eqtrdi eldifsnd ssriv cnperf simpll simprl simp1d simp3d
+      necon3i simp2d hurzf hurzdma hurzdms simplrr simpl breq12d negeqd eqeq12d
+      sumeq2sdv imbi12d spc2gv mpd eqtr4d holidtx impbida sylbi feq2i 3anbi123i
+      xpeq12i bibi2i sylibr ) BGAUENZGFUENZUFNZOZBULUGZPZEUHQZRUIUJUKNUMZRSUNZU
+      MZUOZREUPZRHUXKIUQZHUQZENZURZTNZUSZUXKQZIUXIUTZRIUXIUXPURZTNZUSZUXIQZHUXK
+      UTZVAZUXNUXOBVBZUXPVCUXNCUQZVDNZUXOVEZVFNZCVGZQZVHZHVJIVJZPZVIZUXHADUOZRE
+      UPZRHDUXPURZTNZUSZDQZIAUTZRIAUXPURZTNZUSZAQZHDUTZVAZUYPPZVIUXGBVKVLVMZUXI
+      UENZVUMWCVNSVOVPNZVQZUENZUFNZOZUXFPZUYRUXEVUSUXFUXDVURBUXBVUNUXCVUQUFGVUM
+      AUXIUEMJVRGVUMFVUPUEMLVRVRVSVTVUTUXHUYQVUTUXHPZUYGUYPVVAUXHUYGVUTUXHWAUXH
+      UYGUYNHVUOUTIWDUTUXICUXKEHIUXIWBZUXKWBWEWFWGVVAUYOIHVVAUYHUYNVVAUYHPZUXPU
+      XNUXOUHNZUYMVVCEUHUXNUXOVUTUXHUYHWHWIVVCUXNUXIOZUXOROZSUXOWCVMWJVBZVVDUYM
+      QVVCUXNUXOWKZUXIVUPUOZOZVVEVVCBVVIVVHVVCBVURWLZVVIVVCVUSBVVKWMZVUSUXFUXHU
+      YHWNBVURWOZWGVVIVURVUNUXIWPVMOZVUQVUPWPVMOZVURVVIWPVMOVUMRWPVMOZUXIRWMVVN
+      VUMVUMWBZWQZUXIVUMWLZRUXIVUMOZUXIVVSWMUXIVVBWRZUXIVUMWOWSRVUMVVRWTZXAUXIV
+      UMRXBXFVVPVUPRWMVVOVVRVUPVVSRVUPVUMOZVUPVVSWMWCVUMVUMXCUENZXDNZOVUOVWDOVW
+      CWCVUMRUENZVWDXDNZVWEWCRXCUUANZVWGUUBRRWMXCRWMVWHVWGQRXEUUFRXCVUMVWFVWDVV
+      QVWFWBVWDWBUUCXFXGVUMVWFVWDXDVUMRVVRUUDUUGUUEVUOVPUUHUUIVMVWDSVOUUJVUMVVQ
+      UUKXGVUOWCVUMVWDUULXFZVUPVUMWOWSVWBXAVUPVUMRXBXFVUNVUQUXIVUPUUMXFWTZXOVVC
+      UYHVVHBOVVAUYHWAUXNUXOBXHXIXJZUXNUXOUXIVUPXKWGVVCVVFVVGVVCUXOVUPOZVVFVVGP
+      VVCVVJVWLVWKUXNUXOUXIVUPXLWGSUXOXMXIZWFVVCVVFVVGVWMXPUXNUXOCXNXQUUNUVGUUO
+      UUPVUTUYQPZUAUBUCUXIBUXKEUHUXIVUPVVTVWNVWAXRUXKVUMOZVWNUXJVUMUUQVMOZVWOVU
+      MUUROSROZVWPVUMVVQUUSXSSVUMRVWBUUTXFUXJVUMRVWBUVAWSXRVUNXTOVWNUVBXRVUMUXK
+      UENXTOZVWNVWQVWRXSSUVCWSXRUXIUXIWMVWNUXIXEXRVUPUXKWMVWNUDVUPUXKUDUQZVUPOZ
+      VWSRSVWTVWSROZSVWSWCVMZWJVBZVWTVXAVXCPSVWSXMUVDZWFVWTVXBSUGZVWSSUGVWTSXCO
+      ZVXCVXEVXFVWTUVHXRVWTVXAVXCVXDXPSVXBUVEUVFVWSSVXBSVWSSQVXBSWCVMSVWSSWCUVI
+      UVJUVKUVSWGUVLUVMXRVUNYAOZVWNVUMYAOZVVTVXGVUMVVQUVNZVWAVUMVUNRUXIVWBVUNWB
+      YBXFXRVUQYAOZVWNVXHVWCVXJVXIVWIVUMVUQRVUPVWBVUQWBYBXFXRVUSUXFUYQUVOVUSUXF
+      UYQWHVWNUXMUYAUYFVUTUYGUYPUVPUVQVWNUBUQZUXKOZPZRUCUXIUCUQZVXKENZURZTNZUSR
+      IUXIUXNVXKENZURZTNZUSZUXIVXTVXQVXSVXPRTIUCUXIVXRVXOUXNVXNQZUXNVXNVXKEVYBY
+      CYDYEYFYGVXMUYEVYAUXIQHUXKVXKUXOVXKQZUYDVYAUXIVYCUYCVXTVYCUYBVXSRTVYCIUXI
+      UXPVXRVYCUXOVXKUXNEVYCYCYHYIYHYJYKVXMUXMUYAUYFVUTUYGUYPVXLYLUVRVWNVXLWAZY
+      MYNVWNUAUQZUXIOZPZRUCUXKVYEVXNENZURZTNZUSRHUXKVYEUXOENZURZTNZUSZUXKVYMVYJ
+      VYLVYIRTHUCUXKVYKVYHUXOVXNQZUXOVXNVYEEVYOYCYHYEYFYGVYGUXTVYNUXKQIUXIVYEUX
+      NVYEQZUXSVYNUXKVYPUXRVYMVYPUXQVYLRTVYPHUXKUXPVYKVYPUXNVYEUXOEVYPYCYDYIYHY
+      JYKVYGUXMUYAUYFVUTUYGUYPVYFYLUVTVWNVYFWAZYMYNUXLRUHUPVWNUWAXRVXMVXLRUCUXI
+      VXNVXKUHNURTNUSUXIQVYDUCVXKUWBWGVYGVYFRUCUXKVYEVXNUHNURTNUSUXKQVYQVYEUCUW
+      CWGVWNVYEVXKBVBZPZVYEVXKENZVCVYEUYIVDNZVXKVEZVFNZCVGZVYEVXKUHNZVYSVYRVYTW
+      UDQZVWNVYRWAZVYSUYPVYRWUFVHZVUTUYGUYPVYRUWDVYEYOOVXKYOOUYPWUHVHUAYPUBYPUY
+      OWUHIHVYEVXKYOYOVYPVYCPZUYHVYRUYNWUFWUIUXNVYEUXOVXKBVYPVYCUWEZVYPVYCWAZUW
+      FWUIUXPVYTUYMWUDWUIUXNVYEUXOVXKEWUJWUKYQWUIVCUYLWUCCWUIUYJWUAUYKWUBVFWUIU
+      XNVYEUYIVDWUJYDWUIUXOVXKWUKUWGYQUWIUWHUWJUWKXFWGUWLVYSVYFVXKROZSVXKWCVMWJ
+      VBZWUEWUDQVYSVYEVXKWKZVVIOZVYFVYSBVVIWUNVYSBVVKVVIVYSVUSVVLVUSUXFUYQVYRWN
+      VVMWGVWJXOVYSVYRWUNBOWUGVYEVXKBXHXIXJZVYEVXKUXIVUPXKWGVYSWULWUMVYSVXKVUPO
+      ZWULWUMPVYSWUOWUQWUPVYEVXKUXIVUPXLWGSVXKXMXIZWFVYSWULWUMWURXPVYEVXKCXNXQU
+      WMUWNUWOUWPVULUYQUXHVUKUYGUYPUYTUXMVUEUYAVUJUYFUYSUXLREAUXIDUXKJKUWSUWQVU
+      DUXTIAUXIJVUCUXSDUXKVUBUXRVUAUXQRTHDUXKUXPKYRYFYGKYSYTVUIUYEHDUXKKVUHUYDA
+      UXIVUGUYCVUFUYBRTIAUXIUXPJYRYFYGJYSYTUWRVTUWTUXA $.
+  $}
+
 $( (End of Zhi Wang's mathbox.) $)
 $( End $[ set-mbox-zw.mm $] $)
 
