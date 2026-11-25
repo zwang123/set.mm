@@ -494630,6 +494630,10 @@ htmldef "DirL" as "DirL";
   althtmldef "DirL" as "DirL";
   latexdef "DirL" as "\mathrm{DirL}";
 
+htmldef "ZetaL" as "ZetaL";
+  althtmldef "ZetaL" as "ZetaL";
+  latexdef "ZetaL" as "\mathrm{ZetaL}";
+
 htmldef "HurZ" as "HurZ";
   althtmldef "HurZ" as "HurZ";
   latexdef "HurZ" as "\mathrm{HurZ}";
@@ -896526,7 +896530,8 @@ $(
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
   The definition ~ df-dirl combines finitely many values of the Hurwitz zeta
-  function, one for each residue class of the modulus.
+  function, one for each residue class of the modulus.  At modulus one this
+  gives the Riemann zeta function of ~ df-zetal .
 $)
 
   $c DirL $.
@@ -898714,6 +898719,117 @@ $)
       ULUVOYAAUUOUUPUTLDUUSUUOUUOUUPUUOUUOUTUUSUUOVMVFUUTYBUVDUUOWBUUPUVAUVDUVB
       VFUVEYBXEYAAYJYHUIZYTYPYHUIUVPAYJUUAYCVFUUKYJYPWBYMUVFYPVDYDWHYRYEUDCUUQY
       IWHYF $.
+  $}
+
+  ${
+    dchrzrhcong1.g $e |- G = ( DChr ` N ) $.
+    dchrzrhcong1.z $e |- Z = ( Z/nZ ` N ) $.
+    dchrzrhcong1.d $e |- D = ( Base ` G ) $.
+    dchrzrhcong1.l $e |- L = ( ZRHom ` Z ) $.
+    dchrzrhcong1.x $e |- ( ph -> X e. D ) $.
+    dchrzrhcong1.a $e |- ( ph -> A e. ZZ ) $.
+    dchrzrhcong1.c $e |- ( ph -> N || ( A - 1 ) ) $.
+    $( A Dirichlet character takes the value one at every integer congruent to
+       one modulo its modulus.  The ring homomorphism ` L ` sends such an
+       integer to the same residue class as one, so ~ dchrzrh1 applies.
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    dchrzrhcong1 $p |- ( ph -> ( X ` ( L ` A ) ) = 1 ) $=
+      ( cfv c1 wceq wcel cz co cdvds wbr cn0 wb cn dchrrcl syl nnnn0d 1z zndvds
+      cmin a1i syl3anc mpbird fveq2d dchrzrh1 eqtrd ) ABEPZGPQEPZGPQAUSUTGAUSUT
+      RZFBQULUAUBUCZOAFUDSBTSQTSZVAVBUEAFAGCSFUFSMCDFGIKUGUHUINVCAUJUMBQEFHJLUK
+      UNUOUPACDEFGHIJKLMUQUR $.
+  $}
+
+  $c ZetaL $.
+
+  $( The Riemann zeta function as a Dirichlet L-function (label fragment
+     "zetal"). $)
+  czetal $a class ZetaL $.
+
+  $( Define the Riemann zeta function as the Dirichlet L-function of the
+     principal character modulo one.  All its Dirichlet coefficients are one by
+     ~ dchrzrhcong1 .  Compare the alternating-series construction in
+     ~ df-zeta .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
+  df-zetal $a |- ZetaL = ( 1 DirL ( 0g ` ( DChr ` 1 ) ) ) $.
+
+  ${
+    $d S k m $.
+    $( The ordinary partial sums of the Riemann zeta series converge to
+       ` ( ZetaL `` S ) ` when the real part of ` S ` exceeds one.  At modulus
+       one every positive integer has character value one in ~ dirlcvg .
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    zetalcvg $p |- ( ( S e. CC /\ 1 < ( Re ` S ) ) ->
+      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( k ^c -u S ) )
+        ~~> ( ZetaL ` S ) ) $=
+      ( wcel c1 cfv wbr wa cn cv co ccxp csu cmpt czetal cli cdiv eqid a1i syl
+      cre clt cfz cneg cdchr c0g cdirl czn czrh cbs cabl cgrp 1nn dchrabl ax-mp
+      cc ablgrp grpidcl mp2b simpr elfznn nnzd cz cdvds 1z zsubcld dchrzrhcong1
+      cmin 1dvds oveq1d nncnd cc0 nnne0 simpl adantr cxpnegd sumeq2dv mpteq2dva
+      wne eqtr4d dirlcvg eqbrtrrd df-zetal fveq1i breqtrrdi ) AUPDZEAUAFUBGZHZC
+      IECJZUCKZBJZAUDLKZBMZNZAEEUEFZUFFZUGKZFZAOFPWHCIWJWKEUHFZUIFZFWPFZWKALKZQ
+      KZBMZNWNWRPWHCIXDWMWHWIIDZHZWJXCWLBXFWKWJDZHZXCEXBQKWLXHXAEXBQXHWKWOUJFZW
+      OWTEWPWSWORZWSRZXIRZWTRZWPXIDZXHWOUKDZWOULDXNEIDXOUMWOEXJUNUOWOUQXIWOWPXL
+      WPRURUSZSXHWKXHXGWKIDZXFXGUTWKWIVATZVBZXHWKEVHKZVCDEXTVDGXHWKEXSEVCDXHVES
+      VFXTVITVGVJXHWKAXHWKXRVKXHXQWKVLVSXRWKVMTXFWFXGWHWFXEWFWGVNZVOVOVPVTVQVRW
+      HXIABCWOWTEWPWSXJXKXLXMXNWHXPSYAWFWGUTWAWBAOWQWCWDWE $.
+  $}
+
+  ${
+    $d F s $.  $d k s $.
+    $( Characterize the Riemann zeta function by holomorphy on the complex
+       plane punctured at one and agreement with its series at every real
+       argument greater than one.  This is the modulus-one case of ~ isdirl .
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    iszetal $p |- ( F = ZetaL <->
+      ( F : ( CC \ { 1 } ) --> CC /\ dom ( CC _D F ) = dom F /\
+        A. s e. ( 1 (,) +oo )
+          ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) $=
+      ( c1 cfv wcel czetal wceq cc wf co cdm cv cn wb eqid cdiv a1i id syl cdif
+      cdchr c0g cbs csn cdv cneg ccxp csu cpnf cioo wral w3a cabl dchrabl ax-mp
+      cgrp 1nn ablgrp grpidcl mp2b cdirl cif czn df-zetal eqeq2i isdirl iftruei
+      czrh feq2i wss ioosscn wa sselda simpr nnzd cz cdvds wbr 1z zsubcld 1dvds
+      cmin dchrzrhcong1 oveq1d nncnd cc0 wne nnne0 adantr cxpnegd eqtr4d eqeq2d
+      sumeq2dv ralbidva 3anbi13d 3bitrd ) DUBEZUCEZWRUDEZFZBGHZIDUEUAZIBJZIBUFK
+      LBLHZCMZBEZNAMZXFUGUHKZAUIZHZCDUJUKKZULZUMZOWRUNFZWRUQFXADNFXOURWRDWRPZUO
+      UPWRUSWTWRWSWTPZWSPZUTVAZXAXBBDWSVBKZHZWSWSHZXCIVCZIBJZXEXGNXHDVDEZVIEZEW
+      SEZXHXFUHKZQKZAUIZHZCXLULZUMXNXBYAOXAGXTBVEVFRXAWTWSABWRYFDWSYECXPYEPZXQY
+      FPZXASXRVGXAYDXDYLXMXEYDXDOXAYCXCIBYBXCIXRVHVJRXAXLIVKZYLXMOYOXADUJVLRYOY
+      KXKCXLYOXFXLFVMZYJXJXGYPXFIFZYJXJHYOXLIXFYOSVNYQNYIXIAYQXHNFZVMZYIDYHQKXI
+      YSYGDYHQYSXHWTWRYFDWSYEXPYMXQYNXAYSXSRYSXHYQYRVOZVPZYSXHDWCKZVQFDUUBVRVSY
+      SXHDUUADVQFYSVTRWAUUBWBTWDWEYSXHXFYSXHYTWFYSYRXHWGWHYTXHWITYQYQYRYQSWJWKW
+      LWNTWMWOTWPWQUP $.
+  $}
+
+  ${
+    $d F s $.  $d U s $.  $d k s $.
+    iszetal2.h $e |- H = ( `' Re " ( 1 (,) +oo ) ) $.
+    iszetal2.j $e |- J = ( TopOpen ` CCfld ) $.
+    iszetal2.o $e |- ( ph -> U e. ( J |`t H ) ) $.
+    iszetal2.n $e |- ( ph -> U =/= (/) ) $.
+    $( Agreement with the zeta series on any nonempty relatively open subset of
+       the half-plane of convergence determines the holomorphic function on the
+       entire plane punctured at one.  See ~ isdirl2 for arbitrary Dirichlet
+       characters.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    iszetal2 $p |- ( ph -> ( F = ZetaL <->
+      ( F : ( CC \ { 1 } ) --> CC /\ dom ( CC _D F ) = dom F /\
+        A. s e. U ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) ) $=
+      ( wceq c1 cfv co cc cn a1i eqid wcel czetal cdchr c0g csn cdif cif wf cdv
+      cdirl cdm cv czn czrh ccxp cdiv csu wral w3a cneg wb df-zetal eqeq2i cabl
+      cbs cgrp 1nn dchrabl ax-mp ablgrp grpidcl isdirl2 iftruei feq2i wss crest
+      mp2b cpw restsspw syl elpwid cre ccnv cpnf cioo cima clt elrepreimaioopnf
+      sseli wa simpl sylbi ssriv eqsstri sstrdi id sselda simpr nnzd cmin cdvds
+      wbr cz 1z zsubcld 1dvds dchrzrhcong1 oveq1d nncnd cc0 nnne0 adantr eqtr4d
+      wne cxpnegd sumeq2dv eqeq2d ralbidva 3anbi13d 3bitrd ) ADUALZDMMUBNZUCNZU
+      IOZLZYBYBLZPMUDUEZPUFZPDUGZPDUHOUJDUJLZGUKZDNZQCUKZMULNZUMNZNYBNZYLYJUNOZ
+      UOOZCUPZLZGBUQZURYFPDUGZYIYKQYLYJUSUNOZCUPZLZGBUQZURXTYDUTAUAYCDVAVBRAYAV
+      DNZBYBCDYAEFYNMYBYMGYASZYMSZUUFSZYNSZYBUUFTZAYAVCTZYAVETUUKMQTUULVFYAMUUG
+      VGVHYAVIUUFYAYBUUIYBSZVJVPZRUUMHIJKVKAYHUUAYTUUEYIYHUUAUTAYGYFPDYEYFPUUMV
+      LVMRABPVNZYTUUEUTABEPABEABFEVOOZTBEVQZTJUUPUUQBEFVRWHVSVTEWAWBMWCWDOWEZPH
+      GUURPYJUURTYJPTZMYJWANWFXAZWIUUSMYJWGUUSUUTWJWKWLWMWNUUOYSUUDGBUUOYJBTWIZ
+      YRUUCYKUVAUUSYRUUCLUUOBPYJUUOWOWPUUSQYQUUBCUUSYLQTZWIZYQMYPUOOUUBUVCYOMYP
+      UOUVCYLUUFYAYNMYBYMUUGUUHUUIUUJUUKUVCUUNRUVCYLUUSUVBWQZWRZUVCYLMWSOZXBTMU
+      VFWTXAUVCYLMUVEMXBTUVCXCRXDUVFXEVSXFXGUVCYLYJUVCYLUVDXHUVCUVBYLXIXMUVDYLX
+      JVSUUSUUSUVBUUSWOXKXNXLXOVSXPXQVSXRXS $.
   $}
 
 $( (End of Zhi Wang's mathbox.) $)
