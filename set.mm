@@ -896272,6 +896272,51 @@ $)
       SXSXRYBXT $.
   $}
 
+  ${
+    $( Membership in the preimage of an open interval is equivalent to
+       membership in the domain and the two strict inequalities at the function
+       value.  The inequalities imply that both endpoints and the value are
+       extended reals.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
+    elpreimaioo $p |- ( F Fn X -> ( Z e. ( `' F " ( A (,) B ) ) <-> ( Z e. X
+      /\ A < ( F ` Z ) /\ ( F ` Z ) < B ) ) ) $=
+      ( wfn ccnv cioo co wcel clt wbr wa w3a cxr ltrelxr brel syl simprd bitrdi
+      cima cfv elpreima elioo3g simpl simpld 3jca pm4.71ri bitr4i anbi2i 3anass
+      simpr bicomi ) CDFZECGABHIZUAJZEDJZAECUBZKLZURBKLZMZMZUQUSUTNZUNUPUQURUOJ
+      ZMVBDEUOCUCVDVAUQVDAOJZBOJZUROJZNZVAMVAABURUDVAVHVAVEVFVGVAUSVEUSUTUEZUSV
+      EVGAUROOKPQZUFRVAUTVFUSUTULUTVGVFURBOOKPQSRVAUSVGVIUSVEVGVJSRUGUHUIUJTVCV
+      BUQUSUTUKUMT $.
+  $}
+
+  ${
+
+    $( Membership in the preimage of an open upper ray under a function.  The
+       value at the point must be real and exceed the lower endpoint.
+       Specialize ~ elpreimaioo to positive infinity.  (Contributed by Zhi
+       Wang, 25-Nov-2026.) $)
+    elpreimaioopnf $p |- ( F Fn X -> ( Z e. ( `' F " ( A (,) +oo ) ) <-> ( Z
+      e. X /\ ( F ` Z ) e. RR /\ A < ( F ` Z ) ) ) ) $=
+      ( wfn ccnv cpnf cioo co cima wcel cfv clt wbr w3a elpreimaioo biimpa 3jca
+      cr wa simp1d elpreima simprd elioore syl simp2d simp1 simp3 simp2 biimpar
+      ltpnfd sylan2 impbida ) BCEZDBFAGHIZJKZDCKZDBLZSKZAURMNZOZUNUPTZUQUSUTVBU
+      QUTURGMNZUNUPUQUTVCOZAGBCDPZQZUAVBURUOKZUSVBUQVGUNUPUQVGTCDUOBUBQUCURAGUD
+      UEVBUQUTVCVFUFRVAUNVDUPVAUQUTVCUQUSUTUGUQUSUTUHVAURUQUSUTUIUKRUNUPVDVEUJU
+      LUM $.
+  $}
+
+  ${
+
+    $( Membership in the right half-plane above a given real-part threshold.
+       Specialize ~ elpreimaioopnf to the real-part function.  Its values on
+       the complex numbers are real by ~ recl .  (Contributed by Zhi Wang,
+       25-Nov-2026.) $)
+    elrepreimaioopnf $p |- ( Z e. ( `' Re " ( A (,) +oo ) ) <-> ( Z e. CC /\
+      A < ( Re ` Z ) ) ) $=
+      ( cre ccnv cpnf cioo co cima wcel cc cfv cr clt wbr w3a wa wfn wb ax-mp
+      wf ref ffn elpreimaioopnf simp1 simp3 jca simpl recl syl simpr 3jca bitri
+      impbii ) BCDAEFGHIZBJIZBCKZLIZAUPMNZOZUOURPZCJQZUNUSRJLCTVAUAJLCUBSACJBUC
+      SUSUTUSUOURUOUQURUDUOUQURUEUFUTUOUQURUOURUGZUTUOUQVBBUHUIUOURUJUKUMUL $.
+  $}
+
 $( (End of Zhi Wang's mathbox.) $)
 $( End $[ set-mbox-zw.mm $] $)
 
