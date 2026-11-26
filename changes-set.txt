@@ -95,7 +95,8 @@ DONE:
 Date      Old         New         Notes
 26-Nov-26 eluzd       [same]      Moved from GS's mathbox to main set.mm
 26-Nov-26 climsuse    [same]      Moved from GS's mathbox to main set.mm
-26-Nov-26 climsuselem1 climsuselem Moved from GS's mathbox to main set.mm
+26-Nov-26 climsuselem1 climsuselem Moved from GS's mathbox to main set.mm;
+                                  removed unused hypothesis
 24-Oct-26 fphpd       [same]      Moved from SO's mathbox to main set.mm
 24-Oct-26 indstrd     [same]      Moved from MKU's mathbox to main set.mm
 22-Oct-26 fidmfisupp  ---         deleted; duplicate of fdmfifsupp
