@@ -888649,16 +888649,18 @@ $)
        with the ordinary series.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     df-hurz $a |- HurZ =
       ( a e. ( CC \ ( -oo (,] 0 ) ) , s e. ( CC \ { 1 } ) |->
-      ( ~~> ` ( m e. NN0 |->
-          ( sum_ k e. ( 0 ..^ m ) ( ( a + k ) ^c -u s ) +
-            ( sum_ n e. ( 0 ..^ m ) ( sum_ k e. ( 0 ... n )
-                  ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
-                    ( ( ( a + m ) + k ) ^c ( 1 - s ) ) ) / ( n + 1 ) ) /
-              ( s - 1 ) ) ) ) ) ) $.
+        ( ~~> ` ( m e. NN0 |->
+                  ( sum_ k e. ( 0 ..^ m ) ( ( a + k ) ^c -u s ) +
+                    ( sum_ n e. ( 0 ..^ m )
+                        ( sum_ k e. ( 0 ... n )
+                            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                              ( ( ( a + m ) + k ) ^c ( 1 - s ) ) ) /
+                          ( n + 1 ) ) /
+                      ( s - 1 ) ) ) ) ) ) $.
   $}
 
   ${
-    $d a k m n s $.  $d D a $.  $d D s $.  $d E a $.  $d E s $.
+    $d D a s $.  $d E a s $.  $d a k m n s $.
     hurzfn.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzfn.e $e |- E = ( CC \ { 1 } ) $.
     $( The Hurwitz zeta function is a function on the product of the slit
@@ -888674,8 +888676,7 @@ $)
   $}
 
   ${
-    $d A a k m n s $.  $d S a k m n s $.  $d D a $.  $d D s $.  $d E a $.
-    $d E s $.
+    $d A a k m n s $.  $d D a s $.  $d E a s $.  $d S a k m n s $.
     hurzval.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzval.e $e |- E = ( CC \ { 1 } ) $.
     $( Evaluate the Hurwitz zeta function at a parameter and an argument in its
@@ -888684,11 +888685,13 @@ $)
     hurzval $p |- ( ( A e. D /\ S e. E ) ->
       ( A HurZ S ) =
       ( ~~> ` ( m e. NN0 |->
-        ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) +
-          ( sum_ n e. ( 0 ..^ m ) ( sum_ k e. ( 0 ... n )
-                ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
-                  ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) / ( n + 1 ) ) /
-            ( S - 1 ) ) ) ) ) ) $=
+                ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) +
+                  ( sum_ n e. ( 0 ..^ m )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) /
+                        ( n + 1 ) ) /
+                    ( S - 1 ) ) ) ) ) ) $=
       ( va vs cv co caddc ccxp csu c1 cmin cdiv oveq1d cfzo cneg cexp cmul cmpt
       cn0 cc0 cfz cbc cli cfv churz wceq wa simpl simpr negeqd sumeq2sdv oveq2d
       oveq12d mpteq2dv fveq2d cc cmnf cioc cdif csn cmpo df-hurz eqid mpoeq123i
@@ -888713,7 +888716,7 @@ $)
        25-Nov-2026.) $)
     hurzsercvg $p |- ( ( A e. CC /\ S e. CC /\ 1 < ( Re ` S ) ) ->
       ( m e. NN0 |-> sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) ) ~~>
-        sum_ k e. NN0 ( ( A + k ) ^c -u S ) ) $=
+      sum_ k e. NN0 ( ( A + k ) ^c -u S ) ) $=
       ( vn vi wcel c1 cfv wbr cn0 cv co cneg ccxp cc0 adantr cmul syl cle vj cc
       cre clt w3a caddc cmpt cseq csu cli cfzo nn0uz 0zd wceq oveq2 oveq1d eqid
       ovex fvmpt adantl wa simp1 simpr nn0cnd addcld simp2 negcld cxpcld cdm c2
@@ -888791,9 +888794,9 @@ $)
        ~ binom1p after factoring out the initial value.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
     efbindif $p |- ( ( B e. CC /\ T e. CC /\ N e. NN0 ) ->
-      sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-          ( exp ` ( ( B + k ) x. T ) ) ) =
-        ( ( exp ` ( B x. T ) ) x. ( ( 1 - ( exp ` T ) ) ^ N ) ) ) $=
+      sum_ k e. ( 0 ... N )
+        ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( exp ` ( ( B + k ) x. T ) ) ) =
+      ( ( exp ` ( B x. T ) ) x. ( ( 1 - ( exp ` T ) ) ^ N ) ) ) $=
       ( cc wcel co c1 cneg cexp cmul caddc ce cfv csu adantr wceq mulcld oveq2d
       syl2anc cn0 w3a cc0 cfz cv cbc cmin wa simp1 simpr elfznn0 nn0cnd adddird
       syl simp2 fveq2d efadd cz nn0zd efexp 3eqtrd neg1cn a1i expcld crp bcrpcl
@@ -888821,10 +888824,12 @@ $)
        logarithmic series from ~ logtaylsum .  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
     efbindifsum $p |- ( ( B e. CC /\ T e. RR+ ) ->
-      sum_ n e. NN0 ( sum_ k e. ( 0 ... n )
-        ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
-          ( exp ` ( ( B + k ) x. -u T ) ) ) / ( n + 1 ) ) =
-        ( ( exp ` ( B x. -u T ) ) x. ( T / ( 1 - ( exp ` -u T ) ) ) ) ) $=
+      sum_ n e. NN0
+        ( sum_ k e. ( 0 ... n )
+            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+              ( exp ` ( ( B + k ) x. -u T ) ) ) /
+          ( n + 1 ) ) =
+      ( ( exp ` ( B x. -u T ) ) x. ( T / ( 1 - ( exp ` -u T ) ) ) ) ) $=
       ( vj vi cc wcel cc0 cv co c1 cneg cexp cmul cfv cdiv adantr syl cn crp wa
       cn0 cfz cbc caddc ce csu cmin wceq simpl rpcn adantl negcld simpr syl3anc
       efbindif oveq1d mulcld efcld simplr jca 1red rpre renegcld rpred resubcld
@@ -888873,12 +888878,13 @@ $)
        Pascal's identity ~ bcpasc supplies the two coefficients.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
     cxpbindifp1 $p |- ( ( X e. CC /\ S e. CC /\ N e. NN0 ) ->
-      sum_ k e. ( 0 ... ( N + 1 ) ) ( ( ( -u 1 ^ k ) x. ( ( N + 1 ) _C k ) )
-            x. ( ( X + k ) ^c S ) ) =
-        ( sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) )
-              x. ( ( X + k ) ^c S ) ) -
-          sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) )
-              x. ( ( ( X + 1 ) + k ) ^c S ) ) ) ) $=
+      sum_ k e. ( 0 ... ( N + 1 ) )
+        ( ( ( -u 1 ^ k ) x. ( ( N + 1 ) _C k ) ) x. ( ( X + k ) ^c S ) ) =
+      ( sum_ k e. ( 0 ... N )
+          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( X + k ) ^c S ) ) -
+        sum_ k e. ( 0 ... N )
+          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
+            ( ( ( X + 1 ) + k ) ^c S ) ) ) ) $=
       ( vj wcel cc0 c1 caddc co cv cbc cneg cexp ccxp cmul csu cmin cz syl wceq
       cc cn0 w3a cfz wa simp3 elfzelz bcpasc syl2an oveq1d bccl nn0cnd peano2zm
       adantl m1expcl zcnd simp1 adantr addcld simp2 cxpcld mulcld eqtr3d npcan1
@@ -888946,10 +888952,11 @@ $)
        number.  Each difference is a finite sum of complex numbers, and each
        denominator is a positive integer.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    cxpbindifsumcl $p |- ( ( B e. CC /\ S e. CC ) -> sum_ n e. ( 0 ..^ M )
-      ( sum_ k e. ( 0 ... n )
-          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
-        ( n + 1 ) ) e. CC ) $=
+    cxpbindifsumcl $p |- ( ( B e. CC /\ S e. CC ) ->
+      sum_ n e. ( 0 ..^ M )
+        ( sum_ k e. ( 0 ... n )
+            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
+          ( n + 1 ) ) e. CC ) $=
       ( cc wcel wa cc0 co cv c1 cmul caddc a1i cn0 simpr syl mulcld adantr cfzo
       cfz cneg cexp cbc ccxp csu cdiv cfn fzofi fzfid neg1cn elfznn0 expcld crp
       bcrpcl rpcnd simpl nn0cnd addcld cxpcld fsumcl cn elfzonn0 nn0p1nn nnne0d
@@ -888961,19 +888968,17 @@ $)
   $}
 
   ${
-    $d A x $.  $d B x $.  $d C y $.  $d E y $.  $d M x y $.  $d X x $.
-    $d ph x y $.  $d D x $.  $d D y $.
+    $d A x $.  $d B x $.  $d C y $.  $d D x y $.  $d E y $.  $d M x y $.
+    $d X x $.  $d ph x y $.
     dvshftslit.sl $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     dvshftslit.j $e |- J = ( TopOpen ` CCfld ) $.
     dvshftslit.s $e |- ( ph -> X C_ D ) $.
     dvshftslit.o $e |- ( ph -> X e. J ) $.
     dvshftslit.m $e |- ( ph -> M e. NN0 ) $.
-    dvshftslit.a $e |- ( ( ph /\ y e. D ) -> A e. CC )
-      $.
-    dvshftslit.b $e |- ( ( ph /\ y e. D ) -> B e. CC )
-      $.
-    dvshftslit.d $e |- ( ph -> ( CC _D ( y e. D |-> A )
-      ) = ( y e. D |-> B ) ) $.
+    dvshftslit.a $e |- ( ( ph /\ y e. D ) -> A e. CC ) $.
+    dvshftslit.b $e |- ( ( ph /\ y e. D ) -> B e. CC ) $.
+    dvshftslit.d $e |- ( ph ->
+      ( CC _D ( y e. D |-> A ) ) = ( y e. D |-> B ) ) $.
     dvshftslit.f $e |- ( y = ( x + M ) -> A = C ) $.
     dvshftslit.g $e |- ( y = ( x + M ) -> B = E ) $.
     $( Translate a differentiable function on the slit plane by a nonnegative
@@ -888981,8 +888986,7 @@ $)
        is the translation of the original derivative.  The shift stays in the
        slit plane and its derivative is one.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    dvshftslit $p |- ( ph -> ( CC _D ( x e. X |-> C ) ) = ( x e. X |-> E ) )
-      $=
+    dvshftslit $p |- ( ph -> ( CC _D ( x e. X |-> C ) ) = ( x e. X |-> E ) ) $=
       ( cc cmpt cdv co c1 cmul cv caddc cr cpr wcel cnelprrecn a1i crp cmnf cc0
       wa wi cioc cdif sseqtrdi difss2d sselda nn0cnd adantr simpr cmin ad2antrr
       addcld pncand nn0red resubcld eqeltrrd ellogdm simprbi sylc cn0 nn0addge1
@@ -889001,7 +889005,7 @@ $)
   $}
 
   ${
-    $d N k x y $.  $d S k x y $.  $d D k $.  $d D x $.  $d D y $.
+    $d D k x y $.  $d N k x y $.  $d S k x y $.
     dvbindif.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( The derivative of an alternating binomial difference of a complex power
        on the slit plane equals the exponent times the same difference with
@@ -889010,12 +889014,15 @@ $)
        of the finite sum by ~ dvmptfsum .  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
     dvbindif $p |- ( ( N e. NN0 /\ S e. CC ) ->
-      ( CC _D ( x e. D |->
-          sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-              ( ( x + k ) ^c S ) ) ) ) =
+      ( CC _D
         ( x e. D |->
-          ( S x. sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-                ( ( x + k ) ^c ( S - 1 ) ) ) ) ) ) $=
+          sum_ k e. ( 0 ... N )
+            ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( x + k ) ^c S ) ) ) ) =
+      ( x e. D |->
+        ( S x.
+          sum_ k e. ( 0 ... N )
+            ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
+              ( ( x + k ) ^c ( S - 1 ) ) ) ) ) ) $=
       ( vy wcel cc wa co c1 cv cmul ccxp cmpt a1i syl mulcld adantr cn0 cc0 cfz
       cneg cexp cbc caddc csu cdv cmin ccnfld ctopn eqid cnfldtopon toponrestid
       cfv cr cnelprrecn logdmopn fzfid neg1cn simpr elfznn0 expcld bcrpcl rpcnd
@@ -889048,8 +889055,8 @@ $)
     cxpbindifbnd.p $e |- ( ph -> R < ( Re ` B ) ) $.
     cxpbindifbnd.l $e |- ( ( ph /\ ( x e. CC /\ R < ( Re ` x ) ) ) ->
       ( abs ` sum_ k e. ( 0 ... N )
-          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-            ( ( x + k ) ^c ( S - 1 ) ) ) ) <_ H ) $.
+                ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
+                  ( ( x + k ) ^c ( S - 1 ) ) ) ) <_ H ) $.
     $( Bound the successor alternating binomial difference of a complex power
        by the modulus of its exponent times a bound for the preceding
        difference with exponent lowered by one.  The bound must hold throughout
@@ -889059,8 +889066,9 @@ $)
        use ~ cxpbindifp1 .  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     cxpbindifbnd $p |- ( ph ->
       ( abs ` sum_ k e. ( 0 ... ( N + 1 ) )
-          ( ( ( -u 1 ^ k ) x. ( ( N + 1 ) _C k ) ) x. ( ( B + k ) ^c S ) ) )
-        <_ ( ( abs ` S ) x. H ) ) $=
+                ( ( ( -u 1 ^ k ) x. ( ( N + 1 ) _C k ) ) x.
+                  ( ( B + k ) ^c S ) ) ) <_
+      ( ( abs ` S ) x. H ) ) $=
       ( c1 co cv wcel vy cc0 caddc cfz cneg cexp cbc cmul ccxp csu cabs cc cmnf
       cfv cioc cdif cmpt cmin cle cn0 wceq cxpbindifp1 syl3anc cr crp wi wa cre
       simpr clt wbr 0red recld lelttrd adantr rered breqtrd elrpd ex wb ellogdm
@@ -889135,17 +889143,19 @@ $)
     cxpbindifadd.g $e |- ( ph -> 0 <_ R ) $.
     cxpbindifadd.p $e |- ( ph -> R < ( Re ` B ) ) $.
     cxpbindifadd.m $e |- ( ph -> M e. NN0 ) $.
-    cxpbindifadd.l $e |- ( ( ph /\ ( x e. CC /\ R < ( Re ` x ) ) ) -> ( abs `
-      sum_ k e. ( 0 ... M ) ( ( ( -u 1 ^ k ) x. ( M _C k ) ) x. ( ( x + k )
-      ^c ( S - N ) ) ) ) <_ H ) $.
+    cxpbindifadd.l $e |- ( ( ph /\ ( x e. CC /\ R < ( Re ` x ) ) ) ->
+      ( abs ` sum_ k e. ( 0 ... M )
+                ( ( ( -u 1 ^ k ) x. ( M _C k ) ) x.
+                  ( ( x + k ) ^c ( S - N ) ) ) ) <_ H ) $.
     $( Bound a finite difference of a complex power after increasing both its
        order and its exponent by the same nonnegative integer.  A uniform bound
        on the initial difference throughout the right half-plane propagates by
        ~ cxpbindifbnd at each step.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     cxpbindifadd $p |- ( ph ->
       ( abs ` sum_ k e. ( 0 ... ( M + N ) )
-          ( ( ( -u 1 ^ k ) x. ( ( M + N ) _C k ) ) x. ( ( B + k ) ^c S ) ) )
-        <_ ( H x. ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
+                ( ( ( -u 1 ^ k ) x. ( ( M + N ) _C k ) ) x.
+                  ( ( B + k ) ^c S ) ) ) <_
+      ( H x. ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
       ( co cmul vi vj vu vl vw cc0 caddc cfz c1 cneg cv cexp cbc cmin ccxp cabs
       csu cfv cle nn0cnd npcand oveq2d sumeq2sdv fveq2d cre clt wbr wceq breq2d
       wi cc id oveq1d breq1d imbi12d cz wcel w3a wral nn0zd nn0ge0d nn0red 3jca
@@ -889250,8 +889260,8 @@ $)
        Wang, 25-Nov-2026.) $)
     cxpbindifind $p |- ( ph ->
       ( abs ` sum_ k e. ( 0 ... N )
-          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( B + k ) ^c S ) ) )
-        <_ ( H x. ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
+                ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( B + k ) ^c S ) ) ) <_
+      ( H x. ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
       ( cc0 co c1 cmul caddc cfz cneg cv cexp cbc ccxp csu cabs cfv cle addlidd
       nn0cnd oveq2d wceq oveq1d eqidd oveq12d adantr sumeq12dv fveq2d cr wbr wa
       wcel cpnf cico cre clt wi cc breq2d imbi1d cmin 0red simprl subcld cxpcld
@@ -889289,9 +889299,10 @@ $)
        ~ cxpbindifind .  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     cxpbindifest $p |- ( ph ->
       ( abs ` sum_ k e. ( 0 ... N )
-          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( B + k ) ^c S ) ) ) <_
-        ( ( ( R ^c ( Re ` S ) ) x. ( exp ` ( ( abs ` ( S - ( Re ` S ) ) )
-              x. _pi ) ) ) x. ( ( ( ( abs ` S ) + N ) / R ) ^ N ) ) ) $=
+                ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. ( ( B + k ) ^c S ) ) ) <_
+      ( ( ( R ^c ( Re ` S ) ) x.
+          ( exp ` ( ( abs ` ( S - ( Re ` S ) ) ) x. _pi ) ) ) x.
+        ( ( ( ( abs ` S ) + N ) / R ) ^ N ) ) ) $=
       ( cc0 co cmul ccxp cfv cle wcel adantr vx cfz c1 cneg cexp cbc caddc cabs
       cv csu cre cmin ce cdiv recld nn0red resubcld rpcxpcld rpred recnd subcld
       cpi abscld cr a1i remulcld rpefcld rpge0d cc clt wbr simprl nn0cnd cxpcld
@@ -889342,8 +889353,8 @@ $)
     cxpbindifaddest.c $e |- ( ph -> C e. RR+ ) $.
     cxpbindifaddest.p $e |- ( ph -> R < ( Re ` B ) ) $.
     cxpbindifaddest.g $e |- ( ph -> ( Re ` ( S - N ) ) <_ 0 ) $.
-    cxpbindifaddest.a $e |- ( ph -> ( ( abs ` ( S - N ) ) + M ) <_ ( R + C )
-      ) $.
+    cxpbindifaddest.a $e |- ( ph ->
+      ( ( abs ` ( S - N ) ) + M ) <_ ( R + C ) ) $.
     cxpbindifaddest.t $e |- ( ph -> M <_ ( 2 x. R ) ) $.
     $( Estimate a finite difference of a complex power whose exponent may have
        positive real part.  Choose a fixed number of differences large enough
@@ -889354,10 +889365,13 @@ $)
        25-Nov-2026.) $)
     cxpbindifaddest $p |- ( ph ->
       ( abs ` sum_ k e. ( 0 ... ( M + N ) )
-          ( ( ( -u 1 ^ k ) x. ( ( M + N ) _C k ) ) x. ( ( B + k ) ^c S ) ) )
-        <_ ( ( ( ( R ^c ( Re ` ( S - N ) ) ) x.
-           ( exp ` ( ( abs ` ( ( S - N ) - ( Re ` ( S - N ) ) ) ) x. _pi ) ) )
-              x. ( exp ` ( 2 x. C ) ) ) x. ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
+                ( ( ( -u 1 ^ k ) x. ( ( M + N ) _C k ) ) x.
+                  ( ( B + k ) ^c S ) ) ) <_
+      ( ( ( ( R ^c ( Re ` ( S - N ) ) ) x.
+            ( exp ` ( ( abs ` ( ( S - N ) - ( Re ` ( S - N ) ) ) ) x.
+                      _pi ) ) ) x.
+          ( exp ` ( 2 x. C ) ) ) x.
+        ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
       ( co wcel vx cmin cre cfv ccxp cabs cpi cmul ce c2 cr cc0 cle wbr wa cpnf
       cico nn0cnd subcld recld rpcxpcld recnd abscld pire a1i remulcld rpmulcld
       rpefcld 2re rpred rprege0d elrege0 sylibr rpge0d cv clt cfz cneg cexp cbc
@@ -889397,8 +889411,8 @@ $)
     cxpbindiftaille.c $e |- ( ph -> C e. RR+ ) $.
     cxpbindiftaille.p $e |- ( ph -> R < ( Re ` B ) ) $.
     cxpbindiftaille.g $e |- ( ph -> ( Re ` ( S - N ) ) <_ 0 ) $.
-    cxpbindiftaille.a $e |- ( ph -> ( ( abs ` ( S - N ) ) + M ) <_ ( R + C )
-      ) $.
+    cxpbindiftaille.a $e |- ( ph ->
+      ( ( abs ` ( S - N ) ) + M ) <_ ( R + C ) ) $.
     cxpbindiftaille.t $e |- ( ph -> M <_ ( 2 x. R ) ) $.
     cxpbindiftaille.n $e |- ( ph -> N e. NN0 ) $.
     $( Bound the tail of the weighted sum of finite differences starting at a
@@ -889407,13 +889421,16 @@ $)
        ~ cxpbindifaddest for each summand and ~ harmonicubnd for the sum of the
        reciprocal weights.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     cxpbindiftaille $p |- ( ph ->
-      ( abs ` sum_ n e. ( N ..^ M ) ( sum_ k e. ( 0 ... n )
-          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
-          ( n + 1 ) ) ) <_
-        ( ( ( ( ( R ^c ( Re ` ( S - N ) ) ) x.
-           ( exp ` ( ( abs ` ( ( S - N ) - ( Re ` ( S - N ) ) ) ) x. _pi ) ) )
-              x. ( exp ` ( 2 x. C ) ) ) x. ( ( ( abs ` S ) + N ) ^ N ) ) x.
-            ( ( log ` M ) + 1 ) ) ) $=
+      ( abs ` sum_ n e. ( N ..^ M )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
+                  ( n + 1 ) ) ) <_
+      ( ( ( ( ( R ^c ( Re ` ( S - N ) ) ) x.
+              ( exp ` ( ( abs ` ( ( S - N ) - ( Re ` ( S - N ) ) ) ) x.
+                        _pi ) ) ) x.
+            ( exp ` ( 2 x. C ) ) ) x.
+          ( ( ( abs ` S ) + N ) ^ N ) ) x.
+        ( ( log ` M ) + 1 ) ) ) $=
       ( co vj cfzo cc0 cv cfz c1 cneg cexp cbc cmul ccxp csu cdiv cabs cfv cmin
       caddc cre cpi ce c2 clog cfn wcel fzofi a1i wa fzfid neg1cn simpr elfznn0
       cn0 syl expcld crp bcrpcl rpcnd mulcld adantr nn0cnd addcld cxpcld fsumcl
@@ -889488,12 +889505,14 @@ $)
        the logarithmic factor from ~ harmonicubnd .  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
     cxpbindifsumle $p |- ( ph ->
-      ( abs ` sum_ n e. ( 0 ..^ M ) ( sum_ k e. ( 0 ... n )
-          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
-          ( n + 1 ) ) ) <_
-        ( ( ( ( R ^c ( Re ` S ) ) x. ( exp ` ( ( abs ` ( S - ( Re ` S ) ) )
-                x. _pi ) ) ) x. ( exp ` ( 2 x. C ) ) ) x.
-            ( ( log ` M ) + 1 ) ) ) $=
+      ( abs ` sum_ n e. ( 0 ..^ M )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c S ) ) /
+                  ( n + 1 ) ) ) <_
+      ( ( ( ( R ^c ( Re ` S ) ) x.
+            ( exp ` ( ( abs ` ( S - ( Re ` S ) ) ) x. _pi ) ) ) x.
+          ( exp ` ( 2 x. C ) ) ) x.
+        ( ( log ` M ) + 1 ) ) ) $=
       ( co cv wcel vj cc0 cfzo cfz c1 cneg cexp cbc cmul ccxp csu cdiv cabs cfv
       caddc cre cmin cpi ce c2 clog cfn fzofi a1i wa fzfid neg1cn simpr elfznn0
       cn0 syl expcld crp bcrpcl rpcnd mulcld adantr nn0cnd addcld cxpcld fsumcl
@@ -889558,8 +889577,8 @@ $)
     climlogbnd.m $e |- ( ph -> M e. NN ) $.
     climlogbnd.f $e |- ( ph -> F e. _V ) $.
     climlogbnd.v $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) -> ( F ` k ) e. CC ) $.
-    climlogbnd.l $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) -> ( abs ` ( F ` k ) )
-      <_ ( K x. ( ( ( log ` k ) + 1 ) / ( k ^c A ) ) ) ) $.
+    climlogbnd.l $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) ->
+      ( abs ` ( F ` k ) ) <_ ( K x. ( ( ( log ` k ) + 1 ) / ( k ^c A ) ) ) ) $.
     $( A sequence with complex values on an integer tail tends to zero if its
        modulus there is bounded by a constant times
        ` ( ( ( log `` k ) + 1 ) / ( k ^c A ) ) ` for a positive real exponent
@@ -889603,10 +889622,13 @@ $)
        real part of the parameter and apply ~ cxpbindiftaille on the resulting
        half-plane.  The bound tends to zero by ~ climlogbnd .  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    cxpbindiftail0 $p |- ( ph -> ( m e. NN0 |->
-        sum_ n e. ( N ..^ m ) ( sum_ k e. ( 0 ... n )
-          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + m ) + k ) ^c S ) ) /
-          ( n + 1 ) ) ) ~~> 0 ) $=
+    cxpbindiftail0 $p |- ( ph ->
+      ( m e. NN0 |->
+        sum_ n e. ( N ..^ m )
+          ( sum_ k e. ( 0 ... n )
+              ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                ( ( ( A + m ) + k ) ^c S ) ) /
+            ( n + 1 ) ) ) ~~> 0 ) $=
       ( vj vi cv wbr co cmul wcel adantr cle cre cfv cneg clt cn0 cfzo cc0 cexp
       cfz c1 cbc caddc ccxp csu cdiv cmpt cli cn cr wrex recld renegcld arch wa
       syl cmin c2 cabs cpi crp nn0red resubcld posdifd mpbid elrpd 2rp rpcxpcld
@@ -889698,8 +889720,9 @@ $)
        real part of the original exponent minus the difference order.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
     cxpbindifstepest $p |- ( ph ->
-      ( abs ` sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-          ( ( B + ( k x. T ) ) ^c S ) ) ) <_
+      ( abs ` sum_ k e. ( 0 ... N )
+                ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
+                  ( ( B + ( k x. T ) ) ^c S ) ) ) <_
       ( ( ( R ^c ( ( Re ` S ) - N ) ) x.
           ( exp ` ( ( abs ` ( S - ( Re ` S ) ) ) x. _pi ) ) ) x.
         ( ( ( abs ` S ) + N ) ^ N ) ) ) $=
@@ -889765,17 +889788,20 @@ $)
     dvbcsum.a $e |- ( ( ph /\ k e. NN0 /\ x e. X ) -> A e. CC ) $.
     dvbcsum.b $e |- ( ( ph /\ k e. NN0 /\ x e. X ) -> B e. CC ) $.
     dvbcsum.0 $e |- ( k = 0 -> B = E ) $.
-    dvbcsum.d $e |- ( ( ph /\ k e. ( 0 ... N ) ) -> ( T _D ( x e. X |-> A ) )
-      = ( x e. X |-> ( k x. B ) ) ) $.
+    dvbcsum.d $e |- ( ( ph /\ k e. ( 0 ... N ) ) ->
+      ( T _D ( x e. X |-> A ) ) = ( x e. X |-> ( k x. B ) ) ) $.
     $( Differentiate a finite sum of weighted binomial sums when the derivative
        of each summand is its index times a second summand.  The product and
        sum rules produce a factor of the index divided by the binomial order.
        This converts each coefficient into the difference of two consecutive
        coefficients by ~ bcp1nk and ~ bcpasc .  The intermediate binomial sums
        cancel by ~ telfsumo2 .  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvbcsum $p |- ( ph -> ( T _D ( x e. X |->
-        sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... ( n + 1 ) )
-          ( ( ( n + 1 ) _C k ) x. A ) / ( n + 1 ) ) ) ) =
+    dvbcsum $p |- ( ph ->
+      ( T _D
+        ( x e. X |->
+          sum_ n e. ( 0 ..^ N )
+            ( sum_ k e. ( 0 ... ( n + 1 ) ) ( ( ( n + 1 ) _C k ) x. A ) /
+              ( n + 1 ) ) ) ) =
       ( x e. X |-> ( sum_ k e. ( 0 ... N ) ( ( N _C k ) x. B ) - E ) ) ) $=
       ( cv vj cc0 cfzo co c1 caddc cfz cbc cmul csu cdiv cmpt cdv cmin eqid cfn
       crest fzofi a1i cc wa fzfid crp bcrpcl adantl rpcnd adantr simpll elfznn0
@@ -889849,9 +889875,9 @@ $)
   $}
 
   ${
-    $d B k n x $.  $d B k x y $.  $d N k n x $.  $d N k x y $.  $d S k n x $.
-    $d S k x y $.  $d T k n x $.  $d X k n x $.  $d k n ph x $.  $d ph x y $.
-    $d D x $.  $d D y $.
+    $d B k n x $.  $d B k x y $.  $d D x y $.  $d N k n x $.  $d N k x y $.
+    $d S k n x $.  $d S k x y $.  $d T k n x $.  $d X k n x $.  $d k n ph x $.
+    $d ph x y $.
     dvcxpbindif.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     dvcxpbindif.j $e |- J = ( TopOpen ` CCfld ) $.
     dvcxpbindif.n $e |- ( ph -> N e. NN0 ) $.
@@ -889859,22 +889885,28 @@ $)
     dvcxpbindif.x $e |- ( ph -> X e. ( J |`t T ) ) $.
     dvcxpbindif.b $e |- ( ph -> B e. CC ) $.
     dvcxpbindif.s $e |- ( ph -> S e. CC ) $.
-    dvcxpbindif.g $e |- ( ( ph /\ k e. ( 0 ... N ) /\ x e. X ) -> ( B + ( k
-      x. x ) ) e. D ) $.
+    dvcxpbindif.g $e |- ( ( ph /\ k e. ( 0 ... N ) /\ x e. X ) ->
+      ( B + ( k x. x ) ) e. D ) $.
     $( Differentiate a finite correction for a complex power with respect to
        its step size.  The affine bases lie in the slit plane.  The derivative
        of each power contributes its index by the chain rule, so ~ dvbcsum
        cancels the intermediate orders.  The linear term cancels the initial
        value and leaves the finite difference at the last order.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    dvcxpbindif $p |- ( ph -> ( T _D ( x e. X |->
-      ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. x ) +
-        sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... ( n + 1 ) )
-          ( ( ( n + 1 ) _C k ) x. ( ( -u 1 ^ k ) x.
-            ( ( B + ( k x. x ) ) ^c S ) ) ) / ( n + 1 ) ) ) ) ) =
-      ( x e. X |-> ( S x. sum_ k e. ( 0 ... N )
-          ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
-            ( ( B + ( k x. x ) ) ^c ( S - 1 ) ) ) ) ) ) $=
+    dvcxpbindif $p |- ( ph ->
+      ( T _D
+        ( x e. X |->
+          ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. x ) +
+            sum_ n e. ( 0 ..^ N )
+              ( sum_ k e. ( 0 ... ( n + 1 ) )
+                  ( ( ( n + 1 ) _C k ) x.
+                    ( ( -u 1 ^ k ) x. ( ( B + ( k x. x ) ) ^c S ) ) ) /
+                ( n + 1 ) ) ) ) ) =
+      ( x e. X |->
+        ( S x.
+          sum_ k e. ( 0 ... N )
+            ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x.
+              ( ( B + ( k x. x ) ) ^c ( S - 1 ) ) ) ) ) ) $=
       ( cv vy c1 cmin co ccxp cmul cc0 cfzo cfz cbc cneg cexp csu cdiv cmpt cdv
       caddc cc wcel wa 1cnd subcld cxpcld mulcld adantr crest ctopon cnfldtopon
       cfv wss a1i cpr recnprss syl resttopon syl2anc toponss sstrd dvmptid eqid
@@ -889944,20 +889976,28 @@ $)
        ~ dvcxpbindif and is bounded on the open unit interval by
        ~ cxpbindifstepest .  Apply the real mean-value estimate to the
        endpoints.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cxpbindifincest $p |- ( ph -> ( abs ` ( ( ( y e. ( -u 1 (,) 2 ) |->
-          ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. y ) +
-            sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... ( n + 1 ) )
-                ( ( ( n + 1 ) _C k ) x. ( ( -u 1 ^ k ) x.
-                  ( ( B + ( k x. y ) ) ^c S ) ) ) / ( n + 1 ) ) ) ) ` 1 ) -
-        ( ( y e. ( -u 1 (,) 2 ) |->
-          ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. y ) +
-            sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... ( n + 1 ) )
-                ( ( ( n + 1 ) _C k ) x. ( ( -u 1 ^ k ) x.
-                  ( ( B + ( k x. y ) ) ^c S ) ) ) /
-                  ( n + 1 ) ) ) ) ` 0 ) ) ) <_
-      ( ( abs ` S ) x. ( ( ( R ^c ( ( Re ` ( S - 1 ) ) - N ) ) x.
-          ( exp ` ( ( abs ` ( ( S - 1 ) - ( Re ` ( S - 1 ) ) ) ) x. _pi ) ) )
-        x. ( ( ( abs ` ( S - 1 ) ) + N ) ^ N ) ) ) ) $=
+    cxpbindifincest $p |- ( ph ->
+      ( abs ` ( ( ( y e. ( -u 1 (,) 2 ) |->
+                    ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. y ) +
+                      sum_ n e. ( 0 ..^ N )
+                        ( sum_ k e. ( 0 ... ( n + 1 ) )
+                            ( ( ( n + 1 ) _C k ) x.
+                              ( ( -u 1 ^ k ) x.
+                                ( ( B + ( k x. y ) ) ^c S ) ) ) /
+                          ( n + 1 ) ) ) ) ` 1 ) -
+                ( ( y e. ( -u 1 (,) 2 ) |->
+                    ( ( ( S x. ( B ^c ( S - 1 ) ) ) x. y ) +
+                      sum_ n e. ( 0 ..^ N )
+                        ( sum_ k e. ( 0 ... ( n + 1 ) )
+                            ( ( ( n + 1 ) _C k ) x.
+                              ( ( -u 1 ^ k ) x.
+                                ( ( B + ( k x. y ) ) ^c S ) ) ) /
+                          ( n + 1 ) ) ) ) ` 0 ) ) ) <_
+      ( ( abs ` S ) x.
+        ( ( ( R ^c ( ( Re ` ( S - 1 ) ) - N ) ) x.
+            ( exp ` ( ( abs ` ( ( S - 1 ) - ( Re ` ( S - 1 ) ) ) ) x.
+                      _pi ) ) ) x.
+          ( ( ( abs ` ( S - 1 ) ) + N ) ^ N ) ) ) ) $=
       ( vx co cv cfv wcel c1 cneg c2 cioo cmin ccxp cmul cc0 caddc cfz cbc cexp
       csu cdiv cmpt cabs cre cpi cle cres wceq 1elunit fvres 0elunit fveq2i a1i
       ax-mp wa wbr pm3.2i 0red 1red wss cc ccncf cxr clt rexri cr wf w3a subcld
@@ -890047,13 +890087,18 @@ $)
        zero and one.  At zero all bases coincide, so the positive-order
        binomial sums vanish by ~ binom1p .  At one they are the ordinary finite
        differences.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cxpbindifrem $p |- ( ph -> ( abs `
-      ( ( S x. ( B ^c ( S - 1 ) ) ) + sum_ n e. ( 0 ..^ N )
-        ( sum_ k e. ( 0 ... ( n + 1 ) ) ( ( ( -u 1 ^ k ) x.
-            ( ( n + 1 ) _C k ) ) x. ( ( B + k ) ^c S ) ) / ( n + 1 ) ) ) )
-      <_ ( ( abs ` S ) x. ( ( ( R ^c ( ( Re ` ( S - 1 ) ) - N ) ) x.
-          ( exp ` ( ( abs ` ( ( S - 1 ) - ( Re ` ( S - 1 ) ) ) ) x. _pi ) ) )
-        x. ( ( ( abs ` ( S - 1 ) ) + N ) ^ N ) ) ) ) $=
+    cxpbindifrem $p |- ( ph ->
+      ( abs ` ( ( S x. ( B ^c ( S - 1 ) ) ) +
+                sum_ n e. ( 0 ..^ N )
+                  ( sum_ k e. ( 0 ... ( n + 1 ) )
+                      ( ( ( -u 1 ^ k ) x. ( ( n + 1 ) _C k ) ) x.
+                        ( ( B + k ) ^c S ) ) /
+                    ( n + 1 ) ) ) ) <_
+      ( ( abs ` S ) x.
+        ( ( ( R ^c ( ( Re ` ( S - 1 ) ) - N ) ) x.
+            ( exp ` ( ( abs ` ( ( S - 1 ) - ( Re ` ( S - 1 ) ) ) ) x.
+                      _pi ) ) ) x.
+          ( ( ( abs ` ( S - 1 ) ) + N ) ^ N ) ) ) ) $=
       ( c1 co cmul cv cc0 caddc vx cneg c2 cioo cmin ccxp cfzo cfz cbc cexp csu
       cdiv cmpt cfv cabs cre cpi ce cle wcel wceq 1elunit cxr wa clt wbr neg1rr
       cicc wss rexri 2re pm3.2i neg1lt0 1lt2 iccssioo mp2an sseli oveq2d oveq1d
@@ -890105,9 +890150,9 @@ $)
     ulmdifp.a $e |- ( ph -> A e. RR ) $.
     ulmdifp.g $e |- ( ph -> 1 < A ) $.
     ulmdifp.n $e |- ( ph -> N e. NN ) $.
-    ulmdifp.b $e |- ( ( ph /\ ( k e. ( ZZ>= ` N ) /\ z e. S ) ) -> ( abs ` (
-      ( ( F ` ( k + 1 ) ) ` z ) - ( ( F ` k ) ` z ) ) ) <_ ( C x. ( ( k + 1 )
-      ^c -u A ) ) ) $.
+    ulmdifp.b $e |- ( ( ph /\ ( k e. ( ZZ>= ` N ) /\ z e. S ) ) ->
+      ( abs ` ( ( ( F ` ( k + 1 ) ) ` z ) - ( ( F ` k ) ` z ) ) ) <_
+      ( C x. ( ( k + 1 ) ^c -u A ) ) ) $.
     $( A sequence of functions converges uniformly if its successive
        differences are eventually bounded in absolute value by a constant times
        an inverse real power with exponent greater than one.  Telescope over a
@@ -890182,8 +890227,9 @@ $)
     climdifp.g $e |- ( ph -> 1 < S ) $.
     climdifp.c $e |- ( ph -> C e. RR ) $.
     climdifp.n $e |- ( ph -> N e. NN ) $.
-    climdifp.b $e |- ( ( ph /\ k e. ( ZZ>= ` N ) ) -> ( abs ` ( ( F ` k ) - (
-      F ` ( k - 1 ) ) ) ) <_ ( C x. ( k ^c -u S ) ) ) $.
+    climdifp.b $e |- ( ( ph /\ k e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( ( F ` k ) - ( F ` ( k - 1 ) ) ) ) <_
+      ( C x. ( k ^c -u S ) ) ) $.
     $( A complex sequence converges if its successive differences are
        eventually bounded in absolute value by a constant times an inverse real
        power with exponent greater than one.  Apply ~ cvgcmpce and ~ zetacvg to
@@ -890228,8 +890274,8 @@ $)
     $( A finite sum of complex powers of the translates of a complex number by
        nonnegative integers is complex.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    cxpfzosumcl $p |- ( ph -> sum_ k e. ( 0 ..^ M ) ( ( A + k ) ^c S ) e.
-      CC ) $=
+    cxpfzosumcl $p |- ( ph ->
+      sum_ k e. ( 0 ..^ M ) ( ( A + k ) ^c S ) e. CC ) $=
       ( cc0 cfzo co cv caddc ccxp cfn wcel fzofi a1i wa cc adantr adantl nn0cnd
       cn0 elfzonn0 addcld cxpcld fsumcl ) AHEIJZBDKLJZCMJDUHNOAHEPQADKUHOZRZUIC
       UKBDKABSOUJFTUKDKUJDKUCOADKEUDUAUBUEACSOUJGTUFUG $.
@@ -890244,11 +890290,14 @@ $)
     hurzfixcvg.s $e |- ( ph -> S e. E ) $.
     hurzfixcvg.n $e |- ( ph -> N e. NN0 ) $.
     hurzfixcvg.g $e |- ( ph -> ( Re ` ( 1 - S ) ) < N ) $.
-    hurzfixcvg.l $e |- ( ph -> ( m e. NN0 |->
-      ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) +
-        ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n )
-            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
-              ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) / ( n + 1 ) ) /
+    hurzfixcvg.l $e |- ( ph ->
+      ( m e. NN0 |->
+        ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) +
+          ( sum_ n e. ( 0 ..^ N )
+              ( sum_ k e. ( 0 ... n )
+                  ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                    ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) /
+                ( n + 1 ) ) /
             ( S - 1 ) ) ) ) ~~> Z ) $.
     $( Identify a Hurwitz zeta value from the limit of approximants with a
        fixed number of finite differences.  Once the running cutoff reaches the
@@ -890322,15 +890371,24 @@ $)
        order by one gives the numerator in ~ cxpbindifrem after multiplication
        by one minus the exponent.  Cancel the nonzero pole factor in the
        absolute-value inequality.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzfixest $p |- ( ph -> ( abs ` ( ( sum_ k e. ( 0 ..^ ( M + 1 ) ) ( ( A
-      + k ) ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( (
-      -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + ( M + 1 ) ) + k ) ^c ( 1 - S )
-      ) ) / ( n + 1 ) ) / ( S - 1 ) ) ) - ( sum_ k e. ( 0 ..^ M ) ( ( A + k )
-      ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( ( -u 1
-      ^ k ) x. ( n _C k ) ) x. ( ( ( A + M ) + k ) ^c ( 1 - S ) ) ) / ( n + 1
-      ) ) / ( S - 1 ) ) ) ) ) <_ ( ( ( R ^c ( ( Re ` -u S ) - N ) ) x. ( exp
-      ` ( ( abs ` ( -u S - ( Re ` -u S ) ) ) x. _pi ) ) ) x. ( ( ( abs ` -u S
-      ) + N ) ^ N ) ) ) $=
+    hurzfixest $p |- ( ph ->
+      ( abs ` ( ( sum_ k e. ( 0 ..^ ( M + 1 ) ) ( ( A + k ) ^c -u S ) +
+                  ( sum_ n e. ( 0 ..^ N )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( A + ( M + 1 ) ) + k ) ^c ( 1 - S ) ) ) /
+                        ( n + 1 ) ) /
+                    ( S - 1 ) ) ) -
+                ( sum_ k e. ( 0 ..^ M ) ( ( A + k ) ^c -u S ) +
+                  ( sum_ n e. ( 0 ..^ N )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( A + M ) + k ) ^c ( 1 - S ) ) ) /
+                        ( n + 1 ) ) /
+                    ( S - 1 ) ) ) ) ) <_
+      ( ( ( R ^c ( ( Re ` -u S ) - N ) ) x.
+          ( exp ` ( ( abs ` ( -u S - ( Re ` -u S ) ) ) x. _pi ) ) ) x.
+        ( ( ( abs ` -u S ) + N ) ^ N ) ) ) $=
       ( co cv cmul cmin cc0 caddc cfzo cneg ccxp csu cfz cexp cbc cdiv cabs cfv
       c1 cre cpi cle wbr 1cnd csn cdif wcel eldifi syl subcld cn0 w3a wceq 3jca
       ce cc simp1 simp2 negcld cxpfzosumcl cfn fzofi a1i wa fzfid simpr elfznn0
@@ -890410,14 +890468,23 @@ $)
        on the half-plane scale decays at least at that order.  The constant
        depends only on the disk radius and the cutoff.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    hurzfixmaj $p |- ( ph -> ( abs ` ( ( sum_ k e. ( 0 ..^ ( M + 1 ) ) ( ( A
-      + k ) ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( (
-      -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + ( M + 1 ) ) + k ) ^c ( 1 - S )
-      ) ) / ( n + 1 ) ) / ( S - 1 ) ) ) - ( sum_ k e. ( 0 ..^ M ) ( ( A + k )
-      ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( ( -u 1
-      ^ k ) x. ( n _C k ) ) x. ( ( ( A + M ) + k ) ^c ( 1 - S ) ) ) / ( n + 1
-      ) ) / ( S - 1 ) ) ) ) ) <_ ( ( ( exp ` ( ( H + H ) x. _pi ) ) x. ( ( H
-      + N ) ^ N ) ) x. ( R ^c -u E ) ) ) $=
+    hurzfixmaj $p |- ( ph ->
+      ( abs ` ( ( sum_ k e. ( 0 ..^ ( M + 1 ) ) ( ( A + k ) ^c -u S ) +
+                  ( sum_ n e. ( 0 ..^ N )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( A + ( M + 1 ) ) + k ) ^c ( 1 - S ) ) ) /
+                        ( n + 1 ) ) /
+                    ( S - 1 ) ) ) -
+                ( sum_ k e. ( 0 ..^ M ) ( ( A + k ) ^c -u S ) +
+                  ( sum_ n e. ( 0 ..^ N )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( A + M ) + k ) ^c ( 1 - S ) ) ) /
+                        ( n + 1 ) ) /
+                    ( S - 1 ) ) ) ) ) <_
+      ( ( ( exp ` ( ( H + H ) x. _pi ) ) x. ( ( H + N ) ^ N ) ) x.
+        ( R ^c -u E ) ) ) $=
       ( cc0 c1 caddc co cfzo cneg ccxp csu cfz cexp cbc cmul cmin cdiv cabs cfv
       cv cpi ce cle cre cxr wcel wbr wa crp 1rp a1i rpgecld csn cdif eldifi syl
       negcld recld nn0red rpred resubcld abscld releabsd absnegd letrd ltsubrpd
@@ -890453,10 +890520,14 @@ $)
   ${
     $d A i j k m n $.  $d A i j t $.  $d F i j t $.  $d N i k m n $.
     $d S i k m n $.  $d i j k m n ph $.  $d ph t $.
-    hurzfixlim.f $e |- F = ( m e. NN0 |-> ( sum_ k e. ( 0 ..^ m ) ( ( A + k )
-      ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( ( -u 1
-      ^ k ) x. ( n _C k ) ) x. ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) / ( n + 1
-      ) ) / ( S - 1 ) ) ) ) $.
+    hurzfixlim.f $e |- F = ( m e. NN0 |->
+                             ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) +
+                               ( sum_ n e. ( 0 ..^ N )
+                                   ( sum_ k e. ( 0 ... n )
+                                       ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                                         ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) /
+                                     ( n + 1 ) ) /
+                                 ( S - 1 ) ) ) ) $.
     hurzfixlim.a $e |- ( ph -> A e. CC ) $.
     hurzfixlim.s $e |- ( ph -> S e. ( CC \ { 1 } ) ) $.
     hurzfixlim.n $e |- ( ph -> N e. NN ) $.
@@ -890532,8 +890603,7 @@ $)
   $}
 
   ${
-    $d a j k m n s $.  $d D a $.  $d D j $.  $d D k $.  $d D m $.  $d D n $.
-    $d D s $.  $d E a $.  $d E j $.  $d E k $.  $d E m $.  $d E n $.  $d E s $.
+    $d D a j k m n s $.  $d E a j k m n s $.
     hurzf.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzf.e $e |- E = ( CC \ { 1 } ) $.
     $( Hurwitz zeta is complex-valued on the product of the slit parameter
@@ -890568,14 +890638,24 @@ $)
        parameter family.  The two functions supply the parameter and argument
        at that point.  Both finite sums use the resulting index and values.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzfixfval $p |- ( ph -> ( ( ( m e. NN0 |-> ( t e. X |-> ( sum_ k e. ( 0
-      ..^ m ) ( ( ( A ` t ) + k ) ^c -u ( S ` t ) ) + ( sum_ n e. ( 0 ..^ N )
-      ( sum_ k e. ( 0 ... n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( ( A `
-      t ) + m ) + k ) ^c ( 1 - ( S ` t ) ) ) ) / ( n + 1 ) ) / ( ( S ` t ) -
-      1 ) ) ) ) ) ` I ) ` Z ) = ( sum_ k e. ( 0 ..^ I ) ( ( ( A ` Z ) + k )
-      ^c -u ( S ` Z ) ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( (
-      ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( ( A ` Z ) + I ) + k ) ^c ( 1 - (
-      S ` Z ) ) ) ) / ( n + 1 ) ) / ( ( S ` Z ) - 1 ) ) ) ) $=
+    hurzfixfval $p |- ( ph ->
+      ( ( ( m e. NN0 |->
+            ( t e. X |->
+              ( sum_ k e. ( 0 ..^ m ) ( ( ( A ` t ) + k ) ^c -u ( S ` t ) ) +
+                ( sum_ n e. ( 0 ..^ N )
+                    ( sum_ k e. ( 0 ... n )
+                        ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                          ( ( ( ( A ` t ) + m ) + k ) ^c
+                            ( 1 - ( S ` t ) ) ) ) /
+                      ( n + 1 ) ) /
+                  ( ( S ` t ) - 1 ) ) ) ) ) ` I ) ` Z ) =
+      ( sum_ k e. ( 0 ..^ I ) ( ( ( A ` Z ) + k ) ^c -u ( S ` Z ) ) +
+        ( sum_ n e. ( 0 ..^ N )
+            ( sum_ k e. ( 0 ... n )
+                ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                  ( ( ( ( A ` Z ) + I ) + k ) ^c ( 1 - ( S ` Z ) ) ) ) /
+              ( n + 1 ) ) /
+          ( ( S ` Z ) - 1 ) ) ) ) $=
       ( co caddc csu cdiv oveq1d cn0 cc0 cv cfzo cfv cneg ccxp cfz c1 cexp cmul
       cbc cmin cmpt cvv eqid wceq id sumeq1d sumeq2sdv oveq12d mpteq2dv fvmptd3
       oveq2d mptexd fveq1d wcel fveq2d negeqd ovex fvmpt syl eqtrd ) ALHFUABKUB
@@ -890602,8 +890682,8 @@ $)
     hurzfixulm.n $e |- ( ph -> N e. NN ) $.
     hurzfixulm.h $e |- ( ph -> H e. RR ) $.
     hurzfixulm.g $e |- ( ph -> H <_ ( N - 2 ) ) $.
-    hurzfixulm.l $e |- ( ( ph /\ z e. X ) -> ( 1 - N ) < ( Re ` ( A ` z ) ) )
-      $.
+    hurzfixulm.l $e |- ( ( ph /\ z e. X ) ->
+      ( 1 - N ) < ( Re ` ( A ` z ) ) ) $.
     hurzfixulm.b $e |- ( ( ph /\ z e. X ) -> ( abs ` ( S ` z ) ) <_ H ) $.
     $( The fixed-cutoff Hurwitz approximants converge uniformly to Hurwitz zeta
        on a family of parameter pairs.  A common lower bound on the real parts
@@ -890612,11 +890692,17 @@ $)
        cutoff, ~ hurzfixmaj bounds the increments by a constant times an
        inverse square.  Apply ~ ulmdifp and identify the limit pointwise by
        ~ hurzfixcvg .  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzfixulm $p |- ( ph -> ( m e. NN0 |-> ( t e. X |-> ( sum_ k e. ( 0 ..^
-      m ) ( ( ( A ` t ) + k ) ^c -u ( S ` t ) ) + ( sum_ n e. ( 0 ..^ N ) (
-      sum_ k e. ( 0 ... n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( ( A ` t
-      ) + m ) + k ) ^c ( 1 - ( S ` t ) ) ) ) / ( n + 1 ) ) / ( ( S ` t ) - 1
-      ) ) ) ) ) ( ~~>u ` X ) ( t e. X |-> ( ( A ` t ) HurZ ( S ` t ) ) ) ) $=
+    hurzfixulm $p |- ( ph ->
+      ( m e. NN0 |->
+        ( t e. X |->
+          ( sum_ k e. ( 0 ..^ m ) ( ( ( A ` t ) + k ) ^c -u ( S ` t ) ) +
+            ( sum_ n e. ( 0 ..^ N )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                      ( ( ( ( A ` t ) + m ) + k ) ^c ( 1 - ( S ` t ) ) ) ) /
+                  ( n + 1 ) ) /
+              ( ( S ` t ) - 1 ) ) ) ) ) ( ~~>u ` X )
+      ( t e. X |-> ( ( A ` t ) HurZ ( S ` t ) ) ) ) $=
       ( vi cn0 cc0 cv cfzo co cfv caddc cneg ccxp csu cfz c1 cexp cbc cmul cmin
       cdiv cmpt culm churz cdm wcel wbr c2 cpi ce cc cmap wa wf simpr ffvelcdmd
       adantr cmnf cioc cdif eleq2i eldifi syl simplr addcld 1cnd subcld syl2anc
@@ -890694,8 +890780,8 @@ $)
   $}
 
   ${
-    $d M k n x y $.  $d N k n x y $.  $d S k n x y $.  $d X k n x $.
-    $d k n ph x y $.  $d D k $.  $d D x $.  $d D y $.
+    $d D k x y $.  $d M k n x y $.  $d N k n x y $.  $d S k n x y $.
+    $d X k n x $.  $d k n ph x y $.
     dvhurzfixasuc.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     dvhurzfixasuc.e $e |- E = ( CC \ { 1 } ) $.
     dvhurzfixasuc.j $e |- J = ( TopOpen ` CCfld ) $.
@@ -890708,14 +890794,25 @@ $)
        fixed-cutoff Hurwitz approximant with respect to the first variable is
        the negative of the argument times the same approximant with argument
        increased by one.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvhurzfixasuc $p |- ( ph -> ( CC _D ( x e. X |-> ( sum_ k e. ( 0 ..^ M )
-      ( ( x + k ) ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n )
-      ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( x + M ) + k ) ^c ( 1 - S ) )
-      ) / ( n + 1 ) ) / ( S - 1 ) ) ) ) ) = ( x e. X |-> ( -u S x. ( sum_ k
-      e. ( 0 ..^ M ) ( ( x + k ) ^c -u ( S + 1 ) ) + ( sum_ n e. ( 0 ..^ N )
-      ( sum_ k e. ( 0 ... n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( x + M
-      ) + k ) ^c ( 1 - ( S + 1 ) ) ) ) / ( n + 1 ) ) / ( ( S + 1 ) - 1 ) ) )
-      ) ) ) $=
+    dvhurzfixasuc $p |- ( ph ->
+      ( CC _D
+        ( x e. X |->
+          ( sum_ k e. ( 0 ..^ M ) ( ( x + k ) ^c -u S ) +
+            ( sum_ n e. ( 0 ..^ N )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                      ( ( ( x + M ) + k ) ^c ( 1 - S ) ) ) /
+                  ( n + 1 ) ) /
+              ( S - 1 ) ) ) ) ) =
+      ( x e. X |->
+        ( -u S x.
+          ( sum_ k e. ( 0 ..^ M ) ( ( x + k ) ^c -u ( S + 1 ) ) +
+            ( sum_ n e. ( 0 ..^ N )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                      ( ( ( x + M ) + k ) ^c ( 1 - ( S + 1 ) ) ) ) /
+                  ( n + 1 ) ) /
+              ( ( S + 1 ) - 1 ) ) ) ) ) ) $=
       ( co vy cc cc0 cfzo cv caddc cneg ccxp csu cfz c1 cexp cbc cmul cmin cdiv
       cmpt cdv cr cpr wcel cnelprrecn a1i wa fzofi sselda cmnf cioc cdif eleq2i
       cfn eldifi syl adantr cn0 elfzonn0 adantl nn0cnd addcld csn negcld cxpcld
@@ -890788,7 +890885,7 @@ $)
   $}
 
   ${
-    $d A i k m n $.  $d D k $.  $d D m $.  $d D n $.
+    $d A i k m n $.  $d D k m n $.
     hurz0.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( The value of the Hurwitz zeta function at argument zero is one half
        minus its first parameter.  Use the cutoff of order two in
@@ -890796,8 +890893,7 @@ $)
        differences of the linear power at the shifted parameter are the shifted
        parameter and minus one.  The resulting approximant is constant in its
        index.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurz0 $p |- ( A e. D -> ( A HurZ 0 ) = ( ( 1 / 2 ) -
-      A ) ) $=
+    hurz0 $p |- ( A e. D -> ( A HurZ 0 ) = ( ( 1 / 2 ) - A ) ) $=
       ( vk vn vm wcel cc0 cc c1 cdiv co a1i wceq caddc cneg cmul oveq1d eqtrd
       cv vi csn cdif c2 cmin eqid 0cnd wne 0ne1 eldifsnd cn0 2nn0 cre cfv 1m0e1
       clt fveq2d re1 eqtrdi 1lt2 eqbrtrdi cfzo ccxp csu cfz cexp cbc cmpt nn0uz
@@ -890855,15 +890951,14 @@ $)
   $}
 
   ${
-
     $d D x $.
     dvhurz0.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( The derivative of the Hurwitz zeta function in its first variable at
        argument zero is the constant function with value minus one on the slit
        plane.  This follows by differentiating the affine formula of ~ hurz0 .
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvhurz0 $p |- ( CC _D ( x e. D |-> ( x HurZ 0 ) ) )
-      = ( x e. D |-> -u 1 ) $=
+    dvhurz0 $p |- ( CC _D ( x e. D |-> ( x HurZ 0 ) ) ) =
+      ( x e. D |-> -u 1 ) $=
       ( wtru cc cv cc0 churz co cmpt cdv c1 cneg wceq tru cmin wcel a1i subcld
       c2 hurz0 mpteq2ia oveq2i ccnfld ctopn cfv cr cpr cnelprrecn halfcn adantr
       cdiv simpr 0cnd 1cnd dvmptc dvmptid dvmptsub cmnf cioc cdif difss eqsstri
@@ -890886,9 +890981,9 @@ $)
     ulmle.b $e |- ( ph -> B : S --> CC ) $.
     ulmle.u $e |- ( ph -> F ( ~~>u ` S ) G ) $.
     ulmle.c $e |- ( ph -> C e. RR+ ) $.
-    ulmle.l $e |- ( ( ph /\ ( k e. Z /\ z e. S ) ) -> ( abs ` ( ( ( H ` k ) `
-      z ) - ( B ` z ) ) ) <_ ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) )
-      ) ) ) $.
+    ulmle.l $e |- ( ( ph /\ ( k e. Z /\ z e. S ) ) ->
+      ( abs ` ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_
+      ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) ) ) ) ) $.
     $( Transfer uniform convergence when the error of one sequence of functions
        is bounded by a positive constant times the error of another.  Apply the
        uniform limit property of the majorizing sequence with the requested
@@ -890915,8 +891010,8 @@ $)
   $}
 
   ${
-    $d H z $.  $d N k m n x z $.  $d S k m n x y z $.  $d X k m n x y z $.
-    $d k m n ph x y z $.  $d D y $.  $d E y $.
+    $d D y $.  $d E y $.  $d H z $.  $d N k m n x z $.  $d S k m n x y z $.
+    $d X k m n x y z $.  $d k m n ph x y z $.
     hurzfixulma.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzfixulma.e $e |- E = ( CC \ { 1 } ) $.
     hurzfixulma.x $e |- ( ph -> X C_ D ) $.
@@ -890930,11 +891025,17 @@ $)
        functions of their first variable.  Specialize ~ hurzfixulm to the
        identity map on the parameter set and a constant zeta argument.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzfixulma $p |- ( ph -> ( m e. NN0 |-> ( x e. X |-> ( sum_ k e. ( 0 ..^
-      m ) ( ( x + k ) ^c -u S ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ...
-      n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( x + m ) + k ) ^c ( 1 - S
-      ) ) ) / ( n + 1 ) ) / ( S - 1 ) ) ) ) ) ( ~~>u ` X ) ( x e. X |-> ( x
-      HurZ S ) ) ) $=
+    hurzfixulma $p |- ( ph ->
+      ( m e. NN0 |->
+        ( x e. X |->
+          ( sum_ k e. ( 0 ..^ m ) ( ( x + k ) ^c -u S ) +
+            ( sum_ n e. ( 0 ..^ N )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                      ( ( ( x + m ) + k ) ^c ( 1 - S ) ) ) /
+                  ( n + 1 ) ) /
+              ( S - 1 ) ) ) ) ) ( ~~>u ` X )
+      ( x e. X |-> ( x HurZ S ) ) ) $=
       ( vy cn0 cc0 cv cfzo co cmpt cfv caddc cneg ccxp csu cfz c1 cexp cbc cmul
       cmin cdiv churz culm cvv cc wcel cnex cmnf cioc cdif difss eqsstri sstrdi
       a1i ssexd sselda fmpttd adantr wa cre clt wceq simpr id eqid fvmpt fveq2d
@@ -890970,8 +891071,8 @@ $)
     ulmdvsc.g $e |- ( ph -> F ( ~~>u ` X ) G ) $.
     ulmdvsc.b $e |- ( ph -> A ( ~~>u ` X ) B ) $.
     ulmdvsc.c $e |- ( ph -> C e. CC ) $.
-    ulmdvsc.d $e |- ( ( ph /\ i e. Z ) -> ( T _D ( F ` i ) ) = ( x e. X |-> (
-      C x. ( ( A ` i ) ` x ) ) ) ) $.
+    ulmdvsc.d $e |- ( ( ph /\ i e. Z ) ->
+      ( T _D ( F ` i ) ) = ( x e. X |-> ( C x. ( ( A ` i ) ` x ) ) ) ) $.
     $( Differentiate a uniform limit when each derivative is the same constant
        times a member of another uniformly convergent sequence.  The derivative
        of the limit is the constant times the second limit.  The error is
@@ -891012,9 +891113,9 @@ $)
   $}
 
   ${
-    $d H z $.  $d N i k m n t x $.  $d N k m n t z $.  $d S i k m n t x $.
-    $d S k m n t z $.  $d X i k m n t x $.  $d X k m n t z $.
-    $d i k m n ph t x $.  $d ph t z $.  $d D k $.  $d D t $.
+    $d D k t $.  $d H z $.  $d N i k m n t x $.  $d N k m n t z $.
+    $d S i k m n t x $.  $d S k m n t z $.  $d X i k m n t x $.
+    $d X k m n t z $.  $d i k m n ph t x $.  $d ph t z $.
     dvhurzaloc.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     dvhurzaloc.e $e |- E = ( CC \ { 1 } ) $.
     dvhurzaloc.j $e |- J = ( TopOpen ` CCfld ) $.
@@ -891034,8 +891135,9 @@ $)
        argument and its successor.  Pass the recurrence for finite approximants
        to the derivative of their limit.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    dvhurzaloc $p |- ( ph -> ( CC _D ( t e. X |-> ( t HurZ S ) ) ) = ( t e. X
-      |-> ( -u S x. ( t HurZ ( S + 1 ) ) ) ) ) $=
+    dvhurzaloc $p |- ( ph ->
+      ( CC _D ( t e. X |-> ( t HurZ S ) ) ) =
+      ( t e. X |-> ( -u S x. ( t HurZ ( S + 1 ) ) ) ) ) $=
       ( vx vm vk vn vi cc cv churz co cmpt cdv cneg caddc cmul cfv cn0 cc0 cfzo
       c1 ccxp csu cfz cexp cbc cmin cdiv nn0uz 0zd cpr wcel cnelprrecn a1i culm
       cr wfn wbr cmap wf cvv nfv wa elexd adantr mptexg eqid fnmptd hurzfixulma
@@ -891088,8 +891190,8 @@ $)
     dvmptlocbr.b $e |- ( ( ph /\ x e. Y ) -> B e. CC ) $.
     dvmptlocbr.e $e |- ( x = Z -> B = C ) $.
     dvmptlocbr.c $e |- ( ph -> C e. CC ) $.
-    dvmptlocbr.d $e |- ( ph -> ( T _D ( x e. Y |-> A ) ) = ( x e. Y |-> B ) )
-      $.
+    dvmptlocbr.d $e |- ( ph ->
+      ( T _D ( x e. Y |-> A ) ) = ( x e. Y |-> B ) ) $.
     $( A derivative of a restriction at a point gives the same derivative for
        the original function there.  The derivative of the restriction is a
        restriction of the original derivative by ~ dvres .  Evaluate its
@@ -891106,8 +891208,7 @@ $)
   $}
 
   ${
-    $d S j t y z $.  $d D j $.  $d D t $.  $d D y $.  $d D z $.  $d E j $.
-    $d E t $.  $d E y $.  $d E z $.
+    $d D j t y z $.  $d E j t y z $.  $d S j t y z $.
     dvhurza.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     dvhurza.e $e |- E = ( CC \ { 1 } ) $.
     $( Differentiate the Hurwitz zeta function in its first variable on the
@@ -891116,8 +891217,9 @@ $)
        both the argument and its successor.  The derivative of the restriction
        agrees at that point with the derivative of the original function.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvhurza $p |- ( ( S e. E /\ S =/= 0 ) -> ( CC _D ( t e. D |-> ( t HurZ S ) ) ) = ( t e. D
-      |-> ( -u S x. ( t HurZ ( S + 1 ) ) ) ) ) $=
+    dvhurza $p |- ( ( S e. E /\ S =/= 0 ) ->
+      ( CC _D ( t e. D |-> ( t HurZ S ) ) ) =
+      ( t e. D |-> ( -u S x. ( t HurZ ( S + 1 ) ) ) ) ) $=
       ( vz vj vy wcel cc0 cc cv co cneg c1 a1i adantr wbr cfv wne wa churz cmpt
       cdv caddc cmul cdm wfn cr cpr wf cnelprrecn dvfg syl ffnd ssidd cxp hurzf
       simpr simpl fovcdmd fmpttd wss cmnf cioc cdif difss eqsstri dvbss cle cif
@@ -891175,14 +891277,15 @@ $)
   $}
 
   ${
-    $d S x $.  $d D x $.  $d E x $.
+    $d D x $.  $d E x $.  $d S x $.
     hurzdma.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzdma.e $e |- E = ( CC \ { 1 } ) $.
     $( The first-variable derivative of Hurwitz zeta has the entire slit plane
        as its domain for every zeta argument other than one.  At zero use the
        affine value, and at every other argument use the derivative recurrence
        of ~ dvhurza .  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzdma $p |- ( S e. E -> dom ( CC _D ( x e. D |-> ( x HurZ S ) ) ) = D ) $=
+    hurzdma $p |- ( S e. E ->
+      dom ( CC _D ( x e. D |-> ( x HurZ S ) ) ) = D ) $=
       ( cc churz co cmpt cdv cdm wceq cc0 dmeqd cneg c1 cmul eqid dmmpti oveq2d
       wcel cv oveq2 mpteq2dv eqeq1d wne caddc dvhurza ovex eqtrdi dvhurz0 dmeqi
       wa neg1cn elexi eqtri a1i pm2.61ne ) CDUBZGABAUCZCHIZJZKIZLZBMGABVANHIZJZ
@@ -891196,8 +891299,9 @@ $)
     $( For every nonzero complex base, the derivative with respect to the
        exponent is the principal logarithm times the original power.  Extend
        ~ dvcxp2 to complex bases.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvcncxp2 $p |- ( ( A e. CC /\ A =/= 0 ) -> ( CC _D ( x e. CC |-> ( A ^c x
-      ) ) ) = ( x e. CC |-> ( ( log ` A ) x. ( A ^c x ) ) ) ) $=
+    dvcncxp2 $p |- ( ( A e. CC /\ A =/= 0 ) ->
+      ( CC _D ( x e. CC |-> ( A ^c x ) ) ) =
+      ( x e. CC |-> ( ( log ` A ) x. ( A ^c x ) ) ) ) $=
       ( vy cc wcel wa cv cfv cmul co ce cmpt cdv simpr adantr mulcomd mpteq2dva
       a1i c1 oveq2d cc0 wne clog ccxp cr cpr cnelprrecn mulcld efcl adantl 1cnd
       logcl dvmptid dvmptcmul mulridd 3eqtrd dvef wf eff feqmptd eqcomd 3eqtr4a
@@ -891220,9 +891324,11 @@ $)
        roots of unity.  Divide each sampled value by the corresponding power of
        the sample point, then sum over all sample points.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    root1coef $p |- ( ph -> sum_ j e. ( 0 ..^ N ) ( sum_ k e. ( 0 ..^ N ) ( A
-      x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) / ( ( ( -u 1 ^c ( 2 / N ) )
-      ^ j ) ^ L ) ) = ( B x. N ) ) $=
+    root1coef $p |- ( ph ->
+      sum_ j e. ( 0 ..^ N )
+        ( sum_ k e. ( 0 ..^ N )
+            ( A x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) /
+          ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ L ) ) = ( B x. N ) ) $=
       ( cc0 co c1 cv cexp csu wceq wcel wa adantr cfzo cneg c2 cdiv csn cif cfn
       ccxp cmul fzofi a1i cc neg1cn 2cn cn cn0 clt wbr elfzo0 simp2bi syl nncnd
       nnne0d divcld cxpcld wne neg1ne0 cxpne0d cz adantl expclzd expne0d simpll
@@ -891283,11 +891389,10 @@ $)
   $}
 
   ${
-
     $( Every integer power of the primitive root of unity has absolute value
        one.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    root1abs $p |- ( ( N e. NN /\ J e. ZZ ) -> ( abs ` ( ( -u 1 ^c ( 2 / N )
-      ) ^ J ) ) = 1 ) $=
+    root1abs $p |- ( ( N e. NN /\ J e. ZZ ) ->
+      ( abs ` ( ( -u 1 ^c ( 2 / N ) ) ^ J ) ) = 1 ) $=
       ( cn wcel c1 cneg c2 co ccxp cexp cabs cfv cc0 wne wceq a1i oveq1d 3eqtrd
       cc cr cz cdiv neg1cn 2re simpl nnred nnne0d redivcld recnd cxpcld neg1ne0
       wa cxpne0d simpr absexpz syl3anc abscxp2 syl2anc 1cnd absnegd abs1 eqtrdi
@@ -891305,9 +891410,10 @@ $)
     plycoefbnd.l $e |- ( ph -> L e. ( 0 ..^ N ) ) $.
     plycoefbnd.r $e |- ( ph -> R e. RR+ ) $.
     plycoefbnd.m $e |- ( ph -> M e. RR ) $.
-    plycoefbnd.o $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) -> ( abs ` sum_ k e. ( 0
-      ..^ N ) ( A x. ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k ) ) ) <_ M
-      ) $.
+    plycoefbnd.o $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) ->
+      ( abs ` sum_ k e. ( 0 ..^ N )
+                ( A x. ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k ) ) ) <_
+      M ) $.
     $( Bound the absolute value of a coefficient times the corresponding power
        of a radius, given a bound on a polynomial at equally spaced points on
        that circle.  This is a finite form of the Cauchy coefficient estimate.
@@ -891353,8 +891459,8 @@ $)
     plydvbnd.c $e |- ( ph -> C e. CC ) $.
     plydvbnd.r $e |- ( ph -> R e. RR+ ) $.
     plydvbnd.m $e |- ( ph -> M e. RR ) $.
-    plydvbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> ( abs ` (
-      F ` ( z + C ) ) ) <_ M ) $.
+    plydvbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( abs ` ( F ` ( z + C ) ) ) <_ M ) $.
     $( Cauchy's first-derivative estimate for a polynomial at an arbitrary
        complex center.  Translate a circle of radius ` R ` to the origin and
        apply the estimate there.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -891438,13 +891544,14 @@ $)
     plydvsubbnd.c $e |- ( ph -> C e. CC ) $.
     plydvsubbnd.r $e |- ( ph -> R e. RR+ ) $.
     plydvsubbnd.m $e |- ( ph -> M e. RR ) $.
-    plydvsubbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> ( abs `
-      ( ( F ` ( z + C ) ) - ( G ` ( z + C ) ) ) ) <_ M ) $.
+    plydvsubbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( abs ` ( ( F ` ( z + C ) ) - ( G ` ( z + C ) ) ) ) <_ M ) $.
     $( Bound the difference of two polynomial derivatives at a point in terms
        of a uniform bound on the difference of their values on a surrounding
        circle.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plydvsubbnd $p |- ( ph -> ( ( abs ` ( ( ( CC _D F ) ` C ) - ( ( CC _D G )
-      ` C ) ) ) x. R ) <_ M ) $=
+    plydvsubbnd $p |- ( ph ->
+      ( ( abs ` ( ( ( CC _D F ) ` C ) - ( ( CC _D G ) ` C ) ) ) x. R ) <_
+      M ) $=
       ( vx cc cmin co cdv cfv wcel cof cabs cmul cle cv cmpt cvv cnex a1i wa wf
       cply plyf syl adantr simpr ffvelcdmd feqmptd offval2 oveq2d cr cnelprrecn
       cpr dvply2 eqtr3d dvmptsub eqtrd fveq1d wceq fveq2 eqid ovex fvmpt fveq2d
@@ -891475,10 +891582,12 @@ $)
     ulmcautr.g $e |- ( ph -> G : Z --> ( CC ^m X ) ) $.
     ulmcautr.c $e |- ( ph -> C e. RR+ ) $.
     ulmcautr.d $e |- ( ph -> F e. dom ( ~~>u ` Y ) ) $.
-    ulmcautr.t $e |- ( ( ( ( ph /\ e e. RR+ ) /\ j e. Z ) /\ k e. ( ZZ>= ` j
-      ) ) -> ( A. y e. Y ( abs ` ( ( ( F ` k ) ` y ) - ( ( F ` j ) ` y ) ) )
-      < ( e x. C ) -> A. x e. X ( abs ` ( ( ( G ` k ) ` x ) - ( ( G ` j ) ` x
-      ) ) ) < e ) ) $.
+    ulmcautr.t $e |- ( ( ( ( ph /\ e e. RR+ ) /\ j e. Z ) /\
+                         k e. ( ZZ>= ` j ) ) ->
+      ( A. y e. Y
+          ( abs ` ( ( ( F ` k ) ` y ) - ( ( F ` j ) ` y ) ) ) < ( e x. C ) ->
+        A. x e. X
+          ( abs ` ( ( ( G ` k ) ` x ) - ( ( G ` j ) ` x ) ) ) < e ) ) $.
     $( Transfer uniform Cauchy convergence between families on two sets.  It
        suffices that a fixed positive multiple of every tolerance for the first
        family yields the required tolerance for the second.  (Contributed by
@@ -891523,17 +891632,16 @@ $)
     plyresgap.j $e |- ( ph -> J e. NN0 ) $.
     plyresgap.t $e |- ( ph -> T e. RR ) $.
     plyresgap.x $e |- ( ph -> X e. Y ) $.
-    plyresgap.a $e |- ( ph -> A. y e. Y ( abs ` ( ( ( ( m e. NN0 |-> ( (
-      F ` m
-      ) |` Y ) ) ` K ) ` y ) - ( ( ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) `
-      J ) `
-      y ) ) ) < T ) $.
+    plyresgap.a $e |- ( ph ->
+      A. y e. Y
+        ( abs ` ( ( ( ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ` K ) ` y ) -
+                  ( ( ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ` J ) ` y ) ) ) <
+        T ) $.
     $( A uniform bound for differences of restricted polynomials bounds their
        ordinary evaluated difference at any point of the restriction.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyresgap $p |- ( ph -> ( abs ` ( ( ( F ` K ) ` X ) - ( ( F ` J ) ` X
-      ) )
-      ) <_ T ) $=
+    plyresgap $p |- ( ph ->
+      ( abs ` ( ( ( F ` K ) ` X ) - ( ( F ` J ) ` X ) ) ) <_ T ) $=
       ( cfv cc cn0 fveq2d cmin co cabs cply wcel wf ffvelcdmd syl sseldd subcld
       plyf abscld cv cres cmpt clt wceq id reseq1d eqid fvex resex fvmpt fveq1d
       fvresd eqtrd oveq12d wbr breq1d rspcdva eqbrtrrd ltled ) AHGEQZQZHFEQZQZU
@@ -891556,10 +891664,11 @@ $)
     plyulmdv.y $e |- ( ph -> Y C_ CC ) $.
     plyulmdv.p $e |- ( ph -> B : NN0 --> ( Poly ` CC ) ) $.
     plyulmdv.r $e |- ( ph -> R e. RR+ ) $.
-    plyulmdv.s $e |- ( ( ph /\ ( x e. X /\ ( w e. CC /\ ( abs ` w ) = R ) ) )
-      -> ( w + x ) e. Y ) $.
-    plyulmdv.u $e |- ( ph -> ( m e. NN0 |-> ( ( B ` m ) |` Y ) ) ( ~~>u ` Y )
-      F ) $.
+    plyulmdv.s $e |- ( ( ph /\
+                         ( x e. X /\ ( w e. CC /\ ( abs ` w ) = R ) ) ) ->
+      ( w + x ) e. Y ) $.
+    plyulmdv.u $e |- ( ph ->
+      ( m e. NN0 |-> ( ( B ` m ) |` Y ) ) ( ~~>u ` Y ) F ) $.
     $( A uniform limit of polynomials is complex differentiable throughout an
        open subset when every point of that subset is surrounded by a circle of
        a common positive radius within the set of uniform convergence.  The
@@ -891625,13 +891734,12 @@ $)
 
   ${
     $d t x y $.
-
     $( The Gaussian rationals form a well-orderable subset of the complex
        numbers containing zero.  The real and imaginary parts give an injection
        into the Cartesian square of the rationals.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    cnqnum $p |- ( { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) }
-        e. dom card /\
+    cnqnum $p |- ( { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) } e.
+                   dom card /\
       { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) } C_ CC /\
       0 e. { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) } ) $=
       ( vx vy cv cre cfv cq wcel cim wa cc cc0 com wceq id fveq2d eleq1d simpld
@@ -891663,9 +891771,9 @@ $)
     $( The Gaussian rationals are dense in the complex plane.  Approximate the
        real and imaginary parts separately and use the triangle inequality.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cnqdense $p |- ( ph -> E. q e.
-      { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) }
-      ( abs ` ( q - A ) ) < D ) $=
+    cnqdense $p |- ( ph ->
+      E. q e. { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) }
+        ( abs ` ( q - A ) ) < D ) $=
       ( cfv co cmin cv clt wbr caddc wa cabs cq wcel cr adantr vu vv cre c2 cim
       cdiv crab recld rphalfcld rpred resubcld readdcld ltsubrpd ltaddrpd lttrd
       cc wrex qbtwnre syl3anc imcld cmul wceq fveq2d eleq1d anbi12d simplrl qre
@@ -891755,8 +891863,8 @@ $)
        changes by at most ` D ` and each weight has modulus at most ` H ` .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     fsumpertbnd $p |- ( ph ->
-      ( abs ` ( sum_ k e. X ( A x. C ) - sum_ k e. X ( B x. C ) ) )
-        <_ ( ( # ` X ) x. ( D x. H ) ) ) $=
+      ( abs ` ( sum_ k e. X ( A x. C ) - sum_ k e. X ( B x. C ) ) ) <_
+      ( ( # ` X ) x. ( D x. H ) ) ) $=
       ( cmul co cabs cfv cmin csu chash cle cv wcel mulcld subcld fsumcl abscld
       wa fsumrecl adantr remulcld fsumabs subdird eqcomd fveq2d absmuld absge0d
       cr eqtrd lemul1ad cc0 0red letrd lemul2ad eqbrtrd fsumle fsumsub cfn wceq
@@ -891779,8 +891887,9 @@ $)
        bound outside a sufficiently large disk.  Compare ~ ftalem2 for the
        bound given by the value at zero.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plycofgt $p |- ( ph -> E. r e. RR+ A. x e. CC
-      ( r < ( abs ` x ) -> M < ( abs ` ( F ` x ) ) ) ) $=
+    plycofgt $p |- ( ph ->
+      E. r e. RR+ A. x e. CC
+        ( r < ( abs ` x ) -> M < ( abs ` ( F ` x ) ) ) ) $=
       ( vs cv cfv clt wbr co cc cr c1 wcel cle vn cabs cdgr ccoe cexp cmul cmin
       vk c2 cdiv wi wral wrex crp cc0 cfz csu eqid cn0 cply wf coef3 syl nnnn0d
       ffvelcdmd wne nnne0d wceq c0p dgreq0 fveq2 dgr0 eqtrdi biimtrrdi absrpcld
@@ -891840,8 +891949,9 @@ $)
        are uniformly bounded there.  A positive-degree polynomial has bounded
        sublevel sets by ~ plycofgt .  For a constant polynomial only the zeroth
        power occurs.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plybndpow $p |- ( ph -> E. h e. RR+ A. z e. Y
-      A. k e. ( 0 ... ( deg ` F ) ) ( abs ` ( z ^ k ) ) <_ h ) $=
+    plybndpow $p |- ( ph ->
+      E. h e. RR+ A. z e. Y A. k e. ( 0 ... ( deg ` F ) )
+        ( abs ` ( z ^ k ) ) <_ h ) $=
       ( vr cc0 cv cle wbr c1 wcel adantr vx cdgr cfv wceq cexp co cabs cfz wral
       crp wrex wa 1rp a1i csn simpr simpllr oveq2d fz0sn eqtrd eleqtrd elsni cc
       syl wss simplr sseldd exp0d fveq2d abs1 leidd eqbrtrd ralrimiva id breq2d
@@ -891892,9 +892002,10 @@ $)
        ~ plybndpow to bound the monomials and ~ fsumpertbnd to control the
        error from approximating the coefficients.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyqapbnd $p |- ( ph -> E. r e.
-      ( Poly ` { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) } )
-      A. z e. Y ( abs ` ( ( r ` z ) - ( F ` z ) ) ) < E ) $=
+    plyqapbnd $p |- ( ph ->
+      E. r e. ( Poly ` { t e. CC | ( ( Re ` t ) e. QQ /\ ( Im ` t ) e. QQ ) } )
+      A. z e. Y
+        ( abs ` ( ( r ` z ) - ( F ` z ) ) ) < E ) $=
       ( vh vk cv cfv cc adantr vj va vi vq vs cexp co cabs cle wbr cc0 cdgr cfz
       wral cmin clt cre cq wcel cim wa crab cply wrex crp plybndpow cn0 wf ccoe
       c2 cdiv c1 caddc cvv ciun ccrd cdm wex nn0ex a1i wss cnqnum simp1d ssrab2
@@ -891954,15 +892065,18 @@ $)
     ulmapnumseq.y $e |- ( ph -> Y C_ X ) $.
     ulmapnumseq.w $e |- ( ph -> T e. dom card ) $.
     ulmapnumseq.t $e |- ( ph -> T C_ ( CC ^m X ) ) $.
-    ulmapnumseq.a $e |- ( ph -> A. e e. RR+ E. p e. T
-      A. z e. Y ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
+    ulmapnumseq.a $e |- ( ph ->
+      A. e e. RR+ E. p e. T A. z e. Y
+        ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
     $( If members of a well-orderable family of complex-valued functions
        approximate a function uniformly to every positive tolerance on a subset
        of their domain, a sequence from the family converges uniformly there.
        Select approximants using ~ ac6num .  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    ulmapnumseq $p |- ( ph -> E. b ( b : NN0 --> T /\
-      ( m e. NN0 |-> ( ( b ` m ) |` Y ) ) ( ~~>u ` Y ) F ) ) $=
+    ulmapnumseq $p |- ( ph ->
+      E. b
+        ( b : NN0 --> T /\
+          ( m e. NN0 |-> ( ( b ` m ) |` Y ) ) ( ~~>u ` Y ) F ) ) $=
       ( vk cn0 cv cfv adantr vn vw vj wf cmin co cabs c1 caddc cdiv clt wral wa
       wbr wex cres cmpt culm cvv wcel crab ciun ccrd cdm wrex a1i ssrab2 iunssd
       nn0ex wss ssnum syl2anc wceq breq2 ralbidv rexbidv cn simpr nn0p1nn nnrpd
@@ -892009,18 +892123,19 @@ $)
   $}
 
   ${
-    $d F b e j k m n w z $.  $d F b e n p z $.  $d Y b e j k m n w z $.
-    $d Y b e n p z $.  $d b e j k m n ph w $.  $d F a b d u x $.
-    $d F d e p z $.  $d F a d g q u x $.  $d F d g h l x z $.
-    $d F d g i l w x z $.  $d F b d m u x z $.  $d Y a b d u x $.
+    $d F a b d u x $.  $d F b d e m w z $.  $d F a d g q u x $.
+    $d F d g h l x z $.  $d F d g i l w x z $.  $d F b e j k m n w z $.
+    $d F b d e p z $.  $d Y a b d u x $.  $d Y b d e m w z $.
     $d Y a d g q u x $.  $d Y d g h l x z $.  $d Y d g i l w x z $.
-    $d a b d t u $.  $d a b d t w $.  $d b d m ph u x $.  $d g p x z $.
-    $d g h l ph x $.  $d g i l t w $.  $d i l ph w x $.  $d i ph q w x $.
-    $d m t u $.  $d q t u $.  $d q u x z $.
+    $d Y b e j k m n w z $.  $d Y b d e p z $.  $d a b d t u $.
+    $d a b d t w $.  $d b d e m ph w $.  $d g p x z $.  $d g h l ph x $.
+    $d g i l t w $.  $d i l ph w x $.  $d i ph q w x $.  $d j k m n ph w $.
+    $d m t u $.  $d m ph u x $.  $d n p z $.  $d q t u $.  $d q u x z $.
     plyapseq.f $e |- ( ph -> F : Y --> CC ) $.
     plyapseq.y $e |- ( ph -> Y C_ CC ) $.
-    plyapseq.a $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
+    plyapseq.a $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
     $( Uniform polynomial approximations at every positive tolerance give a
        sequence of polynomials converging uniformly after restriction to the
        given set.  Fix one polynomial approximating the target to within one.
@@ -892028,8 +892143,10 @@ $)
        by Gaussian rational polynomials by ~ plyqapbnd .  The translates form a
        well-orderable family to which ~ ulmapnumseq applies.  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    plyapseq $p |- ( ph -> E. b ( b : NN0 --> ( Poly ` CC ) /\ ( m e. NN0 |->
-      ( ( b ` m ) |` Y ) ) ( ~~>u ` Y ) F ) ) $=
+    plyapseq $p |- ( ph ->
+      E. b
+        ( b : NN0 --> ( Poly ` CC ) /\
+          ( m e. NN0 |-> ( ( b ` m ) |` Y ) ) ( ~~>u ` Y ) F ) ) $=
       ( vx vw cv cfv cmin co clt cc adantr vu vt vd va vv vg vq vl vi vh c1 wbr
       cabs wral cn0 cply wf cres cmpt culm wa wex wrex crp wceq ralbidv rexbidv
       id breq2d wcel 1rp a1i rspcdva fveq1d oveq1d fveq2d breq1d cbvrexvw sylib
@@ -892111,15 +892228,18 @@ $)
     plyapadd.y $e |- ( ph -> Y C_ CC ) $.
     plyapadd.a $e |- ( ( ph /\ z e. Y ) -> A e. CC ) $.
     plyapadd.b $e |- ( ( ph /\ z e. Y ) -> B e. CC ) $.
-    plyapadd.p $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - A ) ) < e ) $.
-    plyapadd.q $e |- ( ph -> A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( q ` z ) - B ) ) < e ) $.
+    plyapadd.p $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - A ) ) < e ) $.
+    plyapadd.q $e |- ( ph ->
+      A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( q ` z ) - B ) ) < e ) $.
     $( Sums of uniformly polynomial-approximable functions on a subset of the
        complex numbers are uniformly polynomial-approximable.  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    plyapadd $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( g ` z ) - ( A + B ) ) ) < v ) $=
+    plyapadd $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) - ( A + B ) ) ) < v ) $=
       ( cv cfv cc wa adantr vi caddc co cmin cabs clt wbr wral cply wrex crp c2
       wcel cdiv wceq breq2 ralbidv rexbidv simpr rphalfcld rspcdva fveq1 oveq1d
       cof fveq2d breq1d simplrl simprl syl2anc simplrr simprr jca simpll r19.26
@@ -892159,13 +892279,15 @@ $)
     plyapmul.h $e |- ( ph -> H e. RR+ ) $.
     plyapmul.b $e |- ( ( ph /\ z e. Y ) -> ( abs ` ( F ` z ) ) <_ H ) $.
     plyapmul.a $e |- ( ( ph /\ z e. Y ) -> A e. CC ) $.
-    plyapmul.u $e |- ( ph -> A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( q ` z ) - A ) ) < e ) $.
+    plyapmul.u $e |- ( ph ->
+      A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( q ` z ) - A ) ) < e ) $.
     $( Multiplication by a polynomial bounded on the given set preserves
        uniform polynomial approximation.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    plyapmul $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( p ` z ) - ( ( F ` z ) x. A ) ) ) < v ) $=
+    plyapmul $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( ( F ` z ) x. A ) ) ) < v ) $=
       ( cfv co cc adantr vi cmul cmin cabs clt wbr wral cply wrex crp wcel cdiv
       cv wa wceq breq2 ralbidv rexbidv simpr rpdivcld rspcdva cof oveq1d fveq2d
       fveq1 breq1d simprl plymulcl syl2anc simprr wi simpl jca cvv oveq12d cnex
@@ -892205,8 +892327,9 @@ $)
     $( The exponential of a complex polynomial bounded on a set admits uniform
        polynomial approximation there.  Use the same Taylor degree at every
        point of the set.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plyapef $p |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs `
-      ( ( p ` z ) - ( exp ` ( F ` z ) ) ) ) < e ) $=
+    plyapef $p |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( exp ` ( F ` z ) ) ) ) < e ) $=
       ( vj vk cv cfv co cabs cc wcel syl vi vl vn vx vu vv vs cmin clt wbr wral
       ce cply wrex crp wa cc0 cfz cexp cfa cdiv csu cuz cn0 cmpt nn0uz 0zd wceq
       simpr oveq2 sumeq1d eqid sumex fvmpt adantl recnd adantr efcvgfsum climi2
@@ -892280,8 +892403,9 @@ $)
     $( A function agreeing with a complex polynomial on the given set admits
        uniform polynomial approximation there.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    plyapexact $p |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - A ) ) < e ) $=
+    plyapexact $p |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - A ) ) < e ) $=
       ( cv cfv cmin co cabs clt cc wcel adantr cc0 wbr wral cply wrex crp fveq1
       wceq oveq1d fveq2d breq1d ralbidv simpll simpr syl2anc eqcomd oveq2d plyf
       wa wf syl wss sseldd ffvelcdmd subidd eqtr4d eqtrdi simplr rpgt0d eqbrtrd
@@ -892302,13 +892426,15 @@ $)
     plyapfsum.c $e |- ( ( ph /\ k e. NN0 /\ w e. Y ) -> B e. CC ) $.
     plyapfsum.w $e |- ( z = w -> A = B ) $.
     plyapfsum.k $e |- ( k = m -> B = C ) $.
-    plyapfsum.a $e |- ( ( ph /\ m e. NN0 ) -> A. e e. RR+ E. q e. ( Poly ` CC
-      ) A. w e. Y ( abs ` ( ( q ` w ) - C ) ) < e ) $.
+    plyapfsum.a $e |- ( ( ph /\ m e. NN0 ) ->
+      A. e e. RR+ E. q e. ( Poly ` CC ) A. w e. Y
+        ( abs ` ( ( q ` w ) - C ) ) < e ) $.
     $( Finite sums over an initial segment of a sequence of uniformly
        polynomial-approximable functions admit uniform polynomial approximation
        on the same set.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plyapfsum $p |- ( ph -> A. c e. RR+ E. a e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( a ` z ) - sum_ k e. ( 0 ..^ N ) A ) ) < c ) $=
+    plyapfsum $p |- ( ph ->
+      A. c e. RR+ E. a e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( a ` z ) - sum_ k e. ( 0 ..^ N ) A ) ) < c ) $=
       ( vn vg vv vp cn0 wcel cv cfv cc0 cfzo co csu cmin cabs clt wbr wral cply
       cc wrex crp caddc wceq oveq2 sumeq1d oveq2d fveq2d breq1d ralbidv rexbidv
       c1 c0p wss ssidd ply0 syl wa adantr simpr sseldd 0pval fzo0 sumeq1i eqtri
@@ -892360,13 +892486,15 @@ $)
     plyapulm.y $e |- ( ph -> Y C_ CC ) $.
     plyapulm.f $e |- ( ph -> F : NN0 --> ( CC ^m Y ) ) $.
     plyapulm.u $e |- ( ph -> F ( ~~>u ` Y ) G ) $.
-    plyapulm.a $e |- ( ( ph /\ j e. NN0 ) -> A. e e. RR+ E. q e. ( Poly ` CC
-      ) A. z e. Y ( abs ` ( ( q ` z ) - ( ( F ` j ) ` z ) ) ) < e ) $.
+    plyapulm.a $e |- ( ( ph /\ j e. NN0 ) ->
+      A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( q ` z ) - ( ( F ` j ) ` z ) ) ) < e ) $.
     $( A uniform limit of functions admitting uniform polynomial approximation
        on the given set admits uniform polynomial approximation there.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plyapulm $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y ( abs
-      ` ( ( p ` x ) - ( G ` x ) ) ) < v ) $=
+    plyapulm $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( p ` x ) - ( G ` x ) ) ) < v ) $=
       ( cv cfv clt cc adantr vw vi cmin co cabs wbr wral cply wrex wcel wa cdiv
       crp c2 cuz cn0 cc0 nn0uz 0zd cmap wf eqidd culm simpr rphalfcld ulmi wceq
       breq2 ralbidv rexbidv simpll simprl syl2anc rspcdva oveq1d fveq2d simplrl
@@ -892392,19 +892520,20 @@ $)
       WNFPWTWAVNTTUUPVNWOWPWQWRWRWP $.
   $}
 
-
   ${
     $d A e q $.  $d A p q $.  $d B e q z $.  $d B p q z $.  $d Y e q $.
     $d Y p q $.  $d e q v z $.  $d p ph q v z $.
     plyapscale.y $e |- ( ph -> Y C_ CC ) $.
     plyapscale.b $e |- ( ph -> B e. CC ) $.
     plyapscale.a $e |- ( ( ph /\ z e. Y ) -> A e. CC ) $.
-    plyapscale.u $e |- ( ph -> A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( q ` z ) - A ) ) < e ) $.
+    plyapscale.u $e |- ( ph ->
+      A. e e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( q ` z ) - A ) ) < e ) $.
     $( Multiplication by a complex constant preserves uniform polynomial
        approximation on a set.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plyapscale $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( B x. A ) ) ) < v ) $=
+    plyapscale $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( B x. A ) ) ) < v ) $=
       ( cv cfv cc co cabs wral wcel csn cxp cmul cmin clt wbr cply crp c1 caddc
       wrex wss ssidd plyconst syl2anc abscld 1red readdcld 0red absge0d lelttrd
       cc0 ltp1d elrpd wa cle adantr simpr sseldd fvconst2g fveq2d ltled eqbrtrd
@@ -892437,9 +892566,11 @@ $)
     $( A finite weighted sum of shifted powers with affine exponent admits
        uniform polynomial approximation on every bounded set when the shift is
        not a nonpositive integer.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    plyapcxpsum $p |- ( ph -> A. c e. RR+ E. a e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( a ` z ) - sum_ k e. ( 0 ..^ N ) ( A x. ( ( B + k ) ^c ( C - z
-      ) ) ) ) ) < c ) $=
+    plyapcxpsum $p |- ( ph ->
+      A. c e. RR+ E. a e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( a ` z ) -
+                  sum_ k e. ( 0 ..^ N )
+                    ( A x. ( ( B + k ) ^c ( C - z ) ) ) ) ) < c ) $=
       ( ve vq vt vr vi cv caddc co cmin ccxp cmul cn0 wcel w3a cc eqcoms eqcomd
       wceq eleq1d wral simp1 ralrimiva simp2 rspcdva cz cn eldifi nn0cnd addcld
       syl wss simp3 sseldd subcld cxpcld mulcld id oveq2d oveq1d oveq12d adantr
@@ -892503,15 +892634,16 @@ $)
     $( The pole-free numerator of a finite Hurwitz approximant is uniformly
        approximable by complex polynomials on any bounded set, including sets
        containing one.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzfixnumap $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. z e.
-      Y (
-      abs ` ( ( g ` z ) - ( ( ( z - 1 ) x. sum_ k e. ( 0 ..^ M ) ( ( B +
-      k )
-      ^c -u z ) ) + sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( (
-      -u 1 ^
-      k ) x. ( n _C k ) ) x. ( ( ( B + M ) + k ) ^c ( 1 - z ) ) ) / ( n +
-      1 )
-      ) ) ) ) < v ) $=
+    hurzfixnumap $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) -
+                  ( ( ( z - 1 ) x.
+                      sum_ k e. ( 0 ..^ M ) ( ( B + k ) ^c -u z ) ) +
+                    sum_ n e. ( 0 ..^ N )
+                      ( sum_ k e. ( 0 ... n )
+                          ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                            ( ( ( B + M ) + k ) ^c ( 1 - z ) ) ) /
+                        ( n + 1 ) ) ) ) ) < v ) $=
       ( cv co ve vq vp vt vr vi vm vy vj vd vf c1 cmin cc0 cfzo caddc cneg ccxp
       csu cmul cfz cexp cbc cdiv wcel wa cc wss adantr simpr sseldd 1cnd subcld
       cfn fzofi a1i cz cdif eldifi syl cn0 elfzonn0 nn0cnd addcld negcld cxpcld
@@ -892598,11 +892730,17 @@ $)
        function of the exponent admitting uniform polynomial approximation on
        any bounded subset of the punctured plane.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    hurzfixsap $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( g ` z ) - ( ( z - 1 ) x. ( sum_ k e. ( 0 ..^ M ) ( ( B + k )
-      ^c -u z ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ... n ) ( ( ( -u 1
-      ^ k ) x. ( n _C k ) ) x. ( ( ( B + M ) + k ) ^c ( 1 - z ) ) ) / ( n + 1
-      ) ) / ( z - 1 ) ) ) ) ) ) < v ) $=
+    hurzfixsap $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) -
+                  ( ( z - 1 ) x.
+                    ( sum_ k e. ( 0 ..^ M ) ( ( B + k ) ^c -u z ) +
+                      ( sum_ n e. ( 0 ..^ N )
+                          ( sum_ k e. ( 0 ... n )
+                              ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                                ( ( ( B + M ) + k ) ^c ( 1 - z ) ) ) /
+                            ( n + 1 ) ) /
+                        ( z - 1 ) ) ) ) ) ) < v ) $=
       ( co cc cv cfv c1 cmin cc0 cfzo cneg ccxp csu cfz cexp cbc cmul cdiv cabs
       caddc clt wbr wral cply wrex crp difss2d hurzfixnumap wcel wa sselda 1cnd
       csn subcld cfn fzofi a1i cz cn cdif eldifad adantr cn0 simpr elfzonn0 syl
@@ -892620,8 +892758,8 @@ $)
   $}
 
   ${
-    $d A k m n x y z $.  $d H z $.  $d N k m n x z $.  $d X k m n x y z $.
-    $d k m n ph x y z $.  $d D y $.  $d E y $.
+    $d A k m n x y z $.  $d D y $.  $d E y $.  $d H z $.  $d N k m n x z $.
+    $d X k m n x y z $.  $d k m n ph x y z $.
     hurzfixulms.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzfixulms.e $e |- E = ( CC \ { 1 } ) $.
     hurzfixulms.x $e |- ( ph -> X C_ E ) $.
@@ -892635,11 +892773,17 @@ $)
        second variable on a bounded set.  Specialize the two parameter
        functions to a constant shift and the identity.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    hurzfixulms $p |- ( ph -> ( m e. NN0 |-> ( x e. X |-> ( sum_ k e. ( 0 ..^
-      m ) ( ( A + k ) ^c -u x ) + ( sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ...
-      n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + m ) + k ) ^c ( 1 - x
-      ) ) ) / ( n + 1 ) ) / ( x - 1 ) ) ) ) ) ( ~~>u ` X ) ( x e. X |-> ( A
-      HurZ x ) ) ) $=
+    hurzfixulms $p |- ( ph ->
+      ( m e. NN0 |->
+        ( x e. X |->
+          ( sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u x ) +
+            ( sum_ n e. ( 0 ..^ N )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                      ( ( ( A + m ) + k ) ^c ( 1 - x ) ) ) /
+                  ( n + 1 ) ) /
+              ( x - 1 ) ) ) ) ) ( ~~>u ` X )
+      ( x e. X |-> ( A HurZ x ) ) ) $=
       ( vy cn0 cc0 cv cfzo co cmpt cfv caddc cneg ccxp csu cfz c1 cexp cbc cmul
       cmin cdiv churz culm cvv cc wcel cnex a1i cdif difss eqsstri sstrdi ssexd
       csn adantr fmpttd sselda cre clt wbr wceq simpr eqidd eqid fvmptg syl2anc
@@ -892669,11 +892813,11 @@ $)
     $( At exponent zero the normalized finite binomial differences sum to one
        for every nonempty cutoff.  The alternating binomial sum of positive
        order vanishes.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cxpbindifsum0 $p |- ( ph -> sum_ n e. ( 0 ..^ N ) ( sum_ k e. ( 0 ...
-      n )
-      ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c 0 ) ) / ( n + 1
-      ) ) =
-      1 ) $=
+    cxpbindifsum0 $p |- ( ph ->
+      sum_ n e. ( 0 ..^ N )
+        ( sum_ k e. ( 0 ... n )
+            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c 0 ) ) /
+          ( n + 1 ) ) = 1 ) $=
       ( cc0 co cfz c1 cexp cmul caddc csu cdiv wcel syl eqtrd wceq cfzo cv cneg
       cbc ccxp cmin wa cc adantr cn0 id adantl elfznn0 nn0cnd addcld cxp0d 1cnd
       oveq2d negcld expcld cz simpr elfzonn0 nn0zd bccl syl2anc mulridd mulcomd
@@ -892708,14 +892852,11 @@ $)
     ulmextle.b $e |- ( ph -> B : T --> CC ) $.
     ulmextle.u $e |- ( ph -> F ( ~~>u ` S ) G ) $.
     ulmextle.c $e |- ( ph -> C e. RR+ ) $.
-    ulmextle.l $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ z e. S ) -> (
-      abs `
-      ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_ ( C x. ( abs ` ( ( ( F ` k )
-      ` z
-      ) - ( G ` z ) ) ) ) ) $.
+    ulmextle.l $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ z e. S ) ->
+      ( abs ` ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_
+      ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) ) ) ) ) $.
     ulmextle.e $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ -. z e. S ) ->
-      ( (
-      H ` k ) ` z ) = ( B ` z ) ) $.
+      ( ( H ` k ) ` z ) = ( B ` z ) ) $.
     ulmextle.t $e |- ( ph -> T e. V ) $.
     $( Transfer uniform convergence to a second domain by a fixed multiple of
        the error on the overlap and exact equality off the first domain.
@@ -892758,11 +892899,10 @@ $)
     $( Estimate the error after clearing a simple pole in an approximant,
        uniformly in terms of the distance bound and the original pointwise
        error.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    polesuberr $p |- ( ph -> ( abs ` ( ( ( ( Z - B ) x. A ) + K ) - ( ( Z
-      - B
-      ) x. H ) ) ) <_ ( ( R + ( abs ` B ) ) x. ( abs ` ( ( A + ( K / ( Z
-      - B )
-      ) ) - H ) ) ) ) $=
+    polesuberr $p |- ( ph ->
+      ( abs ` ( ( ( ( Z - B ) x. A ) + K ) - ( ( Z - B ) x. H ) ) ) <_
+      ( ( R + ( abs ` B ) ) x.
+        ( abs ` ( ( A + ( K / ( Z - B ) ) ) - H ) ) ) ) $=
       ( co cmul caddc cabs cfv cle subcld subne0d divcld adddid divcan2d oveq2d
       cmin cdiv eqtrd eqcomd oveq1d fveq2d addcld subdid absmuld abscld absge0d
       readdcld abs2dif2d leadd1dd letrd lemul1ad eqbrtrd ) AGCUHPZBQPZFRPZVEEQP
@@ -892788,15 +892928,16 @@ $)
        converge uniformly on every bounded set satisfying the cutoff
        inequalities.  The limiting normalized function takes value one at the
        formerly excluded point.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurznumulm $p |- ( ph -> ( m e. NN0 |-> ( t e. Y |-> ( ( ( t - 1 ) x.
-      sum_
-      k e. ( 0 ..^ m ) ( ( A + k ) ^c -u t ) ) + sum_ n e. ( 0 ..^ N ) (
-      sum_
-      k e. ( 0 ... n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + m )
-      + k )
-      ^c ( 1 - t ) ) ) / ( n + 1 ) ) ) ) ) ( ~~>u ` Y ) ( t e. Y |-> if (
-      t =
-      1 , 1 , ( ( t - 1 ) x. ( A HurZ t ) ) ) ) ) $=
+    hurznumulm $p |- ( ph ->
+      ( m e. NN0 |->
+        ( t e. Y |->
+          ( ( ( t - 1 ) x. sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u t ) ) +
+            sum_ n e. ( 0 ..^ N )
+              ( sum_ k e. ( 0 ... n )
+                  ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                    ( ( ( A + m ) + k ) ^c ( 1 - t ) ) ) /
+                ( n + 1 ) ) ) ) ) ( ~~>u ` Y )
+      ( t e. Y |-> if ( t = 1 , 1 , ( ( t - 1 ) x. ( A HurZ t ) ) ) ) ) $=
       ( cv vi c1 wceq cmin churz cmul cif cmpt caddc csn cdif cn0 cc0 cfzo cneg
       co ccxp csu cfz cexp cbc cdiv cvv nn0uz cc cmap wcel wa cnex ssdifd difss
       0zd a1i sstrdi ssexd adantr cmnf eleq2i eldifi sylbi syl wss simpr sseldd
@@ -892882,11 +893023,10 @@ $)
     $( The normalized Hurwitz function, defined to equal one at its pole, is
        uniformly approximable by complex polynomials on every bounded subset of
        the complex plane.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurznormap $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y
-      ( abs
-      ` ( ( p ` x ) - if ( x = 1 , 1 , ( ( x - 1 ) x. ( A HurZ x ) ) ) )
-      ) < v
-      ) $=
+    hurznormap $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( p ` x ) -
+                  if ( x = 1 , 1 , ( ( x - 1 ) x. ( A HurZ x ) ) ) ) ) < v ) $=
       ( vt vk co cv wcel adantr vj vw ve vi vm vn vq caddc cre cfv cmin cle wbr
       c2 c1 cif clt wceq churz cmul cabs wral cc cply wrex crp cn 1red cmnf cc0
       cioc cdif eleq2i eldifi sylbi syl recld resubcld rpred 2re readdcld ifcld
@@ -892952,8 +893092,9 @@ $)
     $( The product of the Hurwitz zeta function by the argument minus one
        admits uniform polynomial approximation on every bounded subset of the
        punctured plane.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzsapb $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y ( abs
-      ` ( ( p ` x ) - ( ( x - 1 ) x. ( A HurZ x ) ) ) ) < v ) $=
+    hurzsapb $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( p ` x ) - ( ( x - 1 ) x. ( A HurZ x ) ) ) ) < v ) $=
       ( cfv c1 cmin co cv wceq churz cmul cif cabs clt wbr wral cc cply crp csn
       wrex cdif sseqtrdi difss2d hurznormap wcel wne sselda eldifsnbd ifnefalse
       wa eleqtrdi syl oveq2d fveq2d breq1d ralbidva rexbidv ralbidv mpbid ) ABU
@@ -892982,8 +893123,9 @@ $)
        function admits uniform polynomial approximation on a bounded set of
        exponents.  Here the cutoff bounds the radius of the set.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    hurzsap $p |- ( ph -> A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y ( abs `
-      ( ( p ` x ) - ( ( x - 1 ) x. ( A HurZ x ) ) ) ) < v ) $=
+    hurzsap $p |- ( ph ->
+      A. v e. RR+ E. p e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( p ` x ) - ( ( x - 1 ) x. ( A HurZ x ) ) ) ) < v ) $=
       ( vq vj cv cfv c1 cmin co churz cmul cabs clt wbr wral cply wrex crp wcel
       cc wa weq breq2 rexralbidv nnred 2re a1i resubcld rpgecld csn cdif sselda
       c2 cr eleqtrdi eldifad abscld rpred adantr cle letrd hurzsapb simpr fveq1
@@ -892997,7 +893139,6 @@ $)
   $}
 
   ${
-
     dvresdmss.s $e |- ( ph -> S C_ CC ) $.
     dvresdmss.f $e |- ( ph -> F : X --> CC ) $.
     dvresdmss.x $e |- ( ph -> X C_ S ) $.
@@ -893013,18 +893154,17 @@ $)
 
   ${
     $d A b c d h m r t w $.  $d A b c e m r t x $.  $d A b c e p r t x $.
-    $d A s t $.  $d A c r z $.  $d D b $.  $d D c $.  $d D d $.  $d D e $.
-    $d D h $.  $d D m $.  $d D p $.  $d D r $.  $d D s $.  $d D t $.  $d D w $.
-    $d D x $.  $d D z $.  $d E b $.  $d E c $.  $d E d $.  $d E e $.  $d E h $.
-    $d E m $.  $d E p $.  $d E r $.  $d E s $.  $d E t $.  $d E w $.  $d E x $.
-    $d E z $.
+    $d A s t $.  $d A c r z $.  $d D b c d h m r t w $.  $d D b c e m r t x $.
+    $d D b c e p r t x $.  $d D s t $.  $d D c r z $.  $d E b c d h m r t w $.
+    $d E b c e m r t x $.  $d E b c e p r t x $.  $d E s t $.  $d E c r z $.
     hurzdms.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     hurzdms.e $e |- E = ( CC \ { 1 } ) $.
     $( At every fixed parameter in the slit plane, the Hurwitz zeta function is
        complex differentiable at every exponent other than one.  Apply the
        quotient rule to the pole-cleared function and the exponent minus one.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzdms $p |- ( A e. D -> dom ( CC _D ( s e. E |-> ( A HurZ s ) ) ) = E ) $=
+    hurzdms $p |- ( A e. D ->
+      dom ( CC _D ( s e. E |-> ( A HurZ s ) ) ) = E ) $=
       ( vt vc vr vx vz wcel cc cv co c1 cfv wa adantr clt vb vm ve vp vd vw cdv
       vh churz cmpt cdm cmin cmul cc0 c2 cexp cdiv cxp wf hurzf a1i simpl simpr
       fovcdmd wne csn cdif eleq2i eldifsn bitri sylib simpld 1cnd subcld simprd
@@ -893109,13 +893249,11 @@ $)
   $}
 
   ${
-
     connlpntr.x $e |- X = U. J $.
     connlpntr.c $e |- ( ph -> J e. Conn ) $.
     connlpntr.s $e |- ( ph -> S C_ X ) $.
     connlpntr.n $e |- ( ph -> ( ( limPt ` J ) ` S ) =/= (/) ) $.
-    connlpntr.l $e |- ( ph -> ( ( limPt ` J ) ` S ) C_ ( ( int ` J ) ` S ) )
-      $.
+    connlpntr.l $e |- ( ph -> ( ( limPt ` J ) ` S ) C_ ( ( int ` J ) ` S ) ) $.
     $( A subset of a connected space with an accumulation point fills the space
        if every accumulation point is an interior point.  The interior is
        nonempty and contains its own limit points, so it is both open and
@@ -893129,7 +893267,6 @@ $)
   $}
 
   ${
-
     subopnsslp.j $e |- ( ph -> J e. Top ) $.
     subopnsslp.s $e |- ( ph -> S C_ U. J ) $.
     subopnsslp.t $e |- ( ph -> T C_ U. J ) $.
@@ -893150,7 +893287,6 @@ $)
       MUNAVBUCOZBVBUFZPVDVEUOAVTVHWCFVNCEQURSABCWDIAVTVKCWDRFGCEVJWBUJSUSVBVCWD
       BWDTVCTUTSVA $.
   $}
-
 
   ${
     $d A x $.  $d M x $.  $d ph x $.
@@ -893173,7 +893309,6 @@ $)
   $}
 
   ${
-
     subdivdif4.ad $e |- ( ph -> ( A G D ) e. CC ) $.
     subdivdif4.ae $e |- ( ph -> ( A G E ) e. CC ) $.
     subdivdif4.af $e |- ( ph -> ( A G F ) e. CC ) $.
@@ -893187,11 +893322,12 @@ $)
        produced by splitting each coordinate interval once.  Each interior edge
        cancels with its copy of opposite sign.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    subdivdif4 $p |- ( ph -> ( ( ( ( ( C G F ) - ( B G F ) ) - ( ( C G E ) -
-      ( B G E ) ) ) + ( ( ( C G E ) - ( B G E ) ) - ( ( C G D ) - ( B G D ) )
-      ) ) + ( ( ( ( B G F ) - ( A G F ) ) - ( ( B G E ) - ( A G E ) ) ) + ( (
-      ( B G E ) - ( A G E ) ) - ( ( B G D ) - ( A G D ) ) ) ) ) = ( ( ( C G F
-      ) - ( A G F ) ) - ( ( C G D ) - ( A G D ) ) ) ) $=
+    subdivdif4 $p |- ( ph ->
+      ( ( ( ( ( C G F ) - ( B G F ) ) - ( ( C G E ) - ( B G E ) ) ) +
+          ( ( ( C G E ) - ( B G E ) ) - ( ( C G D ) - ( B G D ) ) ) ) +
+        ( ( ( ( B G F ) - ( A G F ) ) - ( ( B G E ) - ( A G E ) ) ) +
+          ( ( ( B G E ) - ( A G E ) ) - ( ( B G D ) - ( A G D ) ) ) ) ) =
+      ( ( ( C G F ) - ( A G F ) ) - ( ( C G D ) - ( A G D ) ) ) ) $=
       ( co cmin caddc subcld npncand oveq12d addsub4d eqtr3d eqtrd ) ADGHRZCGHR
       ZSRZDFHRZCFHRZSRZSRULDEHRZCEHRZSRZSRTRZUHBGHRZSRZUKBFHRZSRZSRUTUNBEHRZSRZ
       SRTRZTRUIUOSRZURVBSRZTRZUGUQSRZUMVASRZSRZAUPVDVCVETAUIULUOAUGUHQNUAZAUJUK
@@ -893204,8 +893340,8 @@ $)
     cmpintnest.c $e |- ( ph -> J e. Comp ) $.
     cmpintnest.a $e |- ( ph -> A C_ ( Clsd ` J ) ) $.
     cmpintnest.n $e |- ( ph -> -. (/) e. A ) $.
-    cmpintnest.s $e |- ( ( ph /\ ( x e. A /\ y e. A ) ) -> ( x C_ y \/ y C_ x
-      ) ) $.
+    cmpintnest.s $e |- ( ( ph /\ ( x e. A /\ y e. A ) ) ->
+      ( x C_ y \/ y C_ x ) ) $.
     $( A nested family of nonempty closed sets in a compact space has nonempty
        intersection.  The intersection of two members is the smaller member,
        giving the finite intersection property.  (Contributed by Zhi Wang,
@@ -893225,8 +893361,8 @@ $)
     $d n ph $.  $d ph x y $.
     cmpintseq.c $e |- ( ph -> J e. Comp ) $.
     cmpintseq.f $e |- ( ph -> F : NN0 --> ( ( Clsd ` J ) \ { (/) } ) ) $.
-    cmpintseq.s $e |- ( ( ph /\ n e. NN0 ) -> ( F ` ( n + 1 ) ) C_ ( F ` n )
-      ) $.
+    cmpintseq.s $e |- ( ( ph /\ n e. NN0 ) ->
+      ( F ` ( n + 1 ) ) C_ ( F ` n ) ) $.
     $( A decreasing sequence of nonempty closed sets in a compact space has
        nonempty intersection.  Induction and totality of the integer order show
        that its range is nested.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -893268,9 +893404,11 @@ $)
     $( Complex differentiability gives a uniform first-order error bound near
        the point of differentiation.  The estimate includes the center, where
        both sides vanish.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    dvlinest $p |- ( ph -> A. x e. RR+ E. y e. RR+ A. z e. A ( ( abs ` ( z -
-      B ) ) < y -> ( abs ` ( ( ( F ` z ) - ( F ` B ) ) - ( C x. ( z - B ) ) )
-      ) <_ ( x x. ( abs ` ( z - B ) ) ) ) ) $=
+    dvlinest $p |- ( ph ->
+      A. x e. RR+ E. y e. RR+ A. z e. A
+        ( ( abs ` ( z - B ) ) < y ->
+          ( abs ` ( ( ( F ` z ) - ( F ` B ) ) - ( C x. ( z - B ) ) ) ) <_
+          ( x x. ( abs ` ( z - B ) ) ) ) ) $=
       ( cv cmin co cabs cfv wa cc0 cc adantr vu vh clt wbr cmul cle wi wral crp
       wrex wcel wne csn cdif cdiv cmpt wceq leidd simpr fveq2d oveq1d cdv ssidd
       0red cdm dvbss wfn wf dvfcn a1i ffnd fnbr syl2anc sseldd ffvelcdmd subidd
@@ -893318,8 +893456,11 @@ $)
     $( Iterate a self-map from a specified starting point.  The sequence
        builder constructs the orbit on the nonnegative integers.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    nn0itex $p |- ( ph -> E. g ( g : NN0 --> A /\ ( g ` 0 ) = B /\ A. k e.
-      NN0 ( g ` ( k + 1 ) ) = ( F ` ( g ` k ) ) ) ) $=
+    nn0itex $p |- ( ph ->
+      E. g
+        ( g : NN0 --> A /\
+          ( g ` 0 ) = B /\
+          A. k e. NN0 ( g ` ( k + 1 ) ) = ( F ` ( g ` k ) ) ) ) $=
       ( vx vy cn0 cv cfv cc0 wceq wral wcel a1i wa adantr vu vv cmpo csn cxp wf
       cseq c1 caddc co w3a wex nn0uz cz 0z simpr fvconst2g syl2anc eqeltrd eqid
       cvv simprl fveq2d simprr fvex ovmpod ffvelcdmd seqf 0nn0 seq1i eqidd 1nn0
@@ -893343,8 +893484,8 @@ $)
     seqhalflb.f $e |- ( ph -> F : NN0 --> RR ) $.
     seqhalflb.r $e |- ( ph -> R e. RR ) $.
     seqhalflb.l $e |- ( ( ph /\ k e. NN0 ) -> R <_ ( F ` k ) ) $.
-    seqhalflb.s $e |- ( ( ph /\ k e. NN0 ) -> ( F ` ( k + 1 ) ) <_ ( ( F ` k
-      ) / 2 ) ) $.
+    seqhalflb.s $e |- ( ( ph /\ k e. NN0 ) ->
+      ( F ` ( k + 1 ) ) <_ ( ( F ` k ) / 2 ) ) $.
     $( A lower bound for a real sequence whose next entry is always at most
        half the preceding entry is nonpositive.  Twice the infimum of its range
        is also a lower bound.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -893373,12 +893514,12 @@ $)
     cmphalfnest.m $e |- ( ph -> M : A --> ( ( Clsd ` J ) \ { (/) } ) ) $.
     cmphalfnest.t $e |- ( ph -> T : A --> A ) $.
     cmphalfnest.w $e |- ( ph -> W : A --> RR ) $.
-    cmphalfnest.s $e |- ( ( ph /\ x e. A ) -> ( M ` ( T ` x ) ) C_ ( M ` x )
-      ) $.
-    cmphalfnest.h $e |- ( ( ph /\ x e. A ) -> ( W ` ( T ` x ) ) <_ ( ( W ` x
-      ) / 2 ) ) $.
-    cmphalfnest.l $e |- ( ( ph /\ z e. U. J ) -> E. r e. RR+ A. x e. A ( z e.
-      ( M ` x ) -> r <_ ( W ` x ) ) ) $.
+    cmphalfnest.s $e |- ( ( ph /\ x e. A ) ->
+      ( M ` ( T ` x ) ) C_ ( M ` x ) ) $.
+    cmphalfnest.h $e |- ( ( ph /\ x e. A ) ->
+      ( W ` ( T ` x ) ) <_ ( ( W ` x ) / 2 ) ) $.
+    cmphalfnest.l $e |- ( ( ph /\ z e. U. J ) ->
+      E. r e. RR+ A. x e. A ( z e. ( M ` x ) -> r <_ ( W ` x ) ) ) $.
     $( In a compact space, a family of states admitting nested nonempty closed
        sets and a transition which halves their weights must be empty if every
        point has a positive lower bound on the weights of all sets containing
@@ -893422,7 +893563,6 @@ $)
   $}
 
   ${
-
     iccunitxpn0cld.a $e |- ( ph -> A e. ( 0 [,] 1 ) ) $.
     iccunitxpn0cld.b $e |- ( ph -> B e. ( 0 [,] 1 ) ) $.
     iccunitxpn0cld.c $e |- ( ph -> C e. ( 0 [,] 1 ) ) $.
@@ -893432,8 +893572,9 @@ $)
     $( A rectangle with ordered endpoints in the unit interval is a nonempty
        closed set in the product of two unit intervals.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    iccunitxpn0cld $p |- ( ph -> ( ( A [,] B ) X. ( C [,] D ) ) e. ( ( Clsd `
-      ( II tX II ) ) \ { (/) } ) ) $=
+    iccunitxpn0cld $p |- ( ph ->
+      ( ( A [,] B ) X. ( C [,] D ) ) e.
+      ( ( Clsd ` ( II tX II ) ) \ { (/) } ) ) $=
       ( co cii ccld cfv wcel cr elunitrn syl syl2anc cicc cxp ctx c0 crn ctg c1
       cioo cc0 crest wss unitssre icccld iccss2 uniretop restcldi syl3anc dfii2
       a1i fveq2i eleqtrrdi txcld cop cle wbr w3a leidd wb elicc2 mpbird opelxpd
@@ -893447,15 +893588,15 @@ $)
   $}
 
   ${
-
     icchalfstep.a $e |- ( ph -> A e. RR ) $.
     icchalfstep.h $e |- ( ph -> H e. RR+ ) $.
     $( The midpoint of a real interval of positive length belongs to the
        interval, and another half step reaches its right endpoint.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    icchalfstep $p |- ( ph -> ( ( ( A + ( H / 2 ) ) + ( H / 2 ) ) = ( A + H )
-      /\ ( A + ( H / 2 ) ) e. ( A [,] ( A + H ) ) /\ ( A <_ ( A + ( H / 2 ) )
-      /\ ( A + ( H / 2 ) ) <_ ( A + H ) ) ) ) $=
+    icchalfstep $p |- ( ph ->
+      ( ( ( A + ( H / 2 ) ) + ( H / 2 ) ) = ( A + H ) /\
+        ( A + ( H / 2 ) ) e. ( A [,] ( A + H ) ) /\
+        ( A <_ ( A + ( H / 2 ) ) /\ ( A + ( H / 2 ) ) <_ ( A + H ) ) ) ) $=
       ( c2 cdiv co caddc wcel cle wbr recnd readdcld ltaddrp syl2anc ltled 3jca
       cr clt wceq cicc wa rpred rehalfcld addassd 2halvesd oveq2d eqtrd w3a crp
       rphalfcld breqtrd wb elicc2 mpbird jca ) ABCFGHZIHZURIHZBCIHZUAUSBVAUBHJZ
@@ -893466,29 +893607,36 @@ $)
   $}
 
   ${
-
     sqhalfpick.a $e |- ( ph -> A e. RR ) $.
     sqhalfpick.b $e |- ( ph -> B e. RR ) $.
     sqhalfpick.h $e |- ( ph -> H e. RR+ ) $.
-    sqhalfpick.e $e |- ( ph -> ( ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) ,
-      ( H / 2 ) >. e. S \/ <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e. S ) \/
-      ( <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/ <. A , B , ( H / 2 )
-      >. e. S ) ) ) $.
-    sqhalfpick.c $e |- ( ph -> C = if ( ( <. ( A + ( H / 2 ) ) , ( B + ( H /
-      2 ) ) , ( H / 2 ) >. e. S \/ <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e.
-      S ) , if ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S
-      , <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. , <. ( A + (
-      H / 2 ) ) , B , ( H / 2 ) >. ) , if ( <. A , ( B + ( H / 2 ) ) , ( H /
-      2 ) >. e. S , <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. , <. A , B , ( H
-      / 2 ) >. ) ) ) $.
+    sqhalfpick.e $e |- ( ph ->
+      ( ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/
+          <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e. S ) \/
+        ( <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/
+          <. A , B , ( H / 2 ) >. e. S ) ) ) $.
+    sqhalfpick.c $e |- ( ph ->
+      C =
+      if ( ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/
+             <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e. S ) ,
+           if ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S ,
+                <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. ,
+                <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. ) ,
+           if ( <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S ,
+                <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. ,
+                <. A , B , ( H / 2 ) >. ) ) ) $.
     $( From four squares of half the side length choose one belonging to a
        specified family when one exists.  The chosen square lies in the
        original square and has half its side length.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    sqhalfpick $p |- ( ph -> ( C e. S /\ ( ( ( 1st ` ( 1st ` C ) ) [,] ( (
-      1st ` ( 1st ` C ) ) + ( 2nd ` C ) ) ) X. ( ( 2nd ` ( 1st ` C ) ) [,] (
-      ( 2nd ` ( 1st ` C ) ) + ( 2nd ` C ) ) ) ) C_ ( ( A [,] ( A + H ) ) X. (
-      B [,] ( B + H ) ) ) /\ ( 2nd ` C ) = ( H / 2 ) ) ) $=
+    sqhalfpick $p |- ( ph ->
+      ( C e. S /\
+        ( ( ( 1st ` ( 1st ` C ) ) [,]
+            ( ( 1st ` ( 1st ` C ) ) + ( 2nd ` C ) ) ) X.
+          ( ( 2nd ` ( 1st ` C ) ) [,]
+            ( ( 2nd ` ( 1st ` C ) ) + ( 2nd ` C ) ) ) ) C_
+        ( ( A [,] ( A + H ) ) X. ( B [,] ( B + H ) ) ) /\
+        ( 2nd ` C ) = ( H / 2 ) ) ) $=
       ( co caddc wcel c1st cfv cicc adantr oveq12d cr c2 cdiv cotp c2nd cxp wss
       wo wceq w3a wa simpr iftrued eqtrd eqeltrd fveq2d xpeq12d rpred rehalfcld
       cif readdcld ot1stg syl3anc ot3rdg syl ot2ndg cle wbr simp2d simp1d rexrd
@@ -893540,22 +893688,31 @@ $)
 
   ${
     $d S r v x y z $.  $d ph r x z $.
-    unitsqhalfdesc.s $e |- ( ( ph /\ x e. S ) -> x e. ( ( ( 0 [,] 1 ) X. ( 0
-      [,] 1 ) ) X. RR+ ) ) $.
-    unitsqhalfdesc.e $e |- ( ( ph /\ x e. S ) -> ( ( ( 1st ` ( 1st ` x ) ) +
-      ( 2nd ` x ) ) e. ( 0 [,] 1 ) /\ ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) )
-      e. ( 0 [,] 1 ) ) ) $.
-    unitsqhalfdesc.c $e |- ( ( ph /\ x e. S ) -> ( ( <. ( ( 1st ` ( 1st ` x )
-      ) + ( ( 2nd ` x ) / 2 ) ) , ( ( 2nd ` ( 1st ` x ) ) + ( ( 2nd ` x ) / 2
-      ) ) , ( ( 2nd ` x ) / 2 ) >. e. S \/ <. ( ( 1st ` ( 1st ` x ) ) + ( (
-      2nd ` x ) / 2 ) ) , ( 2nd ` ( 1st ` x ) ) , ( ( 2nd ` x ) / 2 ) >. e. S
-      ) \/ ( <. ( 1st ` ( 1st ` x ) ) , ( ( 2nd ` ( 1st ` x ) ) + ( ( 2nd ` x
-      ) / 2 ) ) , ( ( 2nd ` x ) / 2 ) >. e. S \/ <. ( 1st ` ( 1st ` x ) ) , (
-      2nd ` ( 1st ` x ) ) , ( ( 2nd ` x ) / 2 ) >. e. S ) ) ) $.
+    unitsqhalfdesc.s $e |- ( ( ph /\ x e. S ) ->
+      x e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ ) ) $.
+    unitsqhalfdesc.e $e |- ( ( ph /\ x e. S ) ->
+      ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) /\
+        ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) ) ) $.
+    unitsqhalfdesc.c $e |- ( ( ph /\ x e. S ) ->
+      ( ( <. ( ( 1st ` ( 1st ` x ) ) + ( ( 2nd ` x ) / 2 ) ) ,
+             ( ( 2nd ` ( 1st ` x ) ) + ( ( 2nd ` x ) / 2 ) ) ,
+             ( ( 2nd ` x ) / 2 ) >. e. S \/
+          <. ( ( 1st ` ( 1st ` x ) ) + ( ( 2nd ` x ) / 2 ) ) ,
+             ( 2nd ` ( 1st ` x ) ) ,
+             ( ( 2nd ` x ) / 2 ) >. e. S ) \/
+        ( <. ( 1st ` ( 1st ` x ) ) ,
+             ( ( 2nd ` ( 1st ` x ) ) + ( ( 2nd ` x ) / 2 ) ) ,
+             ( ( 2nd ` x ) / 2 ) >. e. S \/
+          <. ( 1st ` ( 1st ` x ) ) ,
+             ( 2nd ` ( 1st ` x ) ) ,
+             ( ( 2nd ` x ) / 2 ) >. e. S ) ) ) $.
     unitsqhalfdesc.l $e |- ( ( ph /\ z e. ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) ) ->
-      E. r e. RR+ A. x e. S ( z e. ( ( ( 1st ` ( 1st ` x ) ) [,] ( ( 1st ` (
-      1st ` x ) ) + ( 2nd ` x ) ) ) X. ( ( 2nd ` ( 1st ` x ) ) [,] ( ( 2nd `
-      ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) -> r <_ ( 2nd ` x ) ) ) $.
+      E. r e. RR+ A. x e. S
+        ( z e. ( ( ( 1st ` ( 1st ` x ) ) [,]
+                   ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) X.
+                 ( ( 2nd ` ( 1st ` x ) ) [,]
+                   ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) ->
+          r <_ ( 2nd ` x ) ) ) $.
     $( A family of squares in the closed unit square is empty if each member
        has a child of half its side length in the family and at each point the
        side lengths of members containing it have a positive lower bound.
@@ -893611,20 +893768,27 @@ $)
     sqdiffbadel.h $e |- ( ph -> H e. RR+ ) $.
     sqdiffbadel.u $e |- ( ph -> ( A + H ) e. ( 0 [,] 1 ) ) $.
     sqdiffbadel.w $e |- ( ph -> ( B + H ) e. ( 0 [,] 1 ) ) $.
-    sqdiffbadel.s $e |- S = { v e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ )
-      | ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\ ( ( 2nd `
-      ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\ ( K x. ( ( 2nd ` v ) ^
-      2 ) ) <_ ( abs ` ( ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G ( (
-      2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) - ( ( 1st ` ( 1st ` v ) ) G ( (
-      2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) ) - ( ( ( ( 1st ` ( 1st ` v ) ) +
-      ( 2nd ` v ) ) G ( 2nd ` ( 1st ` v ) ) ) - ( ( 1st ` ( 1st ` v ) ) G (
-      2nd ` ( 1st ` v ) ) ) ) ) ) ) } $.
+    sqdiffbadel.s $e |- S =
+      { v e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ ) |
+        ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\
+          ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\
+          ( K x. ( ( 2nd ` v ) ^ 2 ) ) <_
+          ( abs ` ( ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G
+                        ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) -
+                      ( ( 1st ` ( 1st ` v ) ) G
+                        ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) ) -
+                    ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G
+                        ( 2nd ` ( 1st ` v ) ) ) -
+                      ( ( 1st ` ( 1st ` v ) ) G
+                        ( 2nd ` ( 1st ` v ) ) ) ) ) ) ) } $.
     $( A square with valid coordinates belongs to the family selected by a
        lower bound on its mixed difference precisely when it satisfies the
        bound.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    sqdiffbadel $p |- ( ph -> ( <. A , B , H >. e. S <-> ( K x. ( H ^ 2 ) )
-      <_ ( abs ` ( ( ( ( A + H ) G ( B + H ) ) - ( A G ( B + H ) ) ) - ( ( (
-      A + H ) G B ) - ( A G B ) ) ) ) ) ) $=
+    sqdiffbadel $p |- ( ph ->
+      ( <. A , B , H >. e. S <->
+        ( K x. ( H ^ 2 ) ) <_
+        ( abs ` ( ( ( ( A + H ) G ( B + H ) ) - ( A G ( B + H ) ) ) -
+                  ( ( ( A + H ) G B ) - ( A G B ) ) ) ) ) ) $=
       ( wcel cfv caddc co cmin oveq12d cotp cv c1st c2nd c1 cicc cexp cmul cabs
       cc0 cle wbr w3a cxp crp crab eleq2i 3jca otelxp sylibr wceq fveq2d eleq1d
       c2 wb id oveq1d oveq2d breq12d 3anbi123d elrab3 syl ot1stg syl3anc ot3rdg
@@ -893648,32 +893812,39 @@ $)
 
   ${
     $d A v $.  $d B v $.  $d G v $.  $d H v $.  $d K v $.
-    sqdiffbadchild.g $e |- ( ph -> G : ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) --> CC
-      ) $.
+    sqdiffbadchild.g $e |- ( ph ->
+      G : ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) --> CC ) $.
     sqdiffbadchild.a $e |- ( ph -> A e. ( 0 [,] 1 ) ) $.
     sqdiffbadchild.b $e |- ( ph -> B e. ( 0 [,] 1 ) ) $.
     sqdiffbadchild.h $e |- ( ph -> H e. RR+ ) $.
     sqdiffbadchild.u $e |- ( ph -> ( A + H ) e. ( 0 [,] 1 ) ) $.
     sqdiffbadchild.w $e |- ( ph -> ( B + H ) e. ( 0 [,] 1 ) ) $.
     sqdiffbadchild.k $e |- ( ph -> K e. RR ) $.
-    sqdiffbadchild.d $e |- ( ph -> ( K x. ( H ^ 2 ) ) <_ ( abs ` ( ( ( ( A +
-      H ) G ( B + H ) ) - ( A G ( B + H ) ) ) - ( ( ( A + H ) G B ) - ( A G B
-      ) ) ) ) ) $.
-    sqdiffbadchild.s $e |- S = { v e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+
-      ) | ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\ ( ( 2nd
-      ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\ ( K x. ( ( 2nd ` v )
-      ^ 2 ) ) <_ ( abs ` ( ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G ( (
-      2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) - ( ( 1st ` ( 1st ` v ) ) G ( (
-      2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) ) - ( ( ( ( 1st ` ( 1st ` v ) ) +
-      ( 2nd ` v ) ) G ( 2nd ` ( 1st ` v ) ) ) - ( ( 1st ` ( 1st ` v ) ) G (
-      2nd ` ( 1st ` v ) ) ) ) ) ) ) } $.
+    sqdiffbadchild.d $e |- ( ph ->
+      ( K x. ( H ^ 2 ) ) <_
+      ( abs ` ( ( ( ( A + H ) G ( B + H ) ) - ( A G ( B + H ) ) ) -
+                ( ( ( A + H ) G B ) - ( A G B ) ) ) ) ) $.
+    sqdiffbadchild.s $e |- S =
+      { v e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ ) |
+        ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\
+          ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) e. ( 0 [,] 1 ) /\
+          ( K x. ( ( 2nd ` v ) ^ 2 ) ) <_
+          ( abs ` ( ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G
+                        ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) -
+                      ( ( 1st ` ( 1st ` v ) ) G
+                        ( ( 2nd ` ( 1st ` v ) ) + ( 2nd ` v ) ) ) ) -
+                    ( ( ( ( 1st ` ( 1st ` v ) ) + ( 2nd ` v ) ) G
+                        ( 2nd ` ( 1st ` v ) ) ) -
+                      ( ( 1st ` ( 1st ` v ) ) G
+                        ( 2nd ` ( 1st ` v ) ) ) ) ) ) ) } $.
     $( At least one of the four half-size children of a square violating a
        strict area bound on its mixed difference violates the same bound.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    sqdiffbadchild $p |- ( ph -> ( ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) )
-      , ( H / 2 ) >. e. S \/ <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e. S )
-      \/ ( <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/ <. A , B , ( H / 2
-      ) >. e. S ) ) ) $=
+    sqdiffbadchild $p |- ( ph ->
+      ( ( <. ( A + ( H / 2 ) ) , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/
+          <. ( A + ( H / 2 ) ) , B , ( H / 2 ) >. e. S ) \/
+        ( <. A , ( B + ( H / 2 ) ) , ( H / 2 ) >. e. S \/
+          <. A , B , ( H / 2 ) >. e. S ) ) ) $=
       ( co caddc cmin c2 cdiv cexp cmul cabs cfv cle wbr wo cotp wn rpred recnd
       sqvald 2halvesd eqcomd oveq12d halfcld 3eqtrd oveq2d mulcld addcld adddid
       wcel muladdd eqtrd eqbrtrrd adantr wa clt wceq cc cc0 c1 cicc fovcdmd wss
@@ -893722,20 +893893,26 @@ $)
   ${
     $d B r v x z $.  $d G r v x z $.  $d ph r x z $.
     unitsqdif0.g $e |- ( ph -> G : ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) --> CC ) $.
-    unitsqdif0.b $e |- ( ph -> B = ( ( ( 1 G 1 ) - ( 0 G 1 ) ) - ( ( 1 G 0 )
-      - ( 0 G 0 ) ) ) ) $.
-    unitsqdif0.l $e |- ( ( ( ph /\ B =/= 0 ) /\ z e. ( ( 0 [,] 1 ) X. ( 0 [,]
-      1 ) ) ) -> E. r e. RR+ A. x e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+
-      ) ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) /\ ( (
-      2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) ) /\ z e. ( ( ( 1st
-      ` ( 1st ` x ) ) [,] ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) X. ( (
-      2nd ` ( 1st ` x ) ) [,] ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) /\
-      ( 2nd ` x ) < r ) -> ( abs ` ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x
-      ) ) G ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) - ( ( 1st ` ( 1st ` x )
-      ) G ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) - ( ( ( ( 1st ` ( 1st `
-      x ) ) + ( 2nd ` x ) ) G ( 2nd ` ( 1st ` x ) ) ) - ( ( 1st ` ( 1st ` x )
-      ) G ( 2nd ` ( 1st ` x ) ) ) ) ) ) < ( ( abs ` B ) x. ( ( 2nd ` x ) ^ 2
-      ) ) ) ) $.
+    unitsqdif0.b $e |- ( ph ->
+      B = ( ( ( 1 G 1 ) - ( 0 G 1 ) ) - ( ( 1 G 0 ) - ( 0 G 0 ) ) ) ) $.
+    unitsqdif0.l $e |- ( ( ( ph /\ B =/= 0 ) /\
+                           z e. ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) ) ->
+      E. r e. RR+ A. x e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ )
+        ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) /\
+              ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) ) /\
+            z e. ( ( ( 1st ` ( 1st ` x ) ) [,]
+                     ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) X.
+                   ( ( 2nd ` ( 1st ` x ) ) [,]
+                     ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) /\
+            ( 2nd ` x ) < r ) ->
+          ( abs ` ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) G
+                        ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) -
+                      ( ( 1st ` ( 1st ` x ) ) G
+                        ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) -
+                    ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) G
+                        ( 2nd ` ( 1st ` x ) ) ) -
+                      ( ( 1st ` ( 1st ` x ) ) G ( 2nd ` ( 1st ` x ) ) ) ) ) ) <
+          ( ( abs ` B ) x. ( ( 2nd ` x ) ^ 2 ) ) ) ) $.
     $( A mixed difference on the unit square vanishes if every sufficiently
        small square containing a given point has mixed difference smaller in
        absolute value than its area times the absolute value of the full mixed
@@ -893794,14 +893971,15 @@ $)
     itgdiffconstle.i $e |- ( ph -> ( x e. A |-> B ) e. L^1 ) $.
     itgdiffconstle.c $e |- ( ( ph /\ x e. A ) -> C e. CC ) $.
     itgdiffconstle.j $e |- ( ph -> ( x e. A |-> C ) e. L^1 ) $.
-    itgdiffconstle.e $e |- ( ( ph /\ x e. A ) -> ( abs ` ( ( B - C ) - D ) )
-      <_ M ) $.
+    itgdiffconstle.e $e |- ( ( ph /\ x e. A ) ->
+      ( abs ` ( ( B - C ) - D ) ) <_ M ) $.
     $( If the difference of two integrable functions stays within a fixed
        distance of a constant, the difference of their integrals stays within
        that distance times the measure of the domain of the corresponding
        constant integral.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    itgdiffconstle $p |- ( ph -> ( abs ` ( ( S. A B _d x - S. A C _d x ) - (
-      D x. ( vol ` A ) ) ) ) <_ ( M x. ( vol ` A ) ) ) $=
+    itgdiffconstle $p |- ( ph ->
+      ( abs ` ( ( S. A B _d x - S. A C _d x ) - ( D x. ( vol ` A ) ) ) ) <_
+      ( M x. ( vol ` A ) ) ) $=
       ( cmin co citg cc cabs cfv cvol cmul cv wcel wa subcld iblsub adantr cmpt
       cle csn cxp cibl fconstmpt cdm iblconst syl3anc eqeltrrid itgsub itgconst
       cr wceq oveq12d eqtrd fveq2d itgabsle eqbrtrrd ) ABCDEQRZFQRZSZUAUBBCDSBC
@@ -893815,15 +893993,14 @@ $)
     $d A x $.  $d B x $.  $d D x $.  $d F x $.  $d ph x $.
     cnficccompibl.a $e |- ( ph -> A e. RR ) $.
     cnficccompibl.b $e |- ( ph -> B e. RR ) $.
-    cnficccompibl.w $e |- ( ph -> ( x e. ( A [,] B ) |-> W ) e. ( ( A [,] B )
-      -cn-> CC ) ) $.
+    cnficccompibl.w $e |- ( ph ->
+      ( x e. ( A [,] B ) |-> W ) e. ( ( A [,] B ) -cn-> CC ) ) $.
     cnficccompibl.f $e |- ( ph -> F e. ( D -cn-> CC ) ) $.
     cnficccompibl.m $e |- ( ( ph /\ x e. ( A [,] B ) ) -> W e. D ) $.
     $( A continuous complex function composed with a continuous path in its
        domain is integrable on a closed real parameter interval.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    cnficccompibl $p |- ( ph -> ( x e. ( A [,] B ) |-> ( F ` W ) ) e. L^1 )
-      $=
+    cnficccompibl $p |- ( ph -> ( x e. ( A [,] B ) |-> ( F ` W ) ) e. L^1 ) $=
       ( cr wcel co cmpt cc ccncf wf syl cicc cfv cibl ccom cofmpt fmpttd wss wb
       cncff cncfrss cncfcdm syl2anc mpbird cncfco eqeltrrd cnicciblnc syl3anc )
       ACMNDMNBCDUAOZGFUBPZURQROZNUSUCNHIAFBURGPZUDUSUTABURGEQFAFEQRONZEQFSKEQFU
@@ -893849,7 +894026,6 @@ $)
   $}
 
   ${
-
     iccdiamle.a $e |- ( ph -> A e. RR ) $.
     iccdiamle.b $e |- ( ph -> B e. RR ) $.
     iccdiamle.c $e |- ( ph -> C e. ( A [,] B ) ) $.
@@ -893864,7 +894040,6 @@ $)
   $}
 
   ${
-
     linerrdif.a $e |- ( ph -> A e. CC ) $.
     linerrdif.b $e |- ( ph -> B e. CC ) $.
     linerrdif.c $e |- ( ph -> C e. CC ) $.
@@ -893873,15 +894048,15 @@ $)
     linerrdif.g $e |- ( ph -> G e. CC ) $.
     linerrdif.j $e |- ( ph -> J e. CC ) $.
     linerrdif.m $e |- ( ph -> M e. RR ) $.
-    linerrdif.u $e |- ( ph -> ( abs ` ( ( F - J ) - ( C x. ( A - P ) ) ) ) <_
-      M ) $.
-    linerrdif.v $e |- ( ph -> ( abs ` ( ( G - J ) - ( C x. ( B - P ) ) ) ) <_
-      M ) $.
+    linerrdif.u $e |- ( ph ->
+      ( abs ` ( ( F - J ) - ( C x. ( A - P ) ) ) ) <_ M ) $.
+    linerrdif.v $e |- ( ph ->
+      ( abs ` ( ( G - J ) - ( C x. ( B - P ) ) ) ) <_ M ) $.
     $( Uniform errors in one affine approximation bound the error in the
        difference between the two approximated values.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    linerrdif $p |- ( ph -> ( abs ` ( ( F - G ) - ( C x. ( A - B ) ) ) ) <_ (
-      M + M ) ) $=
+    linerrdif $p |- ( ph ->
+      ( abs ` ( ( F - G ) - ( C x. ( A - B ) ) ) ) <_ ( M + M ) ) $=
       ( co cmin cmul cabs cfv caddc subcld mulcld nnncan2d subdid oveq2d eqtr3d
       cle sub4d oveq12d eqtrd fveq2d abscld readdcld abs2dif2d le2addd eqbrtrrd
       letrd ) AFHUATZDBEUATZUBTZUATZGHUATZDCEUATZUBTZUATZUATZUCUDZFGUATZDBCUATZ
@@ -893893,7 +894068,6 @@ $)
   $}
 
   ${
-
     subdif4lin.k $e |- ( ph -> K e. CC ) $.
     subdif4lin.a $e |- ( ph -> A e. CC ) $.
     subdif4lin.b $e |- ( ph -> B e. CC ) $.
@@ -893907,9 +894081,10 @@ $)
        of its terms.  The first differences of the two terms may be taken in
        opposite coordinate directions.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    subdif4lin $p |- ( ph -> ( ( ( ( K x. A ) - E ) - ( ( K x. B ) - F ) ) -
-      ( ( ( K x. C ) - G ) - ( ( K x. D ) - H ) ) ) = ( ( K x. ( ( A - C ) -
-      ( B - D ) ) ) - ( ( E - F ) - ( G - H ) ) ) ) $=
+    subdif4lin $p |- ( ph ->
+      ( ( ( ( K x. A ) - E ) - ( ( K x. B ) - F ) ) -
+        ( ( ( K x. C ) - G ) - ( ( K x. D ) - H ) ) ) =
+      ( ( K x. ( ( A - C ) - ( B - D ) ) ) - ( ( E - F ) - ( G - H ) ) ) ) $=
       ( co cmul mulcld sub4d subdid oveq1d eqtr4d oveq12d subcld oveq2d 3eqtrd
       cmin ) AJBUATZFUKTJCUATZGUKTUKTZJDUATZHUKTJEUATZIUKTUKTZUKTJBCUKTZUATZFGU
       KTZUKTZJDEUKTZUATZHIUKTZUKTZUKTZJURVBUKTZUATZUTVDUKTZUKTZJBDUKTCEUKTUKTZU
@@ -893920,7 +894095,6 @@ $)
   $}
 
   ${
-
     unitroterr.a $e |- ( ph -> A e. CC ) $.
     unitroterr.b $e |- ( ph -> B e. CC ) $.
     unitroterr.c $e |- ( ph -> C e. CC ) $.
@@ -893959,16 +894133,17 @@ $)
     rectitglinbnd.ic $e |- ( ph -> ( x e. Y |-> C ) e. L^1 ) $.
     rectitglinbnd.id $e |- ( ph -> ( x e. X |-> D ) e. L^1 ) $.
     rectitglinbnd.ie $e |- ( ph -> ( x e. X |-> E ) e. L^1 ) $.
-    rectitglinbnd.p $e |- ( ( ph /\ x e. Y ) -> ( abs ` ( ( B - C ) - ( K x.
-      ( vol ` X ) ) ) ) <_ M ) $.
-    rectitglinbnd.q $e |- ( ( ph /\ x e. X ) -> ( abs ` ( ( D - E ) - ( K x.
-      ( _i x. ( vol ` Y ) ) ) ) ) <_ M ) $.
+    rectitglinbnd.p $e |- ( ( ph /\ x e. Y ) ->
+      ( abs ` ( ( B - C ) - ( K x. ( vol ` X ) ) ) ) <_ M ) $.
+    rectitglinbnd.q $e |- ( ( ph /\ x e. X ) ->
+      ( abs ` ( ( D - E ) - ( K x. ( _i x. ( vol ` Y ) ) ) ) ) <_ M ) $.
     $( Bound a rectangular contour integral by the sum of the two side lengths
        times the error in its opposite-edge differences.  The two affine
        contributions cancel.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectitglinbnd $p |- ( ph -> ( abs ` ( ( _i x. ( S. Y B _d x - S. Y C _d x
-      ) ) - ( S. X D _d x - S. X E _d x ) ) ) <_ ( M x. ( ( vol ` X ) + ( vol
-      ` Y ) ) ) ) $=
+    rectitglinbnd $p |- ( ph ->
+      ( abs ` ( ( _i x. ( S. Y B _d x - S. Y C _d x ) ) -
+                ( S. X D _d x - S. X E _d x ) ) ) <_
+      ( M x. ( ( vol ` X ) + ( vol ` Y ) ) ) ) $=
       ( ci citg cmin co cmul cabs cfv cvol caddc cle cc itgcl subcld recnd wcel
       mulcld ax-icn a1i wceq remulcld itgdiffconstle mul32d mul12d eqtrd oveq2d
       c1 absi fveq2d eqbrtrrd unitroterr adddid addcomd breqtrrd ) AUGBJCUHZBJD
@@ -893982,7 +894157,6 @@ $)
   $}
 
   ${
-
     rectdiamle.a $e |- ( ph -> A e. RR ) $.
     rectdiamle.b $e |- ( ph -> B e. RR ) $.
     rectdiamle.c $e |- ( ph -> C e. RR ) $.
@@ -893993,8 +894167,9 @@ $)
     rectdiamle.v $e |- ( ph -> V e. ( C [,] D ) ) $.
     $( Two complex points in the same closed rectangle are at most the sum of
        the side lengths apart.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectdiamle $p |- ( ph -> ( abs ` ( ( X + ( _i x. Y ) ) - ( W + ( _i x. V
-      ) ) ) ) <_ ( ( B - A ) + ( D - C ) ) ) $=
+    rectdiamle $p |- ( ph ->
+      ( abs ` ( ( X + ( _i x. Y ) ) - ( W + ( _i x. V ) ) ) ) <_
+      ( ( B - A ) + ( D - C ) ) ) $=
       ( ci co wcel cmul caddc cmin cabs cfv cle cr wbr cicc w3a wb elicc2 mpbid
       syl2anc simp1d recnd ax-icn a1i mulcld subdid oveq2d eqtr4d fveq2d subcld
       addsub4d addcld abscld readdcld resubcld abstrid absmuld wceq absi oveq1d
@@ -894026,18 +894201,21 @@ $)
     rectitgerr.j $e |- ( ph -> J e. CC ) $.
     rectitgerr.k $e |- ( ph -> K e. CC ) $.
     rectitgerr.m $e |- ( ph -> M e. RR ) $.
-    rectitgerr.r $e |- ( ( ph /\ ( u e. ( A [,] B ) /\ v e. ( C [,] D ) ) )
-      -> ( ( u + ( _i x. v ) ) e. S /\ ( abs ` ( ( ( F ` ( u + ( _i x. v ) )
-      ) - J ) - ( K x. ( ( u + ( _i x. v ) ) - Z ) ) ) ) <_ M ) ) $.
+    rectitgerr.r $e |- ( ( ph /\ ( u e. ( A [,] B ) /\ v e. ( C [,] D ) ) ) ->
+      ( ( u + ( _i x. v ) ) e. S /\
+        ( abs ` ( ( ( F ` ( u + ( _i x. v ) ) ) - J ) -
+                  ( K x. ( ( u + ( _i x. v ) ) - Z ) ) ) ) <_ M ) ) $.
     $( If a continuous function agrees with an affine complex map to within a
        uniform error on a rectangle, its oriented boundary integral is bounded
        by twice that error times the sum of the side lengths.  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    rectitgerr $p |- ( ph -> ( abs ` ( ( _i x. ( S. ( C [,] D ) ( F ` ( B + (
-      _i x. t ) ) ) _d t - S. ( C [,] D ) ( F ` ( A + ( _i x. t ) ) ) _d t )
-      ) - ( S. ( A [,] B ) ( F ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B )
-      ( F ` ( t + ( _i x. C ) ) ) _d t ) ) ) <_ ( ( M + M ) x. ( ( B - A ) +
-      ( D - C ) ) ) ) $=
+    rectitgerr $p |- ( ph ->
+      ( abs ` ( ( _i x.
+                  ( S. ( C [,] D ) ( F ` ( B + ( _i x. t ) ) ) _d t -
+                    S. ( C [,] D ) ( F ` ( A + ( _i x. t ) ) ) _d t ) ) -
+                ( S. ( A [,] B ) ( F ` ( t + ( _i x. D ) ) ) _d t -
+                  S. ( A [,] B ) ( F ` ( t + ( _i x. C ) ) ) _d t ) ) ) <_
+      ( ( M + M ) x. ( ( B - A ) + ( D - C ) ) ) ) $=
       ( ci cicc co cv cmul caddc cfv citg cmin cabs cvol cle cr wcel cdm iccmbl
       syl2anc iccvolcl readdcld wa cc wf ccncf cncff syl adantr wbr wceq oveq2d
       eleq1d fveq2d oveq1d oveq12d breq1d anbi12d wral ralbidv ralrimivva rexrd
@@ -894105,7 +894283,6 @@ $)
   $}
 
   ${
-
     iccaffcl.a $e |- ( ph -> A e. RR ) $.
     iccaffcl.b $e |- ( ph -> B e. RR ) $.
     iccaffcl.h $e |- ( ph -> H e. RR ) $.
@@ -894115,8 +894292,8 @@ $)
     $( A real affine map of nonnegative slope carries points of a closed
        interval into the interval between the images of its endpoints.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    iccaffcl $p |- ( ph -> ( H + ( K x. X ) ) e. ( ( H + ( K x. A ) ) [,] ( H
-      + ( K x. B ) ) ) ) $=
+    iccaffcl $p |- ( ph ->
+      ( H + ( K x. X ) ) e. ( ( H + ( K x. A ) ) [,] ( H + ( K x. B ) ) ) ) $=
       ( cmul co caddc wcel cr cle wbr remulcld cicc w3a wb elicc2 syl2anc mpbid
       simp1d readdcld simp2d lemul2ad leadd2dd simp3d 3jca mpbird ) ADEFMNZONZD
       EBMNZONZDECMNZONZUANPZUPQPZURUPRSZUPUTRSZUBZAVBVCVDADUOIAEFJAFQPZBFRSZFCR
@@ -894140,24 +894317,28 @@ $)
     rectprimdif.me $e |- ( ph -> E e. ( B [,] T ) ) $.
     rectprimdif.h $e |- ( ph -> A <_ C ) $.
     rectprimdif.v $e |- ( ph -> D <_ E ) $.
-    rectprimdif.s $e |- ( ph -> A. u e. ( L [,] R ) A. v e. ( B [,] T ) ( u +
-      ( _i x. v ) ) e. S ) $.
+    rectprimdif.s $e |- ( ph ->
+      A. u e. ( L [,] R ) A. v e. ( B [,] T ) ( u + ( _i x. v ) ) e. S ) $.
     $( A rectangular contour integral is the mixed difference of a function
        made from vertical and horizontal prefix integrals.  The prefix
        integrals may start at the lower bounds of any enclosing rectangle.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectprimdif $p |- ( ph -> ( ( ( _i x. S. ( B [,] E ) ( F ` ( C + ( _i x.
-      t ) ) ) _d t ) - S. ( L [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t ) e.
-      CC /\ ( ( ( ( _i x. S. ( B [,] E ) ( F ` ( C + ( _i x. t ) ) ) _d t ) -
-      S. ( L [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t ) - ( ( _i x. S. ( B
-      [,] E ) ( F ` ( A + ( _i x. t ) ) ) _d t ) - S. ( L [,] A ) ( F ` ( t +
-      ( _i x. E ) ) ) _d t ) ) - ( ( ( _i x. S. ( B [,] D ) ( F ` ( C + ( _i
-      x. t ) ) ) _d t ) - S. ( L [,] C ) ( F ` ( t + ( _i x. D ) ) ) _d t ) -
-      ( ( _i x. S. ( B [,] D ) ( F ` ( A + ( _i x. t ) ) ) _d t ) - S. ( L
-      [,] A ) ( F ` ( t + ( _i x. D ) ) ) _d t ) ) ) = ( ( _i x. ( S. ( D [,]
-      E ) ( F ` ( C + ( _i x. t ) ) ) _d t - S. ( D [,] E ) ( F ` ( A + ( _i
-      x. t ) ) ) _d t ) ) - ( S. ( A [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t
-      - S. ( A [,] C ) ( F ` ( t + ( _i x. D ) ) ) _d t ) ) ) ) $=
+    rectprimdif $p |- ( ph ->
+      ( ( ( _i x. S. ( B [,] E ) ( F ` ( C + ( _i x. t ) ) ) _d t ) -
+          S. ( L [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t ) e. CC /\
+        ( ( ( ( _i x. S. ( B [,] E ) ( F ` ( C + ( _i x. t ) ) ) _d t ) -
+              S. ( L [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t ) -
+            ( ( _i x. S. ( B [,] E ) ( F ` ( A + ( _i x. t ) ) ) _d t ) -
+              S. ( L [,] A ) ( F ` ( t + ( _i x. E ) ) ) _d t ) ) -
+          ( ( ( _i x. S. ( B [,] D ) ( F ` ( C + ( _i x. t ) ) ) _d t ) -
+              S. ( L [,] C ) ( F ` ( t + ( _i x. D ) ) ) _d t ) -
+            ( ( _i x. S. ( B [,] D ) ( F ` ( A + ( _i x. t ) ) ) _d t ) -
+              S. ( L [,] A ) ( F ` ( t + ( _i x. D ) ) ) _d t ) ) ) =
+        ( ( _i x.
+            ( S. ( D [,] E ) ( F ` ( C + ( _i x. t ) ) ) _d t -
+              S. ( D [,] E ) ( F ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] C ) ( F ` ( t + ( _i x. E ) ) ) _d t -
+            S. ( A [,] C ) ( F ` ( t + ( _i x. D ) ) ) _d t ) ) ) ) $=
       ( ci cicc co cv cmul caddc cfv citg cmin cc wcel wceq ax-icn a1i wa simpl
       wss cxr cle wbr rexrd cr w3a wb elicc2 syl2anc mpbid simp1d simp2d simp3d
       letrd lbicc2 syl3anc iccss2 adantr simpr sseldd wf ccncf cncff syl oveq2d
@@ -894226,10 +894407,13 @@ $)
     $d C t v $.  $d D p q t $.  $d D t v $.  $d F p q t $.  $d L p q t $.
     $d L t u v $.  $d N p q t $.  $d N t u v $.  $d S t u v $.  $d U p q t $.
     $d U t u v $.  $d V p q t $.  $d V t u v $.  $d p ph q t $.
-    rectgoumap.g $e |- G = ( p e. ( 0 [,] 1 ) , q e. ( 0 [,] 1 ) |-> ( ( _i
-      x. S. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. q ) ) ) ( F ` ( ( L + ( U
-      x. p ) ) + ( _i x. t ) ) ) _d t ) - S. ( ( L + ( U x. 0 ) ) [,] ( L + (
-      U x. p ) ) ) ( F ` ( t + ( _i x. ( N + ( V x. q ) ) ) ) ) _d t ) ) $.
+    rectgoumap.g $e |- G =
+      ( p e. ( 0 [,] 1 ) , q e. ( 0 [,] 1 ) |->
+        ( ( _i x.
+            S. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. q ) ) )
+              ( F ` ( ( L + ( U x. p ) ) + ( _i x. t ) ) ) _d t ) -
+          S. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. p ) ) )
+            ( F ` ( t + ( _i x. ( N + ( V x. q ) ) ) ) ) _d t ) ) $.
     rectgoumap.f $e |- ( ph -> F e. ( S -cn-> CC ) ) $.
     rectgoumap.l $e |- ( ph -> L e. RR ) $.
     rectgoumap.n $e |- ( ph -> N e. RR ) $.
@@ -894241,23 +894425,29 @@ $)
     rectgoumap.d $e |- ( ph -> D e. ( 0 [,] 1 ) ) $.
     rectgoumap.x $e |- ( ph -> A <_ B ) $.
     rectgoumap.y $e |- ( ph -> C <_ D ) $.
-    rectgoumap.s $e |- ( ph -> A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x.
-      1 ) ) ) A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) ) ( u + (
-      _i x. v ) ) e. S ) $.
+    rectgoumap.s $e |- ( ph ->
+      A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. 1 ) ) )
+      A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) )
+        ( u + ( _i x. v ) ) e. S ) $.
     $( On an affinely parametrized rectangle the mixed difference of the two
        prefix integrals is the oriented boundary integral of the corresponding
        subrectangle.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectgoumap $p |- ( ph -> ( ( ( _i x. S. ( ( N + ( V x. 0 ) ) [,] ( N + (
-      V x. D ) ) ) ( F ` ( ( L + ( U x. B ) ) + ( _i x. t ) ) ) _d t ) - S. (
-      ( L + ( U x. 0 ) ) [,] ( L + ( U x. B ) ) ) ( F ` ( t + ( _i x. ( N + (
-      V x. D ) ) ) ) ) _d t ) e. CC /\ ( ( ( B G D ) - ( A G D ) ) - ( ( B G
-      C ) - ( A G C ) ) ) = ( ( _i x. ( S. ( ( N + ( V x. C ) ) [,] ( N + ( V
-      x. D ) ) ) ( F ` ( ( L + ( U x. B ) ) + ( _i x. t ) ) ) _d t - S. ( ( N
-      + ( V x. C ) ) [,] ( N + ( V x. D ) ) ) ( F ` ( ( L + ( U x. A ) ) + (
-      _i x. t ) ) ) _d t ) ) - ( S. ( ( L + ( U x. A ) ) [,] ( L + ( U x. B )
-      ) ) ( F ` ( t + ( _i x. ( N + ( V x. D ) ) ) ) ) _d t - S. ( ( L + ( U
-      x. A ) ) [,] ( L + ( U x. B ) ) ) ( F ` ( t + ( _i x. ( N + ( V x. C )
-      ) ) ) ) _d t ) ) ) ) $=
+    rectgoumap $p |- ( ph ->
+      ( ( ( _i x.
+            S. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. D ) ) )
+              ( F ` ( ( L + ( U x. B ) ) + ( _i x. t ) ) ) _d t ) -
+          S. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. B ) ) )
+            ( F ` ( t + ( _i x. ( N + ( V x. D ) ) ) ) ) _d t ) e. CC /\
+        ( ( ( B G D ) - ( A G D ) ) - ( ( B G C ) - ( A G C ) ) ) =
+        ( ( _i x.
+            ( S. ( ( N + ( V x. C ) ) [,] ( N + ( V x. D ) ) )
+                ( F ` ( ( L + ( U x. B ) ) + ( _i x. t ) ) ) _d t -
+              S. ( ( N + ( V x. C ) ) [,] ( N + ( V x. D ) ) )
+                ( F ` ( ( L + ( U x. A ) ) + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( ( L + ( U x. A ) ) [,] ( L + ( U x. B ) ) )
+              ( F ` ( t + ( _i x. ( N + ( V x. D ) ) ) ) ) _d t -
+            S. ( ( L + ( U x. A ) ) [,] ( L + ( U x. B ) ) )
+              ( F ` ( t + ( _i x. ( N + ( V x. C ) ) ) ) ) _d t ) ) ) ) $=
       ( ci cc0 cmul co caddc cicc cv citg cmin cc wcel wceq rpred 0red remulcld
       cfv c1 readdcld 1red rpge0d iccaffcl cr elunitrn syl lemul2ad rectprimdif
       leadd2dd simpld cvv cmpo a1i wa simprr oveq2d itgeq1 simprl oveq1d fveq2d
@@ -894301,15 +894491,16 @@ $)
   $}
 
   ${
-
     sqscalebnd.k $e |- ( ph -> K e. RR+ ) $.
     sqscalebnd.l $e |- ( ph -> L e. RR+ ) $.
     sqscalebnd.h $e |- ( ph -> H e. RR+ ) $.
     $( An explicit derivative tolerance bounds the quadratic error on every
        scaled subsquare.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    sqscalebnd $p |- ( ph -> ( ( ( ( ( ( ( K / 2 ) / 2 ) / L ) / L ) x. ( L
-      x. H ) ) + ( ( ( ( ( K / 2 ) / 2 ) / L ) / L ) x. ( L x. H ) ) ) x. ( L
-      x. H ) ) < ( K x. ( H ^ 2 ) ) ) $=
+    sqscalebnd $p |- ( ph ->
+      ( ( ( ( ( ( ( K / 2 ) / 2 ) / L ) / L ) x. ( L x. H ) ) +
+          ( ( ( ( ( K / 2 ) / 2 ) / L ) / L ) x. ( L x. H ) ) ) x.
+        ( L x. H ) ) <
+      ( K x. ( H ^ 2 ) ) ) $=
       ( c2 cdiv co cmul caddc clt rphalfcld rpdivcld rpcnd mulcld eqcomd oveq1d
       adddird cexp mulassd mul4d eqtrd rpne0d divcan1d sqvald oveq2d 3eqtrd crp
       oveq12d rpmulcld eqeltrd 2halvesd eqtr4d rpred wcel wbr rphalflt ltmul1dd
@@ -894346,27 +894537,40 @@ $)
     rectgousmall.cut $e |- ( ph -> H < ( R / ( U + V ) ) ) $.
     rectgousmall.j $e |- ( ph -> J e. CC ) $.
     rectgousmall.w $e |- ( ph -> W e. CC ) $.
-    rectgousmall.s $e |- ( ph -> A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U
-      x. 1 ) ) ) A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) ) ( u +
-      ( _i x. v ) ) e. S ) $.
-    rectgousmall.d $e |- ( ph -> A. w e. S ( ( abs ` ( w - ( ( L + ( U x. X )
-      ) + ( _i x. ( N + ( V x. Y ) ) ) ) ) ) < R -> ( abs ` ( ( ( F ` w ) - J
-      ) - ( W x. ( w - ( ( L + ( U x. X ) ) + ( _i x. ( N + ( V x. Y ) ) ) )
-      ) ) ) ) <_ ( ( ( ( ( K / 2 ) / 2 ) / ( U + V ) ) / ( U + V ) ) x. ( abs
-      ` ( w - ( ( L + ( U x. X ) ) + ( _i x. ( N + ( V x. Y ) ) ) ) ) ) ) ) )
-      $.
+    rectgousmall.s $e |- ( ph ->
+      A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. 1 ) ) )
+      A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) )
+        ( u + ( _i x. v ) ) e. S ) $.
+    rectgousmall.d $e |- ( ph ->
+      A. w e. S
+        ( ( abs ` ( w -
+                    ( ( L + ( U x. X ) ) + ( _i x. ( N + ( V x. Y ) ) ) ) ) ) <
+          R ->
+          ( abs ` ( ( ( F ` w ) - J ) -
+                    ( W x.
+                      ( w -
+                        ( ( L + ( U x. X ) ) +
+                          ( _i x. ( N + ( V x. Y ) ) ) ) ) ) ) ) <_
+          ( ( ( ( ( K / 2 ) / 2 ) / ( U + V ) ) / ( U + V ) ) x.
+            ( abs ` ( w -
+                      ( ( L + ( U x. X ) ) +
+                        ( _i x. ( N + ( V x. Y ) ) ) ) ) ) ) ) ) $.
     $( A sufficiently small subsquare containing a center of linear
        approximation has boundary integral smaller in absolute value than a
        prescribed multiple of its normalized area.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    rectgousmall $p |- ( ph -> ( abs ` ( ( _i x. ( S. ( ( N + ( V x. B ) )
-      [,] ( N + ( V x. ( B + H ) ) ) ) ( F ` ( ( L + ( U x. ( A + H ) ) ) + (
-      _i x. t ) ) ) _d t - S. ( ( N + ( V x. B ) ) [,] ( N + ( V x. ( B + H )
-      ) ) ) ( F ` ( ( L + ( U x. A ) ) + ( _i x. t ) ) ) _d t ) ) - ( S. ( (
-      L + ( U x. A ) ) [,] ( L + ( U x. ( A + H ) ) ) ) ( F ` ( t + ( _i x. (
-      N + ( V x. ( B + H ) ) ) ) ) ) _d t - S. ( ( L + ( U x. A ) ) [,] ( L +
-      ( U x. ( A + H ) ) ) ) ( F ` ( t + ( _i x. ( N + ( V x. B ) ) ) ) ) _d
-      t ) ) ) < ( K x. ( H ^ 2 ) ) ) $=
+    rectgousmall $p |- ( ph ->
+      ( abs ` ( ( _i x.
+                  ( S. ( ( N + ( V x. B ) ) [,] ( N + ( V x. ( B + H ) ) ) )
+                      ( F ` ( ( L + ( U x. ( A + H ) ) ) +
+                              ( _i x. t ) ) ) _d t -
+                    S. ( ( N + ( V x. B ) ) [,] ( N + ( V x. ( B + H ) ) ) )
+                      ( F ` ( ( L + ( U x. A ) ) + ( _i x. t ) ) ) _d t ) ) -
+                ( S. ( ( L + ( U x. A ) ) [,] ( L + ( U x. ( A + H ) ) ) )
+                    ( F ` ( t + ( _i x. ( N + ( V x. ( B + H ) ) ) ) ) ) _d t -
+                  S. ( ( L + ( U x. A ) ) [,] ( L + ( U x. ( A + H ) ) ) )
+                    ( F ` ( t + ( _i x. ( N + ( V x. B ) ) ) ) ) _d t ) ) ) <
+      ( K x. ( H ^ 2 ) ) ) $=
       ( vn vm ci cmul co caddc cicc cv cfv citg cmin cabs c2 cdiv cexp cxr wcel
       cxp wbr wa cle rpred cc0 c1 cr elunitrn remulcld readdcld rpge0d ltaddrpd
       syl ltled lemul2ad leadd2dd iccaffcl wb elicc2 syl2anc mpbid simp1d recnd
@@ -894433,36 +894637,48 @@ $)
     $d V d p q t w x $.  $d V d r w x $.  $d V t u v x $.  $d Z d f w $.
     $d Z d p q t w x $.  $d Z d r w x $.  $d Z t u v x $.  $d d f ph w $.
     $d p ph q t w x $.  $d ph r w x $.
-    rectgoulocal.g $e |- G = ( p e. ( 0 [,] 1 ) , q e. ( 0 [,] 1 ) |-> ( ( _i
-      x. S. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. q ) ) ) ( F ` ( ( L + ( U
-      x. p ) ) + ( _i x. t ) ) ) _d t ) - S. ( ( L + ( U x. 0 ) ) [,] ( L + (
-      U x. p ) ) ) ( F ` ( t + ( _i x. ( N + ( V x. q ) ) ) ) ) _d t ) ) $.
+    rectgoulocal.g $e |- G =
+      ( p e. ( 0 [,] 1 ) , q e. ( 0 [,] 1 ) |->
+        ( ( _i x.
+            S. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. q ) ) )
+              ( F ` ( ( L + ( U x. p ) ) + ( _i x. t ) ) ) _d t ) -
+          S. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. p ) ) )
+            ( F ` ( t + ( _i x. ( N + ( V x. q ) ) ) ) ) _d t ) ) $.
     rectgoulocal.f $e |- ( ph -> F e. ( S -cn-> CC ) ) $.
-    rectgoulocal.dv $e |- ( ph -> ( ( L + ( U x. ( 1st ` Z ) ) ) + ( _i x. (
-      N + ( V x. ( 2nd ` Z ) ) ) ) ) e. dom ( CC _D F ) ) $.
+    rectgoulocal.dv $e |- ( ph ->
+      ( ( L + ( U x. ( 1st ` Z ) ) ) +
+        ( _i x. ( N + ( V x. ( 2nd ` Z ) ) ) ) ) e.
+      dom ( CC _D F ) ) $.
     rectgoulocal.l $e |- ( ph -> L e. RR ) $.
     rectgoulocal.n $e |- ( ph -> N e. RR ) $.
     rectgoulocal.u $e |- ( ph -> U e. RR+ ) $.
     rectgoulocal.v $e |- ( ph -> V e. RR+ ) $.
     rectgoulocal.k $e |- ( ph -> K e. RR+ ) $.
     rectgoulocal.z $e |- ( ph -> Z e. ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) ) $.
-    rectgoulocal.s $e |- ( ph -> A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U
-      x. 1 ) ) ) A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) ) ( u +
-      ( _i x. v ) ) e. S ) $.
+    rectgoulocal.s $e |- ( ph ->
+      A. u e. ( ( L + ( U x. 0 ) ) [,] ( L + ( U x. 1 ) ) )
+      A. v e. ( ( N + ( V x. 0 ) ) [,] ( N + ( V x. 1 ) ) )
+        ( u + ( _i x. v ) ) e. S ) $.
     $( Complex differentiability yields the local area estimate for the mixed
        difference of the prefix integrals on the unit square.  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    rectgoulocal $p |- ( ph -> E. r e. RR+ A. x e. ( ( ( 0 [,] 1 ) X. ( 0 [,]
-      1 ) ) X. RR+ ) ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,]
-      1 ) /\ ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) ) /\ Z e.
-      ( ( ( 1st ` ( 1st ` x ) ) [,] ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) )
-      X. ( ( 2nd ` ( 1st ` x ) ) [,] ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) )
-      ) ) /\ ( 2nd ` x ) < r ) -> ( abs ` ( ( ( ( ( 1st ` ( 1st ` x ) ) + (
-      2nd ` x ) ) G ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) - ( ( 1st ` (
-      1st ` x ) ) G ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) - ( ( ( ( 1st
-      ` ( 1st ` x ) ) + ( 2nd ` x ) ) G ( 2nd ` ( 1st ` x ) ) ) - ( ( 1st ` (
-      1st ` x ) ) G ( 2nd ` ( 1st ` x ) ) ) ) ) ) < ( K x. ( ( 2nd ` x ) ^ 2
-      ) ) ) ) $=
+    rectgoulocal $p |- ( ph ->
+      E. r e. RR+ A. x e. ( ( ( 0 [,] 1 ) X. ( 0 [,] 1 ) ) X. RR+ )
+        ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) /\
+              ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) e. ( 0 [,] 1 ) ) /\
+            Z e. ( ( ( 1st ` ( 1st ` x ) ) [,]
+                     ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) X.
+                   ( ( 2nd ` ( 1st ` x ) ) [,]
+                     ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) /\
+            ( 2nd ` x ) < r ) ->
+          ( abs ` ( ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) G
+                        ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) -
+                      ( ( 1st ` ( 1st ` x ) ) G
+                        ( ( 2nd ` ( 1st ` x ) ) + ( 2nd ` x ) ) ) ) -
+                    ( ( ( ( 1st ` ( 1st ` x ) ) + ( 2nd ` x ) ) G
+                        ( 2nd ` ( 1st ` x ) ) ) -
+                      ( ( 1st ` ( 1st ` x ) ) G ( 2nd ` ( 1st ` x ) ) ) ) ) ) <
+          ( K x. ( ( 2nd ` x ) ^ 2 ) ) ) ) $=
       ( vw vd vf cv c1st cfv cmul co caddc ci c2nd cmin cabs clt wbr cc c2 cdiv
       cdv cle wi wral cc0 c1 cicc wcel cxp w3a cexp crp wrex wceq oveq1d breq2d
       wa id imbi2d ralbidv rexbidv ccncf wf cncff syl wss cncfrss wfun wb dvfcn
@@ -894521,18 +894737,21 @@ $)
     rectgoursat.d $e |- ( ph -> D e. RR ) $.
     rectgoursat.h $e |- ( ph -> A < B ) $.
     rectgoursat.v $e |- ( ph -> C < D ) $.
-    rectgoursat.s $e |- ( ph -> A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u +
-      ( _i x. v ) ) e. S ) $.
-    rectgoursat.dv $e |- ( ph -> A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u
-      + ( _i x. v ) ) e. dom ( CC _D F ) ) $.
+    rectgoursat.s $e |- ( ph ->
+      A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u + ( _i x. v ) ) e. S ) $.
+    rectgoursat.dv $e |- ( ph ->
+      A. u e. ( A [,] B ) A. v e. ( C [,] D )
+        ( u + ( _i x. v ) ) e. dom ( CC _D F ) ) $.
     $( The Cauchy-Goursat theorem on a rectangle.  The oriented boundary
        integral of a continuous function vanishes if it is complex
        differentiable at every point of the closed rectangle.  (Contributed by
        Zhi Wang, 25-Nov-2026.) $)
-    rectgoursat $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( F ` ( B + ( _i x.
-      j ) ) ) _d j - S. ( C [,] D ) ( F ` ( A + ( _i x. j ) ) ) _d j ) ) - (
-      S. ( A [,] B ) ( F ` ( j + ( _i x. D ) ) ) _d j - S. ( A [,] B ) ( F `
-      ( j + ( _i x. C ) ) ) _d j ) ) = 0 ) $=
+    rectgoursat $p |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D ) ( F ` ( B + ( _i x. j ) ) ) _d j -
+            S. ( C [,] D ) ( F ` ( A + ( _i x. j ) ) ) _d j ) ) -
+        ( S. ( A [,] B ) ( F ` ( j + ( _i x. D ) ) ) _d j -
+          S. ( A [,] B ) ( F ` ( j + ( _i x. C ) ) ) _d j ) ) = 0 ) $=
       ( co vx vz vp vq vt vr ci cicc cv cmul caddc cfv citg cmin cc0 c1 cmpo cc
       wceq eqid a1i wcel wa ccncf adantr cr resubcld recnd mul01d addridd eqtrd
       oveq2d eqeltrd mulridd addcomd npcand 0red 1red cle wbr clt posdifd mpbid
@@ -894598,9 +894817,10 @@ $)
     dvsqdiffquot.a $e |- ( ph -> A C_ CC ) $.
     dvsqdiffquot.d $e |- ( ph -> B ( CC _D F ) C ) $.
     dvsqdiffquot.z $e |- ( ph -> ( G ` B ) = 0 ) $.
-    dvsqdiffquot.q $e |- ( ( ph /\ x e. ( A \ { B } ) ) -> ( G ` x ) = ( ( (
-      ( F ` x ) - ( F ` B ) ) x. ( ( F ` x ) - ( F ` B ) ) ) / ( x - B ) ) )
-      $.
+    dvsqdiffquot.q $e |- ( ( ph /\ x e. ( A \ { B } ) ) ->
+      ( G ` x ) =
+      ( ( ( ( F ` x ) - ( F ` B ) ) x. ( ( F ` x ) - ( F ` B ) ) ) /
+        ( x - B ) ) ) $.
     $( If a squared difference is divided by the increment and extended by zero
        at the center, its derivative there is the square of the original
        derivative.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -894632,8 +894852,8 @@ $)
     dvpunctdm.f $e |- ( ph -> F : A --> CC ) $.
     dvpunctdm.a $e |- ( ph -> A C_ CC ) $.
     dvpunctdm.b $e |- ( ph -> B e. dom ( CC _D F ) ) $.
-    dvpunctdm.d $e |- ( ph -> dom ( CC _D ( F |` ( A \ { B } ) ) ) = ( A \ {
-      B } ) ) $.
+    dvpunctdm.d $e |- ( ph ->
+      dom ( CC _D ( F |` ( A \ { B } ) ) ) = ( A \ { B } ) ) $.
     $( Differentiability on a punctured domain and at the missing point gives
        differentiability on the entire domain.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
@@ -894655,10 +894875,21 @@ $)
     $( An explicit holomorphic extension of the squared-difference quotient.
        Its value at the center is zero.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    holsqquotf $p |- ( ph -> ( ( y e. A |-> if ( y = B , 0 , ( ( ( ( F ` y )
-      - ( F ` B ) ) x. ( ( F ` y ) - ( F ` B ) ) ) / ( y - B ) ) ) ) : A -->
-      CC /\ dom ( CC _D ( y e. A |-> if ( y = B , 0 , ( ( ( ( F ` y ) - ( F `
-      B ) ) x. ( ( F ` y ) - ( F ` B ) ) ) / ( y - B ) ) ) ) ) = A ) ) $=
+    holsqquotf $p |- ( ph ->
+      ( ( y e. A |->
+          if ( y = B ,
+               0 ,
+               ( ( ( ( F ` y ) - ( F ` B ) ) x. ( ( F ` y ) - ( F ` B ) ) ) /
+                 ( y - B ) ) ) ) :
+        A -->
+        CC /\
+        dom ( CC _D
+              ( y e. A |->
+                if ( y = B ,
+                     0 ,
+                     ( ( ( ( F ` y ) - ( F ` B ) ) x.
+                         ( ( F ` y ) - ( F ` B ) ) ) /
+                       ( y - B ) ) ) ) ) = A ) ) $=
       ( vx cc cv cc0 cmin co cmul wcel adantr wceq cfv cdiv cif cmpt wf cdv cdm
       wa simpr iftrued eqeltrd wne df-ne sylib iffalsed simplr ffvelcdmd subcld
       0cnd wn mulcld wss cuni elssuni syl cnfldtopon toponunii sseqtrrdi sseldd
@@ -894706,13 +894937,14 @@ $)
   $}
 
   ${
-
     cubsplit.a $e |- ( ph -> A e. CC ) $.
     cubsplit.b $e |- ( ph -> B e. CC ) $.
     $( Split the cube of a sum into two terms, each divisible by the square of
        one summand.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cubsplit $p |- ( ph -> ( ( ( A x. A ) x. ( A + ( 3 x. B ) ) ) + ( ( B x.
-      B ) x. ( B + ( 3 x. A ) ) ) ) = ( ( A + B ) ^ 3 ) ) $=
+    cubsplit $p |- ( ph ->
+      ( ( ( A x. A ) x. ( A + ( 3 x. B ) ) ) +
+        ( ( B x. B ) x. ( B + ( 3 x. A ) ) ) ) =
+      ( ( A + B ) ^ 3 ) ) $=
       ( cmul co c3 caddc cexp c2 mulcld cc wcel a1i oveq1d oveq2d eqtrd oveq12d
       eqtr4d 3cn adddid sqvald c1 wceq df-3 expp1d eqcomd eqtr3d mul12d mulcomd
       cn0 2nn0 mulassd 3nn0 expcld sqcld addcomd binom3 syl2anc ) ABBFGZBHCFGZI
@@ -894727,7 +894959,6 @@ $)
   $}
 
   ${
-
     recaxsign.x $e |- ( ph -> X e. RR ) $.
     recaxsign.y $e |- ( ph -> Y e. RR ) $.
     recaxsign.a $e |- ( ph -> A e. RR ) $.
@@ -894735,15 +894966,25 @@ $)
     $( The real and imaginary parts of the reciprocal of a displacement have
        prescribed signs on the four sides of any rectangle containing its pole
        in the interior.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    recaxsign $p |- ( ph -> ( ( ( A < X -> ( ( ( X + ( _i x. Y ) ) - ( A + (
-      _i x. B ) ) ) =/= 0 /\ ( Re ` ( 1 / ( ( X + ( _i x. Y ) ) - ( A + ( _i
-      x. B ) ) ) ) ) e. RR+ ) ) /\ ( X < A -> ( ( ( X + ( _i x. Y ) ) - ( A +
-      ( _i x. B ) ) ) =/= 0 /\ -u ( Re ` ( 1 / ( ( X + ( _i x. Y ) ) - ( A +
-      ( _i x. B ) ) ) ) ) e. RR+ ) ) ) /\ ( ( B < Y -> ( ( ( X + ( _i x. Y )
-      ) - ( A + ( _i x. B ) ) ) =/= 0 /\ -u ( Im ` ( 1 / ( ( X + ( _i x. Y )
-      ) - ( A + ( _i x. B ) ) ) ) ) e. RR+ ) ) /\ ( Y < B -> ( ( ( X + ( _i
-      x. Y ) ) - ( A + ( _i x. B ) ) ) =/= 0 /\ ( Im ` ( 1 / ( ( X + ( _i x.
-      Y ) ) - ( A + ( _i x. B ) ) ) ) ) e. RR+ ) ) ) ) ) $=
+    recaxsign $p |- ( ph ->
+      ( ( ( A < X ->
+            ( ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) =/= 0 /\
+              ( Re ` ( 1 / ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) ) ) e.
+              RR+ ) ) /\
+          ( X < A ->
+            ( ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) =/= 0 /\
+              -u ( Re ` ( 1 /
+                          ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) ) ) e.
+              RR+ ) ) ) /\
+        ( ( B < Y ->
+            ( ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) =/= 0 /\
+              -u ( Im ` ( 1 /
+                          ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) ) ) e.
+              RR+ ) ) /\
+          ( Y < B ->
+            ( ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) =/= 0 /\
+              ( Im ` ( 1 / ( ( X + ( _i x. Y ) ) - ( A + ( _i x. B ) ) ) ) ) e.
+              RR+ ) ) ) ) ) $=
       ( ci co cmin cdiv cfv crp wcel wa adantr recnd eqtrd clt wbr cmul cc0 wne
       caddc c1 cre wi cneg cim cr cc ax-icn a1i mulcld addcld simpr wceq fveq2d
       gtned crred 3eqtr3d ex necon3d mpd subne0d cabs c2 cexp ccj subcld recval
@@ -894809,11 +895050,17 @@ $)
     $( The rectangular boundary integral of the reciprocal displacement from an
        interior point is nonzero.  Its imaginary part is positive by the signs
        on the four edges.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectrecn0 $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( 1 / ( ( B + ( _i x.
-      t ) ) - ( X + ( _i x. Y ) ) ) ) _d t - S. ( C [,] D ) ( 1 / ( ( A + (
-      _i x. t ) ) - ( X + ( _i x. Y ) ) ) ) _d t ) ) - ( S. ( A [,] B ) ( 1 /
-      ( ( t + ( _i x. D ) ) - ( X + ( _i x. Y ) ) ) ) _d t - S. ( A [,] B ) (
-      1 / ( ( t + ( _i x. C ) ) - ( X + ( _i x. Y ) ) ) ) _d t ) ) =/= 0 ) $=
+    rectrecn0 $p |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D )
+              ( 1 / ( ( B + ( _i x. t ) ) - ( X + ( _i x. Y ) ) ) ) _d t -
+            S. ( C [,] D )
+              ( 1 / ( ( A + ( _i x. t ) ) - ( X + ( _i x. Y ) ) ) ) _d t ) ) -
+        ( S. ( A [,] B )
+            ( 1 / ( ( t + ( _i x. D ) ) - ( X + ( _i x. Y ) ) ) ) _d t -
+          S. ( A [,] B )
+            ( 1 / ( ( t + ( _i x. C ) ) - ( X + ( _i x. Y ) ) ) ) _d t ) ) =/=
+      0 ) $=
       ( cc wcel ci cicc co c1 cmul caddc cmin cdiv citg cim cfv cc0 wne cre crp
       cv cneg ax-icn a1i wa cr adantr recnd cle wbr w3a simpr wb elicc2 syl2anc
       1cnd mpbid simp1d mulcld addcld subcld clt wi recaxsign simpld mpd divcld
@@ -894894,8 +895141,8 @@ $)
     seqhalfub.f $e |- ( ph -> F : NN0 --> RR ) $.
     seqhalfub.r $e |- ( ph -> R e. RR ) $.
     seqhalfub.u $e |- ( ( ph /\ k e. NN0 ) -> ( F ` k ) <_ R ) $.
-    seqhalfub.s $e |- ( ( ph /\ k e. NN0 ) -> ( F ` k ) <_ ( ( F ` ( k + 1 )
-      ) / 2 ) ) $.
+    seqhalfub.s $e |- ( ( ph /\ k e. NN0 ) ->
+      ( F ` k ) <_ ( ( F ` ( k + 1 ) ) / 2 ) ) $.
     $( If a real sequence is bounded above and each term is at most half its
        successor, the initial term is nonpositive.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
@@ -894924,17 +895171,18 @@ $)
     difrec0ctr.s $e |- ( ph -> Z C_ CC ) $.
     difrec0ctr.r $e |- ( ph -> R e. RR+ ) $.
     difrec0ctr.m $e |- ( ph -> M e. RR+ ) $.
-    difrec0ctr.a $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - C ) ) < r
-      ) $.
+    difrec0ctr.a $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - C ) ) < r ) $.
     difrec0ctr.n $e |- ( ( ph /\ x e. Z ) -> x =/= C ) $.
     difrec0ctr.0 $e |- ( ( ph /\ x e. Z ) -> ( 0 H x ) = 0 ) $.
     difrec0ctr.b $e |- ( ( ph /\ k e. NN0 ) -> ( k H C ) e. CC ) $.
-    difrec0ctr.v $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) -> ( ( k + 1 ) H x
-      ) e. CC ) $.
-    difrec0ctr.u $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) -> ( abs ` ( ( k +
-      1 ) H x ) ) <_ M ) $.
-    difrec0ctr.e $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) -> ( ( k H x ) - (
-      k H C ) ) = ( ( ( x - C ) / R ) x. ( ( k + 1 ) H x ) ) ) $.
+    difrec0ctr.v $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) ->
+      ( ( k + 1 ) H x ) e. CC ) $.
+    difrec0ctr.u $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) ->
+      ( abs ` ( ( k + 1 ) H x ) ) <_ M ) $.
+    difrec0ctr.e $e |- ( ( ( ph /\ k e. NN0 ) /\ x e. Z ) ->
+      ( ( k H x ) - ( k H C ) ) =
+      ( ( ( x - C ) / R ) x. ( ( k + 1 ) H x ) ) ) $.
     $( All center values of a bounded divided-difference recurrence vanish if
        its initial member vanishes on a set accumulating at the center.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -894983,8 +895231,8 @@ $)
     seqsmul0.h $e |- ( ph -> ( abs ` A ) <_ ( 1 / 2 ) ) $.
     seqsmul0.m $e |- ( ph -> M e. RR ) $.
     seqsmul0.u $e |- ( ( ph /\ k e. NN0 ) -> ( abs ` ( F ` k ) ) <_ M ) $.
-    seqsmul0.e $e |- ( ( ph /\ k e. NN0 ) -> ( F ` k ) = ( A x. ( F ` ( k + 1
-      ) ) ) ) $.
+    seqsmul0.e $e |- ( ( ph /\ k e. NN0 ) ->
+      ( F ` k ) = ( A x. ( F ` ( k + 1 ) ) ) ) $.
     $( A bounded complex sequence satisfying a backwards scalar recurrence with
        factor of modulus at most one half has initial value zero.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
@@ -895007,7 +895255,6 @@ $)
   $}
 
   ${
-
     recipkerndif.z $e |- ( ph -> Z e. CC ) $.
     recipkerndif.c $e |- ( ph -> C e. CC ) $.
     recipkerndif.w $e |- ( ph -> W e. CC ) $.
@@ -895019,10 +895266,11 @@ $)
     recipkerndif.h $e |- ( ph -> ( Z - W ) =/= 0 ) $.
     $( The divided-difference identity for the normalized reciprocal kernel, at
        every nonnegative order.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    recipkerndif $p |- ( ph -> ( ( ( ( ( R / ( Z - C ) ) ^ N ) x. P ) / ( Z -
-      W ) ) - ( ( ( ( R / ( Z - C ) ) ^ N ) x. P ) / ( Z - C ) ) ) = ( ( ( W
-      - C ) / R ) x. ( ( ( ( R / ( Z - C ) ) ^ ( N + 1 ) ) x. P ) / ( Z - W )
-      ) ) ) $=
+    recipkerndif $p |- ( ph ->
+      ( ( ( ( ( R / ( Z - C ) ) ^ N ) x. P ) / ( Z - W ) ) -
+        ( ( ( ( R / ( Z - C ) ) ^ N ) x. P ) / ( Z - C ) ) ) =
+      ( ( ( W - C ) / R ) x.
+        ( ( ( ( R / ( Z - C ) ) ^ ( N + 1 ) ) x. P ) / ( Z - W ) ) ) ) $=
       ( cmin co cdiv cmul cexp c1 subcld divcld expcld mulcld divsubdivd subdid
       caddc nnncan1d oveq2d eqtr3d oveq1d expp1d mulassd mul12d divassd mulcomd
       eqtrd eqcomd dmdcan2d 3eqtrd divmuldivd eqtr4d ) ADGBQRZSRZEUARZCTRZGFQRZ
@@ -895037,7 +895285,6 @@ $)
   $}
 
   ${
-
     powmuldivbnd.a $e |- ( ph -> A e. CC ) $.
     powmuldivbnd.b $e |- ( ph -> B e. CC ) $.
     powmuldivbnd.c $e |- ( ph -> C e. CC ) $.
@@ -895050,8 +895297,8 @@ $)
     $( Uniform bound on a quotient whose numerator contains a power of a
        complex number of modulus at most one.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    powmuldivbnd $p |- ( ph -> ( abs ` ( ( ( A ^ N ) x. B ) / C ) ) <_ ( M /
-      T ) ) $=
+    powmuldivbnd $p |- ( ph ->
+      ( abs ` ( ( ( A ^ N ) x. B ) / C ) ) <_ ( M / T ) ) $=
       ( co cabs cfv cle cexp cmul cdiv expcld mulcld cc0 wne abscld 0red rpgt0d
       rpred ltletrd elrpd rpne0d abs00ad necon3bid absdivd redivcld rpdivcld c1
       mpbid absmuld 1red absge0d absexpd cr wcel wbr w3a exple1 syl2anc eqbrtrd
@@ -895071,33 +895318,41 @@ $)
     rectfclin.b $e |- ( ph -> B e. RR ) $.
     rectfclin.c $e |- ( ph -> C e. RR ) $.
     rectfclin.d $e |- ( ph -> D e. RR ) $.
-    rectfclin.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) ) e.
-      S ) $.
-    rectfclin.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) ) e.
-      S ) $.
-    rectfclin.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) ) e.
-      S ) $.
-    rectfclin.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) ) e.
-      S ) $.
+    rectfclin.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. S ) $.
+    rectfclin.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. S ) $.
+    rectfclin.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. S ) $.
+    rectfclin.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. S ) $.
     rectfclin.ff $e |- ( ph -> F e. ( S -cn-> CC ) ) $.
     rectfclin.fg $e |- ( ph -> G e. ( S -cn-> CC ) ) $.
     rectfclin.l $e |- ( ph -> L e. CC ) $.
     rectfclin.m $e |- ( ph -> M e. CC ) $.
-    rectfclin.e $e |- ( ( ph /\ z e. S ) -> ( U ` z ) = ( ( L x. ( F ` z ) )
-      + ( M x. ( G ` z ) ) ) ) $.
+    rectfclin.e $e |- ( ( ph /\ z e. S ) ->
+      ( U ` z ) = ( ( L x. ( F ` z ) ) + ( M x. ( G ` z ) ) ) ) $.
     $( Linearity of the boundary integral of continuous functions on a set
        containing the four edges of a rectangle.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    rectfclin $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( U ` ( B + ( _i x. t
-      ) ) ) _d t - S. ( C [,] D ) ( U ` ( A + ( _i x. t ) ) ) _d t ) ) - ( S.
-      ( A [,] B ) ( U ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B ) ( U ` ( t
-      + ( _i x. C ) ) ) _d t ) ) = ( ( L x. ( ( _i x. ( S. ( C [,] D ) ( F `
-      ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( F ` ( A + ( _i x. t ) ) )
-      _d t ) ) - ( S. ( A [,] B ) ( F ` ( t + ( _i x. D ) ) ) _d t - S. ( A
-      [,] B ) ( F ` ( t + ( _i x. C ) ) ) _d t ) ) ) + ( M x. ( ( _i x. ( S.
-      ( C [,] D ) ( G ` ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( G ` ( A
-      + ( _i x. t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( G ` ( t + ( _i x. D ) )
-      ) _d t - S. ( A [,] B ) ( G ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) ) $=
+    rectfclin $p |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D ) ( U ` ( B + ( _i x. t ) ) ) _d t -
+            S. ( C [,] D ) ( U ` ( A + ( _i x. t ) ) ) _d t ) ) -
+        ( S. ( A [,] B ) ( U ` ( t + ( _i x. D ) ) ) _d t -
+          S. ( A [,] B ) ( U ` ( t + ( _i x. C ) ) ) _d t ) ) =
+      ( ( L x.
+          ( ( _i x.
+              ( S. ( C [,] D ) ( F ` ( B + ( _i x. t ) ) ) _d t -
+                S. ( C [,] D ) ( F ` ( A + ( _i x. t ) ) ) _d t ) ) -
+            ( S. ( A [,] B ) ( F ` ( t + ( _i x. D ) ) ) _d t -
+              S. ( A [,] B ) ( F ` ( t + ( _i x. C ) ) ) _d t ) ) ) +
+        ( M x.
+          ( ( _i x.
+              ( S. ( C [,] D ) ( G ` ( B + ( _i x. t ) ) ) _d t -
+                S. ( C [,] D ) ( G ` ( A + ( _i x. t ) ) ) _d t ) ) -
+            ( S. ( A [,] B ) ( G ` ( t + ( _i x. D ) ) ) _d t -
+              S. ( A [,] B ) ( G ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) ) $=
       ( ci cicc co cv cmul caddc cfv citg cmin wcel wa wceq fveq2 fveq2d oveq2d
       id oveq12d eqeq12d wral ralrimiva adantr rspcdva itgeq2dv cc wf ccncf syl
       cncff ffvelcdmd mulcld wss recnd iccssred ax-resscn sstrdi ssidd cncfmptc
@@ -895168,8 +895423,10 @@ $)
     recipkerncn.b $e |- ( ( ph /\ z e. K ) -> ( z - W ) =/= 0 ) $.
     $( Continuity of the normalized reciprocal kernel away from both evaluation
        points.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    recipkerncn $p |- ( ph -> ( z e. K |-> ( ( ( ( R / ( z - C ) ) ^ N ) x. (
-      F ` z ) ) / ( z - W ) ) ) e. ( K -cn-> CC ) ) $=
+    recipkerncn $p |- ( ph ->
+      ( z e. K |->
+        ( ( ( ( R / ( z - C ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) e.
+      ( K -cn-> CC ) ) $=
       ( vy co cc wcel cmpt cv cmin cdiv cexp cfv cmul nfv wss ccncf cncfrss syl
       ssidd cncfmptc syl3anc cc0 cdif wf wa adantr simpr sseldd subcld eldifsnd
       csn fmpttd difss a1i cncfmptid syl2anc subcncf cncfcdm mpbird divcncf cn0
@@ -895188,26 +895445,49 @@ $)
     $d A m y $.  $d B m y $.  $d C m y $.  $d D m y $.  $d F m y $.
     $d K m y $.  $d N m t y $.  $d N m y z $.  $d O m y $.  $d R m y $.
     $d W m t y $.  $d W m y z $.  $d m ph t y $.  $d ph y z $.
-    rectkernval.h $e |- ( ph -> H = ( m e. NN0 , y e. V |-> ( ( _i x. ( S. (
-      C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) /
-      ( z - y ) ) ) ` ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K
-      |-> ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) / ( z - y ) ) ) ` ( A
-      + ( _i x. t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R
-      / ( z - O ) ) ^ m ) x. ( F ` z ) ) / ( z - y ) ) ) ` ( t + ( _i x. D )
-      ) ) _d t - S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ m )
-      x. ( F ` z ) ) / ( z - y ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) $.
+    rectkernval.h $e |- ( ph ->
+      H = ( m e. NN0 , y e. V |->
+            ( ( _i x.
+                ( S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) /
+                          ( z - y ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+                  S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) /
+                          ( z - y ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+              ( S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) /
+                        ( z - y ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+                S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ m ) x. ( F ` z ) ) /
+                        ( z - y ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) $.
     rectkernval.n $e |- ( ph -> N e. NN0 ) $.
     rectkernval.w $e |- ( ph -> W e. V ) $.
     $( Evaluate the rectangular contour transform at a nonnegative order and a
        point.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectkernval $p |- ( ph -> ( N H W ) = ( ( _i x. ( S. ( C [,] D ) ( ( z e.
-      K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` (
-      B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / (
-      z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) )
-      _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N
-      ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A
-      [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / (
-      z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) $=
+    rectkernval $p |- ( ph ->
+      ( N H W ) = ( ( _i x.
+                      ( S. ( C [,] D )
+                          ( ( z e. K |->
+                              ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                                ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+                        S. ( C [,] D )
+                          ( ( z e. K |->
+                              ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                                ( z - W ) ) ) ` ( A +
+                                                  ( _i x. t ) ) ) _d t ) ) -
+                    ( S. ( A [,] B )
+                        ( ( z e. K |->
+                            ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                              ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+                      S. ( A [,] B )
+                        ( ( z e. K |->
+                            ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                              ( z - W ) ) ) ` ( t +
+                                                ( _i x. C ) ) ) _d t ) ) ) $=
       ( cn0 ci cicc co cv cmul caddc cmin cdiv cexp cfv cmpt citg cvv wceq wcel
       wa simprl oveq2d oveq1d simprr oveq12d mpteq2dv adantr fveq1d ovex ovmpod
       itgeq2dv a1i ) AJBNQUAPUBDGHUCUDZFUBDUEZUFUDZUGUDZCMICUEZOUHUDUIUDZJUEZUJ
@@ -895229,14 +895509,14 @@ $)
     rectkernrec.b $e |- ( ph -> B e. RR ) $.
     rectkernrec.c $e |- ( ph -> C e. RR ) $.
     rectkernrec.d $e |- ( ph -> D e. RR ) $.
-    rectkernrec.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectkernrec.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectkernrec.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectkernrec.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectkernrec.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectkernrec.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectkernrec.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectkernrec.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectkernrec.f $e |- ( ph -> F e. ( K -cn-> CC ) ) $.
     rectkernrec.o $e |- ( ph -> O e. CC ) $.
     rectkernrec.w $e |- ( ph -> W e. CC ) $.
@@ -895248,29 +895528,61 @@ $)
     $( The boundary integrals of successive normalized reciprocal kernels
        satisfy the divided-difference recurrence.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    rectkernrec $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( ( (
-      ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( B + ( _i x.
-      t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^
-      N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) - (
-      S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z
-      ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B ) ( ( z
-      e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) `
-      ( t + ( _i x. C ) ) ) _d t ) ) = ( ( 1 x. ( ( _i x. ( S. ( C [,] D ) (
-      ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - O ) )
-      ) ` ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( (
-      R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - O ) ) ) ` ( A + ( _i x. t
-      ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O )
-      ) ^ N ) x. ( F ` z ) ) / ( z - O ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
-      S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z
-      ) ) / ( z - O ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) + ( ( ( W - O )
-      / R ) x. ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O
-      ) ) ^ ( N + 1 ) ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( B + ( _i x. t ) )
-      ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ ( N +
-      1 ) ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
-      ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) )
-      x. ( F ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A
-      [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) ) x. ( F ` z
-      ) ) / ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) ) $=
+    rectkernrec $p |-
+      ( ph ->
+        ( ( _i x.
+            ( S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+              S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+            S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) =
+        ( ( 1 x.
+            ( ( _i x.
+                ( S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                          ( z - O ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+                  S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                          ( z - O ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+              ( S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                        ( z - O ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+                S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                        ( z - O ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) +
+          ( ( ( W - O ) / R ) x.
+            ( ( _i x.
+                ( S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) ) x. ( F ` z ) ) /
+                          ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+                  S. ( C [,] D )
+                    ( ( z e. K |->
+                        ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) ) x. ( F ` z ) ) /
+                          ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+              ( S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) ) x. ( F ` z ) ) /
+                        ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+                S. ( A [,] B )
+                  ( ( z e. K |->
+                      ( ( ( ( R / ( z - O ) ) ^ ( N + 1 ) ) x. ( F ` z ) ) /
+                        ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) ) ) $=
       ( cv cmin co cdiv cexp cfv cmul cmpt c1 caddc wcel wa cc0 wne wceq eqeq1d
       oveq1 necon3bid wral ralrimiva adantr simpr rspcdva recipkerncn nn0addcld
       cn0 1nn0 a1i 1cnd subcld divcld id oveq1d oveq2d fveq2d oveq12d eqid ovex
@@ -895305,14 +895617,14 @@ $)
     rectkernbnd.b $e |- ( ph -> B e. RR ) $.
     rectkernbnd.c $e |- ( ph -> C e. RR ) $.
     rectkernbnd.d $e |- ( ph -> D e. RR ) $.
-    rectkernbnd.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectkernbnd.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectkernbnd.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectkernbnd.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectkernbnd.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectkernbnd.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectkernbnd.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectkernbnd.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectkernbnd.f $e |- ( ph -> F e. ( K -cn-> CC ) ) $.
     rectkernbnd.o $e |- ( ph -> O e. CC ) $.
     rectkernbnd.w $e |- ( ph -> W e. CC ) $.
@@ -895325,23 +895637,43 @@ $)
     rectkernbnd.p $e |- ( ( ph /\ x e. K ) -> ( abs ` ( F ` x ) ) <_ M ) $.
     $( A single perimeter estimate bounds all orders of a normalized reciprocal
        contour integral.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectkernbnd $p |- ( ph -> ( ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( (
-      ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( B + ( _i
-      x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) )
-      ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
-      ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F `
-      z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B ) ( (
-      z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) )
-      ` ( t + ( _i x. C ) ) ) _d t ) ) e. CC /\ ( abs ` ( ( _i x. ( S. ( C
-      [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / (
-      z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K
-      |-> ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A
-      + ( _i x. t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R
-      / ( z - O ) ) ^ N ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D )
-      ) ) _d t - S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ N )
-      x. ( F ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) <_ (
-      ( ( M / L ) + ( M / L ) ) x. ( ( vol ` ( A [,] B ) ) + ( vol ` ( C [,]
-      D ) ) ) ) ) ) $=
+    rectkernbnd $p |- ( ph ->
+      ( ( ( _i x.
+            ( S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+              S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+            S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) e. CC /\
+        ( abs ` ( ( _i x.
+                    ( S. ( C [,] D )
+                        ( ( z e. K |->
+                            ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                              ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+                      S. ( C [,] D )
+                        ( ( z e. K |->
+                            ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                              ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+                  ( S. ( A [,] B )
+                      ( ( z e. K |->
+                          ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                            ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+                    S. ( A [,] B )
+                      ( ( z e. K |->
+                          ( ( ( ( R / ( z - O ) ) ^ N ) x. ( F ` z ) ) /
+                            ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) ) <_
+        ( ( ( M / L ) + ( M / L ) ) x.
+          ( ( vol ` ( A [,] B ) ) + ( vol ` ( C [,] D ) ) ) ) ) ) $=
       ( ci cicc co cv cmul caddc cmin cdiv cexp cfv cmpt citg cc wcel cabs cvol
       cle wbr ax-icn a1i wa wf ccncf rpcnd cc0 wceq oveq1 eqeq1d necon3bid wral
       wne wss cncfrss syl adantr simpr sseldd subcld abscld 0red rpgt0d ltletrd
@@ -895410,14 +895742,16 @@ $)
     difrec0disk.w $e |- ( ph -> W e. V ) $.
     difrec0disk.r $e |- ( ph -> R e. RR+ ) $.
     difrec0disk.m $e |- ( ph -> M e. RR+ ) $.
-    difrec0disk.a $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - C ) ) < r
-      ) $.
+    difrec0disk.a $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - C ) ) < r ) $.
     difrec0disk.n $e |- ( ( ph /\ x e. Z ) -> x =/= C ) $.
     difrec0disk.0 $e |- ( ( ph /\ x e. Z ) -> ( 0 H x ) = 0 ) $.
     difrec0disk.h $e |- ( ph -> ( abs ` ( ( W - C ) / R ) ) <_ ( 1 / 2 ) ) $.
-    difrec0disk.e $e |- ( ( ( ph /\ j e. NN0 ) /\ y e. V ) -> ( ( j H y ) e.
-      CC /\ ( abs ` ( j H y ) ) <_ M /\ ( j H y ) = ( ( 1 x. ( j H C ) ) + (
-      ( ( y - C ) / R ) x. ( ( j + 1 ) H y ) ) ) ) ) $.
+    difrec0disk.e $e |- ( ( ( ph /\ j e. NN0 ) /\ y e. V ) ->
+      ( ( j H y ) e. CC /\
+        ( abs ` ( j H y ) ) <_ M /\
+        ( j H y ) = ( ( 1 x. ( j H C ) ) +
+                      ( ( ( y - C ) / R ) x. ( ( j + 1 ) H y ) ) ) ) ) $.
     $( Vanishing of a bounded divided-difference family on a half-radius
        neighborhood, given accumulating zeros of its initial member.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
@@ -895493,14 +895827,14 @@ $)
     rectkernid.b $e |- ( ph -> B e. RR ) $.
     rectkernid.c $e |- ( ph -> C e. RR ) $.
     rectkernid.d $e |- ( ph -> D e. RR ) $.
-    rectkernid.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectkernid.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectkernid.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectkernid.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectkernid.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectkernid.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectkernid.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectkernid.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectkernid.f $e |- ( ph -> F e. ( K -cn-> CC ) ) $.
     rectkernid.v $e |- ( ph -> V C_ CC ) $.
     rectkernid.z $e |- ( ph -> Z C_ V ) $.
@@ -895510,30 +895844,52 @@ $)
     rectkernid.m $e |- ( ph -> M e. RR+ ) $.
     rectkernid.i $e |- ( ( ph /\ x e. K ) -> R <_ ( abs ` ( x - O ) ) ) $.
     rectkernid.p $e |- ( ( ph /\ x e. K ) -> ( abs ` ( F ` x ) ) <_ M ) $.
-    rectkernid.j $e |- ( ( ph /\ y e. V ) -> ( abs ` ( y - O ) ) <_ ( R / 2 )
-      ) $.
-    rectkernid.lp $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r
-      ) $.
+    rectkernid.j $e |- ( ( ph /\ y e. V ) ->
+      ( abs ` ( y - O ) ) <_ ( R / 2 ) ) $.
+    rectkernid.lp $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r ) $.
     rectkernid.n $e |- ( ( ph /\ x e. Z ) -> x =/= O ) $.
-    rectkernid.0 $e |- ( ( ph /\ x e. Z ) -> ( ( _i x. ( S. ( C [,] D ) ( ( z
-      e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) / ( z - x ) ) ) `
-      ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R /
-      ( z - O ) ) ^ 0 ) x. ( F ` z ) ) / ( z - x ) ) ) ` ( A + ( _i x. t ) )
-      ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^
-      0 ) x. ( F ` z ) ) / ( z - x ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. (
-      A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
-      ( z - x ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $.
+    rectkernid.0 $e |-
+      ( ( ph /\ x e. Z ) ->
+        ( ( _i x.
+            ( S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                      ( z - x ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+              S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                      ( z - x ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                    ( z - x ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+            S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                    ( z - x ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $.
     $( The initial rectangular contour transform vanishes throughout a
        neighborhood of half the boundary separation if its zeros accumulate at
        the center.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectkernid $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( ( (
-      ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( B + ( _i x.
-      t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^
-      0 ) x. ( F ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) - (
-      S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z
-      ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B ) ( ( z
-      e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) / ( z - W ) ) ) `
-      ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $=
+    rectkernid $p |-
+      ( ph ->
+        ( ( _i x.
+            ( S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+              S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                      ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+            S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( F ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $=
       ( vm vb vj cc0 cn0 ci cicc co cv cmul caddc cmin cdiv cexp cmpt citg cmpo
       cfv eqidd wcel 0nn0 a1i rectkernval c2 cvol cabs rphalfcld rpdivcld rpred
       c1 readdcld cr iccvolcl syl2anc remulcld recnd abscld absge0d ge0p1rpd wa
@@ -895605,18 +895961,18 @@ $)
     rectkernsq0.b $e |- ( ph -> B e. RR ) $.
     rectkernsq0.c $e |- ( ph -> C e. RR ) $.
     rectkernsq0.d $e |- ( ph -> D e. RR ) $.
-    rectkernsq0.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectkernsq0.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectkernsq0.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectkernsq0.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectkernsq0.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectkernsq0.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectkernsq0.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectkernsq0.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectkernsq0.h $e |- ( ph -> A < B ) $.
     rectkernsq0.v $e |- ( ph -> C < D ) $.
-    rectkernsq0.box $e |- ( ph -> A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u
-      + ( _i x. v ) ) e. S ) $.
+    rectkernsq0.box $e |- ( ph ->
+      A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u + ( _i x. v ) ) e. S ) $.
     rectkernsq0.op $e |- ( ph -> S e. J ) $.
     rectkernsq0.k $e |- ( ph -> K C_ S ) $.
     rectkernsq0.w $e |- ( ph -> W e. S ) $.
@@ -895629,18 +895985,30 @@ $)
     rectkernsq0.0 $e |- ( ph -> ( F ` W ) = 0 ) $.
     rectkernsq0.i $e |- ( ( ph /\ x e. K ) -> ( x - O ) =/= 0 ) $.
     rectkernsq0.j $e |- ( ( ph /\ x e. K ) -> x =/= W ) $.
-    rectkernsq0.u $e |- ( ( ph /\ x e. K ) -> ( U ` x ) = ( ( ( F ` x ) x. (
-      F ` x ) ) x. ( ( F ` x ) + ( 3 x. ( G ` x ) ) ) ) ) $.
+    rectkernsq0.u $e |- ( ( ph /\ x e. K ) ->
+      ( U ` x ) =
+      ( ( ( F ` x ) x. ( F ` x ) ) x. ( ( F ` x ) + ( 3 x. ( G ` x ) ) ) ) ) $.
     $( The order-zero transform of a cubic factor with a squared holomorphic
        zero vanishes at that zero.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    rectkernsq0 $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( ( (
-      ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) / ( z - W ) ) ) ` ( B + ( _i x.
-      t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^
-      0 ) x. ( U ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) - (
-      S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z
-      ) ) / ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t - S. ( A [,] B ) ( ( z
-      e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) / ( z - W ) ) ) `
-      ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $=
+    rectkernsq0 $p |-
+      ( ph ->
+        ( ( _i x.
+            ( S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) /
+                      ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+              S. ( C [,] D )
+                ( ( z e. K |->
+                    ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) /
+                      ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+          ( S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+            S. ( A [,] B )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x. ( U ` z ) ) /
+                    ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $=
       ( vk vj vb ci cicc co cv cmul caddc cmin cdiv cc0 cexp cfv cmpt citg wceq
       cif c3 wcel wa fveq2 eqeq12d wral oveq1d oveq2d fveq2d oveq12d eqid fvmpt
       id ovex adantl adantr wss cuni elssuni syl cnfldtopon toponunii sseqtrrdi
@@ -895715,8 +896083,11 @@ $)
     cubpartcn.k $e |- ( ph -> K C_ S ) $.
     $( A cubic polynomial in two continuous functions is continuous on any
        common subdomain.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cubpartcn $p |- ( ph -> ( z e. K |-> ( ( ( F ` z ) x. ( F ` z ) ) x. ( (
-      F ` z ) + ( 3 x. ( G ` z ) ) ) ) ) e. ( K -cn-> CC ) ) $=
+    cubpartcn $p |- ( ph ->
+      ( z e. K |->
+        ( ( ( F ` z ) x. ( F ` z ) ) x.
+          ( ( F ` z ) + ( 3 x. ( G ` z ) ) ) ) ) e.
+      ( K -cn-> CC ) ) $=
       ( cfv cmul co c3 cmpt cc ccncf wcel syl wss mulcncf cv caddc cncff adantr
       ccom wf simpr sseldd cofmpt cncfrss cncfmptid syl2anc cncfco eqeltrrd 3cn
       wa a1i sstrd ssidd cncfmptc syl3anc addcncf ) ABBUAZDJZVDKLVDMVCEJZKLZUBL
@@ -895727,7 +896098,6 @@ $)
   $}
 
   ${
-
     cubpartbnd.a $e |- ( ph -> A e. CC ) $.
     cubpartbnd.b $e |- ( ph -> B e. CC ) $.
     cubpartbnd.m $e |- ( ph -> M e. RR+ ) $.
@@ -895735,8 +896105,9 @@ $)
     cubpartbnd.v $e |- ( ph -> ( abs ` B ) <_ M ) $.
     $( A common modulus bound for two complex numbers bounds a cubic polynomial
        in them.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cubpartbnd $p |- ( ph -> ( abs ` ( ( A x. A ) x. ( A + ( 3 x. B ) ) ) )
-      <_ ( ( M x. M ) x. ( M + ( 3 x. M ) ) ) ) $=
+    cubpartbnd $p |- ( ph ->
+      ( abs ` ( ( A x. A ) x. ( A + ( 3 x. B ) ) ) ) <_
+      ( ( M x. M ) x. ( M + ( 3 x. M ) ) ) ) $=
       ( cmul co c3 cabs cfv cle abscld remulcld rpred letrd eqbrtrd mulcld wcel
       caddc cc 3cn a1i addcld absmuld rpmulcld crp 3rp rpaddcld lemul1ad rpge0d
       absge0d lemul2ad readdcld abstrid absidd leidd le2addd ) ABBJKZBLCJKZUCKZ
@@ -895767,18 +896138,18 @@ $)
     rectcubvan.b $e |- ( ph -> B e. RR ) $.
     rectcubvan.c $e |- ( ph -> C e. RR ) $.
     rectcubvan.d $e |- ( ph -> D e. RR ) $.
-    rectcubvan.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectcubvan.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectcubvan.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectcubvan.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectcubvan.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectcubvan.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectcubvan.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectcubvan.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectcubvan.h $e |- ( ph -> A < B ) $.
     rectcubvan.v $e |- ( ph -> C < D ) $.
-    rectcubvan.box $e |- ( ph -> A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u
-      + ( _i x. v ) ) e. S ) $.
+    rectcubvan.box $e |- ( ph ->
+      A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u + ( _i x. v ) ) e. S ) $.
     rectcubvan.op $e |- ( ph -> S e. J ) $.
     rectcubvan.k $e |- ( ph -> K C_ S ) $.
     rectcubvan.vs $e |- ( ph -> V C_ S ) $.
@@ -895788,10 +896159,10 @@ $)
     rectcubvan.r $e |- ( ph -> R e. RR+ ) $.
     rectcubvan.m $e |- ( ph -> M e. RR+ ) $.
     rectcubvan.i $e |- ( ( ph /\ s e. K ) -> R <_ ( abs ` ( s - O ) ) ) $.
-    rectcubvan.j $e |- ( ( ph /\ y e. V ) -> ( abs ` ( y - O ) ) <_ ( R / 2 )
-      ) $.
-    rectcubvan.lp $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r
-      ) $.
+    rectcubvan.j $e |- ( ( ph /\ y e. V ) ->
+      ( abs ` ( y - O ) ) <_ ( R / 2 ) ) $.
+    rectcubvan.lp $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r ) $.
     rectcubvan.n $e |- ( ( ph /\ x e. Z ) -> x =/= O ) $.
     rectcubvan.0 $e |- ( ( ph /\ x e. Z ) -> ( F ` x ) = 0 ) $.
     rectcubvan.f $e |- ( ph -> F : S --> CC ) $.
@@ -895803,19 +896174,36 @@ $)
     $( The first cubic summand has zero rectangular contour transform near an
        accumulation point of holomorphic zeros.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    rectcubvan $p |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> ( ( (
-      ( R / ( z - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) )
-      x. ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( B
-      + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R / ( z
-      - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( ( F `
-      b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( A + ( _i x.
-      t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O
-      ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( ( F ` b )
-      + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D )
-      ) ) _d t - S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0 )
-      x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( ( F ` b ) + ( 3 x.
-      ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t
-      ) ) = 0 ) $=
+    rectcubvan $p |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( F ` b ) x. ( F ` b ) ) x.
+                            ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+            S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( F ` b ) x. ( F ` b ) ) x.
+                            ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+        ( S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( F ` b ) x. ( F ` b ) ) x.
+                          ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+          S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( F ` b ) x. ( F ` b ) ) x.
+                          ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $=
       ( cv cfv cmul co c3 caddc cmpt cc wss wf w3a cdv cdm wceq ccncf wcel cuni
       ssidd elssuni syl 3jca dvcn syl2anc sstrd rpmulcld crp wa cmin cabs eqidd
       cle wbr oveq1d fveq2d breq12d wral ralrimiva adantr simpr rspcdva oveq12d
@@ -895871,14 +896259,14 @@ $)
     rectcubsplit.b $e |- ( ph -> B e. RR ) $.
     rectcubsplit.c $e |- ( ph -> C e. RR ) $.
     rectcubsplit.d $e |- ( ph -> D e. RR ) $.
-    rectcubsplit.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectcubsplit.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectcubsplit.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectcubsplit.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectcubsplit.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectcubsplit.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectcubsplit.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectcubsplit.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectcubsplit.f $e |- ( ph -> F e. ( S -cn-> CC ) ) $.
     rectcubsplit.g $e |- ( ph -> G e. ( S -cn-> CC ) ) $.
     rectcubsplit.k $e |- ( ph -> K C_ S ) $.
@@ -895892,34 +896280,68 @@ $)
     rectcubsplit.in3 $e |- ( ph -> C < ( Im ` W ) ) $.
     rectcubsplit.i $e |- ( ( ph /\ x e. K ) -> ( x - O ) =/= 0 ) $.
     rectcubsplit.q $e |- ( ( ph /\ x e. K ) -> ( x - W ) =/= 0 ) $.
-    rectcubsplit.e $e |- ( ( ph /\ x e. K ) -> ( ( F ` x ) + ( G ` x ) ) = J
-      ) $.
-    rectcubsplit.zf $e |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> (
-      ( ( ( R / ( z - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b
-      ) ) x. ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) `
-      ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R /
-      ( z - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( (
-      F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( A + ( _i
-      x. t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z -
-      O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( ( F ` b
-      ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D
-      ) ) ) _d t - S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0
-      ) x. ( ( b e. K |-> ( ( ( F ` b ) x. ( F ` b ) ) x. ( ( F ` b ) + ( 3
-      x. ( G ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d
-      t ) ) = 0 ) $.
-    rectcubsplit.zg $e |- ( ph -> ( ( _i x. ( S. ( C [,] D ) ( ( z e. K |-> (
-      ( ( ( R / ( z - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( G ` b ) x. ( G ` b
-      ) ) x. ( ( G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) `
-      ( B + ( _i x. t ) ) ) _d t - S. ( C [,] D ) ( ( z e. K |-> ( ( ( ( R /
-      ( z - O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( G ` b ) x. ( G ` b ) ) x. ( (
-      G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( A + ( _i
-      x. t ) ) ) _d t ) ) - ( S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z -
-      O ) ) ^ 0 ) x. ( ( b e. K |-> ( ( ( G ` b ) x. ( G ` b ) ) x. ( ( G ` b
-      ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. D
-      ) ) ) _d t - S. ( A [,] B ) ( ( z e. K |-> ( ( ( ( R / ( z - O ) ) ^ 0
-      ) x. ( ( b e. K |-> ( ( ( G ` b ) x. ( G ` b ) ) x. ( ( G ` b ) + ( 3
-      x. ( F ` b ) ) ) ) ) ` z ) ) / ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d
-      t ) ) = 0 ) $.
+    rectcubsplit.e $e |- ( ( ph /\ x e. K ) ->
+      ( ( F ` x ) + ( G ` x ) ) = J ) $.
+    rectcubsplit.zf $e |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( F ` b ) x. ( F ` b ) ) x.
+                            ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+            S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( F ` b ) x. ( F ` b ) ) x.
+                            ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+        ( S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( F ` b ) x. ( F ` b ) ) x.
+                          ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+          S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( F ` b ) x. ( F ` b ) ) x.
+                          ( ( F ` b ) + ( 3 x. ( G ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $.
+    rectcubsplit.zg $e |- ( ph ->
+      ( ( _i x.
+          ( S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( G ` b ) x. ( G ` b ) ) x.
+                            ( ( G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( B + ( _i x. t ) ) ) _d t -
+            S. ( C [,] D )
+              ( ( z e. K |->
+                  ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                      ( ( b e. K |->
+                          ( ( ( G ` b ) x. ( G ` b ) ) x.
+                            ( ( G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) /
+                    ( z - W ) ) ) ` ( A + ( _i x. t ) ) ) _d t ) ) -
+        ( S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( G ` b ) x. ( G ` b ) ) x.
+                          ( ( G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. D ) ) ) _d t -
+          S. ( A [,] B )
+            ( ( z e. K |->
+                ( ( ( ( R / ( z - O ) ) ^ 0 ) x.
+                    ( ( b e. K |->
+                        ( ( ( G ` b ) x. ( G ` b ) ) x.
+                          ( ( G ` b ) + ( 3 x. ( F ` b ) ) ) ) ) ` z ) ) /
+                  ( z - W ) ) ) ` ( t + ( _i x. C ) ) ) _d t ) ) = 0 ) $.
     $( A constant sum of two functions vanishes if the order-zero transforms of
        both cubic summands vanish at an interior point.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
@@ -896013,18 +896435,18 @@ $)
     rectholzero.b $e |- ( ph -> B e. RR ) $.
     rectholzero.c $e |- ( ph -> C e. RR ) $.
     rectholzero.d $e |- ( ph -> D e. RR ) $.
-    rectholzero.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( B + ( _i x. t ) )
-      e. K ) $.
-    rectholzero.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) -> ( A + ( _i x. t ) )
-      e. K ) $.
-    rectholzero.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. D ) )
-      e. K ) $.
-    rectholzero.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) -> ( t + ( _i x. C ) )
-      e. K ) $.
+    rectholzero.s0 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( B + ( _i x. t ) ) e. K ) $.
+    rectholzero.s1 $e |- ( ( ph /\ t e. ( C [,] D ) ) ->
+      ( A + ( _i x. t ) ) e. K ) $.
+    rectholzero.s2 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. D ) ) e. K ) $.
+    rectholzero.s3 $e |- ( ( ph /\ t e. ( A [,] B ) ) ->
+      ( t + ( _i x. C ) ) e. K ) $.
     rectholzero.h $e |- ( ph -> A < B ) $.
     rectholzero.v $e |- ( ph -> C < D ) $.
-    rectholzero.box $e |- ( ph -> A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u
-      + ( _i x. v ) ) e. S ) $.
+    rectholzero.box $e |- ( ph ->
+      A. u e. ( A [,] B ) A. v e. ( C [,] D ) ( u + ( _i x. v ) ) e. S ) $.
     rectholzero.op $e |- ( ph -> S e. J ) $.
     rectholzero.k $e |- ( ph -> K C_ S ) $.
     rectholzero.vs $e |- ( ph -> V C_ S ) $.
@@ -896034,14 +896456,14 @@ $)
     rectholzero.r $e |- ( ph -> R e. RR+ ) $.
     rectholzero.m $e |- ( ph -> M e. RR+ ) $.
     rectholzero.i $e |- ( ( ph /\ s e. K ) -> R <_ ( abs ` ( s - O ) ) ) $.
-    rectholzero.j $e |- ( ( ph /\ y e. V ) -> ( abs ` ( y - O ) ) <_ ( R / 2
-      ) ) $.
+    rectholzero.j $e |- ( ( ph /\ y e. V ) ->
+      ( abs ` ( y - O ) ) <_ ( R / 2 ) ) $.
     rectholzero.in0 $e |- ( ph -> ( Re ` W ) < B ) $.
     rectholzero.in1 $e |- ( ph -> A < ( Re ` W ) ) $.
     rectholzero.in2 $e |- ( ph -> ( Im ` W ) < D ) $.
     rectholzero.in3 $e |- ( ph -> C < ( Im ` W ) ) $.
-    rectholzero.lp $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) <
-      r ) $.
+    rectholzero.lp $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r ) $.
     rectholzero.n $e |- ( ( ph /\ x e. Z ) -> x =/= O ) $.
     rectholzero.0 $e |- ( ( ph /\ x e. Z ) -> ( F ` x ) = 0 ) $.
     rectholzero.f $e |- ( ph -> F : S --> CC ) $.
@@ -896103,15 +896525,16 @@ $)
   $}
 
   ${
-
     cndistrect.z $e |- ( ph -> Z e. CC ) $.
     cndistrect.w $e |- ( ph -> W e. CC ) $.
     $( Comparison of complex distance with the absolute differences of the real
        and imaginary coordinates.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cndistrect $p |- ( ph -> ( ( abs ` ( ( Re ` Z ) - ( Re ` W ) ) ) <_ ( abs
-      ` ( Z - W ) ) /\ ( abs ` ( ( Im ` Z ) - ( Im ` W ) ) ) <_ ( abs ` ( Z -
-      W ) ) /\ ( abs ` ( Z - W ) ) <_ ( ( abs ` ( ( Re ` Z ) - ( Re ` W ) ) )
-      + ( abs ` ( ( Im ` Z ) - ( Im ` W ) ) ) ) ) ) $=
+    cndistrect $p |- ( ph ->
+      ( ( abs ` ( ( Re ` Z ) - ( Re ` W ) ) ) <_ ( abs ` ( Z - W ) ) /\
+        ( abs ` ( ( Im ` Z ) - ( Im ` W ) ) ) <_ ( abs ` ( Z - W ) ) /\
+        ( abs ` ( Z - W ) ) <_
+        ( ( abs ` ( ( Re ` Z ) - ( Re ` W ) ) ) +
+          ( abs ` ( ( Im ` Z ) - ( Im ` W ) ) ) ) ) ) $=
       ( cre cfv cmin co cabs cle wbr cim caddc fveq2d cc ci cmul recnd c1 recld
       resubd wcel subcld absrele syl eqbrtrrd imsubd absimle replimd ax-icn a1i
       imcld mulcld abstrid absmuld oveq1d abscld mullidd 3eqtrd breqtrd eqbrtrd
@@ -896124,7 +896547,7 @@ $)
   $}
 
   ${
-    $d C r x $.  $d F r x $.  $d ph r x $.  $d J r $.
+    $d C r x $.  $d F r x $.  $d J r $.  $d ph r x $.
     cnclocbnd.j $e |- J = ( TopOpen ` CCfld ) $.
     cnclocbnd.o $e |- ( ph -> S e. J ) $.
     cnclocbnd.f $e |- ( ph -> F e. ( S -cn-> CC ) ) $.
@@ -896132,9 +896555,11 @@ $)
     $( A continuous complex function on an open set is bounded on a ball about
        each domain point, with bound one plus the modulus of its value there.
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cnclocbnd $p |- ( ph -> E. r e. RR+ ( ( C ( ball ` ( abs o. - ) ) r ) C_
-      S /\ A. x e. ( C ( ball ` ( abs o. - ) ) r ) ( abs ` ( F ` x ) ) <_ ( (
-      abs ` ( F ` C ) ) + 1 ) ) ) $=
+    cnclocbnd $p |- ( ph ->
+      E. r e. RR+
+        ( ( C ( ball ` ( abs o. - ) ) r ) C_ S /\
+          A. x e. ( C ( ball ` ( abs o. - ) ) r )
+            ( abs ` ( F ` x ) ) <_ ( ( abs ` ( F ` C ) ) + 1 ) ) ) $=
       ( cabs cfv co cc0 wbr wa cc wcel clt cv cmin ccom cbl ccnv caddc cima wss
       c1 crp wrex cle wral cxmet cnxmet a1i crest ccncf wceq elssuni cnfldtopon
       ccn cuni syl toponunii sseqtrrdi ssidd eqid cncfcn syl2anc eleqtrd cxr wf
@@ -896164,20 +896589,20 @@ $)
   $}
 
   ${
-
     cnsqrange.c $e |- ( ph -> C e. CC ) $.
     cnsqrange.r $e |- ( ph -> R e. RR+ ) $.
-    cnsqrange.x $e |- ( ph -> X e. ( ( ( Re ` C ) - R ) [,] ( ( Re ` C ) + R
-      ) ) ) $.
-    cnsqrange.y $e |- ( ph -> Y e. ( ( ( Im ` C ) - R ) [,] ( ( Im ` C ) + R
-      ) ) ) $.
+    cnsqrange.x $e |- ( ph ->
+      X e. ( ( ( Re ` C ) - R ) [,] ( ( Re ` C ) + R ) ) ) $.
+    cnsqrange.y $e |- ( ph ->
+      Y e. ( ( ( Im ` C ) - R ) [,] ( ( Im ` C ) + R ) ) ) $.
     $( Distance bounds on the closed square with a given complex center and
        positive half side length.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cnsqrange $p |- ( ph -> ( ( abs ` ( ( X + ( _i x. Y ) ) - C ) ) <_ ( R +
-      R ) /\ ( ( X = ( ( Re ` C ) - R ) \/ X = ( ( Re ` C ) + R ) ) -> R <_ (
-      abs ` ( ( X + ( _i x. Y ) ) - C ) ) ) /\ ( ( Y = ( ( Im ` C ) - R ) \/
-      Y = ( ( Im ` C ) + R ) ) -> R <_ ( abs ` ( ( X + ( _i x. Y ) ) - C ) )
-      ) ) ) $=
+    cnsqrange $p |- ( ph ->
+      ( ( abs ` ( ( X + ( _i x. Y ) ) - C ) ) <_ ( R + R ) /\
+        ( ( X = ( ( Re ` C ) - R ) \/ X = ( ( Re ` C ) + R ) ) ->
+          R <_ ( abs ` ( ( X + ( _i x. Y ) ) - C ) ) ) /\
+        ( ( Y = ( ( Im ` C ) - R ) \/ Y = ( ( Im ` C ) + R ) ) ->
+          R <_ ( abs ` ( ( X + ( _i x. Y ) ) - C ) ) ) ) ) $=
       ( co caddc cmin cabs cfv cle wbr wcel cc fveq2d adantr ci cmul wceq wo wi
       cre cim cr cicc w3a wb recld rpred resubcld readdcld elicc2 syl2anc mpbid
       simp1d recnd ax-icn imcld mulcld addcld subcld abscld simp3d crred oveq1d
@@ -896211,19 +896636,23 @@ $)
     cnsqblpt.r $e |- ( ph -> R e. RR+ ) $.
     cnsqblpt.t $e |- ( ph -> T e. RR+ ) $.
     cnsqblpt.size $e |- ( ph -> ( R + R ) < T ) $.
-    cnsqblpt.x $e |- ( ph -> X e. ( ( ( Re ` C ) - R ) [,] ( ( Re ` C ) + R )
-      ) ) $.
-    cnsqblpt.y $e |- ( ph -> Y e. ( ( ( Im ` C ) - R ) [,] ( ( Im ` C ) + R )
-      ) ) $.
+    cnsqblpt.x $e |- ( ph ->
+      X e. ( ( ( Re ` C ) - R ) [,] ( ( Re ` C ) + R ) ) ) $.
+    cnsqblpt.y $e |- ( ph ->
+      Y e. ( ( ( Im ` C ) - R ) [,] ( ( Im ` C ) + R ) ) ) $.
     $( A centered closed square lies inside a sufficiently large ball, and
        points on its boundary have distance at least the half side length from
        its center.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    cnsqblpt $p |- ( ph -> ( ( X + ( _i x. Y ) ) e. ( C ( ball ` ( abs o. - )
-      ) T ) /\ ( ( X = ( ( Re ` C ) - R ) \/ X = ( ( Re ` C ) + R ) ) -> ( X
-      + ( _i x. Y ) ) e. { a e. ( C ( ball ` ( abs o. - ) ) T ) | R <_ ( abs
-      ` ( a - C ) ) } ) /\ ( ( Y = ( ( Im ` C ) - R ) \/ Y = ( ( Im ` C ) + R
-      ) ) -> ( X + ( _i x. Y ) ) e. { a e. ( C ( ball ` ( abs o. - ) ) T ) |
-      R <_ ( abs ` ( a - C ) ) } ) ) ) $=
+    cnsqblpt $p |- ( ph ->
+      ( ( X + ( _i x. Y ) ) e. ( C ( ball ` ( abs o. - ) ) T ) /\
+        ( ( X = ( ( Re ` C ) - R ) \/ X = ( ( Re ` C ) + R ) ) ->
+          ( X + ( _i x. Y ) ) e.
+          { a e. ( C ( ball ` ( abs o. - ) ) T ) |
+            R <_ ( abs ` ( a - C ) ) } ) /\
+        ( ( Y = ( ( Im ` C ) - R ) \/ Y = ( ( Im ` C ) + R ) ) ->
+          ( X + ( _i x. Y ) ) e.
+          { a e. ( C ( ball ` ( abs o. - ) ) T ) |
+            R <_ ( abs ` ( a - C ) ) } ) ) ) $=
       ( co cmin cfv wcel cle wbr cr ci cmul caddc cabs ccom cbl wceq wo cv crab
       cre wi cim clt cicc wb recld rpred resubcld readdcld elicc2 syl2anc mpbid
       w3a simp1d recnd ax-icn a1i mulcld addcld subcld abscld cnsqrange lelttrd
@@ -896260,14 +896689,14 @@ $)
     holballzero.size $e |- ( ph -> ( R + R ) < T ) $.
     holballzero.s $e |- ( ph -> ( O ( ball ` ( abs o. - ) ) T ) C_ S ) $.
     holballzero.m $e |- ( ph -> M e. RR+ ) $.
-    holballzero.b $e |- ( ( ph /\ s e. ( O ( ball ` ( abs o. - ) ) T ) ) -> (
-      abs ` ( F ` s ) ) <_ M ) $.
-    holballzero.z $e |- ( ph -> Z C_ ( O ( ball ` ( abs o. - ) ) ( R / 2 ) )
-      ) $.
-    holballzero.w $e |- ( ph -> W e. ( O ( ball ` ( abs o. - ) ) ( R / 2 ) )
-      ) $.
-    holballzero.lp $e |- ( ph -> A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) <
-      r ) $.
+    holballzero.b $e |- ( ( ph /\ s e. ( O ( ball ` ( abs o. - ) ) T ) ) ->
+      ( abs ` ( F ` s ) ) <_ M ) $.
+    holballzero.z $e |- ( ph ->
+      Z C_ ( O ( ball ` ( abs o. - ) ) ( R / 2 ) ) ) $.
+    holballzero.w $e |- ( ph ->
+      W e. ( O ( ball ` ( abs o. - ) ) ( R / 2 ) ) ) $.
+    holballzero.lp $e |- ( ph ->
+      A. r e. RR+ E. x e. Z ( abs ` ( x - O ) ) < r ) $.
     holballzero.n $e |- ( ( ph /\ x e. Z ) -> x =/= O ) $.
     holballzero.0 $e |- ( ( ph /\ x e. Z ) -> ( F ` x ) = 0 ) $.
     holballzero.f $e |- ( ph -> F : S --> CC ) $.
@@ -896331,19 +896760,18 @@ $)
   $}
 
   ${
-    $d C n $.  $d C x $.  $d S n $.  $d S x $.  $d V n $.  $d V x $.  $d n r $.
-    $d ph r x $.  $d J n $.
+    $d C n $.  $d C x $.  $d J n $.  $d S n $.  $d S x $.  $d V n $.  $d V x $.
+    $d n r $.  $d ph r x $.
     cnlpblnear.j $e |- J = ( TopOpen ` CCfld ) $.
     cnlpblnear.v $e |- ( ph -> V e. J ) $.
     cnlpblnear.c $e |- ( ph -> C e. V ) $.
     cnlpblnear.s $e |- ( ph -> S C_ CC ) $.
-    cnlpblnear.l $e |- ( ph -> C e. ( ( limPt ` J ) ` S ) )
-      $.
+    cnlpblnear.l $e |- ( ph -> C e. ( ( limPt ` J ) ` S ) ) $.
     $( Every positive radius about a limit point contains a distinct member of
        the set in any prescribed open neighborhood.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    cnlpblnear $p |- ( ph -> A. r e. RR+ E. x e. ( V i^i ( S \ { C } ) ) (
-      abs ` ( x - C ) ) < r ) $=
+    cnlpblnear $p |- ( ph ->
+      A. r e. RR+ E. x e. ( V i^i ( S \ { C } ) ) ( abs ` ( x - C ) ) < r ) $=
       ( cfv clt cin wcel c0 a1i cc adantr vn cv cmin cabs wbr csn cdif wrex crp
       co wa ccom cbl wne wceq inass incom eqtri cxmet cnxmet elssuni cnfldtopon
       wss syl toponunii sseqtrrdi sseldd simpr blcntr syl3anc elind eleq2 ineq1
@@ -896366,9 +896794,9 @@ $)
 
   ${
     $d E c r t u w x $.  $d E u w y $.  $d E c r u w x z $.  $d F r t u w x $.
-    $d F u w y $.  $d F r u w x z $.  $d S c r t u w x $.  $d S u w y $.
-    $d S c r u w x z $.  $d c ph r t u w x $.  $d ph r u w x z $.  $d J c $.
-    $d J r $.  $d J t $.  $d J u $.  $d J w $.  $d J x $.  $d J z $.
+    $d F u w y $.  $d F r u w x z $.  $d J c r t u w x $.  $d J c r u w x z $.
+    $d S c r t u w x $.  $d S u w y $.  $d S c r u w x z $.
+    $d c ph r t u w x $.  $d ph r u w x z $.
     holzerolpint.j $e |- J = ( TopOpen ` CCfld ) $.
     holzerolpint.o $e |- ( ph -> S e. J ) $.
     holzerolpint.e $e |- ( ph -> E C_ S ) $.
@@ -896379,8 +896807,8 @@ $)
        open subset of the complex plane is an interior point of the zero set,
        in the topology of the domain.  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    holzerolpint $p |- ( ph -> ( ( limPt ` ( J |`t S ) ) `
-      E ) C_ ( ( int ` ( J |`t S ) ) ` E ) ) $=
+    holzerolpint $p |- ( ph ->
+      ( ( limPt ` ( J |`t S ) ) ` E ) C_ ( ( int ` ( J |`t S ) ) ` E ) ) $=
       ( vc vr vu cfv cv wcel adantr cc vx vw vz vt crest clp cnt cabs cmin ccom
       co wa cbl wss c1 caddc cle wbr wral crp ccncf w3a cdv cdm wceq ssidd cuni
       wf elssuni syl cnfldtopon toponunii sseqtrrdi 3jca dvcn syl2anc cin simpr
@@ -896432,8 +896860,7 @@ $)
     holidt.o $e |- ( ph -> S e. J ) $.
     holidt.c $e |- ( ph -> ( J |`t S ) e. Conn ) $.
     holidt.a $e |- ( ph -> A C_ S ) $.
-    holidt.l $e |- ( ph -> ( ( limPt ` ( J |`t S ) ) ` A )
-      =/= (/) ) $.
+    holidt.l $e |- ( ph -> ( ( limPt ` ( J |`t S ) ) ` A ) =/= (/) ) $.
     holidt.f $e |- ( ph -> F : S --> CC ) $.
     holidt.df $e |- ( ph -> dom ( CC _D F ) = S ) $.
     holidt.g $e |- ( ph -> G : S --> CC ) $.
@@ -896473,22 +896900,23 @@ $)
   $}
 
   ${
-    $d A i k m n $.  $d S i k m n $.  $d D i $.  $d D k $.
+    $d A i k m n $.  $d D i k $.  $d S i k m n $.
     hurzcvgred.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( If the finite-difference correction in ~ df-hurz tends to zero on the
        right half-plane, the ordinary partial sums converge to the Hurwitz zeta
        value.  The ordinary series converges by ~ hurzsercvg .  Add the two
        convergent sequences and apply the pointwise formula ~ hurzval .
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzcvgred $p |- ( ( ( A e. D /\ S e. CC /\
-          1 < ( Re ` S ) ) /\
-        ( m e. NN0 |-> ( sum_ n e. ( 0 ..^ m )
-          ( sum_ k e. ( 0 ... n )
-            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
-              ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) / ( n + 1 ) ) /
-            ( S - 1 ) ) ) ~~> 0 ) ->
+    hurzcvgred $p |- ( ( ( A e. D /\ S e. CC /\ 1 < ( Re ` S ) ) /\
+                         ( m e. NN0 |->
+                           ( sum_ n e. ( 0 ..^ m )
+                               ( sum_ k e. ( 0 ... n )
+                                   ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                                     ( ( ( A + m ) + k ) ^c ( 1 - S ) ) ) /
+                                 ( n + 1 ) ) /
+                             ( S - 1 ) ) ) ~~> 0 ) ->
       ( m e. NN0 |-> sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) ) ~~>
-        ( A HurZ S ) ) $=
+      ( A HurZ S ) ) $=
       ( vi wcel cc c1 cn0 cc0 cv co caddc csu cdiv cli syl cre cfv clt wbr cfzo
       w3a cfz cneg cexp cbc cmul cmin ccxp cmpt wa churz simp1 cmnf cioc eleq2i
       cdif eldifi sylbi simp2 simp3 hurzsercvg syl3anc adantr wceq csn wne 1red
@@ -896519,8 +896947,7 @@ $)
   $}
 
   ${
-    $d A i j k m n $.  $d S i j k m n $.  $d D i $.  $d D j $.  $d D k $.
-    $d D n $.
+    $d A i j k m n $.  $d D i j k n $.  $d S i j k m n $.
     hurzcvg.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( The ordinary partial sums converge to the Hurwitz zeta function at a
        slit-plane parameter when the real part of the argument exceeds one.
@@ -896528,10 +896955,9 @@ $)
        parameter.  The bound from ~ cxpbindifsumle then makes the finite
        correction tend to zero by ~ climlogbnd .  Apply ~ hurzcvgred to
        identify the limit.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzcvg $p |- ( ( A e. D /\ S e. CC /\
-          1 < ( Re ` S ) )
-      -> ( m e. NN0 |-> sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) )
-          ~~> ( A HurZ S ) ) $=
+    hurzcvg $p |- ( ( A e. D /\ S e. CC /\ 1 < ( Re ` S ) ) ->
+      ( m e. NN0 |-> sum_ k e. ( 0 ..^ m ) ( ( A + k ) ^c -u S ) ) ~~>
+      ( A HurZ S ) ) $=
       ( vj vi wcel cc c1 wbr cc0 cv co cmul caddc cdiv adantr cle cre cfzo cneg
       vn cfv clt w3a cn0 cfz cexp cbc cmin ccxp csu cmpt churz cn cr wrex simp1
       cli cmnf cioc cdif eleq2i eldifi sylbi syl recld renegcld arch wa c2 cabs
@@ -896610,16 +897036,15 @@ $)
   $}
 
   ${
-    $d A k m $.  $d S k m $.  $d D k $.
+    $d A k m $.  $d D k $.  $d S k m $.
     hurzsum.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( For a parameter in the slit plane and an argument with real part greater
        than one, the Hurwitz zeta function equals its ordinary infinite series.
        The partial sums converge to both sides by ~ hurzcvg and ~ hurzsercvg ,
        so the two values agree by ~ climuni .  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    hurzsum $p |- ( ( A e. D /\ S e. CC /\
-          1 < ( Re ` S ) )
-      -> ( A HurZ S ) = sum_ k e. NN0 ( ( A + k ) ^c -u S ) ) $=
+    hurzsum $p |- ( ( A e. D /\ S e. CC /\ 1 < ( Re ` S ) ) ->
+      ( A HurZ S ) = sum_ k e. NN0 ( ( A + k ) ^c -u S ) ) $=
       ( vm wcel cc c1 cre cfv clt wbr w3a cn0 cc0 cv co csu cli cfzo caddc cneg
       ccxp cmpt churz wceq hurzcvg cmnf cioc cdif eleq2i eldifi syl3an1 climuni
       sylbi hurzsercvg syl2anc ) ABGZCHGZICJKLMZNFOPFQUARADQUBRCUCUDRZDSUEZACUF
@@ -896634,8 +897059,9 @@ $)
        these real intervals ~ hurzsum applies because each positive parameter
        lies in the slit plane and the real part of the argument equals the
        argument itself.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    hurzsumre $p |- ( F = HurZ -> A. a e. RR+ A. s e. ( 1 (,) +oo )
-      ( a F s ) = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) $=
+    hurzsumre $p |- ( F = HurZ ->
+      A. a e. RR+ A. s e. ( 1 (,) +oo )
+        ( a F s ) = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) $=
       ( churz wceq cv co cn0 crp c1 cpnf wcel wa simpl cc clt wbr cr syl csu wi
       caddc cneg ccxp cioo oveqd cmnf cc0 cioc cdif cre cfv a1d wb eqid ellogdm
       rpcnd a1i mpbir2and simpr elioore recnd eliooord breqtrrd hurzsum syl3anc
@@ -896649,8 +897075,8 @@ $)
   ${
     $d J t u v $.  $d K f u v x y $.  $d S t x $.  $d f ph t u v x y $.
     cncvxconn.1 $e |- ( ph -> S C_ CC ) $.
-    cncvxconn.2 $e |- ( ( ph /\ ( x e. S /\ y e. S /\ t e. ( 0 [,] 1 ) ) ) -> (
-      ( t x. x ) + ( ( 1 - t ) x. y ) ) e. S ) $.
+    cncvxconn.2 $e |- ( ( ph /\ ( x e. S /\ y e. S /\ t e. ( 0 [,] 1 ) ) ) ->
+      ( ( t x. x ) + ( ( 1 - t ) x. y ) ) e. S ) $.
     cncvxconn.3 $e |- J = ( TopOpen ` CCfld ) $.
     cncvxconn.4 $e |- K = ( J |`t S ) $.
     $( A convex subset of the complex plane is connected.  The line segment
@@ -896714,7 +897140,7 @@ $)
   $}
 
   ${
-    $d B t x y $.  $d J t $.  $d J x $.  $d J y $.
+    $d B t x y $.  $d J t x y $.
     cndifsnconn.j $e |- J = ( TopOpen ` CCfld ) $.
     $( The complex plane with one point removed is connected.  For a removed
        point ` B ` , the continuous map sending ` x ` to
@@ -896722,8 +897148,7 @@ $)
        the logarithm of ` ( y - B ) ` by ~ eflog .  The plane is convex, so
        ~ cncvxconn and ~ cnconn give connectedness of its image.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    cndifsnconn $p |- ( B e. CC ->
-      ( J |`t ( CC \ { B } ) ) e. Conn ) $=
+    cndifsnconn $p |- ( B e. CC -> ( J |`t ( CC \ { B } ) ) e. Conn ) $=
       ( vx vy vt cc wcel cv ce cfv caddc co cmpt a1i cc0 wa syl wceq syl2anc c1
       cconn csn cdif wfo crest ccn wss ssid cicc w3a cmul simpr3 unitssre sseli
       cmin recnd simpr1 mulcld 1cnd subcld simpr2 addcld cnfldtopon toponrestid
@@ -896748,7 +897173,7 @@ $)
   $}
 
   ${
-    $d t x y $.  $d u v x y $.  $d D u $.  $d J t $.  $d J x $.  $d J y $.
+    $d D u $.  $d J t x y $.  $d u v x y $.
     logdmconn.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     logdmconn.j $e |- J = ( TopOpen ` CCfld ) $.
     $( The complex plane slit along the nonpositive real axis is connected.
@@ -896757,8 +897182,7 @@ $)
        preserves real convex combinations.  The inverse of the restricted
        logarithm is the continuous exponential on the strip, so ~ cnconn gives
        the result.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    logdmconn $p |- ( J |`t
-      D ) e. Conn $=
+    logdmconn $p |- ( J |`t D ) e. Conn $=
       ( vx vy vt vu cc co wcel cim cv cfv wa cr ax-mp a1i syl ce vv crest cconn
       wceq eqid ccnv cpi cneg cioo cima clog cres wfo ccn wss wfn wb wf imf ffn
       elpreima simplbi ssriv cc0 cicc w3a cmul cmin caddc simpr3 unitssre sseli
@@ -896793,13 +897217,16 @@ $)
   $}
 
   ${
-    $d F f g t $.  $d G g t $.  $d U f g u $.  $d t u $.  $d J u $.
+    $d F f g t $.  $d G g t $.  $d J u $.  $d U f g u $.  $d t u $.
     dvidintd.j $e |- J = ( TopOpen ` CCfld ) $.
-    dvidintd.u $e |- ( ph -> A. u e. J
-      ( ( ( J |`t u ) e. Conn /\ ( 1 (,) +oo ) C_ u ) ->
-        A. f e. ( CC ^m u ) A. g e. ( CC ^m u )
-        ( ( dom ( CC _D f ) = u /\ dom ( CC _D g ) = u /\
-            A. t e. ( 1 (,) +oo ) ( f ` t ) = ( g ` t ) ) -> f = g ) ) ) $.
+    dvidintd.u $e |- ( ph ->
+      A. u e. J
+        ( ( ( J |`t u ) e. Conn /\ ( 1 (,) +oo ) C_ u ) ->
+          A. f e. ( CC ^m u ) A. g e. ( CC ^m u )
+            ( ( dom ( CC _D f ) = u /\
+                dom ( CC _D g ) = u /\
+                A. t e. ( 1 (,) +oo ) ( f ` t ) = ( g ` t ) ) ->
+              f = g ) ) ) $.
     dvidintd.o $e |- ( ph -> U e. J ) $.
     dvidintd.c $e |- ( ph -> ( J |`t U ) e. Conn ) $.
     dvidintd.i $e |- ( ph -> ( 1 (,) +oo ) C_ U ) $.
@@ -896838,10 +897265,12 @@ $)
        numbers, is holomorphic in each variable on its full domain, and agrees
        with the ordinary series for the indicated real arguments.  (Contributed
        by Zhi Wang, 25-Nov-2026.) $)
-    hurzprop $p |- ( F = HurZ -> ( ( F : ( D X. E ) --> CC /\ A. a e. D dom (
-      CC _D ( s e. E |-> ( a F s ) ) ) = E /\ A. s e. E dom ( CC _D ( a e. D
-      |-> ( a F s ) ) ) = D ) /\ A. a e. RR+ A. s e. ( 1 (,) +oo ) ( a F s )
-      = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) $=
+    hurzprop $p |- ( F = HurZ ->
+      ( ( F : ( D X. E ) --> CC /\
+          A. a e. D dom ( CC _D ( s e. E |-> ( a F s ) ) ) = E /\
+          A. s e. E dom ( CC _D ( a e. D |-> ( a F s ) ) ) = D ) /\
+        A. a e. RR+ A. s e. ( 1 (,) +oo )
+          ( a F s ) = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) $=
       ( churz wceq cc co cdif wf cv cmpt cdv cdm wral w3a cmnf cc0 cioc csn cxp
       c1 cn0 caddc cneg ccxp csu cpnf cioo crp wa hurzf hurzdms hurzdma 3pm3.2i
       eqid rgen a1i feq1d oveqd mpteq2dv oveq2d eqeq1d ralbidv 3anbi123d mpbird
@@ -896859,7 +897288,7 @@ $)
   $}
 
   ${
-    $d F a f g s t x y $.  $d a k s t x y $.  $d f g t u $.  $d J u $.
+    $d F a f g s t x y $.  $d J u $.  $d a k s t x y $.  $d f g t u $.
     ishurzred.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     ishurzred.e $e |- E = ( CC \ { 1 } ) $.
     ishurzred.j $e |- J = ( TopOpen ` CCfld ) $.
@@ -896867,10 +897296,12 @@ $)
       A. a e. D dom ( CC _D ( s e. E |-> ( a HurZ s ) ) ) = E /\
       A. s e. E dom ( CC _D ( a e. D |-> ( a HurZ s ) ) ) = D ) $.
     ishurzred.u $e |- A. u e. J
-      ( ( ( J |`t u ) e. Conn /\ ( 1 (,) +oo ) C_ u ) ->
-        A. f e. ( CC ^m u ) A. g e. ( CC ^m u )
-        ( ( dom ( CC _D f ) = u /\ dom ( CC _D g ) = u /\
-            A. t e. ( 1 (,) +oo ) ( f ` t ) = ( g ` t ) ) -> f = g ) ) $.
+        ( ( ( J |`t u ) e. Conn /\ ( 1 (,) +oo ) C_ u ) ->
+          A. f e. ( CC ^m u ) A. g e. ( CC ^m u )
+            ( ( dom ( CC _D f ) = u /\
+                dom ( CC _D g ) = u /\
+                A. t e. ( 1 (,) +oo ) ( f ` t ) = ( g ` t ) ) ->
+              f = g ) ) $.
     $( Assume that the Hurwitz zeta function is complex-valued and separately
        holomorphic on the stated product, and that agreement on the real
        interval above one determines a holomorphic function on any connected
@@ -896966,17 +897397,19 @@ $)
   $}
 
   ${
-    $d F a s k $.  $d F a f g s t $.  $d a k s t $.  $d f g t u $.
+    $d F a f g s t $.  $d F a k s t $.  $d f g t u $.
     ishurz.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     ishurz.e $e |- E = ( CC \ { 1 } ) $.
     $( Characterization of the Hurwitz zeta function on its full domain by
        separate holomorphy and its defining real series.  Apply the identity
        theorem ~ holidt successively in the two variables, as in ~ ishurzred .
        (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    ishurz $p |- ( F = HurZ <-> ( ( F : ( D X. E ) --> CC /\ A. a e. D dom (
-      CC _D ( s e. E |-> ( a F s ) ) ) = E /\ A. s e. E dom ( CC _D ( a e. D
-      |-> ( a F s ) ) ) = D ) /\ A. a e. RR+ A. s e. ( 1 (,) +oo ) ( a F s )
-      = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) $=
+    ishurz $p |- ( F = HurZ <->
+      ( ( F : ( D X. E ) --> CC /\
+          A. a e. D dom ( CC _D ( s e. E |-> ( a F s ) ) ) = E /\
+          A. s e. E dom ( CC _D ( a e. D |-> ( a F s ) ) ) = D ) /\
+        A. a e. RR+ A. s e. ( 1 (,) +oo )
+          ( a F s ) = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) $=
       ( cfv cc churz cv co wceq wral c1 wa wcel a1i cvv vu vt vf vg ccnfld eqid
       ctopn cxp cmpt cdv cdm w3a cn0 caddc cneg ccxp csu cpnf cioo crp hurzprop
       wf ax-mp simpl crest cconn wss wi cmap simplll adantr simplrl simplrr clp
@@ -897004,8 +897437,9 @@ $)
        membership in the domain and the two strict inequalities at the function
        value.  The inequalities imply that both endpoints and the value are
        extended reals.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
-    elpreimaioo $p |- ( F Fn X -> ( Z e. ( `' F " ( A (,) B ) ) <-> ( Z e. X
-      /\ A < ( F ` Z ) /\ ( F ` Z ) < B ) ) ) $=
+    elpreimaioo $p |- ( F Fn X ->
+      ( Z e. ( `' F " ( A (,) B ) ) <->
+        ( Z e. X /\ A < ( F ` Z ) /\ ( F ` Z ) < B ) ) ) $=
       ( wfn ccnv cioo co wcel clt wbr wa w3a cxr ltrelxr brel syl simprd bitrdi
       cima cfv elpreima elioo3g simpl simpld 3jca pm4.71ri bitr4i anbi2i 3anass
       simpr bicomi ) CDFZECGABHIZUAJZEDJZAECUBZKLZURBKLZMZMZUQUSUTNZUNUPUQURUOJ
@@ -897015,13 +897449,13 @@ $)
   $}
 
   ${
-
     $( Membership in the preimage of an open upper ray under a function.  The
        value at the point must be real and exceed the lower endpoint.
        Specialize ~ elpreimaioo to positive infinity.  (Contributed by Zhi
        Wang, 25-Nov-2026.) $)
-    elpreimaioopnf $p |- ( F Fn X -> ( Z e. ( `' F " ( A (,) +oo ) ) <-> ( Z
-      e. X /\ ( F ` Z ) e. RR /\ A < ( F ` Z ) ) ) ) $=
+    elpreimaioopnf $p |- ( F Fn X ->
+      ( Z e. ( `' F " ( A (,) +oo ) ) <->
+        ( Z e. X /\ ( F ` Z ) e. RR /\ A < ( F ` Z ) ) ) ) $=
       ( wfn ccnv cpnf cioo co cima wcel cfv clt wbr w3a elpreimaioo biimpa 3jca
       cr wa simp1d elpreima simprd elioore syl simp2d simp1 simp3 simp2 biimpar
       ltpnfd sylan2 impbida ) BCEZDBFAGHIZJKZDCKZDBLZSKZAURMNZOZUNUPTZUQUSUTVBU
@@ -897031,13 +897465,12 @@ $)
   $}
 
   ${
-
     $( Membership in the right half-plane above a given real-part threshold.
        Specialize ~ elpreimaioopnf to the real-part function.  Its values on
        the complex numbers are real by ~ recl .  (Contributed by Zhi Wang,
        25-Nov-2026.) $)
-    elrepreimaioopnf $p |- ( Z e. ( `' Re " ( A (,) +oo ) ) <-> ( Z e. CC /\
-      A < ( Re ` Z ) ) ) $=
+    elrepreimaioopnf $p |- ( Z e. ( `' Re " ( A (,) +oo ) ) <->
+      ( Z e. CC /\ A < ( Re ` Z ) ) ) $=
       ( cre ccnv cpnf cioo co cima wcel cc cfv cr clt wbr w3a wa wf wfn wb ref
       ffn elpreimaioopnf mp2b 3simpb simpl recld simpr 3jca impbii bitri ) BCDA
       EFGHIZBJIZBCKZLIZAUMMNZOZULUOPZJLCQCJRUKUPSTJLCUAACJBUBUCUPUQULUNUOUDUQUL
@@ -897046,8 +897479,7 @@ $)
 
   ${
     $d A t x y $.  $d B y $.  $d D t x y $.  $d E t x y $.  $d F t x y $.
-    $d G
- t x y $.  $d ph t x y $.
+    $d G t x y $.  $d ph t x y $.
     holidrect.j $e |- J = ( TopOpen ` CCfld ) $.
     holidrect.o1 $e |- ( ph -> D e. J ) $.
     holidrect.o2 $e |- ( ph -> E e. J ) $.
@@ -897055,22 +897487,20 @@ $)
     holidrect.c2 $e |- ( ph -> ( J |`t E ) e. Conn ) $.
     holidrect.a1 $e |- ( ph -> A C_ D ) $.
     holidrect.a2 $e |- ( ph -> B C_ E ) $.
-    holidrect.l1 $e |- ( ph -> ( ( limPt ` ( J |`t D ) ) ` A
-      ) =/= (/) ) $.
-    holidrect.l2 $e |- ( ph -> ( ( limPt ` ( J |`t E ) ) ` B
-      ) =/= (/) ) $.
+    holidrect.l1 $e |- ( ph -> ( ( limPt ` ( J |`t D ) ) ` A ) =/= (/) ) $.
+    holidrect.l2 $e |- ( ph -> ( ( limPt ` ( J |`t E ) ) ` B ) =/= (/) ) $.
     holidrect.f $e |- ( ph -> F : ( D X. E ) --> CC ) $.
-    holidrect.f1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t F y )
-      ) ) = D ) $.
-    holidrect.f2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x F t )
-      ) ) = E ) $.
+    holidrect.f1 $e |- ( ( ph /\ y e. E ) ->
+      dom ( CC _D ( t e. D |-> ( t F y ) ) ) = D ) $.
+    holidrect.f2 $e |- ( ( ph /\ x e. D ) ->
+      dom ( CC _D ( t e. E |-> ( x F t ) ) ) = E ) $.
     holidrect.g $e |- ( ph -> G : ( D X. E ) --> CC ) $.
-    holidrect.g1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t G y )
-      ) ) = D ) $.
-    holidrect.g2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x G t )
-      ) ) = E ) $.
-    holidrect.v $e |- ( ( ph /\ ( x e. A /\ y e. B ) ) -> ( x F y ) = ( x G y )
-      ) $.
+    holidrect.g1 $e |- ( ( ph /\ y e. E ) ->
+      dom ( CC _D ( t e. D |-> ( t G y ) ) ) = D ) $.
+    holidrect.g2 $e |- ( ( ph /\ x e. D ) ->
+      dom ( CC _D ( t e. E |-> ( x G t ) ) ) = E ) $.
+    holidrect.v $e |- ( ( ph /\ ( x e. A /\ y e. B ) ) ->
+      ( x F y ) = ( x G y ) ) $.
     $( Identity theorem on a product of two connected open complex domains.
        Two separately holomorphic functions are equal if they agree on a
        Cartesian product whose factors each have an accumulation point in the
@@ -897106,10 +897536,9 @@ $)
 
   ${
     $d D t x y $.  $d E t x y $.  $d F t u v x y $.  $d G t u v x y $.
-    $d U r
- u v $.  $d U t u v x y $.  $d X r u v $.  $d X t u v x y $.
-    $d Y r u v $.  $d Y t u v x y $.  $d ph t u v x y $.  $d J r $.  $d J t $.
-    $d J u $.  $d J v $.  $d J x $.  $d J y $.
+    $d J r u v $.  $d J t u v x y $.  $d U r u v $.  $d U t u v x y $.
+    $d X r u v $.  $d X t u v x y $.  $d Y r u v $.  $d Y t u v x y $.
+    $d ph t u v x y $.
     holidtx.j $e |- J = ( TopOpen ` CCfld ) $.
     holidtx.o1 $e |- ( ph -> D e. J ) $.
     holidtx.o2 $e |- ( ph -> E e. J ) $.
@@ -897122,15 +897551,15 @@ $)
     holidtx.u $e |- ( ph -> U e. ( ( J |`t X ) tX ( J |`t Y ) ) ) $.
     holidtx.n $e |- ( ph -> U =/= (/) ) $.
     holidtx.f $e |- ( ph -> F : ( D X. E ) --> CC ) $.
-    holidtx.f1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t F y ) )
-      ) = D ) $.
-    holidtx.f2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x F t ) )
-      ) = E ) $.
+    holidtx.f1 $e |- ( ( ph /\ y e. E ) ->
+      dom ( CC _D ( t e. D |-> ( t F y ) ) ) = D ) $.
+    holidtx.f2 $e |- ( ( ph /\ x e. D ) ->
+      dom ( CC _D ( t e. E |-> ( x F t ) ) ) = E ) $.
     holidtx.g $e |- ( ph -> G : ( D X. E ) --> CC ) $.
-    holidtx.g1 $e |- ( ( ph /\ y e. E ) -> dom ( CC _D ( t e. D |-> ( t G y ) )
-      ) = D ) $.
-    holidtx.g2 $e |- ( ( ph /\ x e. D ) -> dom ( CC _D ( t e. E |-> ( x G t ) )
-      ) = E ) $.
+    holidtx.g1 $e |- ( ( ph /\ y e. E ) ->
+      dom ( CC _D ( t e. D |-> ( t G y ) ) ) = D ) $.
+    holidtx.g2 $e |- ( ( ph /\ x e. D ) ->
+      dom ( CC _D ( t e. E |-> ( x G t ) ) ) = E ) $.
     holidtx.v $e |- ( ( ph /\ x U y ) -> ( x F y ) = ( x G y ) ) $.
     $( Two separately holomorphic functions on a product of connected open
        complex domains are equal if they agree on a nonempty relatively open
@@ -897165,7 +897594,7 @@ $)
   $}
 
   ${
-    $d F a k s t x y $.  $d U a s t x y $.  $d a k s t x y $.
+    $d F a k s t x y $.  $d U a s t x y $.
     ishurz2.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     ishurz2.e $e |- E = ( CC \ { 1 } ) $.
     ishurz2.h $e |- H = ( `' Re " ( 1 (,) +oo ) ) $.
@@ -897176,14 +897605,14 @@ $)
        converse, the slit plane and the open half-plane are perfect subspaces,
        so agreement on ` U ` determines the function by ~ holidtx .  Compare
        ~ ishurz .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    ishurz2 $p |- ( ( U e. ( ( J |`t D ) tX ( J |`t H ) ) /\
-                      U =/= (/) ) ->
+    ishurz2 $p |- ( ( U e. ( ( J |`t D ) tX ( J |`t H ) ) /\ U =/= (/) ) ->
       ( F = HurZ <->
         ( ( F : ( D X. E ) --> CC /\
             A. a e. D dom ( CC _D ( s e. E |-> ( a F s ) ) ) = E /\
             A. s e. E dom ( CC _D ( a e. D |-> ( a F s ) ) ) = D ) /\
-          A. a A. s ( a U s -> ( a F s ) =
-            sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) ) ) $=
+          A. a A. s
+            ( a U s ->
+              ( a F s ) = sum_ k e. NN0 ( ( a + k ) ^c -u s ) ) ) ) ) $=
       ( vx vy co wcel cc c1 cv vt vw crest ctx c0 wne churz wceq cmnf cioc cdif
       wa cc0 csn cxp wf cmpt cdv cdm wral w3a wbr cn0 caddc cneg ccxp csu wi wb
       wal ccnfld ctopn cfv ccnv cpnf cioo cima oveq12i eleq2i anbi1i simpr eqid
@@ -897251,7 +897680,7 @@ $)
        by Zhi Wang, 26-Nov-2026.) $)
     fsumfzoaff $p |- ( ( A e. CC /\ M e. NN0 ) ->
       sum_ k e. ( 0 ..^ M ) ( A + k ) =
-        ( ( ( ( ( A + M ) ^ 2 ) - ( A + M ) ) - ( ( A ^ 2 ) - A ) ) / 2 ) ) $=
+      ( ( ( ( ( A + M ) ^ 2 ) - ( A + M ) ) - ( ( A ^ 2 ) - A ) ) / 2 ) ) $=
       ( wcel cc0 co cv caddc cmul cmin oveq1d eqtrd subcld addcld add12d oveq2d
       c2 cneg addassd 3eqtrd cc cn0 wa cfzo csu cexp cdiv fzofi simpll elfzonn0
       cfn a1i adantl nn0cnd fsumadd chash wceq simpl fsumconst sylancr hashfzo0
@@ -897289,8 +897718,9 @@ $)
     $( The alternating binomial sum of a shifted complex power at order zero
        equals its initial value.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     cxpbindif0 $p |- ( ( B e. CC /\ S e. CC ) ->
-      sum_ k e. ( 0 ... 0 ) ( ( ( -u 1 ^ k ) x. ( 0 _C k ) ) x.
-        ( ( B + k ) ^c S ) ) = ( B ^c S ) ) $=
+      sum_ k e. ( 0 ... 0 )
+        ( ( ( -u 1 ^ k ) x. ( 0 _C k ) ) x. ( ( B + k ) ^c S ) ) =
+      ( B ^c S ) ) $=
       ( cc wcel cc0 co c1 cneg cv cexp cbc cmul caddc ccxp oveq12d oveq1d eqtrd
       wceq oveq2 wa cfz csu cz 0zd 1cnd negcld exp0d cn0 0nn0 bcnn 1t1e1 eqtrdi
       mp1i simpl addridd cxpcl mullidd eqeltrd fsum1 syl2anc ) ADEZBDEZUAZFFUBG
@@ -897307,8 +897737,9 @@ $)
        two.  Evaluate their weighted sum.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
     cxpbindifsq $p |- ( B e. CC ->
-      sum_ n e. ( 0 ..^ 3 ) ( sum_ k e. ( 0 ... n )
-        ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c 2 ) ) /
+      sum_ n e. ( 0 ..^ 3 )
+        ( sum_ k e. ( 0 ... n )
+            ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( B + k ) ^c 2 ) ) /
           ( n + 1 ) ) =
       ( ( ( B ^ 2 ) + ( -u ( ( 2 x. B ) + 1 ) / 2 ) ) + ( 2 / 3 ) ) ) $=
       ( cc wcel cc0 co cfz cbc cmul caddc csu cdiv wceq a1i oveq2d oveq12d cmin
@@ -897353,7 +897784,7 @@ $)
   $}
 
   ${
-    $d A i k m n $.  $d D k $.  $d D m $.  $d D n $.
+    $d A i k m n $.  $d D k m n $.
     hurzm1.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( The Hurwitz zeta function at minus one is a quadratic polynomial in its
        first argument.  In ~ hurzfixcvg take a cutoff of three.  The arithmetic
@@ -897468,10 +897899,14 @@ $)
 
   ${
     $d A j k n $.  $d H j k n $.  $d M j k n $.  $d S j k n $.  $d k n ph $.
-    hurzradinc.f $e |- F = ( j e. NN0 |-> ( sum_ k e. ( 0 ..^ j ) ( ( A + k )
-      ^c -u S ) + ( sum_ n e. ( 0 ..^ ( H + 2 ) ) ( sum_ k e. ( 0 ... n ) ( (
-      ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + j ) + k ) ^c ( 1 - S ) ) ) / (
-      n + 1 ) ) / ( S - 1 ) ) ) ) $.
+    hurzradinc.f $e |- F = ( j e. NN0 |->
+                             ( sum_ k e. ( 0 ..^ j ) ( ( A + k ) ^c -u S ) +
+                               ( sum_ n e. ( 0 ..^ ( H + 2 ) )
+                                   ( sum_ k e. ( 0 ... n )
+                                       ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                                         ( ( ( A + j ) + k ) ^c ( 1 - S ) ) ) /
+                                     ( n + 1 ) ) /
+                                 ( S - 1 ) ) ) ) $.
     hurzradinc.a $e |- ( ph -> A e. CC ) $.
     hurzradinc.r $e |- ( ph -> 0 < ( Re ` A ) ) $.
     hurzradinc.s $e |- ( ph -> S e. ( CC \ { 1 } ) ) $.
@@ -897482,9 +897917,11 @@ $)
     $( Bound a successive difference of the Hurwitz approximants on a disk by a
        constant times the reciprocal square of the index.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    hurzradinc $p |- ( ph -> ( abs ` ( ( F ` ( M + 1 ) ) - ( F ` M ) ) ) <_ (
-      ( ( exp ` ( ( H + H ) x. _pi ) ) x. ( ( H + ( H + 2 ) ) ^ ( H + 2 ) ) )
-      x. ( M ^c -u 2 ) ) ) $=
+    hurzradinc $p |- ( ph ->
+      ( abs ` ( ( F ` ( M + 1 ) ) - ( F ` M ) ) ) <_
+      ( ( ( exp ` ( ( H + H ) x. _pi ) ) x.
+          ( ( H + ( H + 2 ) ) ^ ( H + 2 ) ) ) x.
+        ( M ^c -u 2 ) ) ) $=
       ( caddc co cdiv c1 cfv cmin cabs cc0 cfzo cneg ccxp csu cfz cexp cbc cmul
       cv c2 cpi ce cle cn0 wcel peano2nnd nnnn0d oveq2 sumeq1d oveq1d sumeq2sdv
       wceq oveq2d oveq12d fvmpt syl fveq2d cn 2nn a1i nnaddcld nnred nnge1d cre
@@ -897525,8 +897962,8 @@ $)
     logabsivbnd.r $e |- ( ph -> X <_ U ) $.
     $( Bound the absolute logarithm on a positive real interval in terms of its
        endpoints.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    logabsivbnd $p |- ( ph -> ( abs ` ( log ` X ) ) <_ ( ( abs ` ( log ` A ) )
-      + U ) ) $=
+    logabsivbnd $p |- ( ph ->
+      ( abs ` ( log ` X ) ) <_ ( ( abs ` ( log ` A ) ) + U ) ) $=
       ( clog cfv cabs cle wbr cneg relogcld renegcld mpbid cc0 letrd co absnegd
       caddc recnd abscld readdcld logled lenegd leabsd breqtrd rpred lenegcon1d
       0red rpge0d addge01d ce releef rpefcld relogefd addge02d absled mpbir2and
@@ -897545,8 +897982,9 @@ $)
        exponential of the product of the moduli of the exponent and the
        principal logarithm of the base.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    abscxpefbnd $p |- ( ph -> ( abs ` ( A ^c B ) ) <_ ( exp ` ( ( abs ` B ) x.
-      ( abs ` ( log ` A ) ) ) ) ) $=
+    abscxpefbnd $p |- ( ph ->
+      ( abs ` ( A ^c B ) ) <_
+      ( exp ` ( ( abs ` B ) x. ( abs ` ( log ` A ) ) ) ) ) $=
       ( ccxp co cabs cfv clog cmul cre ce cle cxpefd wcel wbr cr abscld cc wceq
       fveq2d logcld mulcld absef syl eqtrd releabsd absmuld breqtrd wb remulcld
       recld efle syl2anc mpbid eqbrtrd ) ABCGHZIJZCBKJZLHZMJZNJZCIJZVAIJZLHZNJZ
@@ -897586,8 +898024,9 @@ $)
     $( Bound the modulus of a complex power for bases in a positive real
        interval and exponents in a disk.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    cxpabsivbnd $p |- ( ph -> ( abs ` ( X ^c S ) ) <_ ( exp ` ( H x. ( ( abs `
-      ( log ` A ) ) + U ) ) ) ) $=
+    cxpabsivbnd $p |- ( ph ->
+      ( abs ` ( X ^c S ) ) <_
+      ( exp ` ( H x. ( ( abs ` ( log ` A ) ) + U ) ) ) ) $=
       ( clog cfv cabs caddc co rpcnd rpne0d relogcld recnd readdcld logabsivbnd
       abscld abscxpdisk ) AFCEBOPZQPZDRSAFHTAFHUALMAUIDAUHAUHABGUBUCUFIUDNABDFG
       HIJKUEUG $.
@@ -897602,8 +898041,8 @@ $)
     $( Bound the modulus of a finite sum by the cardinality of its index set
        times a common bound for the summands.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fsumabsuniform $p |- ( ph -> ( abs ` sum_ k e. I B ) <_ ( ( # ` I ) x. C )
-      ) $=
+    fsumabsuniform $p |- ( ph ->
+      ( abs ` sum_ k e. I B ) <_ ( ( # ` I ) x. C ) ) $=
       ( csu cabs cfv chash cmul co cle fsumcl abscld wcel fsumrecl cv wa adantr
       cr fsumabs fsumle letrd cfn cc wceq recnd fsumconst syl2anc breqtrd ) AEB
       DJZKLZECDJZEMLCNOZPAUPEBKLZDJUQAUOAEBDFHQRAEUSDFADUAESZUBBHRZTAECDFACUDSU
@@ -897620,8 +898059,8 @@ $)
     $( Bound a finite weighted sum using the sum of the absolute weights and a
        uniform bound for the factors.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fsumabsweights $p |- ( ph -> ( abs ` sum_ k e. I ( A x. B ) ) <_ ( sum_ k
-      e. I ( abs ` A ) x. C ) ) $=
+    fsumabsweights $p |- ( ph ->
+      ( abs ` sum_ k e. I ( A x. B ) ) <_ ( sum_ k e. I ( abs ` A ) x. C ) ) $=
       ( cmul co csu cabs cfv cle wcel abscld fsumrecl cv mulcld fsumcl remulcld
       wa adantr fsumabs absmuld absge0d lemul2ad eqbrtrd fsumle letrd fsummulc1
       cr recnd breqtrrd ) AFBCLMZENZOPZFBOPZDLMZENZFVAENDLMQAUTFUROPZENVCAUSAFU
@@ -897639,8 +898078,10 @@ $)
     $( Bound an alternating binomial sum by the sum of the binomial
        coefficients times a common bound for its terms.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    bindifabsbnd $p |- ( ph -> ( abs ` sum_ k e. ( 0 ... N ) ( ( ( -u 1 ^ k )
-      x. ( N _C k ) ) x. B ) ) <_ ( ( 2 ^ N ) x. C ) ) $=
+    bindifabsbnd $p |- ( ph ->
+      ( abs ` sum_ k e. ( 0 ... N )
+                ( ( ( -u 1 ^ k ) x. ( N _C k ) ) x. B ) ) <_
+      ( ( 2 ^ N ) x. C ) ) $=
       ( cc0 co c1 cexp cmul csu cabs cfv wcel cn0 adantl cfz cneg cv cbc c2 cle
       fzfid wa 1cnd negcld elfznn0 expcld cn bccl2 nncnd fsumabsweights absmuld
       mulcld absexpd absnegd abs1 eqtrdi oveq1d cz wceq nn0zd 1exp 3eqtrd nnred
@@ -897658,16 +898099,21 @@ $)
     bindifseriesbnd.m $e |- ( ph -> M e. NN0 ) $.
     bindifseriesbnd.c $e |- ( ph -> C e. RR ) $.
     bindifseriesbnd.p $e |- ( ph -> 0 <_ C ) $.
-    bindifseriesbnd.b $e |- ( ( ( ph /\ n e. ( 0 ..^ M ) ) /\ k e. ( 0 ... n )
-      ) -> B e. CC ) $.
-    bindifseriesbnd.h $e |- ( ( ( ph /\ n e. ( 0 ..^ M ) ) /\ k e. ( 0 ... n )
-      ) -> ( abs ` B ) <_ C ) $.
+    bindifseriesbnd.b $e |- ( ( ( ph /\ n e. ( 0 ..^ M ) ) /\
+                                k e. ( 0 ... n ) ) ->
+      B e. CC ) $.
+    bindifseriesbnd.h $e |- ( ( ( ph /\ n e. ( 0 ..^ M ) ) /\
+                                k e. ( 0 ... n ) ) ->
+      ( abs ` B ) <_ C ) $.
     $( Bound a finite sum of normalized alternating binomial differences from a
        common bound for the sampled values.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    bindifseriesbnd $p |- ( ph -> ( abs ` sum_ n e. ( 0 ..^ M ) ( sum_ k e. (
-      0 ... n ) ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. B ) / ( n + 1 ) ) ) <_ ( M
-      x. ( ( 2 ^ M ) x. C ) ) ) $=
+    bindifseriesbnd $p |- ( ph ->
+      ( abs ` sum_ n e. ( 0 ..^ M )
+                ( sum_ k e. ( 0 ... n )
+                    ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. B ) /
+                  ( n + 1 ) ) ) <_
+      ( M x. ( ( 2 ^ M ) x. C ) ) ) $=
       ( cc0 co c1 cmul c2 cle wcel a1i adantr cfzo cfz cneg cexp cbc caddc cdiv
       cv csu cfv chash cfn fzofi crp 2rp nn0zd rpexpcld rpred remulcld wa fzfid
       cabs 1cnd negcld cn0 elfznn0 adantl expcld cn bccl2 nncnd mulcld elfzonn0
@@ -897698,13 +898144,22 @@ $)
     hurzfinradbnd.b $e |- ( ph -> ( abs ` S ) <_ H ) $.
     $( Bound the finite terms in the pole-cleared Hurwitz approximation on a
        disk.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzfinradbnd $p |- ( ph -> ( abs ` ( ( ( S - 1 ) x. sum_ k e. ( 0 ..^ M )
-      ( ( A + k ) ^c -u S ) ) + sum_ n e. ( 0 ..^ M ) ( sum_ k e. ( 0 ... n )
-      ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + M ) + k ) ^c ( 1 - S ) ) )
-      / ( n + 1 ) ) ) ) <_ ( ( ( 1 + H ) x. ( M x. ( exp ` ( ( 1 + H ) x. ( (
-      abs ` ( log ` A ) ) + ( ( A + M ) + M ) ) ) ) ) ) + ( M x. ( ( 2 ^ M )
-      x. ( exp ` ( ( 1 + H ) x. ( ( abs ` ( log ` A ) ) + ( ( A + M ) + M ) )
-      ) ) ) ) ) ) $=
+    hurzfinradbnd $p |- ( ph ->
+      ( abs ` ( ( ( S - 1 ) x. sum_ k e. ( 0 ..^ M ) ( ( A + k ) ^c -u S ) ) +
+                sum_ n e. ( 0 ..^ M )
+                  ( sum_ k e. ( 0 ... n )
+                      ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                        ( ( ( A + M ) + k ) ^c ( 1 - S ) ) ) /
+                    ( n + 1 ) ) ) ) <_
+      ( ( ( 1 + H ) x.
+          ( M x.
+            ( exp ` ( ( 1 + H ) x.
+                      ( ( abs ` ( log ` A ) ) + ( ( A + M ) + M ) ) ) ) ) ) +
+        ( M x.
+          ( ( 2 ^ M ) x.
+            ( exp ` ( ( 1 + H ) x.
+                      ( ( abs ` ( log ` A ) ) +
+                        ( ( A + M ) + M ) ) ) ) ) ) ) ) $=
       ( c1 co caddc cmul cfv wcel cle wbr cmin cc0 cfzo cneg ccxp csu cexp cdiv
       cv cfz cbc cabs clog ce c2 1cnd subcld cfn fzofi a1i wa cr rpred elfzonn0
       adantr cn0 adantl nn0red readdcld recnd negcld cxpcld fsumcl mulcld rpcnd
@@ -897774,8 +898229,9 @@ $)
     climvarbnd.d $e |- ( ph -> ( ZZ>= ` N ) C_ D ) $.
     climvarbnd.l $e |- ( ph -> F ~~> L ) $.
     climvarbnd.h $e |- ( ph -> H e. RR ) $.
-    climvarbnd.b $e |- ( ( ph /\ m e. ( ZZ>= ` N ) ) -> sum_ j e. ( N ..^ m )
-      ( abs ` ( ( F ` ( j + 1 ) ) - ( F ` j ) ) ) <_ H ) $.
+    climvarbnd.b $e |- ( ( ph /\ m e. ( ZZ>= ` N ) ) ->
+      sum_ j e. ( N ..^ m ) ( abs ` ( ( F ` ( j + 1 ) ) - ( F ` j ) ) ) <_
+      H ) $.
     $( Bound the distance from a term to the limit of a complex sequence using
        a common bound on the later partial variations.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
@@ -897811,13 +898267,14 @@ $)
     climdifpbnd.r $e |- ( ph -> 1 < S ) $.
     climdifpbnd.c $e |- ( ph -> C e. RR ) $.
     climdifpbnd.p $e |- ( ph -> 0 <_ C ) $.
-    climdifpbnd.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) -> ( abs ` ( ( F ` ( j +
-      1 ) ) - ( F ` j ) ) ) <_ ( C x. ( j ^c -u S ) ) ) $.
+    climdifpbnd.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( ( F ` ( j + 1 ) ) - ( F ` j ) ) ) <_
+      ( C x. ( j ^c -u S ) ) ) $.
     $( Bound the error of a convergent sequence whose successive differences
        have a summable power majorant.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    climdifpbnd $p |- ( ph -> ( abs ` ( L - ( F ` N ) ) ) <_ ( C x. sum_ j e.
-      NN ( j ^c -u S ) ) ) $=
+    climdifpbnd $p |- ( ph ->
+      ( abs ` ( L - ( F ` N ) ) ) <_ ( C x. sum_ j e. NN ( j ^c -u S ) ) ) $=
       ( cn co wcel vm vi cv cneg ccxp csu cmul nnzd cmpt c1 nnuz 1zzd cfv oveq1
       wceq eqid ovex fvmpt adantl wa simpr nnrpd renegcld adantr rpcxpcld rpred
       cr recnd cre clt rered breqtrrd zetacvg isumrecl remulcld cfzo caddc cmin
@@ -897841,10 +898298,14 @@ $)
 
   ${
     $d A j k n $.  $d F i $.  $d H i j k n $.  $d S j k n $.  $d i j k n ph $.
-    hurzradbnd.f $e |- F = ( j e. NN0 |-> ( sum_ k e. ( 0 ..^ j ) ( ( A + k )
-      ^c -u S ) + ( sum_ n e. ( 0 ..^ ( H + 2 ) ) ( sum_ k e. ( 0 ... n ) ( (
-      ( -u 1 ^ k ) x. ( n _C k ) ) x. ( ( ( A + j ) + k ) ^c ( 1 - S ) ) ) / (
-      n + 1 ) ) / ( S - 1 ) ) ) ) $.
+    hurzradbnd.f $e |- F = ( j e. NN0 |->
+                             ( sum_ k e. ( 0 ..^ j ) ( ( A + k ) ^c -u S ) +
+                               ( sum_ n e. ( 0 ..^ ( H + 2 ) )
+                                   ( sum_ k e. ( 0 ... n )
+                                       ( ( ( -u 1 ^ k ) x. ( n _C k ) ) x.
+                                         ( ( ( A + j ) + k ) ^c ( 1 - S ) ) ) /
+                                     ( n + 1 ) ) /
+                                 ( S - 1 ) ) ) ) $.
     hurzradbnd.a $e |- ( ph -> A e. CC ) $.
     hurzradbnd.r $e |- ( ph -> 0 < ( Re ` A ) ) $.
     hurzradbnd.s $e |- ( ph -> S e. ( CC \ { 1 } ) ) $.
@@ -897853,9 +898314,11 @@ $)
     $( Bound the error of the finite Hurwitz approximation uniformly for
        exponents in a disk away from the pole.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    hurzradbnd $p |- ( ph -> ( abs ` ( ( A HurZ S ) - ( F ` ( H + 2 ) ) ) ) <_
-      ( ( ( exp ` ( ( H + H ) x. _pi ) ) x. ( ( H + ( H + 2 ) ) ^ ( H + 2 ) )
-      ) x. sum_ i e. NN ( i ^c -u 2 ) ) ) $=
+    hurzradbnd $p |- ( ph ->
+      ( abs ` ( ( A HurZ S ) - ( F ` ( H + 2 ) ) ) ) <_
+      ( ( ( exp ` ( ( H + H ) x. _pi ) ) x.
+          ( ( H + ( H + 2 ) ) ^ ( H + 2 ) ) ) x.
+        sum_ i e. NN ( i ^c -u 2 ) ) ) $=
       ( caddc co wcel cv c1 cpi cmul ce cfv cexp cn0 churz 2nn a1i nnaddcld cc0
       c2 cn cfzo cneg ccxp csu cfz cbc cmin cdiv adantr csn eldifad cxpfzosumcl
       cc wa negcld simpr nn0cnd addcld 1cnd subcld cxpbindifsumcl wne eldifsnbd
@@ -897895,13 +898358,22 @@ $)
        disk, for a positive real parameter and away from exponent one.  Combine
        the finite bound of ~ hurzfinradbnd with the remainder estimate of
        ~ hurzradbnd .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzregdisk $p |- ( ph -> ( abs ` ( ( S - 1 ) x. ( A HurZ S ) ) ) <_ ( ( (
-      1 + H ) x. ( ( ( exp ` ( ( H + H ) x. _pi ) ) x. ( ( H + ( H + 2 ) ) ^ (
-      H + 2 ) ) ) x. sum_ i e. NN ( i ^c -u 2 ) ) ) + ( ( ( 1 + H ) x. ( ( H +
-      2 ) x. ( exp ` ( ( 1 + H ) x. ( ( abs ` ( log ` A ) ) + ( ( A + ( H + 2
-      ) ) + ( H + 2 ) ) ) ) ) ) ) + ( ( H + 2 ) x. ( ( 2 ^ ( H + 2 ) ) x. (
-      exp ` ( ( 1 + H ) x. ( ( abs ` ( log ` A ) ) + ( ( A + ( H + 2 ) ) + ( H
-      + 2 ) ) ) ) ) ) ) ) ) ) $=
+    hurzregdisk $p |- ( ph ->
+      ( abs ` ( ( S - 1 ) x. ( A HurZ S ) ) ) <_
+      ( ( ( 1 + H ) x.
+          ( ( ( exp ` ( ( H + H ) x. _pi ) ) x.
+              ( ( H + ( H + 2 ) ) ^ ( H + 2 ) ) ) x.
+            sum_ i e. NN ( i ^c -u 2 ) ) ) +
+        ( ( ( 1 + H ) x.
+            ( ( H + 2 ) x.
+              ( exp ` ( ( 1 + H ) x.
+                        ( ( abs ` ( log ` A ) ) +
+                          ( ( A + ( H + 2 ) ) + ( H + 2 ) ) ) ) ) ) ) +
+          ( ( H + 2 ) x.
+            ( ( 2 ^ ( H + 2 ) ) x.
+              ( exp ` ( ( 1 + H ) x.
+                        ( ( abs ` ( log ` A ) ) +
+                          ( ( A + ( H + 2 ) ) + ( H + 2 ) ) ) ) ) ) ) ) ) ) $=
       ( vk vn c2 caddc co cv c1 cmul cfv cc wcel vj cc0 cfzo cneg ccxp csu cexp
       cfz cbc cmin cdiv clog cabs ce cpi cn churz cmnf cioc csn cr crp wi rpcnd
       cdif eqid ellogdm sylanbrc hurzf fovcl syl2anc eldifad negcld cxpfzosumcl
@@ -897935,6 +898407,7 @@ $)
       BXKRXLABFYQABUXCXMYRGHIYSUUAABCJKEUUDFUWIUWJUWLIUUBUUC $.
   $}
 
+
 $(
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   Dirichlet L-functions
@@ -897952,15 +898425,21 @@ $)
   cdirl $a class DirL $.
 
   ${
-    $d q x s t k $.
+    $d k q s t x $.
     $( Define the Dirichlet L-function of the character ` x ` modulo ` q ` .
        At each complex argument, its graph contains the limits of the finite
        Hurwitz sum on the plane punctured at one.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    df-dirl $a |- DirL = ( q e. NN , x e. ( Base ` ( DChr ` q ) ) |->
-      U_ s e. CC ( { s } X. ( ( t e. ( CC \ { 1 } ) |->
-        ( sum_ k e. ( 1 ... q ) ( ( x ` ( ( ZRHom ` ( Z/nZ ` q ) ) ` k ) )
-          x. ( ( k / q ) HurZ t ) ) / ( q ^c t ) ) ) limCC s ) ) ) $.
+    df-dirl $a |- DirL =
+      ( q e. NN , x e. ( Base ` ( DChr ` q ) ) |->
+        U_ s e. CC
+          ( { s } X.
+            ( ( t e. ( CC \ { 1 } ) |->
+                ( sum_ k e. ( 1 ... q )
+                    ( ( x ` ( ( ZRHom ` ( Z/nZ ` q ) ) ` k ) ) x.
+                      ( ( k / q ) HurZ t ) ) /
+                  ( q ^c t ) ) ) limCC
+              s ) ) ) $.
   $}
 
   ${
@@ -897973,8 +898452,9 @@ $)
     $( Convergence of the finite partial sums on an integer interval is
        equivalent to convergence of the associated recursively defined sequence
        of sums.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climfsumser $p |- ( ph -> ( ( m e. Z |-> sum_ k e. ( M ... m ) A ) ~~> B
-      <-> seq M ( + , F ) ~~> B ) ) $=
+    climfsumser $p |- ( ph ->
+      ( ( m e. Z |-> sum_ k e. ( M ... m ) A ) ~~> B <->
+        seq M ( + , F ) ~~> B ) ) $=
       ( vn cv cfz co cvv wcel a1i cfv csu cmpt caddc cseq cuz fvexi mptex seqex
       wa eqid oveq2 sumeq1d simpr sumex fvmptd3 simpll elfzuz eleqtrrdi syl2anc
       wceq adantl eleqtrdi cc fsumser eqtrd climeq ) ACMEHGENOPZBDUAZUBZUCFGUDZ
@@ -897996,9 +898476,9 @@ $)
        half-plane where the real part of the argument exceeds one.  Compare the
        absolute value of each term with a constant times the corresponding real
        power in ~ zetacvg .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirsercvg $p |- ( ph -> ( m e. NN |-> sum_ k e. ( 1 ... m ) ( ( F ` k
-      ) /
-      ( k ^c S ) ) ) ~~> sum_ k e. NN ( ( F ` k ) / ( k ^c S ) ) ) $=
+    dirsercvg $p |- ( ph ->
+      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( ( F ` k ) / ( k ^c S ) ) ) ~~>
+      sum_ k e. NN ( ( F ` k ) / ( k ^c S ) ) ) $=
       ( vj cn c1 co cfv ccxp cdiv wcel cabs cv cfz csu cmpt cli caddc cseq nnuz
       wbr 1zzd wceq fveq2 oveq1 oveq12d eqid fvmpt adantl wa simpr nncnd adantr
       ovex cc cxpcld nnrpd rpne0d cxpne0d divcld cre cneg 1nn cr recld renegcld
@@ -898026,16 +898506,16 @@ $)
     dirlval.d $e |- D = ( Base ` G ) $.
     dirlval.l $e |- L = ( ZRHom ` Z ) $.
     dirlval.x $e |- ( ph -> X e. D ) $.
-    dirlval.h $e |- H = ( t e. ( CC \ { 1 } ) |-> ( sum_ k e. ( 1 ... N )
-      ( (
-      X ` ( L ` k ) ) x. ( ( k / N ) HurZ t ) ) / ( N ^c t ) ) ) $.
+    dirlval.h $e |- H =
+      ( t e. ( CC \ { 1 } ) |->
+        ( sum_ k e. ( 1 ... N ) ( ( X ` ( L ` k ) ) x. ( ( k / N ) HurZ t ) ) /
+          ( N ^c t ) ) ) $.
     $( The Dirichlet L-function is the graph of the complex limits of the
        finite Hurwitz sum for the given modulus and character.  Evaluate
        ~ df-dirl on its dependent domain.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dirlval $p |- ( ph -> ( N DirL X ) = U_ s e. CC ( { s } X. ( H limCC
-      s ) )
-      ) $=
+    dirlval $p |- ( ph ->
+      ( N DirL X ) = U_ s e. CC ( { s } X. ( H limCC s ) ) ) $=
       ( cfv co cdiv vq vx cn cv cdchr cbs cc csn c1 cdif cfz czn czrh churz csu
       cmul ccxp cmpt climc cxp ciun cdirl cvv cmpo df-dirl a1i wa simprl oveq2d
       wceq sumeq1d simprr fveq2d eqtr4di fveq1d fveq12d oveq12d sumeq2sdv eqtrd
@@ -898059,9 +898539,8 @@ $)
     $( A complex limit graph evaluates to the given limit at an accumulation
        point of the domain.  Uniqueness at that one point, supplied by
        ~ limcmo , suffices.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    limcgraphfv $p |- ( ph -> ( U_ s e. CC ( { s } X. ( F limCC s ) ) ` S
-      ) =
-      Y ) $=
+    limcgraphfv $p |- ( ph ->
+      ( U_ s e. CC ( { s } X. ( F limCC s ) ) ` S ) = Y ) $=
       ( vy cc cv climc co wcel wceq wb wa adantr simpr csn cxp ciun cfv wbr cio
       df-fv limccl sselid cop df-br oveq2 opeliunxp2 cdm wf wss w3a limcrcl syl
       bitri simp3d biantrurd bitr4id wmo simp1d simp2d limcmo eleq1 mob2 mpbird
@@ -898081,11 +898560,10 @@ $)
     $( Group a finite sum into equally long consecutive blocks.  In the last
        block translate the index by its starting offset, then apply induction
        on the number of blocks.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumblocks $p |- ( ( ph /\ M e. NN ) -> sum_ k e. ( 1 ... ( M x. N )
-      ) ( F
-      ` k ) = sum_ j e. ( 0 ..^ M ) sum_ r e. ( 1 ... N ) ( F ` ( r + ( j
-      x. N
-      ) ) ) ) $=
+    fsumblocks $p |- ( ( ph /\ M e. NN ) ->
+      sum_ k e. ( 1 ... ( M x. N ) ) ( F ` k ) =
+      sum_ j e. ( 0 ..^ M ) sum_ r e. ( 1 ... N )
+        ( F ` ( r + ( j x. N ) ) ) ) $=
       ( c1 cmul co cfz csu cc0 caddc wceq oveq2d wcel cn vx vy cv cfv id oveq1d
       cfzo sumeq1d eqeq12d nncnd mullidd fveq2 cbvsumv eqtrdi csn fzo01 cc 0cnd
       a1i fzfid wa wf adantr elfznn adantl 0nn0 nnnn0d nn0mulcld nn0cnd addcomd
@@ -898132,11 +898610,11 @@ $)
     $d k m r $.
     isumres.n $e |- ( ph -> N e. NN ) $.
     isumres.f $e |- ( ph -> F : NN --> CC ) $.
-    isumres.a $e |- ( ph -> ( m e. NN |-> sum_ k e. ( 1 ... m ) ( F ` k ) )
-      ~~> A ) $.
-    isumres.b $e |- ( ( ph /\ r e. ( 1 ... N ) ) -> ( m e. NN0 |-> sum_ j
-      e. (
-      0 ..^ m ) ( F ` ( r + ( j x. N ) ) ) ) ~~> B ) $.
+    isumres.a $e |- ( ph ->
+      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( F ` k ) ) ~~> A ) $.
+    isumres.b $e |- ( ( ph /\ r e. ( 1 ... N ) ) ->
+      ( m e. NN0 |-> sum_ j e. ( 0 ..^ m ) ( F ` ( r + ( j x. N ) ) ) ) ~~>
+      B ) $.
     $( Recover the sum of a convergent series by adding the limits along the
        individual residue classes modulo a positive integer.  Apply
        ~ fsumblocks to the subsequence of partial sums ending at complete
@@ -898193,11 +898671,10 @@ $)
        The initial term and step may be any positive reals.  Scaling the base
        of each complex power reduces the limit to ~ hurzcvg .  (Contributed by
        Zhi Wang, 26-Nov-2026.) $)
-    hurzprogcvg $p |- ( ph -> ( m e. NN0 |-> sum_ j e. ( 0 ..^ m ) ( C /
-      ( ( R
-      + ( j x. N ) ) ^c S ) ) ) ~~> ( ( C x. ( ( R / N ) HurZ S ) ) / ( N
-      ^c S
-      ) ) ) $=
+    hurzprogcvg $p |- ( ph ->
+      ( m e. NN0 |->
+        sum_ j e. ( 0 ..^ m ) ( C / ( ( R + ( j x. N ) ) ^c S ) ) ) ~~>
+      ( ( C x. ( ( R / N ) HurZ S ) ) / ( N ^c S ) ) ) $=
       ( cn0 cc0 co cmul cdiv cc wcel adantr vi cv cfzo caddc ccxp csu churz cli
       cmpt cneg cvv nn0uz 0zd cmnf cioc cdif c1 cre cfv clt wbr cr crp rpdivcld
       wi rpred recnd a1d wa wb eqid ellogdm a1i mpbir2and hurzcvg cxpcld rpne0d
@@ -898229,7 +898706,6 @@ $)
       BYRYOJAUUEYRRSUUNYRUUBYCWHUUQUUSYDYE $.
   $}
 
-
   ${
     $d X x $.  $d ph x $.
     holmptdiv.a $e |- ( ( ph /\ x e. X ) -> A e. CC ) $.
@@ -898238,9 +898714,9 @@ $)
     holmptdiv.k $e |- ( ph -> dom ( CC _D ( x e. X |-> C ) ) = X ) $.
     $( A quotient of holomorphic complex functions is holomorphic wherever the
        denominator is nonzero.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    holmptdiv $p |- ( ph -> ( ( x e. X |-> ( A / C ) ) : X --> CC /\ dom
-      ( CC
-      _D ( x e. X |-> ( A / C ) ) ) = X ) ) $=
+    holmptdiv $p |- ( ph ->
+      ( ( x e. X |-> ( A / C ) ) : X --> CC /\
+        dom ( CC _D ( x e. X |-> ( A / C ) ) ) = X ) ) $=
       ( cc cdiv co cmpt wf cdv cdm wcel cvv cnelprrecn a1i wceq cc0 csn eldifad
       cv wa eldifsnbd divcld fmpttd cfv cmul cmin c2 cexp cr cpr fvex nfcv nfov
       nfmpt1 dvfg ax-mp feq2d mpbii feqmptdf simpr ffvelcdmd dvmptdiv eqid ovex
@@ -898259,20 +898735,17 @@ $)
     holfsumdiv.i $e |- ( ph -> I e. Fin ) $.
     holfsumdiv.a $e |- ( ( ph /\ i e. I ) -> A e. CC ) $.
     holfsumdiv.b $e |- ( ( ph /\ i e. I /\ x e. X ) -> B e. CC ) $.
-    holfsumdiv.db $e |- ( ( ph /\ i e. I ) -> dom ( CC _D ( x e. X |-> B
-      ) ) =
-      X ) $.
+    holfsumdiv.db $e |- ( ( ph /\ i e. I ) ->
+      dom ( CC _D ( x e. X |-> B ) ) = X ) $.
     holfsumdiv.c $e |- ( ( ph /\ x e. X ) -> C e. ( CC \ { 0 } ) ) $.
     holfsumdiv.dc $e |- ( ph -> dom ( CC _D ( x e. X |-> C ) ) = X ) $.
     $( On an open complex domain, a finite weighted sum of holomorphic
        functions divided by a nowhere-zero holomorphic function is holomorphic.
        The derivative domain formulation avoids specifying the individual
        derivatives.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    holfsumdiv $p |- ( ph -> ( ( x e. X |-> ( sum_ i e. I ( A x. B ) / C
-      ) ) :
-      X --> CC /\ dom ( CC _D ( x e. X |-> ( sum_ i e. I ( A x. B ) / C )
-      ) )
-      = X ) ) $=
+    holfsumdiv $p |- ( ph ->
+      ( ( x e. X |-> ( sum_ i e. I ( A x. B ) / C ) ) : X --> CC /\
+        dom ( CC _D ( x e. X |-> ( sum_ i e. I ( A x. B ) / C ) ) ) = X ) ) $=
       ( co wcel cc cmul csu cv wa cfn adantr simpll simpr simplr 3adant3 mulcld
       w3a syl3anc fsumcl cmpt cdv cdm cfv cnfldtopon toponrestid cpr cnelprrecn
       cr a1i dvfg ax-mp feq2d mpbii ffvelcdmda 3impa 3expa nfcv nfmpt1 feqmptdf
@@ -898292,16 +898765,16 @@ $)
     dirlkerhol.d $e |- D = ( Base ` G ) $.
     dirlkerhol.l $e |- L = ( ZRHom ` Z ) $.
     dirlkerhol.x $e |- ( ph -> X e. D ) $.
-    dirlkerhol.h $e |- H = ( t e. ( CC \ { 1 } ) |-> ( sum_ k e. ( 1 ...
-      N ) (
-      ( X ` ( L ` k ) ) x. ( ( k / N ) HurZ t ) ) / ( N ^c t ) ) ) $.
+    dirlkerhol.h $e |- H =
+      ( t e. ( CC \ { 1 } ) |->
+        ( sum_ k e. ( 1 ... N ) ( ( X ` ( L ` k ) ) x. ( ( k / N ) HurZ t ) ) /
+          ( N ^c t ) ) ) $.
     $( The finite Hurwitz expression defining a Dirichlet L-function is
        holomorphic on the complex plane punctured at one.  Apply ~ holfsumdiv
        with the nonvanishing denominator given by the modulus raised to the
        complex argument.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlkerhol $p |- ( ph -> ( H : ( CC \ { 1 } ) --> CC /\ dom ( CC _D H
-      ) =
-      ( CC \ { 1 } ) ) ) $=
+    dirlkerhol $p |- ( ph ->
+      ( H : ( CC \ { 1 } ) --> CC /\ dom ( CC _D H ) = ( CC \ { 1 } ) ) ) $=
       ( cc cdv co wcel c1 csn cdif wf cdm wceq cfz cfv cdiv churz cmul csu ccxp
       cv cmpt ccnfld ctopn eqid ccld cha cnfldhaus ax-1cn unicntop sncld cldopn
       mp2an mp1i fzfid wa adantr elfznn adantl nnzd dchrzrhcl w3a cmnf cc0 cioc
@@ -898337,9 +898810,10 @@ $)
        equals its finite Hurwitz sum.  The holomorphic kernel is continuous
        there, and its complex limit is unique.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dirlhurz $p |- ( ph -> ( ( N DirL X ) ` S ) = ( sum_ r e. ( 1 ... N )
-      ( (
-      X ` ( L ` r ) ) x. ( ( r / N ) HurZ S ) ) / ( N ^c S ) ) ) $=
+    dirlhurz $p |- ( ph ->
+      ( ( N DirL X ) ` S ) =
+      ( sum_ r e. ( 1 ... N ) ( ( X ` ( L ` r ) ) x. ( ( r / N ) HurZ S ) ) /
+        ( N ^c S ) ) ) $=
       ( vt co cfv cc wcel vz cdirl cv csn c1 cdif cfz cdiv churz cmul ccxp cmpt
       csu climc cxp ciun dirlval fveq1d ccnfld ctopn clp cdm crest cperf cnperf
       eqid wss ccld cha cnfldhaus ax-1cn unicntop sncld mp2an cldopn ax-mp ctop
@@ -898359,10 +898833,10 @@ $)
   $}
 
   ${
-    $d k m $.  $d L h i r v $.  $d L h j r v $.  $d L i k v $.  $d L i m v $.
-    $d N h i r v $.  $d N h j r v $.  $d S h i r v $.  $d S h j r v $.
-    $d S i k v $.  $d S i m v $.  $d X h i r v $.  $d X h j r v $.
-    $d X i k v $.  $d X i m v $.  $d h i ph r v $.  $d j ph r v $.
+    $d L h i r v $.  $d L h j r v $.  $d L i k m v $.  $d N h i r v $.
+    $d N h j r v $.  $d S h i r v $.  $d S h j r v $.  $d S i k m v $.
+    $d X h i r v $.  $d X h j r v $.  $d X i k m v $.  $d h i ph r v $.
+    $d j ph r v $.
     dirlcvg.g $e |- G = ( DChr ` N ) $.
     dirlcvg.z $e |- Z = ( Z/nZ ` N ) $.
     dirlcvg.d $e |- D = ( Base ` G ) $.
@@ -898374,9 +898848,9 @@ $)
        Dirichlet partial sums converge to the value of the Dirichlet
        L-function.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     dirlcvg $p |- ( ph ->
-      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( ( X ` ( L ` k ) ) / ( k ^c S
-      ) ) ) ~~>
-        ( ( N DirL X ) ` S ) ) $=
+      ( m e. NN |->
+        sum_ k e. ( 1 ... m ) ( ( X ` ( L ` k ) ) / ( k ^c S ) ) ) ~~>
+      ( ( N DirL X ) ` S ) ) $=
       ( cn co wcel vr vv vi vh vj c1 cv cfz cfv ccxp cdiv cmpt churz cmul cdirl
       csu cli id oveq2d sumeq1d fveq2d oveq1d oveq12d cbvsumv eqtrdi cbvmptv wa
       wceq simpr elfznn syl eqid fvex fvmpt sumeq2dv mpteq2dva 1red adantr nnzd
@@ -898437,9 +898911,9 @@ $)
     $( The Dirichlet L-function agrees with the infinite Dirichlet series
        throughout the half-plane of absolute convergence.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    dirlsum $p |- ( ph -> ( ( N DirL X ) ` S ) = sum_ k e. NN ( ( X ` ( L
-      ` k
-      ) ) / ( k ^c S ) ) ) $=
+    dirlsum $p |- ( ph ->
+      ( ( N DirL X ) ` S ) =
+      sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c S ) ) ) $=
       ( vm cn co wcel vj c1 cv cfz cfv ccxp cdiv csu cmpt cdirl cli wbr dirlcvg
       wceq nnuz 1zzd cvv nnex mptex a1i fvex breldmd wa adantr adantl dchrzrhcl
       id nncnd cc cxpcld nnrpd rpne0d cxpne0d divcld oveq2d sumeq1d sumex fvmpt
@@ -898463,9 +898937,9 @@ $)
     $( The sum of a Dirichlet character over a complete period of integer
        representatives is the Euler totient for the principal character and
        zero otherwise.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrsumper $p |- ( ph -> sum_ k e. ( 1 ... N ) ( X ` ( L ` k ) ) = if
-      ( X
-      = .1. , ( phi ` N ) , 0 ) ) $=
+    dchrsumper $p |- ( ph ->
+      sum_ k e. ( 1 ... N ) ( X ` ( L ` k ) ) =
+      if ( X = .1. , ( phi ` N ) , 0 ) ) $=
       ( c1 co cfv cc0 wcel va cfz csu cbs wceq cphi cif cfzo cmin caddc dchrrcl
       cv cn cuz syl eleqtrdi wa adantr cz simpr elfzelz dchrzrhcl fveq2d fsumm1
       nnuz id cdvds wbr nnzd iddvds nncnd subid1d breqtrrd cn0 wb nnnn0d zndvds
@@ -898499,9 +898973,8 @@ $)
     plycircbnd.c $e |- ( ph -> C e. CC ) $.
     plycircbnd.r $e |- ( ph -> R e. RR+ ) $.
     plycircbnd.m $e |- ( ph -> M e. RR ) $.
-    plycircbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> (
-      abs ` (
-      F ` ( z + C ) ) ) <_ M ) $.
+    plycircbnd.b $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( abs ` ( F ` ( z + C ) ) ) <_ M ) $.
     $( A bound on the modulus of a complex polynomial on a circle also bounds
        its value at the center.  Apply the coefficient bound to the constant
        term of the translated polynomial.  (Contributed by Zhi Wang,
@@ -898554,10 +899027,10 @@ $)
     $( The quotient by a monic linear polynomial is the divided difference of
        the dividend away from the root.  The product identity also holds at the
        root.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyquotlin $p |- ( ph -> ( ( F quot ( Xp oF - ( CC X. { C } ) ) ) e. (
-      Poly ` CC ) /\ ( ( F ` Z ) - ( F ` C ) ) = ( ( Z - C ) x. ( ( F
-      quot (
-      Xp oF - ( CC X. { C } ) ) ) ` Z ) ) ) ) $=
+    plyquotlin $p |- ( ph ->
+      ( ( F quot ( Xp oF - ( CC X. { C } ) ) ) e. ( Poly ` CC ) /\
+        ( ( F ` Z ) - ( F ` C ) ) =
+        ( ( Z - C ) x. ( ( F quot ( Xp oF - ( CC X. { C } ) ) ) ` Z ) ) ) ) $=
       ( cidp cc cmin co cfv wcel cmul wceq cc0 syl wfn wf syl2anc csn cxp cquot
       cof cply c0p wne cdgr ccnv cima w3a eqid plyremlem simp1d ax-1ne0 eqnetrd
       c1 simp2d a1i dgr0 neeqtrrd fveq2 necon3i quotcl2 syl3anc wa cvv plymulcl
@@ -898587,21 +899060,18 @@ $)
     plyquotbnd.r $e |- ( ph -> R e. RR+ ) $.
     plyquotbnd.t $e |- ( ph -> T e. RR+ ) $.
     plyquotbnd.m $e |- ( ph -> M e. RR ) $.
-    plyquotbnd.o $e |- ( ph -> ( abs ` ( ( F ` B ) - ( G ` B ) ) ) <_ M )
-      $.
-    plyquotbnd.d $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> T <_ (
-      abs ` ( ( z + C ) - B ) ) ) $.
-    plyquotbnd.e $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> (
-      abs ` (
-      ( F ` ( z + C ) ) - ( G ` ( z + C ) ) ) ) <_ M ) $.
+    plyquotbnd.o $e |- ( ph -> ( abs ` ( ( F ` B ) - ( G ` B ) ) ) <_ M ) $.
+    plyquotbnd.d $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      T <_ ( abs ` ( ( z + C ) - B ) ) ) $.
+    plyquotbnd.e $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( abs ` ( ( F ` ( z + C ) ) - ( G ` ( z + C ) ) ) ) <_ M ) $.
     $( Control the difference of two polynomial divided differences at a point
        by bounding the original polynomials at their common anchor and on a
        circle around the point.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyquotbnd $p |- ( ph -> ( abs ` ( ( ( F quot ( Xp oF - ( CC X. { B }
-      ) )
-      ) ` C ) - ( ( G quot ( Xp oF - ( CC X. { B } ) ) ) ` C ) ) ) <_ ( (
-      M +
-      M ) / T ) ) $=
+    plyquotbnd $p |- ( ph ->
+      ( abs ` ( ( ( F quot ( Xp oF - ( CC X. { B } ) ) ) ` C ) -
+                ( ( G quot ( Xp oF - ( CC X. { B } ) ) ) ` C ) ) ) <_
+      ( ( M + M ) / T ) ) $=
       ( cc cidp csn cxp cmin cof co cquot cfv cabs caddc cdiv cle wfn wcel wceq
       wa cvv cply wf c0p wne cdgr c1 ccnv cc0 cima eqid plyremlem simp1d simp2d
       w3a syl ax-1ne0 a1i eqnetrd dgr0 neeqtrrd fveq2 necon3i quotcl2 plyf ffnd
@@ -898644,17 +899114,16 @@ $)
     plycirculm.y $e |- ( ph -> Y C_ CC ) $.
     plycirculm.f $e |- ( ph -> F : NN0 --> ( Poly ` CC ) ) $.
     plycirculm.r $e |- ( ph -> R e. RR+ ) $.
-    plycirculm.s $e |- ( ( ph /\ ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R
-      ) )
-      ) -> ( z + x ) e. Y ) $.
-    plycirculm.u $e |- ( ph -> ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) e. dom (
-      ~~>u ` Y ) ) $.
+    plycirculm.s $e |- ( ( ph /\
+                           ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R ) ) ) ->
+      ( z + x ) e. Y ) $.
+    plycirculm.u $e |- ( ph ->
+      ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) e. dom ( ~~>u ` Y ) ) $.
     $( Uniform convergence of complex polynomials on a set gives uniform
        convergence at the centers of fixed-radius circles contained in that
        set.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plycirculm $p |- ( ph -> ( m e. NN0 |-> ( ( F ` m ) |` X ) ) e. dom (
-      ~~>u
-      ` X ) ) $=
+    plycirculm $p |- ( ph ->
+      ( m e. NN0 |-> ( ( F ` m ) |` X ) ) e. dom ( ~~>u ` X ) ) $=
       ( ve cv cfv cc wcel adantr vy vj vk c1 c2 cdiv co cn0 cres cmpt cc0 nn0uz
       cvv 0zd cnex a1i ssexd cmap wa cply wf ffvelcdmd plyf syl fssresd elmapdd
       simpr wss fmpttd crp 1rp 2rp rpdivcld cuz cmin cabs cmul wral wceq uztrn2
@@ -898704,23 +899173,23 @@ $)
     plyquotulm.f $e |- ( ph -> F : NN0 --> ( Poly ` CC ) ) $.
     plyquotulm.r $e |- ( ph -> R e. RR+ ) $.
     plyquotulm.t $e |- ( ph -> T e. RR+ ) $.
-    plyquotulm.o $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> ( z
-      + B )
-      e. Y ) $.
-    plyquotulm.s $e |- ( ( ph /\ ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R
-      ) )
-      ) -> ( z + x ) e. Y ) $.
-    plyquotulm.d $e |- ( ( ph /\ ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R
-      ) )
-      ) -> T <_ ( abs ` ( ( z + x ) - B ) ) ) $.
-    plyquotulm.u $e |- ( ph -> ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) e. dom (
-      ~~>u ` Y ) ) $.
+    plyquotulm.o $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( z + B ) e. Y ) $.
+    plyquotulm.s $e |- ( ( ph /\
+                           ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R ) ) ) ->
+      ( z + x ) e. Y ) $.
+    plyquotulm.d $e |- ( ( ph /\
+                           ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R ) ) ) ->
+      T <_ ( abs ` ( ( z + x ) - B ) ) ) $.
+    plyquotulm.u $e |- ( ph ->
+      ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) e. dom ( ~~>u ` Y ) ) $.
     $( Uniform convergence on the surrounding circles passes to the divided
        differences of a sequence of polynomials if the circles stay a positive
        distance from the anchor.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyquotulm $p |- ( ph -> ( m e. NN0 |-> ( ( ( F ` m ) quot ( Xp oF -
-      ( CC
-      X. { B } ) ) ) |` X ) ) e. dom ( ~~>u ` X ) ) $=
+    plyquotulm $p |- ( ph ->
+      ( m e. NN0 |->
+        ( ( ( F ` m ) quot ( Xp oF - ( CC X. { B } ) ) ) |` X ) ) e.
+      dom ( ~~>u ` X ) ) $=
       ( vy ve vj vk c2 cdiv co cn0 cv cfv cres cmpt cidp csn cxp cmin cof cquot
       cc cc0 cvv nn0uz 0zd wcel cnex a1i ssexd cmap wa adantr cply wf ffvelcdmd
       simpr plyf syl wss fssresd elmapdd fmpttd c0p wne cdgr wceq ccnv cima w3a
@@ -898826,28 +899295,28 @@ $)
     plyquothol.r $e |- ( ph -> R e. RR+ ) $.
     plyquothol.t $e |- ( ph -> T e. RR+ ) $.
     plyquothol.d $e |- ( ph -> D e. RR+ ) $.
-    plyquothol.s $e |- ( ( ph /\ ( x e. U /\ ( w e. CC /\ ( abs ` w ) = R
-      ) )
-      ) -> ( w + x ) e. Y ) $.
-    plyquothol.l $e |- ( ( ph /\ ( x e. U /\ ( w e. CC /\ ( abs ` w ) = R
-      ) )
-      ) -> T <_ ( abs ` ( ( w + x ) - B ) ) ) $.
-    plyquothol.a $e |- ( ( ph /\ ( x e. X /\ ( w e. CC /\ ( abs ` w ) = D
-      ) )
-      ) -> ( w + x ) e. U ) $.
+    plyquothol.s $e |- ( ( ph /\
+                           ( x e. U /\ ( w e. CC /\ ( abs ` w ) = R ) ) ) ->
+      ( w + x ) e. Y ) $.
+    plyquothol.l $e |- ( ( ph /\
+                           ( x e. U /\ ( w e. CC /\ ( abs ` w ) = R ) ) ) ->
+      T <_ ( abs ` ( ( w + x ) - B ) ) ) $.
+    plyquothol.a $e |- ( ( ph /\
+                           ( x e. X /\ ( w e. CC /\ ( abs ` w ) = D ) ) ) ->
+      ( w + x ) e. U ) $.
     plyquothol.f $e |- ( ph -> F : NN0 --> ( Poly ` CC ) ) $.
-    plyquothol.g $e |- ( ph -> ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ( ~~>u
-      ` Y
-      ) G ) $.
+    plyquothol.g $e |- ( ph ->
+      ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ( ~~>u ` Y ) G ) $.
     $( A uniformly convergent sequence of complex polynomials has a holomorphic
        divided difference on an interior open set, even when its values at the
        anchor are missing from the approximation set.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    plyquothol $p |- ( ph -> E. c e. CC E. h ( h : X --> CC /\ dom ( CC
-      _D h )
-      = X /\ A. s e. ( X i^i Y ) ( ( G ` s ) - c ) = ( ( s - B ) x. ( h `
-      s )
-      ) ) ) $=
+    plyquothol $p |- ( ph ->
+      E. c e. CC E. h
+        ( h : X --> CC /\
+          dom ( CC _D h ) = X /\
+          A. s e. ( X i^i Y )
+            ( ( G ` s ) - c ) = ( ( s - B ) x. ( h ` s ) ) ) ) $=
       ( vn vi cn0 cv cfv cres cmpt culm cc wcel cdv cdm wceq cmin cmul cin wral
       wf co w3a wex wrex wbr cvv nn0ex a1i wrel ulmrel brrelex2 syl2anc breldmd
       mptex plycirculm ulmdm sylib ulmcl syl ffvelcdmd cidp csn cxp cquot resex
@@ -898904,8 +899373,8 @@ $)
 
   ${
     $d A b c e m s z $.  $d A b c h m s w x $.  $d A c i $.
-    $d A b c e p s z $.  $d D b $.  $d D c $.  $d D e $.  $d D h $.  $d D i $.
-    $d D m $.  $d D p $.  $d D s $.  $d D w $.  $d D x $.  $d D z $.
+    $d A b c e p s z $.  $d D b c e m s z $.  $d D b c h m s w x $.
+    $d D c i $.  $d D b c e p s z $.
     hurzpole.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
     $( For fixed ` A ` in the slit plane, the function ` ( A HurZ s ) ` of
        ` s ` has a simple pole at one with residue one.  Multiplication by
@@ -898914,8 +899383,9 @@ $)
        approximations to this extension.  See ~ ishurz for the characterization
        away from the pole.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     hurzpole $p |- ( A e. D ->
-      dom ( CC _D ( s e. CC |->
-          if ( s = 1 , 1 , ( ( s - 1 ) x. ( A HurZ s ) ) ) ) ) = CC ) $=
+      dom ( CC _D
+            ( s e. CC |->
+              if ( s = 1 , 1 , ( ( s - 1 ) x. ( A HurZ s ) ) ) ) ) = CC ) $=
       ( vc vz vi vx wcel cc cv c1 cmin co wa cabs cfv wbr adantr clt vb vm wceq
       ve vp vw vh churz cmul cif cmpt cdv cdm ssidd 1cnd simplr subcld csn cdif
       wn cxp wf hurzf a1i simpll wne simpr df-ne sylibr eldifsnd fovcdmd mulcld
@@ -898986,9 +899456,9 @@ $)
     $( Upper and lower bounds for the distance from the center after
        translating a point in an open complex ball.  Both inequalities are
        strict.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cnblshiftbnd $p |- ( ph -> ( ( ( abs ` W ) - R ) < ( abs ` ( ( W + X
-      ) - B
-      ) ) /\ ( abs ` ( ( W + X ) - B ) ) < ( ( abs ` W ) + R ) ) ) $=
+    cnblshiftbnd $p |- ( ph ->
+      ( ( ( abs ` W ) - R ) < ( abs ` ( ( W + X ) - B ) ) /\
+        ( abs ` ( ( W + X ) - B ) ) < ( ( abs ` W ) + R ) ) ) $=
       ( cabs cfv cmin co caddc clt wbr abscld cc wcel jca resubcld ccom cbl cxr
       rpred cxmet wss cnxmet a1i rexrd blssm syl3anc sseldd subcld addcld wa wb
       elbl3 syl2anc wceq eqid cnmetdval breq1d bitrd mpbid ltsub2dd cneg negcld
@@ -899013,24 +899483,22 @@ $)
     plyapquotbl.b $e |- ( ph -> B e. CC ) $.
     plyapquotbl.r $e |- ( ph -> R e. RR+ ) $.
     plyapquotbl.y $e |- ( ph -> Y C_ CC ) $.
-    plyapquotbl.i $e |- ( ph -> ( B ( ball ` ( abs o. - ) ) ( ( R + ( R +
-      R )
-      ) + ( R + R ) ) ) C_ Y ) $.
+    plyapquotbl.i $e |- ( ph ->
+      ( B ( ball ` ( abs o. - ) ) ( ( R + ( R + R ) ) + ( R + R ) ) ) C_ Y ) $.
     plyapquotbl.g $e |- ( ph -> G : Y --> CC ) $.
-    plyapquotbl.a $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e.
-      Y (
-      abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
+    plyapquotbl.a $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
     $( A uniformly polynomially approximable function on a neighborhood of a
        closed disk has a holomorphic divided difference on a smaller disk, with
        the value at the center as its constant term.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyapquotbl $p |- ( ph -> E. h ( h : ( B ( ball ` ( abs o. - ) ) R )
-      -->
-      CC /\ dom ( CC _D h ) = ( B ( ball ` ( abs o. - ) ) R ) /\ A. s e.
-      ( B (
-      ball ` ( abs o. - ) ) R ) ( ( G ` s ) - ( G ` B ) ) = ( ( s - B )
-      x. ( h
-      ` s ) ) ) ) $=
+    plyapquotbl $p |- ( ph ->
+      E. h
+        ( h : ( B ( ball ` ( abs o. - ) ) R ) --> CC /\
+          dom ( CC _D h ) = ( B ( ball ` ( abs o. - ) ) R ) /\
+          A. s e. ( B ( ball ` ( abs o. - ) ) R )
+            ( ( G ` s ) - ( G ` B ) ) = ( ( s - B ) x. ( h ` s ) ) ) ) $=
       ( co cc cv adantr vt vc vf vj vx vw vm cabs cmin ccom cbl cfv wf cdv wceq
       cdm cmul cin wral w3a wex wrex cn0 cply cres cmpt culm wbr plyapseq caddc
       ccnfld ctopn eqid wcel cxmet cxr cnxmet a1i rpred rexrd cnfldtopn syl3anc
@@ -899102,11 +899570,15 @@ $)
     $( The character-weighted sum of the normalized Hurwitz functions is
        uniformly approximable by polynomials on every bounded subset of the
        complex plane.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlnumap $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y (
-      abs
-      ` ( ( g ` z ) - sum_ r e. ( 1 ... N ) ( ( X ` ( L ` r ) ) x. if ( z
-      = 1
-      , 1 , ( ( z - 1 ) x. ( ( r / N ) HurZ z ) ) ) ) ) ) < v ) $=
+    dirlnumap $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) -
+                  sum_ r e. ( 1 ... N )
+                    ( ( X ` ( L ` r ) ) x.
+                      if ( z = 1 ,
+                           1 ,
+                           ( ( z - 1 ) x. ( ( r / N ) HurZ z ) ) ) ) ) ) <
+        v ) $=
       ( vk vw vm ve vq vi cv cfv cc0 cfzo co c1 caddc wceq cmin cdiv churz cmul
       cif csu cabs clt wbr wral cc cply wrex crp cfz wcel cn dchrrcl syl nnnn0d
       cn0 w3a simp1 simp2 1nn a1i nn0nnaddcl syl2anc nnzd dchrzrhcl wa 1cnd wss
@@ -899171,22 +899643,22 @@ $)
     dirlkerloc.l $e |- L = ( ZRHom ` Z ) $.
     dirlkerloc.x $e |- ( ph -> X e. D ) $.
     dirlkerloc.1 $e |- .1. = ( 0g ` G ) $.
-    dirlkerloc.h $e |- H = ( u e. ( CC \ { 1 } ) |-> ( sum_ r e. ( 1 ...
-      N ) (
-      ( X ` ( L ` r ) ) x. ( ( r / N ) HurZ u ) ) / ( N ^c u ) ) ) $.
+    dirlkerloc.h $e |- H =
+      ( u e. ( CC \ { 1 } ) |->
+        ( sum_ r e. ( 1 ... N ) ( ( X ` ( L ` r ) ) x. ( ( r / N ) HurZ u ) ) /
+          ( N ^c u ) ) ) $.
     $( Local expansion of the finite Hurwitz kernel at one.  Its normalized
        numerator has constant term equal to the character sum, and its
        remaining divided difference is holomorphic.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dirlkerloc $p |- ( ph -> E. h ( h : ( 1 ( ball ` ( abs o. - ) ) 1 )
-      --> CC
-      /\ dom ( CC _D h ) = ( 1 ( ball ` ( abs o. - ) ) 1 ) /\ A. s e. ( (
-      1 (
-      ball ` ( abs o. - ) ) 1 ) i^i ( CC \ { 1 } ) ) ( ( ( s - 1 ) x. ( (
-      N ^c
-      s ) x. ( H ` s ) ) ) - if ( X = .1. , ( phi ` N ) , 0 ) ) = ( ( s -
-      1 )
-      x. ( h ` s ) ) ) ) $=
+    dirlkerloc $p |- ( ph ->
+      E. h
+        ( h : ( 1 ( ball ` ( abs o. - ) ) 1 ) --> CC /\
+          dom ( CC _D h ) = ( 1 ( ball ` ( abs o. - ) ) 1 ) /\
+          A. s e. ( ( 1 ( ball ` ( abs o. - ) ) 1 ) i^i ( CC \ { 1 } ) )
+            ( ( ( s - 1 ) x. ( ( N ^c s ) x. ( H ` s ) ) ) -
+              if ( X = .1. , ( phi ` N ) , 0 ) ) =
+            ( ( s - 1 ) x. ( h ` s ) ) ) ) $=
       ( vj vt vz ve vp c1 cabs cmin ccom cbl cfv co cc cv wf cdv cdm wceq caddc
       cfz cdiv churz cmul cif csu cmpt wral w3a wex ccxp cphi cc0 csn cdif 1cnd
       cin crp wcel 1rp a1i cxmet cxr wss cnxmet cn nnaddcld nnred rexrd syl3anc
@@ -899276,9 +899748,8 @@ $)
     $( Restricting a punctured function to any open neighborhood of its missing
        point preserves all its limits at that point.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    limcpunctres $p |- ( ph -> ( ( F |` ( X \ { B } ) ) limCC B ) = ( F
-      limCC
-      B ) ) $=
+    limcpunctres $p |- ( ph ->
+      ( ( F |` ( X \ { B } ) ) limCC B ) = ( F limCC B ) ) $=
       ( crest cc cnt cfv wcel wceq ctop cvv csn cdif cun co ssdifd difss sstrid
       eqid sseldd difsnid syl oveq2d fveq2d fveq12d cnfldtop cnex ssexd resttop
       a1i syl2anc wa wss jca wi w3a elrestr wb dfss2 eleq1 sylbi syl5ibcom impr
@@ -899293,17 +899764,15 @@ $)
   ${
     $d B x $.  $d C x $.  $d D x $.  $d H x $.  $d X x $.  $d ph x $.
     limcmptcnop.j $e |- J = ( TopOpen ` CCfld ) $.
-    limcmptcnop.o $e |- H e. ( ( J tX J )
-      Cn J ) $.
+    limcmptcnop.o $e |- H e. ( ( J tX J ) Cn J ) $.
     limcmptcnop.a $e |- ( ( ph /\ x e. X ) -> A e. CC ) $.
     limcmptcnop.t $e |- ( ( ph /\ x e. X ) -> T e. CC ) $.
     limcmptcnop.c $e |- ( ph -> C e. ( ( x e. X |-> A ) limCC B ) ) $.
     limcmptcnop.d $e |- ( ph -> D e. ( ( x e. X |-> T ) limCC B ) ) $.
     $( Apply a continuous binary complex operation to two limits of functions
        on the same domain.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    limcmptcnop $p |- ( ph -> ( C H D ) e. ( ( x e. X |-> ( A H T ) )
-      limCC B
-      ) ) $=
+    limcmptcnop $p |- ( ph ->
+      ( C H D ) e. ( ( x e. X |-> ( A H T ) ) limCC B ) ) $=
       ( co cc cfv wcel ctx ssidd cxp ctopon cnfldtopon txtopon toponrestid ccnp
       mp2an ccn cop cmpt climc limccl sselid opelxpd toponunii sylancr limccnp2
       cncnpi ) ABJDEFCGHIIUAQZIRRMNARUBZVBKVARRUCZIRUDSTZVDVAVCUDSTIKUEZVEIIRRU
@@ -899312,11 +899781,9 @@ $)
   $}
 
   ${
-    $d B k $.  $d C k $.  $d D k $.  $d F k $.  $d k ph $.  $d J k $.
+    $d B k $.  $d C k $.  $d D k $.  $d F k $.  $d J k $.  $d k ph $.
     limcuni.j $e |- J = ( TopOpen ` CCfld ) $.
-    limcuni.l $e |- ( ph -> B e. ( ( limPt ` J ) ` dom
-      F ) )
-     $.
+    limcuni.l $e |- ( ph -> B e. ( ( limPt ` J ) ` dom F ) ) $.
     limcuni.c $e |- ( ph -> C e. ( F limCC B ) ) $.
     limcuni.d $e |- ( ph -> D e. ( F limCC B ) ) $.
     $( Two complex limits of a function at an accumulation point of its domain
@@ -899340,9 +899807,8 @@ $)
     limcpunctmul.g $e |- ( ph -> G e. ( X -cn-> CC ) ) $.
     limcpunctmul.d $e |- ( ph -> D e. ( X -cn-> CC ) ) $.
     limcpunctmul.y $e |- ( ph -> Y e. ( F limCC B ) ) $.
-    limcpunctmul.e $e |- ( ( ph /\ x e. ( X \ { B } ) ) -> ( G ` x ) = (
-      ( D `
-      x ) x. ( F ` x ) ) ) $.
+    limcpunctmul.e $e |- ( ( ph /\ x e. ( X \ { B } ) ) ->
+      ( G ` x ) = ( ( D ` x ) x. ( F ` x ) ) ) $.
     $( If a product extends continuously to a puncture and its second factor
        has a finite limit there, the extended value equals the first factor at
        the puncture times that limit.  (Contributed by Zhi Wang,
@@ -899378,17 +899844,15 @@ $)
     limcgraphid.j $e |- J = ( TopOpen ` CCfld ) $.
     limcgraphid.k $e |- ( ph -> K : X --> CC ) $.
     limcgraphid.x $e |- ( ph -> X C_ CC ) $.
-    limcgraphid.v $e |- ( ( ph /\ x e. X ) -> ( K ` x ) e. ( F limCC x )
-      ) $.
-    limcgraphid.p $e |- ( ( ph /\ x e. X ) -> x e. ( ( limPt ` J ) ` dom F ) ) $.
+    limcgraphid.v $e |- ( ( ph /\ x e. X ) -> ( K ` x ) e. ( F limCC x ) ) $.
+    limcgraphid.p $e |- ( ( ph /\ x e. X ) ->
+      x e. ( ( limPt ` J ) ` dom F ) ) $.
     limcgraphid.d $e |- ( ( ph /\ ( x e. CC /\ y e. ( F limCC x ) ) ) ->
-      x e.
-      X ) $.
+      x e. X ) $.
     $( Identify the graph of all finite complex limits from its proposed
        domain, its values, and the accumulation-point condition that makes each
        value unique.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    limcgraphid $p |- ( ph -> U_ s e. CC ( { s } X. ( F limCC s ) ) = K )
-      $=
+    limcgraphid $p |- ( ph -> U_ s e. CC ( { s } X. ( F limCC s ) ) = K ) $=
       ( cc wb wal wcel wa syl cv csn climc co cxp ciun wceq wbr cfv df-br oveq2
       cop opeliunxp2 a1i cdm clp id adantr jca simprr limcuni wss simprl sseldd
       bitri eqeltrrd impbida bitrd wfun wf ffun funbrfv2b eleq2d anbi1d alrimiv
@@ -899414,8 +899878,7 @@ $)
     $( Identify the full limit graph of a function on the punctured plane with
        a continuous candidate, allowing either inclusion or exclusion of the
        missing point.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    limcgraphpunct $p |- ( ph -> U_ s e. CC ( { s } X. ( K limCC s ) ) =
-      F ) $=
+    limcgraphpunct $p |- ( ph -> U_ s e. CC ( { s } X. ( K limCC s ) ) = F ) $=
       ( cfv cc co wcel wa climc adantr vx ccnfld ctopn eqid ccncf wf cncff wceq
       syl cv adantl fveq2d eqeltrrd cnlimci csn cdif cres limcdif ssdifd difabs
       id a1i eqsstrrd eqssd reseq2d oveq1d eqtrd eqcomd eleqtrd oveq2d eleqtrrd
@@ -899447,21 +899910,17 @@ $)
     limcgraphfill.b $e |- ( ph -> B e. CC ) $.
     limcgraphfill.v $e |- ( ph -> V C_ CC ) $.
     limcgraphfill.x $e |- ( ph -> B e. V ) $.
-    limcgraphfill.k $e |- ( ph -> ( K : ( CC \ { B } ) --> CC /\ dom ( CC
-      _D K
-      ) = ( CC \ { B } ) ) ) $.
-    limcgraphfill.d $e |- ( ph -> ( D : V --> CC /\ dom ( CC _D D ) = V )
-      ) $.
-    limcgraphfill.e $e |- ( ( ph /\ x e. ( V i^i ( CC \ { B } ) ) ) -> (
-      D ` x
-      ) = ( K ` x ) ) $.
+    limcgraphfill.k $e |- ( ph ->
+      ( K : ( CC \ { B } ) --> CC /\ dom ( CC _D K ) = ( CC \ { B } ) ) ) $.
+    limcgraphfill.d $e |- ( ph -> ( D : V --> CC /\ dom ( CC _D D ) = V ) ) $.
+    limcgraphfill.e $e |- ( ( ph /\ x e. ( V i^i ( CC \ { B } ) ) ) ->
+      ( D ` x ) = ( K ` x ) ) $.
     $( A local holomorphic extension across the puncture makes the full complex
        limit graph an entire function.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    limcgraphfill $p |- ( ph -> ( U_ s e. CC ( { s } X. ( K limCC s ) ) :
-      CC
-      --> CC /\ dom ( CC _D U_ s e. CC ( { s } X. ( K limCC s ) ) ) = CC
-      ) ) $=
+    limcgraphfill $p |- ( ph ->
+      ( U_ s e. CC ( { s } X. ( K limCC s ) ) : CC --> CC /\
+        dom ( CC _D U_ s e. CC ( { s } X. ( K limCC s ) ) ) = CC ) ) $=
       ( cc co cdv wceq syl adantr eqtrd vy cv csn climc cxp ciun wf cdm cfv cif
       cmpt wcel wa simpl ffvelcdmd wn simpr wne id adantl df-ne sylibr eldifsnd
       cdif ifclda fmpttd ssidd wss difss a1i ccncf 3jca dvresdmss resmpt iftrue
@@ -899493,28 +899952,26 @@ $)
     holpunctresidue.v $e |- ( ph -> V C_ CC ) $.
     holpunctresidue.o $e |- ( ph -> V e. J ) $.
     holpunctresidue.x $e |- ( ph -> B e. V ) $.
-    holpunctresidue.f $e |- ( ph -> ( F : ( CC \ { B } ) --> CC /\ dom (
-      CC _D
-      F ) = ( CC \ { B } ) ) ) $.
-    holpunctresidue.h $e |- ( ph -> ( H : V --> CC /\ dom ( CC _D H ) = V
-      ) ) $.
-    holpunctresidue.d $e |- ( ph -> ( D : V --> CC /\ dom ( CC _D D ) = V
-      ) ) $.
+    holpunctresidue.f $e |- ( ph ->
+      ( F : ( CC \ { B } ) --> CC /\ dom ( CC _D F ) = ( CC \ { B } ) ) ) $.
+    holpunctresidue.h $e |- ( ph ->
+      ( H : V --> CC /\ dom ( CC _D H ) = V ) ) $.
+    holpunctresidue.d $e |- ( ph ->
+      ( D : V --> CC /\ dom ( CC _D D ) = V ) ) $.
     holpunctresidue.n $e |- ( ( ph /\ t e. V ) -> ( D ` t ) =/= 0 ) $.
     holpunctresidue.r $e |- ( ( ph /\ x e. ( V i^i ( CC \ { B } ) ) ) ->
-      ( ( (
-      x - B ) x. ( ( D ` x ) x. ( F ` x ) ) ) - C ) = ( ( x - B ) x. ( H
-      ` x )
-      ) ) $.
+      ( ( ( x - B ) x. ( ( D ` x ) x. ( F ` x ) ) ) - C ) =
+      ( ( x - B ) x. ( H ` x ) ) ) $.
     $( The full limit graph of a punctured holomorphic function has a removable
        singularity when its normalized constant term vanishes and a genuine
        pole otherwise, for a nonvanishing holomorphic normalizing factor.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    holpunctresidue $p |- ( ph -> ( U_ s e. CC ( { s } X. ( F limCC s ) )
-      : if
-      ( C = 0 , CC , ( CC \ { B } ) ) --> CC /\ dom ( CC _D U_ s e. CC (
-      { s }
-      X. ( F limCC s ) ) ) = if ( C = 0 , CC , ( CC \ { B } ) ) ) ) $=
+    holpunctresidue $p |- ( ph ->
+      ( U_ s e. CC ( { s } X. ( F limCC s ) ) :
+        if ( C = 0 , CC , ( CC \ { B } ) ) -->
+        CC /\
+        dom ( CC _D U_ s e. CC ( { s } X. ( F limCC s ) ) ) =
+        if ( C = 0 , CC , ( CC \ { B } ) ) ) ) $=
       ( vy cc0 wceq cc csn cdif cif cv climc co cxp ciun wf cdv cdm wa cfv cdiv
       cmpt adantr wss simpld simpr ffvelcdmd feqmptd eqcomd oveq2d dmeqd simprd
       wcel eqtrd eldifsnd holmptdiv cin elinel1 adantl fveq2d oveq12d eqid ovex
@@ -899587,11 +900044,10 @@ $)
     $( A Dirichlet L-function is holomorphic on the punctured plane for the
        principal character and on the entire plane for every other character.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlhol $p |- ( ph -> ( ( N DirL X ) : if ( X = .1. , ( CC \ { 1 } )
-      , CC
-      ) --> CC /\ dom ( CC _D ( N DirL X ) ) = if ( X = .1. , ( CC \ { 1
-      } ) ,
-      CC ) ) ) $=
+    dirlhol $p |- ( ph ->
+      ( ( N DirL X ) : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
+        dom ( CC _D ( N DirL X ) ) =
+        if ( X = .1. , ( CC \ { 1 } ) , CC ) ) ) $=
       ( wceq cc c1 co wcel adantr vs vu vr vh vj vx vt csn cif cdirl wf cdv cdm
       cdif cphi cfv cc0 cv cfz cdiv churz cmul csu ccxp cmpt cxp ciun cabs cmin
       climc ccom cbl cin wral w3a eqid dirlkerloc ccnfld ctopn 1cnd dchrrcl syl
@@ -899636,9 +900092,9 @@ $)
   $}
 
   ${
-    $d .1. i y $.  $d F i s x y $.  $d L i k s x y $.  $d N x y $.
-    $d U i s x y $.  $d X i k s x y $.  $d a ph v w $.  $d i ph x y $.
-    $d J a $.  $d J v $.  $d J w $.
+    $d .1. i y $.  $d F i s x y $.  $d J a v w $.  $d L i k s x y $.
+    $d N x y $.  $d U i s x y $.  $d X i k s x y $.  $d a ph v w $.
+    $d i ph x y $.
     isdirlacc.j $e |- J = ( TopOpen ` CCfld ) $.
     isdirlacc.g $e |- G = ( DChr ` N ) $.
     isdirlacc.z $e |- Z = ( Z/nZ ` N ) $.
@@ -899647,18 +900103,20 @@ $)
     isdirlacc.x $e |- ( ph -> X e. D ) $.
     isdirlacc.1 $e |- .1. = ( 0g ` G ) $.
     isdirlacc.u $e |- ( ph -> U C_ ( `' Re " ( 1 (,) +oo ) ) ) $.
-    isdirlacc.a $e |- ( ph -> ( ( limPt ` ( J |`t if (
-      X =
-      .1. , ( CC \ { 1 } ) , CC ) ) ) ` U ) =/= (/) ) $.
+    isdirlacc.a $e |- ( ph ->
+      ( ( limPt ` ( J |`t if ( X = .1. , ( CC \ { 1 } ) , CC ) ) ) ` U ) =/=
+      (/) ) $.
     $( A Dirichlet L-function is uniquely characterized by holomorphy on its
        full domain and agreement with its series on any subset of the
        convergence half-plane having an accumulation point in that domain.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    isdirlacc $p |- ( ph -> ( F = ( N DirL X ) <-> ( F : if ( X = .1. , (
-      CC \
-      { 1 } ) , CC ) --> CC /\ dom ( CC _D F ) = dom F /\ A. s e. U ( F `
-      s )
-      = sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) ) ) $=
+    isdirlacc $p |- ( ph ->
+      ( F = ( N DirL X ) <->
+        ( F : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
+          dom ( CC _D F ) = dom F /\
+          A. s e. U
+            ( F ` s ) =
+            sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) ) ) $=
       ( vx vi vy va vw vv cdirl co wceq cc c1 csn cdif cif wf cdv cdm cv cfv cn
       ccxp cdiv csu wral w3a wa dirlhol simpld adantr simpr feq1d mpbird oveq2d
       dmeqd simprd eqtrd fdmd eqtr4d wcel fveq1d id cre clt ccnv cpnf cioo cima
@@ -899715,12 +900173,13 @@ $)
     $( Characterize a Dirichlet L-function by its domain, holomorphy and
        agreement with its Dirichlet series on the real ray above one.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    isdirl $p |- ( ph -> ( F = ( N DirL X ) <->
-      ( F : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
-        dom ( CC _D F ) = dom F /\
-        A. s e. ( 1 (,) +oo )
-          ( F ` s ) = sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) )
-      ) $=
+    isdirl $p |- ( ph ->
+      ( F = ( N DirL X ) <->
+        ( F : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
+          dom ( CC _D F ) = dom F /\
+          A. s e. ( 1 (,) +oo )
+            ( F ` s ) =
+            sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) ) ) $=
       ( c1 wcel cc vw cpnf cioo ccnfld ctopn cfv eqid cre ccnv cima wss clt wbr
       co cv cr wa cxr wb 1red rexrd elioopnf simpld recnd simprd rered breqtrrd
       syl ibi elrepreimaioopnf sylanbrc ssriv a1i wceq csn cif crest clp c0 wne
@@ -899755,12 +900214,13 @@ $)
     $( Characterize a Dirichlet L-function by holomorphy and agreement with its
        series on any nonempty relatively open part of the convergence
        half-plane.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    isdirl2 $p |- ( ph -> ( F = ( N DirL X ) <->
-      ( F : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
-        dom ( CC _D F ) = dom F /\
-        A. s e. U
-          ( F ` s ) = sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) )
-      ) $=
+    isdirl2 $p |- ( ph ->
+      ( F = ( N DirL X ) <->
+        ( F : if ( X = .1. , ( CC \ { 1 } ) , CC ) --> CC /\
+          dom ( CC _D F ) = dom F /\
+          A. s e. U
+            ( F ` s ) =
+            sum_ k e. NN ( ( X ` ( L ` k ) ) / ( k ^c s ) ) ) ) ) $=
       ( vw wcel cre ccnv c1 cpnf cioo cima wss crest eqid oveq12i eleqtrdi ctop
       co wa wb cnfldtop a1i cr cc ccncf recncf wceq ssid ax-resscn cncfcn mp2an
       ccn eleqtri cnfldtopon toponrestid oveq1i eleqtrri crn ctg iooretop cnima
@@ -899821,8 +900281,8 @@ $)
        one every positive integer has character value one in ~ dirlcvg .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     zetalcvg $p |- ( ( S e. CC /\ 1 < ( Re ` S ) ) ->
-      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( k ^c -u S ) )
-        ~~> ( ZetaL ` S ) ) $=
+      ( m e. NN |-> sum_ k e. ( 1 ... m ) ( k ^c -u S ) ) ~~>
+      ( ZetaL ` S ) ) $=
       ( wcel c1 cfv wbr wa cn cv co ccxp csu cmpt czetal cli cdiv eqid a1i syl
       cre clt cfz cneg cdchr c0g cdirl czn czrh cbs cabl cgrp 1nn dchrabl ax-mp
       cc ablgrp grpidcl mp2b simpr elfznn nnzd cz cdvds 1z zsubcld dchrzrhcong1
@@ -899844,9 +900304,9 @@ $)
        argument greater than one.  This is the modulus-one case of ~ isdirl .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     iszetal $p |- ( F = ZetaL <->
-      ( F : ( CC \ { 1 } ) --> CC /\ dom ( CC _D F ) = dom F /\
-        A. s e. ( 1 (,) +oo )
-          ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) $=
+      ( F : ( CC \ { 1 } ) --> CC /\
+        dom ( CC _D F ) = dom F /\
+        A. s e. ( 1 (,) +oo ) ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) $=
       ( c1 cfv wcel czetal wceq cc wf co cdm cv cn wb eqid cdiv a1i id syl cdif
       cdchr c0g cbs csn cdv cneg ccxp csu cpnf cioo wral w3a cabl dchrabl ax-mp
       cgrp 1nn ablgrp grpidcl mp2b cdirl cif czn df-zetal eqeq2i isdirl iftruei
@@ -899873,9 +900333,11 @@ $)
        the half-plane of convergence determines the holomorphic function on the
        entire plane punctured at one.  See ~ isdirl2 for arbitrary Dirichlet
        characters.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    iszetal2 $p |- ( ph -> ( F = ZetaL <->
-      ( F : ( CC \ { 1 } ) --> CC /\ dom ( CC _D F ) = dom F /\
-        A. s e. U ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) ) $=
+    iszetal2 $p |- ( ph ->
+      ( F = ZetaL <->
+        ( F : ( CC \ { 1 } ) --> CC /\
+          dom ( CC _D F ) = dom F /\
+          A. s e. U ( F ` s ) = sum_ k e. NN ( k ^c -u s ) ) ) ) $=
       ( wceq c1 cfv co cc cn a1i eqid wcel czetal cdchr c0g csn cdif cif wf cdv
       cdirl cdm cv czn czrh ccxp cdiv csu wral w3a cneg wb df-zetal eqeq2i cabl
       cbs cgrp 1nn dchrabl ax-mp ablgrp grpidcl isdirl2 iftruei feq2i wss crest
@@ -899919,8 +900381,8 @@ $)
     climabsmajor.l $e |- ( ph -> G ~~> 0 ) $.
     climabsmajor.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
     climabsmajor.g $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( G ` n ) e. RR ) $.
-    climabsmajor.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( abs ` ( ( F ` n )
-      - A ) ) <_ ( G ` n ) ) $.
+    climabsmajor.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( abs ` ( ( F ` n ) - A ) ) <_ ( G ` n ) ) $.
     $( A complex sequence converges to a given value if its absolute error is
        bounded by a real sequence tending to zero.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
@@ -899941,8 +900403,9 @@ $)
     $d M x y $.  $d N x $.  $d ch x $.  $d ph x y $.  $d ps y $.  $d th x $.
     uzsindsd.y $e |- ( x = y -> ( ps <-> ch ) ) $.
     uzsindsd.n $e |- ( x = N -> ( ps <-> th ) ) $.
-    uzsindsd.s $e |- ( ( ( ph /\ x e. ( ZZ>= ` M ) ) /\ A. y e. ( M ... ( x -
-      1 ) ) ch ) -> ps ) $.
+    uzsindsd.s $e |- ( ( ( ph /\ x e. ( ZZ>= ` M ) ) /\
+                         A. y e. ( M ... ( x - 1 ) ) ch ) ->
+      ps ) $.
     uzsindsd.m $e |- ( ph -> N e. ( ZZ>= ` M ) ) $.
     $( Strong induction on an upper integer interval under a common hypothesis.
        At each index assume the result at every preceding index of the
@@ -899958,16 +900421,16 @@ $)
     $d A k $.  $d B k n $.  $d F k n $.  $d M k n $.  $d k n ph $.
     uzgeonorm.b $e |- ( ph -> B e. CC ) $.
     uzgeonorm.z $e |- ( ph -> B =/= 0 ) $.
-    uzgeonorm.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. ( CC \ { 0
-      } ) ) $.
-    uzgeonorm.r $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( ( F ` ( n + 1 ) ) / (
-      F ` n ) ) = ( 1 / B ) ) $.
+    uzgeonorm.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) e. ( CC \ { 0 } ) ) $.
+    uzgeonorm.r $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( ( F ` ( n + 1 ) ) / ( F ` n ) ) = ( 1 / B ) ) $.
     uzgeonorm.a $e |- ( ph -> A e. ( ZZ>= ` M ) ) $.
     $( If all successive ratios are the reciprocal of a fixed nonzero complex
        number, multiplying each term by the corresponding power of that number
        gives a constant.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    uzgeonorm $p |- ( ph -> ( ( B ^ A ) x. ( F ` A ) ) = ( ( B ^ M ) x. ( F `
-      M ) ) ) $=
+    uzgeonorm $p |- ( ph ->
+      ( ( B ^ A ) x. ( F ` A ) ) = ( ( B ^ M ) x. ( F ` M ) ) ) $=
       ( vk cfv wcel cexp co cmul wceq wi fveq2 cv c1 caddc oveq2 oveq12d eqeq1d
       cuz imbi2d eqidd wa simpr simpll simplr mpd cdiv cc adantr cc0 cz eluzelz
       wne syl expp1zd csn cdif eleq1d ralrimiva cbvralvw sylib peano2uz rspcdva
@@ -899996,12 +900459,10 @@ $)
     climlinconst0.a $e |- ( ph -> A e. CC ) $.
     climlinconst0.j $e |- ( ph -> J e. ZZ ) $.
     climlinconst0.e $e |- ( ph -> F e. V ) $.
-    climlinconst0.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC )
-      $.
-    climlinconst0.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 )
-      $.
-    climlinconst0.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( ( n + J ) x. ( F
-      ` n ) ) = A ) $.
+    climlinconst0.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
+    climlinconst0.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 ) $.
+    climlinconst0.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( ( n + J ) x. ( F ` n ) ) = A ) $.
     $( A sequence tends to zero if multiplying its terms by a shifted integer
        index gives a constant.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     climlinconst0 $p |- ( ph -> F ~~> 0 ) $=
@@ -900017,16 +900478,16 @@ $)
     uzgeolinzero.a $e |- ( ph -> A e. CC ) $.
     uzgeolinzero.z $e |- ( ph -> A =/= 0 ) $.
     uzgeolinzero.j $e |- ( ph -> J e. ZZ ) $.
-    uzgeolinzero.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( A ^ k ) x. ( G `
-      k ) ) ) ~~> B ) $.
+    uzgeolinzero.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( A ^ k ) x. ( G ` k ) ) ) ~~> B ) $.
     uzgeolinzero.v $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( G ` n ) e. CC ) $.
     uzgeolinzero.p $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 ) $.
-    uzgeolinzero.h $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) = ( ( n +
-      J ) x. ( G ` n ) ) ) $.
-    uzgeolinzero.f $e |- ( ( ph /\ j e. ( ZZ>= ` M ) ) -> ( F ` j ) e. ( CC \
-      { 0 } ) ) $.
-    uzgeolinzero.e $e |- ( ( ph /\ j e. ( ZZ>= ` M ) ) -> ( ( F ` ( j + 1 ) )
-      / ( F ` j ) ) = ( 1 / A ) ) $.
+    uzgeolinzero.h $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) = ( ( n + J ) x. ( G ` n ) ) ) $.
+    uzgeolinzero.f $e |- ( ( ph /\ j e. ( ZZ>= ` M ) ) ->
+      ( F ` j ) e. ( CC \ { 0 } ) ) $.
+    uzgeolinzero.e $e |- ( ( ph /\ j e. ( ZZ>= ` M ) ) ->
+      ( ( F ` ( j + 1 ) ) / ( F ` j ) ) = ( 1 / A ) ) $.
     $( If a linear factor times a sequence has an exact geometric ratio, the
        geometrically rescaled original sequence can have only zero as a limit.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
@@ -900062,8 +900523,9 @@ $)
     $( Bound a Dirichlet term by splitting its real exponent and comparing the
        two factors with separate positive lower bounds for the base.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirtermmixbnd $p |- ( ph -> ( abs ` ( Y / ( K ^c ( T + U ) ) ) ) <_ ( ( C
-      x. ( A ^c -u T ) ) x. ( B ^c -u U ) ) ) $=
+    dirtermmixbnd $p |- ( ph ->
+      ( abs ` ( Y / ( K ^c ( T + U ) ) ) ) <_
+      ( ( C x. ( A ^c -u T ) ) x. ( B ^c -u U ) ) ) $=
       ( cabs cfv cneg ccxp co cmul caddc cdiv abscld renegcld rpcxpcld rpmulcld
       cle rpred absge0d rpge0d c1 wbr cxple2ad lerecd mpbid rpcnd recnd cxpnegd
       rpne0d 3brtr4d readdcld absdivd absidd oveq2d eqtrd divrecd negdid addcld
@@ -900089,8 +900551,9 @@ $)
     $( A Dirichlet series supported at a single positive integer equals its one
        possible nonzero term at every complex argument.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    dirseratom $p |- ( ph -> sum_ k e. NN ( if ( k = M , A , 0 ) / ( k ^c S )
-      ) = ( A / ( M ^c S ) ) ) $=
+    dirseratom $p |- ( ph ->
+      sum_ k e. NN ( if ( k = M , A , 0 ) / ( k ^c S ) ) =
+      ( A / ( M ^c S ) ) ) $=
       ( wceq cc0 ccxp co cdiv csu cn c1 wcel wa cc nncnd csn cv cif snssd simpr
       elsnd iftrue oveq12d syl cxpcld nnne0d cxpne0d divcld adantr eqeltrd cdif
       oveq1 wne eldifsn bilani simprd neneqd iffalsed oveq1d simpld div0d eqtrd
@@ -900116,9 +900579,10 @@ $)
     $( Adding two bounded coefficient sequences adds their Dirichlet series in
        the half-plane of absolute convergence.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dirseradd $p |- ( ph -> sum_ i e. NN ( ( ( F ` i ) + ( G ` i ) ) / ( i ^c
-      S ) ) = ( sum_ i e. NN ( ( F ` i ) / ( i ^c S ) ) + sum_ i e. NN ( ( G `
-      i ) / ( i ^c S ) ) ) ) $=
+    dirseradd $p |- ( ph ->
+      sum_ i e. NN ( ( ( F ` i ) + ( G ` i ) ) / ( i ^c S ) ) =
+      ( sum_ i e. NN ( ( F ` i ) / ( i ^c S ) ) +
+        sum_ i e. NN ( ( G ` i ) / ( i ^c S ) ) ) ) $=
       ( vm cn caddc co c1 vj cv cfv ccxp cdiv csu wcel wa simpr nncnd cc adantr
       cxpcld nnne0d cxpne0d divdird sumeq2dv cmpt nnuz 1zzd fveq2 oveq1 oveq12d
       eqid wceq divcld fvmptd3 cseq cli wbr cdm cfz dirsercvg climfsumser mpbid
@@ -900145,9 +900609,9 @@ $)
     $( Changing one coefficient of a bounded Dirichlet series changes its value
        by the corresponding single Dirichlet term.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dirseraddatom $p |- ( ph -> sum_ i e. NN ( ( ( F ` i ) + if ( i = M , A ,
-      0 ) ) / ( i ^c S ) ) = ( sum_ i e. NN ( ( F ` i ) / ( i ^c S ) ) + ( A /
-      ( M ^c S ) ) ) ) $=
+    dirseraddatom $p |- ( ph ->
+      sum_ i e. NN ( ( ( F ` i ) + if ( i = M , A , 0 ) ) / ( i ^c S ) ) =
+      ( sum_ i e. NN ( ( F ` i ) / ( i ^c S ) ) + ( A / ( M ^c S ) ) ) ) $=
       ( cn cfv cc0 caddc co cdiv vj cv wceq cif cmpt ccxp csu cabs abscld wa cc
       wcel eqid eqeq1 ifbid simpr adantr 0cnd ifcld fvmptd3 eqeltrd cle iftrued
       fveq2d wbr eqbrtrd wn iffalsed abs00bd absge0d pm2.61dan dirseradd oveq2d
@@ -900171,11 +900635,22 @@ $)
     $( The finite character sum of regularized Hurwitz functions, divided by
        the modulus raised to the argument, is entire.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    dirlentker $p |- ( ph -> ( ( s e. CC |-> ( sum_ k e. ( 1 ... N ) ( ( X ` (
-      L ` k ) ) x. if ( s = 1 , 1 , ( ( s - 1 ) x. ( ( k / N ) HurZ s ) ) ) )
-      / ( N ^c s ) ) ) : CC --> CC /\ dom ( CC _D ( s e. CC |-> ( sum_ k e. (
-      1 ... N ) ( ( X ` ( L ` k ) ) x. if ( s = 1 , 1 , ( ( s - 1 ) x. ( ( k /
-      N ) HurZ s ) ) ) ) / ( N ^c s ) ) ) ) = CC ) ) $=
+    dirlentker $p |- ( ph ->
+      ( ( s e. CC |->
+          ( sum_ k e. ( 1 ... N )
+              ( ( X ` ( L ` k ) ) x.
+                if ( s = 1 , 1 , ( ( s - 1 ) x. ( ( k / N ) HurZ s ) ) ) ) /
+            ( N ^c s ) ) ) :
+        CC -->
+        CC /\
+        dom ( CC _D
+              ( s e. CC |->
+                ( sum_ k e. ( 1 ... N )
+                    ( ( X ` ( L ` k ) ) x.
+                      if ( s = 1 ,
+                           1 ,
+                           ( ( s - 1 ) x. ( ( k / N ) HurZ s ) ) ) ) /
+                  ( N ^c s ) ) ) ) = CC ) ) $=
       ( cv cfv c1 co cc wcel wceq cmin cdiv churz cmul cif ccxp cfz ccnfld eqid
       ctopn cnopn a1i fzfid wa adantr cn simpr elfznn syl nnzd dchrzrhcl w3a wn
       1cnd simpl3 subcld cmnf cc0 cioc cdif csn cr nnrpd dchrrcl rpdivcld rpcnd
@@ -900204,10 +900679,14 @@ $)
     $( The finite weighted sum of regularized Hurwitz values represents the
        pole-cleared Dirichlet L-function at every complex exponent.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlregval $p |- ( ph -> ( sum_ k e. ( 1 ... N ) ( ( X ` ( L ` k ) ) x. if
-      ( S = 1 , 1 , ( ( S - 1 ) x. ( ( k / N ) HurZ S ) ) ) ) / ( N ^c S ) ) =
-      if ( S = 1 , ( if ( X = .1. , ( phi ` N ) , 0 ) / N ) , ( ( S - 1 ) x. (
-      ( N DirL X ) ` S ) ) ) ) $=
+    dirlregval $p |- ( ph ->
+      ( sum_ k e. ( 1 ... N )
+          ( ( X ` ( L ` k ) ) x.
+            if ( S = 1 , 1 , ( ( S - 1 ) x. ( ( k / N ) HurZ S ) ) ) ) /
+        ( N ^c S ) ) =
+      if ( S = 1 ,
+           ( if ( X = .1. , ( phi ` N ) , 0 ) / N ) ,
+           ( ( S - 1 ) x. ( ( N DirL X ) ` S ) ) ) ) $=
       ( wcel c1 co cc cfz cfv wceq cmin cdiv churz cmul cif csu ccxp cphi cdirl
       cv cc0 wa simplr iftrued ad3antrrr simpr elfzelzd dchrzrhcl mulridd eqtrd
       oveq2d sumeq2dv ad2antrr dchrsumper cn dchrrcl nncnd cxp1d oveq12d eqtr4d
@@ -900244,9 +900723,12 @@ $)
        in its value at one gives an entire function.  The value at one is the
        totient divided by the modulus for the principal character and zero for
        the other characters.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlclear $p |- ( ph -> dom ( CC _D ( s e. CC |-> if ( s = 1 , ( if ( X =
-      .1. , ( phi ` N ) , 0 ) / N ) , ( ( s - 1 ) x. ( ( N DirL X ) ` s ) ) )
-      ) ) = CC ) $=
+    dirlclear $p |- ( ph ->
+      dom ( CC _D
+            ( s e. CC |->
+              if ( s = 1 ,
+                   ( if ( X = .1. , ( phi ` N ) , 0 ) / N ) ,
+                   ( ( s - 1 ) x. ( ( N DirL X ) ` s ) ) ) ) ) = CC ) $=
       ( vk cc c1 co cmul cfz cfv wceq cmin cdiv churz cif csu ccxp cmpt cdv cdm
       cv cphi cc0 cdirl wcel wa simplr iftrued oveq2d ad3antrrr simpr dchrzrhcl
       elfzelzd mulridd eqtrd sumeq2dv ad2antrr dchrsumper dchrrcl nncnd oveq12d
@@ -900266,8 +900748,10 @@ $)
     $( Surjectivity of all fixed-character Dirichlet L-functions implies
        surjectivity of the Riemann zeta function by taking modulus one.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    zetalrnred $p |- ( A. q A. x ( x e. ( Base ` ( DChr ` q ) ) -> ran ( q
-      DirL x ) = CC ) -> ran ZetaL = CC ) $=
+    zetalrnred $p |- ( A. q A. x
+                         ( x e. ( Base ` ( DChr ` q ) ) ->
+                           ran ( q DirL x ) = CC ) ->
+      ran ZetaL = CC ) $=
       ( cv cdchr cfv cbs wcel cdirl co crn cc wceq wi wal czetal c0g rneqd eqid
       c1 ax-mp df-zetal rneqi 1ex 2fveq3 eleq2d eqeq1d imbi12d albidv spcv cgrp
       oveq1 cabl cn 1nn dchrabl ablgrp grpidcl fvex eleq1 oveq2 mpisyl eqtrid )
@@ -900286,8 +900770,8 @@ $)
     climgeomerr.s $e |- ( ph -> ( abs ` R ) < 1 ) $.
     climgeomerr.e $e |- ( ph -> F e. V ) $.
     climgeomerr.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
-    climgeomerr.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( abs ` ( ( F ` n ) -
-      A ) ) <_ ( C x. ( R ^ n ) ) ) $.
+    climgeomerr.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( abs ` ( ( F ` n ) - A ) ) <_ ( C x. ( R ^ n ) ) ) $.
     $( A geometric error bound with real ratio of absolute value less than one
        implies convergence to the specified value.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
@@ -900319,13 +900803,13 @@ $)
     climgeolead.c $e |- ( ph -> C e. CC ) $.
     climgeolead.d $e |- ( ph -> D e. RR ) $.
     climgeolead.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
-    climgeolead.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( abs ` ( ( F ` n ) -
-      ( C / ( A ^ n ) ) ) ) <_ ( D / ( B ^ n ) ) ) $.
+    climgeolead.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( abs ` ( ( F ` n ) - ( C / ( A ^ n ) ) ) ) <_ ( D / ( B ^ n ) ) ) $.
     $( Recover the coefficient of a geometric term in a complex sequence when
        the error decays at a strictly faster geometric rate.  (Contributed by
        Zhi Wang, 26-Nov-2026.) $)
-    climgeolead $p |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( A ^ k ) x. ( F ` k )
-      ) ) ~~> C ) $=
+    climgeolead $p |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( A ^ k ) x. ( F ` k ) ) ) ~~> C ) $=
       ( co cfv cmul cdiv cuz cv cexp cmpt cvv rpdivcld rpred cabs clt wcel wceq
       c1 crp rpre rpge0 absidd syl wbr cr divlt1lt syl2anc mpbird eqbrtrd mptex
       wb fvex wa cc eqid id oveq2d fveq2d oveq12d simpr adantr eluzelz rpexpcld
@@ -900357,10 +900841,10 @@ $)
     dirsertailbnd.b $e |- ( ( ph /\ k e. NN ) -> ( abs ` ( F ` k ) ) <_ C ) $.
     $( Bound the remainder of a Dirichlet series with bounded coefficients at
        real arguments at least two.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirsertailbnd $p |- ( ph -> ( abs ` ( sum_ k e. NN ( ( F ` k ) / ( k ^c (
-      T + 2 ) ) ) - sum_ k e. ( 1 ... N ) ( ( F ` k ) / ( k ^c ( T + 2 ) ) ) )
-      ) <_ ( ( C x. ( ( N + 1 ) ^c -u T ) ) x. sum_ j e. NN ( j ^c -u 2 ) ) )
-      $=
+    dirsertailbnd $p |- ( ph ->
+      ( abs ` ( sum_ k e. NN ( ( F ` k ) / ( k ^c ( T + 2 ) ) ) -
+                sum_ k e. ( 1 ... N ) ( ( F ` k ) / ( k ^c ( T + 2 ) ) ) ) ) <_
+      ( ( C x. ( ( N + 1 ) ^c -u T ) ) x. sum_ j e. NN ( j ^c -u 2 ) ) ) $=
       ( cn cv cfv co c1 wcel vm c2 caddc ccxp cdiv csu cmpt cmin cabs cneg cmul
       cfz cle wceq oveq2 sumeq1d eqid sumex fvmpt syl oveq2d fveq2d cc wa fzfid
       simpll elfznn adantl syl2anc nnrpd 2re a1i readdcld rpcxpcld rpcnd rpne0d
@@ -900407,9 +900891,11 @@ $)
     $( Bound the error in a partial Dirichlet L-series at a real argument at
        least two by the reciprocal-square series times a geometric factor.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirltailbnd $p |- ( ph -> ( abs ` ( ( ( N DirL X ) ` ( T + 2 ) ) - sum_ k
-      e. ( 1 ... M ) ( ( X ` ( L ` k ) ) / ( k ^c ( T + 2 ) ) ) ) ) <_ ( ( ( M
-      + 1 ) ^c -u T ) x. sum_ j e. NN ( j ^c -u 2 ) ) ) $=
+    dirltailbnd $p |- ( ph ->
+      ( abs ` ( ( ( N DirL X ) ` ( T + 2 ) ) -
+                sum_ k e. ( 1 ... M )
+                  ( ( X ` ( L ` k ) ) / ( k ^c ( T + 2 ) ) ) ) ) <_
+      ( ( ( M + 1 ) ^c -u T ) x. sum_ j e. NN ( j ^c -u 2 ) ) ) $=
       ( co vi cn cv cfv cmpt c2 caddc ccxp cdiv csu c1 cfz cmin cabs cneg cdirl
       cmul cle 1red cc0 wbr 0le1 a1i wcel wa cc wceq simpr 2fveq3 eqid fvex syl
       fvmpt adantr nnzd dchrzrhcl eqeltrd fveq2d cbs cz cn0 wfo dchrrcl znzrhfo
@@ -900436,15 +900922,16 @@ $)
     dirsertruncgeom.c $e |- ( ph -> C e. RR ) $.
     dirsertruncgeom.p $e |- ( ph -> 0 <_ C ) $.
     dirsertruncgeom.a $e |- ( ( ph /\ k e. NN ) -> ( F ` k ) e. CC ) $.
-    dirsertruncgeom.b $e |- ( ( ph /\ k e. NN ) -> ( abs ` ( F ` k ) ) <_ C )
-      $.
+    dirsertruncgeom.b $e |- ( ( ph /\ k e. NN ) ->
+      ( abs ` ( F ` k ) ) <_ C ) $.
     $( Write the error of a truncated Dirichlet series at integer arguments as
        a geometric bound after absorbing two powers into its coefficients.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirsertruncgeom $p |- ( ph -> ( abs ` ( sum_ k e. NN ( ( F ` k ) / ( k ^c
-      ( T + 2 ) ) ) - sum_ k e. ( 1 ... M ) ( ( ( F ` k ) / ( k ^ 2 ) ) / ( k
-      ^ T ) ) ) ) <_ ( ( C x. sum_ j e. NN ( j ^c -u 2 ) ) / ( ( M + 1 ) ^ T )
-      ) ) $=
+    dirsertruncgeom $p |- ( ph ->
+      ( abs ` ( sum_ k e. NN ( ( F ` k ) / ( k ^c ( T + 2 ) ) ) -
+                sum_ k e. ( 1 ... M )
+                  ( ( ( F ` k ) / ( k ^ 2 ) ) / ( k ^ T ) ) ) ) <_
+      ( ( C x. sum_ j e. NN ( j ^c -u 2 ) ) / ( ( M + 1 ) ^ T ) ) ) $=
       ( cn c2 co cdiv c1 cmul wcel cv cfv caddc ccxp csu cfz cmin cabs cneg cle
       cexp nn0red nn0ge0d dirsertailbnd wa simpr elfznn syl nnrpd cn0 a1i nn0zd
       2nn0 rpexpcld rpcnd simpl mulcomd oveq2d cc syl2anc rpne0d wceq nn0addcld
@@ -900476,16 +900963,19 @@ $)
     dirpolcoeflim.s $e |- ( ph -> M < B ) $.
     dirpolcoeflim.d $e |- ( ph -> D e. RR ) $.
     dirpolcoeflim.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
-    dirpolcoeflim.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. CC )
-      $.
-    dirpolcoeflim.e $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( abs ` ( ( G ` n )
-      - sum_ i e. ( 1 ... M ) ( ( F ` i ) / ( i ^ n ) ) ) ) <_ ( D / ( B ^ n )
-      ) ) $.
+    dirpolcoeflim.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. CC ) $.
+    dirpolcoeflim.e $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( ( G ` n ) -
+                sum_ i e. ( 1 ... M ) ( ( F ` i ) / ( i ^ n ) ) ) ) <_
+      ( D / ( B ^ n ) ) ) $.
     $( Extract the last coefficient of a Dirichlet polynomial from integer
        samples with an exponentially smaller remainder.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    dirpolcoeflim $p |- ( ph -> ( n e. ( ZZ>= ` N ) |-> ( ( M ^ n ) x. ( ( G `
-      n ) - sum_ i e. ( 1 ... ( M - 1 ) ) ( ( F ` i ) / ( i ^ n ) ) ) ) ) ~~>
+    dirpolcoeflim $p |- ( ph ->
+      ( n e. ( ZZ>= ` N ) |->
+        ( ( M ^ n ) x.
+          ( ( G ` n ) -
+            sum_ i e. ( 1 ... ( M - 1 ) ) ( ( F ` i ) / ( i ^ n ) ) ) ) ) ~~>
       ( F ` M ) ) $=
       ( cfv co cmin vz vk cuz cv cexp c1 cfz cdiv csu cmpt cmul cli oveq2 fveq2
       wceq oveq12d cbvmptv wcel wa cc eqid oveq2d sumeq2sdv simpr simpll elfznn
@@ -900521,14 +901011,18 @@ $)
     dirsercoeflim.p $e |- ( ph -> 0 <_ C ) $.
     dirsercoeflim.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirsercoeflim.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirsercoeflim.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirsercoeflim.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
     $( Recover any bounded Dirichlet coefficient from integer samples of its
        series.  Subtract all preceding terms and rescale before taking the
        limit.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirsercoeflim $p |- ( ph -> ( n e. ( ZZ>= ` N ) |-> ( ( M ^ n ) x. ( ( G `
-      n ) - sum_ i e. ( 1 ... ( M - 1 ) ) ( ( ( F ` i ) / ( i ^ 2 ) ) / ( i ^
-      n ) ) ) ) ) ~~> ( ( F ` M ) / ( M ^ 2 ) ) ) $=
+    dirsercoeflim $p |- ( ph ->
+      ( n e. ( ZZ>= ` N ) |->
+        ( ( M ^ n ) x.
+          ( ( G ` n ) -
+            sum_ i e. ( 1 ... ( M - 1 ) )
+              ( ( ( F ` i ) / ( i ^ 2 ) ) / ( i ^ n ) ) ) ) ) ~~>
+      ( ( F ` M ) / ( M ^ 2 ) ) ) $=
       ( cfv cv co c2 wcel va vj vk vm cuz cexp c1 cmin cfz cn cdiv cmpt csu cli
       cmul caddc cneg ccxp peano2nnd nnrpd nnred ltp1d nnuz 1zzd wceq eqid ovex
       oveq1 fvmpt adantl wa simpr cr 2re a1i renegcld rpcxpcld 2cnd cre clt wbr
@@ -900571,17 +901065,15 @@ $)
     dirsercoefuni.fr $e |- ( ph -> C e. RR ) $.
     dirsercoefuni.fp $e |- ( ph -> 0 <_ C ) $.
     dirsercoefuni.fc $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
-    dirsercoefuni.fb $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C )
-      $.
-    dirsercoefuni.fg $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirsercoefuni.fb $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
+    dirsercoefuni.fg $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
     dirsercoefuni.hr $e |- ( ph -> D e. RR ) $.
     dirsercoefuni.hp $e |- ( ph -> 0 <_ D ) $.
     dirsercoefuni.hc $e |- ( ( ph /\ i e. NN ) -> ( H ` i ) e. CC ) $.
-    dirsercoefuni.hb $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( H ` i ) ) <_ D )
-      $.
-    dirsercoefuni.hg $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( H ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirsercoefuni.hb $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( H ` i ) ) <_ D ) $.
+    dirsercoefuni.hg $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( H ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
     $( Two Dirichlet series with bounded complex coefficients that agree at all
        sufficiently large integers have equal coefficients.  Apply
        ~ dirsercoeflim by strong induction on the coefficient index.
@@ -900616,16 +901108,17 @@ $)
     dirserlead.p $e |- ( ph -> 0 <_ C ) $.
     dirserlead.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirserlead.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirserlead.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i e.
-      NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirserlead.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
     dirserlead.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. CC ) $.
-    dirserlead.z $e |- ( ( ph /\ i e. ( 1 ... ( M - 1 ) ) ) -> ( F ` i ) = 0 )
-      $.
+    dirserlead.z $e |- ( ( ph /\ i e. ( 1 ... ( M - 1 ) ) ) ->
+      ( F ` i ) = 0 ) $.
     $( When all preceding coefficients vanish, rescaling the integer samples
        directly recovers the indicated Dirichlet coefficient divided by the
        square of its index.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirserlead $p |- ( ph -> ( n e. ( ZZ>= ` N ) |-> ( ( M ^ n ) x. ( G ` n )
-      ) ) ~~> ( ( F ` M ) / ( M ^ 2 ) ) ) $=
+    dirserlead $p |- ( ph ->
+      ( n e. ( ZZ>= ` N ) |-> ( ( M ^ n ) x. ( G ` n ) ) ) ~~>
+      ( ( F ` M ) / ( M ^ 2 ) ) ) $=
       ( co cdiv cc0 cuz cfv cv cexp c1 cmin cfz c2 csu cmul cmpt cli wa adantlr
       wcel wceq oveq1d cn elfznn adantl nnrpd cz 2z rpexpcld rpcnd rpne0d div0d
       a1i eqtrd eluzelz ad2antlr sumeq2dv wss cfn wo fzfid olcd sumz syl oveq2d
@@ -900648,18 +901141,17 @@ $)
     dirsergeocoef.p $e |- ( ph -> 0 <_ C ) $.
     dirsergeocoef.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirsergeocoef.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirsergeocoef.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
-    dirsergeocoef.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. CC )
-      $.
+    dirsergeocoef.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirsergeocoef.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. CC ) $.
     dirsergeocoef.a $e |- ( ph -> A e. CC ) $.
-    dirsergeocoef.e $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( ( M ^ n ) x. ( G
-      ` n ) ) = A ) $.
+    dirsergeocoef.e $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( ( M ^ n ) x. ( G ` n ) ) = A ) $.
     $( If the integer samples of a bounded Dirichlet series are exactly
        geometric, only the coefficient at the corresponding integer base can be
        nonzero.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirsergeocoef $p |- ( ph -> ( F ` K ) = if ( K = M , ( A x. ( M ^ 2 ) ) ,
-      0 ) ) $=
+    dirsergeocoef $p |- ( ph ->
+      ( F ` K ) = if ( K = M , ( A x. ( M ^ 2 ) ) , 0 ) ) $=
       ( va cfv cn cv wceq c2 cexp co cmul cc0 cif cmpt cabs nncnd mulcld abscld
       sqcld absge0d wcel wa cc eqid eqeq1 ifbid simpr adantr 0cnd ifcld fvmptd3
       eqeltrd cle fveq2d wbr iftrued ad2antrr leidd eqbrtrd wn iffalsed abs00bd
@@ -900700,19 +901192,20 @@ $)
     dirserratiocoef.c $e |- ( ph -> C e. RR ) $.
     dirserratiocoef.p $e |- ( ph -> 0 <_ C ) $.
     dirserratiocoef.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
-    dirserratiocoef.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C )
-      $.
-    dirserratiocoef.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_
-      i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
-    dirserratiocoef.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. ( CC
-      \ { 0 } ) ) $.
-    dirserratiocoef.r $e |- ( ( ph /\ k e. ( ZZ>= ` N ) ) -> ( ( G ` ( k + 1 )
-      ) / ( G ` k ) ) = ( 1 / M ) ) $.
+    dirserratiocoef.b $e |- ( ( ph /\ i e. NN ) ->
+      ( abs ` ( F ` i ) ) <_ C ) $.
+    dirserratiocoef.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirserratiocoef.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) e. ( CC \ { 0 } ) ) $.
+    dirserratiocoef.r $e |- ( ( ph /\ k e. ( ZZ>= ` N ) ) ->
+      ( ( G ` ( k + 1 ) ) / ( G ` k ) ) = ( 1 / M ) ) $.
     $( If the nonzero integer samples of a bounded Dirichlet series have an
        exact reciprocal-integer ratio, determine every coefficient from the
        first sample.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirserratiocoef $p |- ( ph -> ( F ` K ) = if ( K = M , ( ( ( M ^ N ) x. (
-      G ` N ) ) x. ( M ^ 2 ) ) , 0 ) ) $=
+    dirserratiocoef $p |- ( ph ->
+      ( F ` K ) =
+      if ( K = M , ( ( ( M ^ N ) x. ( G ` N ) ) x. ( M ^ 2 ) ) , 0 ) ) $=
       ( cexp co cfv cmul cv cuz wcel wa cc0 csn eldifad nncnd expcld cdif fveq2
       cc wceq eleq1d ralrimiva cbvralvw sylib nn0zd uzidd rspcdva mulcld adantr
       wral wne nnne0d r19.21bi adantlr caddc cdiv simpr uzgeonorm dirsergeocoef
@@ -900735,8 +901228,9 @@ $)
     $( Bound a finite sum with weights of modulus at most one whose sum is
        zero, using a common real upper bound on the terms.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    fsumnullwtbnd $p |- ( ph -> ( abs ` sum_ j e. I ( A x. W ) ) <_ ( ( ( # `
-      I ) x. M ) - sum_ j e. I A ) ) $=
+    fsumnullwtbnd $p |- ( ph ->
+      ( abs ` sum_ j e. I ( A x. W ) ) <_
+      ( ( ( # ` I ) x. M ) - sum_ j e. I A ) ) $=
       ( cmin co cmul csu cabs cfv cc0 c1 chash cle 1red cv wcel wa recnd adantr
       cr subcld fsumabsweights subdird sumeq2dv mulcld fsumsub oveq2d fsummulc2
       mul01d 3eqtr3d fsumcl subid1d 3eqtrd fveq2d abscld mulridd abssuble0d cfn
@@ -900760,9 +901254,10 @@ $)
     fsumrepairbnd.z $e |- ( ph -> sum_ j e. I W = 0 ) $.
     $( Estimate a pair of conjugate weighted sums from a bound on the real
        parts of the samples.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumrepairbnd $p |- ( ph -> ( abs ` ( sum_ j e. I ( A x. W ) + ( * ` sum_
-      j e. I ( A x. ( * ` W ) ) ) ) ) <_ ( 2 x. ( ( ( # ` I ) x. M ) - sum_ j
-      e. I ( Re ` A ) ) ) ) $=
+    fsumrepairbnd $p |- ( ph ->
+      ( abs ` ( sum_ j e. I ( A x. W ) +
+                ( * ` sum_ j e. I ( A x. ( * ` W ) ) ) ) ) <_
+      ( 2 x. ( ( ( # ` I ) x. M ) - sum_ j e. I ( Re ` A ) ) ) ) $=
       ( cmul co csu ccj cfv caddc c2 cabs cre chash cmin cle 2cnd cv wcel recld
       wa recnd mulcld fsummulc2 cdiv wceq reval syl oveq2d cjcld addcld cc0 wne
       cc 2ne0 a1i divcan2d eqtrd oveq1d mulassd adddird 3eqtr3d sumeq2dv 3eqtrd
@@ -900792,8 +901287,9 @@ $)
     $( Bound a weighted Fourier sum using a common upper bound on the real
        parts and cancellation of the conjugate sum.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fsumreorthbnd $p |- ( ph -> ( abs ` sum_ j e. I ( A x. W ) ) <_ ( 2 x. ( (
-      ( # ` I ) x. M ) - sum_ j e. I ( Re ` A ) ) ) ) $=
+    fsumreorthbnd $p |- ( ph ->
+      ( abs ` sum_ j e. I ( A x. W ) ) <_
+      ( 2 x. ( ( ( # ` I ) x. M ) - sum_ j e. I ( Re ` A ) ) ) ) $=
       ( cmul co csu ccj cfv cc0 caddc cabs chash cre cmin cle fveq2d cj0 eqtrdi
       c2 oveq2d cv wcel wa mulcld fsumcl addridd eqtrd fsumrepairbnd eqbrtrrd )
       ADBFOPZCQZDBFRSOPCQZRSZUAPZUBSVBUBSUJDUCSEOPDBUDSCQUEPOPUFAVEVBUBAVEVBTUA
@@ -900806,8 +901302,8 @@ $)
     root1mom0.l $e |- ( ph -> L e. ( 1 ..^ N ) ) $.
     $( The sum of a nontrivial power over a full set of complex roots of unity
        vanishes.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    root1mom0 $p |- ( ph -> sum_ j e. ( 0 ..^ N ) ( ( ( -u 1 ^c ( 2 / N ) ) ^
-      j ) ^ L ) = 0 ) $=
+    root1mom0 $p |- ( ph ->
+      sum_ j e. ( 0 ..^ N ) ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ L ) = 0 ) $=
       ( cc0 cfzo co c1 c2 cdiv cexp cmin wcel cmul cn0 nn0cnd syl expmuld wceq
       cneg ccxp cv csu wa elfzonn0 adantl clt wbr elfzo1 simp1bi nnnn0d mulcomd
       cn adantr oveq2d cc 1cnd negcld 2cnd simp2bi nnne0d divcld cxpcld 3eqtr3d
@@ -900831,7 +901327,8 @@ $)
     root1momrec.j $e |- ( ph -> J e. NN0 ) $.
     $( Complementary frequency powers of an N-th root of unity are reciprocals.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    root1momrec $p |- ( ph -> ( ( ( -u 1 ^c ( 2 / N ) ) ^ J ) ^ ( N - L ) ) =
+    root1momrec $p |- ( ph ->
+      ( ( ( -u 1 ^c ( 2 / N ) ) ^ J ) ^ ( N - L ) ) =
       ( 1 / ( ( ( -u 1 ^c ( 2 / N ) ) ^ J ) ^ L ) ) ) $=
       ( c1 cneg c2 cdiv co cexp cmul expmuld wcel wceq syl oveq1d eqtrd cc0 wne
       ccxp cmin 1cnd negcld 2cnd nncnd nnne0d divcld cxpcld neg1ne0 a1i cxpne0d
@@ -900860,13 +901357,15 @@ $)
     root1coefpairbnd.f $e |- ( ph -> F : ( 0 ..^ N ) --> CC ) $.
     root1coefpairbnd.l $e |- ( ph -> L e. ( 1 ..^ N ) ) $.
     root1coefpairbnd.m $e |- ( ph -> M e. RR ) $.
-    root1coefpairbnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) -> ( Re ` sum_ k e.
-      ( 0 ..^ N ) ( ( F ` k ) x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) ) <_
+    root1coefpairbnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) ->
+      ( Re ` sum_ k e. ( 0 ..^ N )
+               ( ( F ` k ) x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) ) <_
       M ) $.
     $( Bound two complementary coefficients recovered from equally spaced
        samples on the unit circle.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    root1coefpairbnd $p |- ( ph -> ( abs ` ( ( F ` L ) + ( * ` ( F ` ( N - L )
-      ) ) ) ) <_ ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
+    root1coefpairbnd $p |- ( ph ->
+      ( abs ` ( ( F ` L ) + ( * ` ( F ` ( N - L ) ) ) ) ) <_
+      ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
       ( cfv co ccj caddc cc0 cmul cv c1 wcel cmin cabs c2 cre cle wbr cfzo cneg
       cdiv ccxp cexp csu chash cfn fzofi wa cc wf adantr ffvelcdmda 1cnd negcld
       a1i 2cnd cn clt elfzo1 simp2bi nncnd nnne0d divcld cxpcld elfzonn0 adantl
@@ -900931,15 +901430,16 @@ $)
     root1coefrebnd.f $e |- ( ph -> F : ( 0 ..^ N ) --> CC ) $.
     root1coefrebnd.l $e |- ( ph -> L e. ( 1 ..^ N ) ) $.
     root1coefrebnd.m $e |- ( ph -> M e. RR ) $.
-    root1coefrebnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) -> ( Re ` sum_ k e. (
-      0 ..^ N ) ( ( F ` k ) x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) ) <_ M
-      ) $.
+    root1coefrebnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) ->
+      ( Re ` sum_ k e. ( 0 ..^ N )
+               ( ( F ` k ) x. ( ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ^ k ) ) ) <_
+      M ) $.
     root1coefrebnd.z $e |- ( ph -> ( F ` ( N - L ) ) = 0 ) $.
     $( Bound an isolated coefficient of a finite Fourier sum by the maximum
        real part at the sample points and the real part of its constant
        coefficient.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    root1coefrebnd $p |- ( ph -> ( abs ` ( F ` L ) ) <_ ( 2 x. ( M - ( Re ` (
-      F ` 0 ) ) ) ) ) $=
+    root1coefrebnd $p |- ( ph ->
+      ( abs ` ( F ` L ) ) <_ ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
       ( cfv cmin co ccj caddc cabs cc0 fveq2d c2 cre cmul cle cj0 eqtrdi oveq2d
       cfzo cc fzo0ss1 sselid ffvelcdmd addridd eqtrd root1coefpairbnd eqbrtrrd
       c1 ) AEDMZGENODMZPMZQOZRMURRMUAFSDMUBMNOUCOUDAVAURRAVAURSQOURAUTSURQAUTSP
@@ -900953,14 +901453,16 @@ $)
     plycoefpairbnd.l $e |- ( ph -> L e. ( 1 ..^ N ) ) $.
     plycoefpairbnd.r $e |- ( ph -> R e. CC ) $.
     plycoefpairbnd.m $e |- ( ph -> M e. RR ) $.
-    plycoefpairbnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) -> ( Re ` sum_ k e. (
-      0 ..^ N ) ( ( F ` k ) x. ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k )
-      ) ) <_ M ) $.
+    plycoefpairbnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) ->
+      ( Re ` sum_ k e. ( 0 ..^ N )
+               ( ( F ` k ) x.
+                 ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k ) ) ) <_ M ) $.
     $( Bound complementary scaled coefficients of a polynomial from samples on
        a circle.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plycoefpairbnd $p |- ( ph -> ( abs ` ( ( ( F ` L ) x. ( R ^ L ) ) + ( * `
-      ( ( F ` ( N - L ) ) x. ( R ^ ( N - L ) ) ) ) ) ) <_ ( 2 x. ( M - ( Re `
-      ( F ` 0 ) ) ) ) ) $=
+    plycoefpairbnd $p |- ( ph ->
+      ( abs ` ( ( ( F ` L ) x. ( R ^ L ) ) +
+                ( * ` ( ( F ` ( N - L ) ) x. ( R ^ ( N - L ) ) ) ) ) ) <_
+      ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
       ( cc0 co cv cfv cmul cc wcel vx cfzo cexp cmpt cmin ccj caddc cabs c2 cre
       cle wa ffvelcdmda adantr cn0 elfzonn0 adantl expcld mulcld fmpttd c1 cneg
       cdiv ccxp csu wceq fveq2 oveq2 oveq12d eqidd simpr wf fvmptd4 oveq1d 1cnd
@@ -900994,15 +901496,17 @@ $)
     plycoefrebnd.l $e |- ( ph -> L e. ( 1 ..^ N ) ) $.
     plycoefrebnd.r $e |- ( ph -> R e. CC ) $.
     plycoefrebnd.m $e |- ( ph -> M e. RR ) $.
-    plycoefrebnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) -> ( Re ` sum_ k e. ( 0
-      ..^ N ) ( ( F ` k ) x. ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k ) )
-      ) <_ M ) $.
+    plycoefrebnd.b $e |- ( ( ph /\ j e. ( 0 ..^ N ) ) ->
+      ( Re ` sum_ k e. ( 0 ..^ N )
+               ( ( F ` k ) x.
+                 ( ( R x. ( ( -u 1 ^c ( 2 / N ) ) ^ j ) ) ^ k ) ) ) <_ M ) $.
     plycoefrebnd.z $e |- ( ph -> ( F ` ( N - L ) ) = 0 ) $.
     $( Bound a scaled positive-degree coefficient from an upper bound on the
        real part of the polynomial along a circle.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plycoefrebnd $p |- ( ph -> ( ( abs ` ( F ` L ) ) x. ( ( abs ` R ) ^ L ) )
-      <_ ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
+    plycoefrebnd $p |- ( ph ->
+      ( ( abs ` ( F ` L ) ) x. ( ( abs ` R ) ^ L ) ) <_
+      ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) ) $=
       ( cfv co cmul cabs cc0 wcel cexp cmin ccj caddc c2 cre cle oveq1d c1 cfzo
       cn clt wbr elfzo1 simp1bi syl simp2bi elfzolt2 nnsubd nnnn0d expcld eqtrd
       mul02d fveq2d cj0 eqtrdi oveq2d cc cn0 elfzo0 syl3anbrc ffvelcdmd addridd
@@ -901022,13 +901526,14 @@ $)
     plyrecoef.l $e |- ( ph -> L e. NN ) $.
     plyrecoef.r $e |- ( ph -> R e. CC ) $.
     plyrecoef.m $e |- ( ph -> M e. RR ) $.
-    plyrecoef.b $e |- ( ph -> A. z e. CC ( ( abs ` z ) = ( abs ` R ) -> ( Re `
-      ( P ` z ) ) <_ M ) ) $.
+    plyrecoef.b $e |- ( ph ->
+      A. z e. CC ( ( abs ` z ) = ( abs ` R ) -> ( Re ` ( P ` z ) ) <_ M ) ) $.
     $( A one-sided real-part bound on a circle bounds every positive-degree
        coefficient of a complex polynomial.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyrecoef $p |- ( ph -> ( ( abs ` ( ( coeff ` P ) ` L ) ) x. ( ( abs ` R )
-      ^ L ) ) <_ ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) ) $=
+    plyrecoef $p |- ( ph ->
+      ( ( abs ` ( ( coeff ` P ) ` L ) ) x. ( ( abs ` R ) ^ L ) ) <_
+      ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) ) $=
       ( cfv cc0 caddc co c1 cmul cn0 wcel vj vk ccoe cdgr cfzo cres cabs c2 cre
       cexp cmin cle cc cply wf eqid coef3 syl wss fzo0ssnn0 a1i fssresd clt wbr
       cn dgrcl nnnn0d nn0addcld nn0p1nn nncnd addlidd 0red nn0red nnred nn0ge0d
@@ -901080,12 +901585,12 @@ $)
     fsumgeotail.c $e |- ( ph -> C e. RR ) $.
     fsumgeotail.p $e |- ( ph -> 0 <_ C ) $.
     fsumgeotail.a $e |- ( ( ph /\ j e. I ) -> A e. CC ) $.
-    fsumgeotail.b $e |- ( ( ph /\ j e. I ) -> ( abs ` A ) <_ ( C x. ( H ^ j )
-      ) ) $.
+    fsumgeotail.b $e |- ( ( ph /\ j e. I ) ->
+      ( abs ` A ) <_ ( C x. ( H ^ j ) ) ) $.
     $( Bound a finite sum over indices at least N by the tail of a geometric
        series.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumgeotail $p |- ( ph -> sum_ j e. I ( abs ` A ) <_ ( C x. ( ( H ^ N ) /
-      ( 1 - H ) ) ) ) $=
+    fsumgeotail $p |- ( ph ->
+      sum_ j e. I ( abs ` A ) <_ ( C x. ( ( H ^ N ) / ( 1 - H ) ) ) ) $=
       ( cexp co wcel vi cabs cfv csu cv cmul c1 cmin cdiv wa abscld fsumrecl cr
       adantr cn0 sselda eluznn0 syl2an2r reexpcld remulcld cmpt eqid nn0zd wceq
       cuz oveq2 ovex fvmpt adantl sylan recnd clt absidd eqbrtrd isumclim caddc
@@ -901112,13 +901617,15 @@ $)
     fsumpwrtail.b $e |- ( ph -> B e. RR ) $.
     fsumpwrtail.p $e |- ( ph -> 0 <_ B ) $.
     fsumpwrtail.a $e |- ( ( ph /\ j e. I ) -> A e. CC ) $.
-    fsumpwrtail.m $e |- ( ( ph /\ j e. I ) -> ( ( abs ` A ) x. ( R ^ j ) ) <_
-      B ) $.
+    fsumpwrtail.m $e |- ( ( ph /\ j e. I ) ->
+      ( ( abs ` A ) x. ( R ^ j ) ) <_ B ) $.
     $( Bound a finite sum of absolute polynomial terms at an interior point
        from coefficient estimates at a larger radius.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    fsumpwrtail $p |- ( ph -> sum_ j e. I ( abs ` ( A x. ( Z ^ j ) ) ) <_ ( B
-      x. ( ( ( ( abs ` Z ) / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) ) ) $=
+    fsumpwrtail $p |- ( ph ->
+      sum_ j e. I ( abs ` ( A x. ( Z ^ j ) ) ) <_
+      ( B x.
+        ( ( ( ( abs ` Z ) / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) ) ) $=
       ( co cmul cv cexp cabs cfv cdiv abscld rerpdivcld absge0d divge0d clt wbr
       c1 cr wcel crp wb divlt1lt syl2anc mpbird wa cc adantr cn0 sselda eluznn0
       cuz expcld mulcld cle recnd cc0 wne rpne0d divcan2d oveq1d mulexpd eqtr3d
@@ -901141,8 +901648,8 @@ $)
     climdifmaj.d $e |- ( ph -> ( ZZ>= ` N ) C_ D ) $.
     climdifmaj.l $e |- ( ph -> F ~~> L ) $.
     climdifmaj.g $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) -> ( G ` j ) e. RR ) $.
-    climdifmaj.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) -> ( abs ` ( ( F ` ( j +
-      1 ) ) - ( F ` j ) ) ) <_ ( G ` j ) ) $.
+    climdifmaj.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( ( F ` ( j + 1 ) ) - ( F ` j ) ) ) <_ ( G ` j ) ) $.
     climdifmaj.t $e |- ( ph -> seq N ( + , G ) ~~> T ) $.
     $( Bound the error of a convergent complex sequence by a convergent
        majorant for its successive differences.  (Contributed by Zhi Wang,
@@ -901172,12 +901679,13 @@ $)
     climdifgeos.h $e |- ( ph -> H e. RR ) $.
     climdifgeos.r $e |- ( ph -> ( abs ` H ) < 1 ) $.
     climdifgeos.c $e |- ( ph -> C e. RR ) $.
-    climdifgeos.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) -> ( abs ` ( ( F ` ( j +
-      1 ) ) - ( F ` j ) ) ) <_ ( C x. ( H ^ ( j - N ) ) ) ) $.
+    climdifgeos.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( ( F ` ( j + 1 ) ) - ( F ` j ) ) ) <_
+      ( C x. ( H ^ ( j - N ) ) ) ) $.
     $( Bound the error of a convergent sequence whose successive differences
        have a geometric majorant.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climdifgeos $p |- ( ph -> ( abs ` ( L - ( F ` N ) ) ) <_ ( C / ( 1 - H ) )
-      ) $=
+    climdifgeos $p |- ( ph ->
+      ( abs ` ( L - ( F ` N ) ) ) <_ ( C / ( 1 - H ) ) ) $=
       ( vk cmin co cfv c1 cdiv cuz cv cexp cmul cmpt wcel wa cr wceq oveq1 eqid
       oveq2d ovex fvmpt adantl adantr cn0 uznn0sub reexpcld remulcld caddc cabs
       eqeltrd cle breqtrrd recnd geolim3 climdifmaj ) ACBUAFRSUBSDEQHUCTZBFQUDZ
@@ -901197,12 +901705,13 @@ $)
     sergeotail.h $e |- ( ph -> H e. RR ) $.
     sergeotail.r $e |- ( ph -> ( abs ` H ) < 1 ) $.
     sergeotail.c $e |- ( ph -> C e. RR ) $.
-    sergeotail.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) -> ( abs ` ( F ` ( j + 1
-      ) ) ) <_ ( C x. ( H ^ ( j - N ) ) ) ) $.
+    sergeotail.b $e |- ( ( ph /\ j e. ( ZZ>= ` N ) ) ->
+      ( abs ` ( F ` ( j + 1 ) ) ) <_ ( C x. ( H ^ ( j - N ) ) ) ) $.
     $( Bound the error of a complex partial sum when the remaining terms have a
        geometric majorant.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    sergeotail $p |- ( ph -> ( abs ` ( L - sum_ j e. ( M ... N ) ( F ` j ) ) )
-      <_ ( C / ( 1 - H ) ) ) $=
+    sergeotail $p |- ( ph ->
+      ( abs ` ( L - sum_ j e. ( M ... N ) ( F ` j ) ) ) <_
+      ( C / ( 1 - H ) ) ) $=
       ( co cfv wcel cc vi cfz cv csu cmin cabs caddc cseq c1 cdiv cle eqidd cuz
       wa elfzuz sylan2 fsumser oveq2d fveq2d cz eluzelz syl eqid serf uzss cexp
       wss cmul adantr sselda ffvelcdmd wceq fveq2 eleq1d wral ralrimiva rspcdva
@@ -901226,9 +901735,10 @@ $)
     $( Bound the truncation error in the power series for the logarithm
        uniformly on a disk of radius less than one.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    logtaylerr $p |- ( ph -> ( abs ` ( -u ( log ` ( 1 - Z ) ) - sum_ j e. ( 1
-      ... N ) ( ( Z ^ j ) / j ) ) ) <_ ( ( ( H ^ ( N + 1 ) ) / ( N + 1 ) ) / (
-      1 - H ) ) ) $=
+    logtaylerr $p |- ( ph ->
+      ( abs ` ( -u ( log ` ( 1 - Z ) ) -
+                sum_ j e. ( 1 ... N ) ( ( Z ^ j ) / j ) ) ) <_
+      ( ( ( H ^ ( N + 1 ) ) / ( N + 1 ) ) / ( 1 - H ) ) ) $=
       ( c1 co cfv cneg cexp cdiv cabs caddc wcel adantr vk cmin clog cv cn cmpt
       cfz csu cle wa wceq cuz elfzuz adantl elnnuz sylibr oveq2 id oveq12d eqid
       ovex fvmpt sumeq2dv oveq2d fveq2d 1zzd sylib cc simpr nnnn0d expcld nncnd
@@ -901272,12 +901782,12 @@ $)
     elplyfin.i $e |- ( ph -> I e. Fin ) $.
     elplyfin.n $e |- ( ph -> I C_ NN0 ) $.
     elplyfin.a $e |- ( ( ph /\ k e. I ) -> A e. S ) $.
-    $d I w $.  $d I x $.  $d I y $.  $d ph x $.  $d w y $.
+    $d I w y $.  $d I x $.  $d ph x $.
     $( A finite sum of monomials with nonnegative integer degrees and
        coefficients in the prescribed coefficient set is a polynomial.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    elplyfin $p |- ( ph -> ( z e. CC |-> sum_ k e. I ( A x. ( z ^ k ) ) ) e. (
-      Poly ` S ) ) $=
+    elplyfin $p |- ( ph ->
+      ( z e. CC |-> sum_ k e. I ( A x. ( z ^ k ) ) ) e. ( Poly ` S ) ) $=
       ( vn vx cc0 cv co wss cc wcel cn0 wa vw vy cfz cexp cmul csu cmpt cfv csn
       cply cun cif simpr iftrued oveq1d sumeq2dv simplr ad4antr ad5ant15 sseldd
       eqeltrd expcld mulcld cdif eldifbd iffalsed fz0ssnn0 eldifad sselid eqtrd
@@ -901309,8 +901819,9 @@ $)
     logtaylply.n $e |- ( ph -> N e. NN ) $.
     $( The finite Taylor sum for the logarithm of one minus the argument is a
        complex polynomial.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    logtaylply $p |- ( ph -> ( w e. CC |-> sum_ k e. ( 1 ... N ) ( -u ( 1 / k
-      ) x. ( w ^ k ) ) ) e. ( Poly ` CC ) ) $=
+    logtaylply $p |- ( ph ->
+      ( w e. CC |-> sum_ k e. ( 1 ... N ) ( -u ( 1 / k ) x. ( w ^ k ) ) ) e.
+      ( Poly ` CC ) ) $=
       ( c1 cv cdiv co cneg cc cfz ssidd fzfid cn cn0 wss fz1ssnn a1i nnssnn0 wa
       sstrdi wcel sselda nncnd nnne0d reccld negcld elplyfin ) ABFCGHIZJKCFDLIZ
       AKMAFDNAUKOPUKOQADRSZTUBACGUKUCUAZUJUMCGUMCGAUKOCGULUDZUEUMCGUNUFUGUHUI
@@ -901326,9 +901837,12 @@ $)
     logtaylplyerr.n $e |- ( ph -> N e. NN ) $.
     $( Uniform error estimate for the Taylor polynomials of the logarithm of
        one minus the argument.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    logtaylplyerr $p |- ( ph -> ( abs ` ( ( ( w e. CC |-> sum_ k e. ( 1 ... N
-      ) ( -u ( 1 / k ) x. ( w ^ k ) ) ) ` Z ) - ( log ` ( 1 - Z ) ) ) ) <_ ( (
-      ( H ^ ( N + 1 ) ) / ( N + 1 ) ) / ( 1 - H ) ) ) $=
+    logtaylplyerr $p |- ( ph ->
+      ( abs ` ( ( ( w e. CC |->
+                    sum_ k e. ( 1 ... N )
+                      ( -u ( 1 / k ) x. ( w ^ k ) ) ) ` Z ) -
+                ( log ` ( 1 - Z ) ) ) ) <_
+      ( ( ( H ^ ( N + 1 ) ) / ( N + 1 ) ) / ( 1 - H ) ) ) $=
       ( c1 co cv cdiv cneg cmul cfv cmin cabs cfz cexp csu cmpt clog caddc wcel
       cc cle wceq oveq1 oveq2d sumeq2sdv eqid sumex fvmpt wa 1cnd fz1ssnn simpr
       syl cn sselid nnne0d divcld adantr nnnn0d expcld mulneg1d mulcomd divrecd
@@ -901355,8 +901869,9 @@ $)
     $( The logarithm of one minus the argument admits uniform polynomial
        approximation on subsets of a disk of radius less than one.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyaplog1sub $p |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( log ` ( 1 - z ) ) ) ) < e ) $=
+    plyaplog1sub $p |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( log ` ( 1 - z ) ) ) ) < e ) $=
       ( vn cv cfv c1 co clt wbr cc wcel syl vw vk cmin clog cabs wral cply wrex
       crp wa cdiv cmul cn cr cc0 simpr 1red difrp syl2anc mpbid adantr rpmulcld
       wb rpred rpgt0d nnrecl cfz cneg cexp csu cmpt wceq fveq1 fvoveq1d ralbidv
@@ -901392,9 +901907,10 @@ $)
     $( Dividing a nonzero polynomial by a linear factor at a root gives a
        nonzero polynomial of degree one less.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyrootquo $p |- ( ph -> ( ( F quot ( Xp oF - ( CC X. { A } ) ) ) e. ( (
-      Poly ` CC ) \ { 0p } ) /\ ( deg ` F ) = ( ( deg ` ( F quot ( Xp oF - (
-      CC X. { A } ) ) ) ) + 1 ) ) ) $=
+    plyrootquo $p |- ( ph ->
+      ( ( F quot ( Xp oF - ( CC X. { A } ) ) ) e. ( ( Poly ` CC ) \ { 0p } ) /\
+        ( deg ` F ) =
+        ( ( deg ` ( F quot ( Xp oF - ( CC X. { A } ) ) ) ) + 1 ) ) ) $=
       ( cc csn co cfv c0p wcel cdgr c1 caddc wceq wne cc0 cidp cxp cquot plyssc
       cmin cof cply cdif sselid ccnv cima w3a eqid plyremlem syl simp1d ax-1ne0
       a1i simp2d dgr0 3netr4d fveq2 necon3i quotcl2 syl3anc neneqd facth eqeq1d
@@ -901414,10 +901930,11 @@ $)
     $d c f ph $.  $d m n ph $.  $d ph q x $.
     plylinfacind.f $e |- ( ph -> F e. ( Poly ` S ) ) $.
     plylinfacind.n $e |- ( ph -> F =/= 0p ) $.
-    plylinfacind.c $e |- ( ( ph /\ c e. ( CC \ { 0 } ) ) -> ( CC X. { c } ) e.
-      H ) $.
-    plylinfacind.s $e |- ( ( ( ph /\ x e. CC ) /\ q e. ( ( Poly ` CC ) \ { 0p
-      } ) ) -> ( q e. H -> ( ( Xp oF - ( CC X. { x } ) ) oF x. q ) e. H ) ) $.
+    plylinfacind.c $e |- ( ( ph /\ c e. ( CC \ { 0 } ) ) ->
+      ( CC X. { c } ) e. H ) $.
+    plylinfacind.s $e |- ( ( ( ph /\ x e. CC ) /\
+                             q e. ( ( Poly ` CC ) \ { 0p } ) ) ->
+      ( q e. H -> ( ( Xp oF - ( CC X. { x } ) ) oF x. q ) e. H ) ) $.
     $( Induction on nonzero complex polynomials by adjoining a linear factor at
        a root.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     plylinfacind $p |- ( ph -> F e. H ) $=
@@ -901574,9 +902091,10 @@ $)
     $( Collect the constant and linear terms after perturbing the two endpoints
        of a scaled complex difference in opposite directions and adding an
        independent linear error.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    affgapscale $p |- ( ph -> ( ( V x. ( ( K x. ( ( M + T ) - ( A - T ) ) ) x.
-      G ) ) + ( H x. T ) ) = ( ( V x. ( ( K x. ( M - A ) ) x. G ) ) + ( ( ( V
-      x. ( ( K x. G ) + ( K x. G ) ) ) + H ) x. T ) ) ) $=
+    affgapscale $p |- ( ph ->
+      ( ( V x. ( ( K x. ( ( M + T ) - ( A - T ) ) ) x. G ) ) + ( H x. T ) ) =
+      ( ( V x. ( ( K x. ( M - A ) ) x. G ) ) +
+        ( ( ( V x. ( ( K x. G ) + ( K x. G ) ) ) + H ) x. T ) ) ) $=
       ( caddc co cmul oveq2d mulcld subcld addcld adddid 3eqtrd adddird oveq12d
       cmin addsubsub23 oveq1d mul32d 3eqtr4d mulassd eqcomd addassd ) AHFGCPQBC
       UGQUGQZRQZDRQZRQZECRQZPQHFGBUGQZRQZDRQZRQZHFDRQZVDPQZRQZCRQZPQZUSPQVCVGUS
@@ -901603,8 +902121,8 @@ $)
     $( Combine bounds by exponentials with a common scale at least one into a
        bound at that scale for the sum.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    efaddscale $p |- ( ph -> ( A + B ) <_ ( exp ` ( ( 1 + ( X + Y ) ) x. T ) )
-      ) $=
+    efaddscale $p |- ( ph ->
+      ( A + B ) <_ ( exp ` ( ( 1 + ( X + Y ) ) x. T ) ) ) $=
       ( caddc co c1 cmul ce cfv readdcld 1red remulcld reefcld cc0 0red cle wbr
       0le1 a1i letrd mulge0d efaddmaj leadd1dd recnd adddird eqcomd oveq2d 1cnd
       addcld mullidd oveq1d joinlmuladdmuld 3brtr4d cr wcel efle syl2anc mpbid
@@ -901625,13 +902143,13 @@ $)
     appreco.r $e |- ( ( ph /\ z e. Y ) -> ( G ` z ) e. K ) $.
     appreco.c $e |- ( ( ph /\ q e. T ) -> ( q o. G ) e. U ) $.
     appreco.v $e |- ( w = ( G ` z ) -> A = B ) $.
-    appreco.a $e |- ( ph -> A. e e. RR+ E. q e. T A. w e. K ( abs ` ( ( q ` w
-      ) - A ) ) < e ) $.
+    appreco.a $e |- ( ph ->
+      A. e e. RR+ E. q e. T A. w e. K ( abs ` ( ( q ` w ) - A ) ) < e ) $.
     $( Uniform approximation transfers under precomposition when each
        approximant has a representing function in the target family.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    appreco $p |- ( ph -> A. v e. RR+ E. p e. U A. z e. Y ( abs ` ( ( p ` z )
-      - B ) ) < v ) $=
+    appreco $p |- ( ph ->
+      A. v e. RR+ E. p e. U A. z e. Y ( abs ` ( ( p ` z ) - B ) ) < v ) $=
       ( cv cfv cmin co cabs clt wbr wral wrex crp wcel wa wceq breq2 rexralbidv
       adantr simpr rspcdva ccom fveq1 fvoveq1d ralbidv ad2ant2r wfn simplll syl
       breq1d wss sseldd fvco2 syl2anc fveq2 oveq12d simplrr ralrimiva rspcedvdw
@@ -901657,8 +902175,9 @@ $)
     $( Uniformly approximate the logarithm of one minus a polynomial whose
        values lie in a disk of radius strictly less than one.  (Contributed by
        Zhi Wang, 26-Nov-2026.) $)
-    plyaplog1co $p |- ( ph -> A. v e. RR+ E. u e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( u ` z ) - ( log ` ( 1 - ( G ` z ) ) ) ) ) < v ) $=
+    plyaplog1co $p |- ( ph ->
+      A. v e. RR+ E. u e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( u ` z ) - ( log ` ( 1 - ( G ` z ) ) ) ) ) < v ) $=
       ( vt cv cfv cc cabs cle wcel wa vw ve vq vx vy c1 cmin clog cply wbr crab
       co plyf syl ffnd fveq2 breq1d adantr sselda ffvelcdmd elrabd simpr simprl
       wf wceq simprr addcld mulcld plyco fveq2d wss ssrab2 elrabrd plyaplog1sub
@@ -901677,9 +902196,10 @@ $)
     efloglin.d $e |- ( ph -> Z =/= A ) $.
     $( An explicit logarithm of the difference from a nonzero complex number.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    efloglin $p |- ( ph -> ( ( ( log ` -u A ) + ( log ` ( 1 - ( Z / A ) ) ) )
-      e. CC /\ ( exp ` ( ( log ` -u A ) + ( log ` ( 1 - ( Z / A ) ) ) ) ) = (
-      Z - A ) ) ) $=
+    efloglin $p |- ( ph ->
+      ( ( ( log ` -u A ) + ( log ` ( 1 - ( Z / A ) ) ) ) e. CC /\
+        ( exp ` ( ( log ` -u A ) + ( log ` ( 1 - ( Z / A ) ) ) ) ) =
+        ( Z - A ) ) ) $=
       ( cneg cfv c1 co cmin cc wcel ce wceq cmul cc0 wne syl2anc negcld negne0d
       clog cdiv caddc logcld 1cnd divcld subcld necomd subne0d mulridd divcan2d
       subdid oveq12d eqtrd mul01d 3netr4d oveq2 syl addcld efadd eflog mulneg1d
@@ -901702,9 +902222,10 @@ $)
     plyaploglin.b $e |- ( ( ph /\ z e. Y ) -> ( abs ` z ) <_ H ) $.
     $( Uniformly approximate the logarithm of a linear factor on a disk
        excluding its root.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyaploglin $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( g ` z ) - ( ( log ` -u A ) + ( log ` ( 1 - ( z / A ) ) ) ) ) )
-      < v ) $=
+    plyaploglin $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) -
+                  ( ( log ` -u A ) + ( log ` ( 1 - ( z / A ) ) ) ) ) ) < v ) $=
       ( cfv c1 co cc wcel cabs cidp ve vq vp cneg clog cdiv cmin negcld negne0d
       cv logcld adantr wa 1cnd sselda cc0 wne divcld subcld absrpcld rerpdivcld
       abscld cr 1red cle absdivd crp lediv1dd eqbrtrd clt wbr wb syl2anc mpbird
@@ -901738,9 +902259,11 @@ $)
     $( A nonzero constant function has a constant logarithm which admits
        uniform polynomial approximation.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyapelogconst $p |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h `
-      z ) ) = ( ( CC X. { C } ) ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A.
-      z e. Y ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
+    plyapelogconst $p |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( ( CC X. { C } ) ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
       ( cv cfv ce cc wceq wral cmin cabs clt wcel vw csn cxp co wbr cply crp wa
       wrex clog cmpt cmap fveqeq2d ralbidv oveq2d fveq2d breq1d rexbidv anbi12d
       fveq1 cvv cnex a1i ssexd logcld adantr fmpttd elmapdd cc0 wne eflog eqidd
@@ -901763,20 +902286,26 @@ $)
     $d Y a b g p q v z $.  $d a b e p ph q v z $.  $d c e p q u v x z $.
     $d ph w z $.
     plyapelogmul.y $e |- ( ph -> Y C_ CC ) $.
-    plyapelogmul.f $e |- ( ph -> E. h e. ( CC ^m Y ) ( A. x e. Y ( exp ` ( h `
-      x ) ) = ( F ` x ) /\ A. c e. RR+ E. u e. ( Poly ` CC ) A. x e. Y ( abs `
-      ( ( u ` x ) - ( h ` x ) ) ) < c ) ) $.
-    plyapelogmul.g $e |- ( ph -> E. h e. ( CC ^m Y ) ( A. x e. Y ( exp ` ( h `
-      x ) ) = ( G ` x ) /\ A. c e. RR+ E. u e. ( Poly ` CC ) A. x e. Y ( abs `
-      ( ( u ` x ) - ( h ` x ) ) ) < c ) ) $.
-    plyapelogmul.p $e |- ( ( ph /\ z e. Y ) -> ( P ` z ) = ( ( F ` z ) x. ( G
-      ` z ) ) ) $.
+    plyapelogmul.f $e |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. x e. Y ( exp ` ( h ` x ) ) = ( F ` x ) /\
+          A. c e. RR+ E. u e. ( Poly ` CC ) A. x e. Y
+            ( abs ` ( ( u ` x ) - ( h ` x ) ) ) < c ) ) $.
+    plyapelogmul.g $e |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. x e. Y ( exp ` ( h ` x ) ) = ( G ` x ) /\
+          A. c e. RR+ E. u e. ( Poly ` CC ) A. x e. Y
+            ( abs ` ( ( u ` x ) - ( h ` x ) ) ) < c ) ) $.
+    plyapelogmul.p $e |- ( ( ph /\ z e. Y ) ->
+      ( P ` z ) = ( ( F ` z ) x. ( G ` z ) ) ) $.
     $( The product of functions with uniformly polynomially approximable
        logarithms has such a logarithm.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyapelogmul $p |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h ` z
-      ) ) = ( P ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs ` (
-      ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
+    plyapelogmul $p |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( P ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
       ( cv cfv wral clt va vb vw vg vv vq ce wceq cmin co cabs wbr cc cply wrex
       crp cmap fveq1 fveqeq2d ralbidv oveq2d fveq2d rexralbidv anbi12d cbvrexvw
       wa breq1d wcel adantr caddc cmpt cvv a1i wss ad2antrr ssexd fveq2 oveq12d
@@ -901837,9 +902366,12 @@ $)
     $( A linear factor whose root lies outside a disk has a uniformly
        polynomially approximable logarithm on subsets of the disk.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapeloglin $p |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h ` z
-      ) ) = ( ( Xp oF - ( CC X. { A } ) ) ` z ) /\ A. e e. RR+ E. p e. ( Poly
-      ` CC ) A. z e. Y ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
+    plyapeloglin $p |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y
+            ( exp ` ( h ` z ) ) = ( ( Xp oF - ( CC X. { A } ) ) ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
       ( cv cfv cc cmin co wcel vw cidp csn cxp cof wceq wral cabs clt cply wrex
       ce wbr wa cneg clog c1 cdiv caddc cmpt cmap fveq1 fveqeq2d ralbidv oveq2d
       crp fveq2d breq1d rexralbidv anbi12d cvv cnex a1i ssexd eleq1d adantr cc0
@@ -901874,11 +902406,11 @@ $)
     plyrootind.f $e |- ( ph -> F e. ( Poly ` S ) ) $.
     plyrootind.n $e |- ( ph -> F =/= 0p ) $.
     plyrootind.r $e |- ( ph -> ( `' F " { 0 } ) C_ V ) $.
-    plyrootind.c $e |- ( ( ph /\ c e. ( CC \ { 0 } ) ) -> ( CC X. { c } ) e. H
-      ) $.
-    plyrootind.s $e |- ( ( ( ph /\ ( x e. CC /\ x e. V ) ) /\ q e. ( ( Poly `
-      CC ) \ { 0p } ) ) -> ( q e. H -> ( ( Xp oF - ( CC X. { x } ) ) oF x. q )
-      e. H ) ) $.
+    plyrootind.c $e |- ( ( ph /\ c e. ( CC \ { 0 } ) ) ->
+      ( CC X. { c } ) e. H ) $.
+    plyrootind.s $e |- ( ( ( ph /\ ( x e. CC /\ x e. V ) ) /\
+                           q e. ( ( Poly ` CC ) \ { 0p } ) ) ->
+      ( q e. H -> ( ( Xp oF - ( CC X. { x } ) ) oF x. q ) e. H ) ) $.
     $( Induction over polynomials with no roots on a given set, adjoining
        linear factors whose roots lie outside the set.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
@@ -901908,19 +902440,25 @@ $)
     $d F e h p x z $.  $d G e h p x z $.  $d P h $.  $d Y c e h p u x z $.
     $d e p ph z $.
     plyapelogmul2.y $e |- ( ph -> Y C_ CC ) $.
-    plyapelogmul2.f $e |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h
-      ` z ) ) = ( F ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $.
-    plyapelogmul2.g $e |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h
-      ` z ) ) = ( G ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $.
-    plyapelogmul2.p $e |- ( ( ph /\ z e. Y ) -> ( P ` z ) = ( ( F ` z ) x. ( G
-      ` z ) ) ) $.
+    plyapelogmul2.f $e |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( F ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $.
+    plyapelogmul2.g $e |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( G ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $.
+    plyapelogmul2.p $e |- ( ( ph /\ z e. Y ) ->
+      ( P ` z ) = ( ( F ` z ) x. ( G ` z ) ) ) $.
     $( Combine logarithms for a product in the induction on polynomials without
        roots on a disk.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapelogmul2 $p |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h `
-      z ) ) = ( P ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs `
-      ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
+    plyapelogmul2 $p |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( P ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
       ( vx cv cfv wceq wral clt wrex vu vc ce cmin co cabs wbr cc cply crp cmap
       fveq2 fveq2d eqeq12d cbvralvw oveq12d breq1d rexbii ralbii fveq1 fvoveq1d
       wa ralbidv cbvrexvw breq2 rexralbidv 3bitri anbi12i sylib plyapelogmul )
@@ -901944,14 +902482,16 @@ $)
     plydiskelog.r $e |- ( ph -> R e. RR ) $.
     plydiskelog.p $e |- ( ph -> 0 <_ R ) $.
     plydiskelog.b $e |- ( ( ph /\ z e. Y ) -> ( abs ` z ) <_ R ) $.
-    plydiskelog.n $e |- ( ph -> A. v e. CC ( ( abs ` v ) <_ R -> ( F ` v ) =/=
-      0 ) ) $.
+    plydiskelog.n $e |- ( ph ->
+      A. v e. CC ( ( abs ` v ) <_ R -> ( F ` v ) =/= 0 ) ) $.
     $( A complex polynomial without zeros on a closed disk has a uniformly
        polynomially approximable logarithm on each subset of that disk.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plydiskelog $p |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h ` z
-      ) ) = ( F ` z ) /\ A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y ( abs ` (
-      ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
+    plydiskelog $p |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( F ` z ) /\
+          A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( p ` z ) - ( h ` z ) ) ) < e ) ) $=
       ( vt cv cfv cc vb vu vr vj vx vq vc wceq wral cmin cabs clt wbr cply wrex
       ce co crp wa cmap cab wcel crab cc0 c0p wne abs0 eqbrtrid wi fveq2 breq1d
       cle fveqeq2 necon3bid imbi12d 0cnd rspcdva mpd 0pval syl neeqtrrd necon3i
@@ -902027,16 +902567,17 @@ $)
     plyretail.i $e |- ( ph -> I e. Fin ) $.
     plyretail.s $e |- ( ph -> I C_ ( ZZ>= ` N ) ) $.
     plyretail.m $e |- ( ph -> M e. RR ) $.
-    plyretail.c $e |- ( ph -> A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w )
-      ) <_ M ) ) $.
+    plyretail.c $e |- ( ph ->
+      A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w ) ) <_ M ) ) $.
     plyretail.z $e |- ( ph -> Z e. CC ) $.
     plyretail.l $e |- ( ph -> ( abs ` Z ) < R ) $.
     $( Bound a sum of absolute tail terms of a polynomial by an upper bound on
        its real part at a larger radius.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyretail $p |- ( ph -> sum_ j e. I ( abs ` ( ( ( coeff ` P ) ` j ) x. ( Z
-      ^ j ) ) ) <_ ( ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) x. ( ( ( ( abs ` Z )
-      / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) ) ) $=
+    plyretail $p |- ( ph ->
+      sum_ j e. I ( abs ` ( ( ( coeff ` P ) ` j ) x. ( Z ^ j ) ) ) <_
+      ( ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) x.
+        ( ( ( ( abs ` Z ) / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) ) ) $=
       ( cfv cv ccoe c2 cc0 cre cmin co cmul nnnn0d cr wcel 2re a1i cc cply plyf
       wf syl 0cnd ffvelcdmd recld resubcld remulcld c1 cabs cexp 0red cn0 coef3
       eqid 1nn0 abscld rpred reexpcld absge0d rpge0d expge0d mulge0d cle absidd
@@ -902060,17 +902601,19 @@ $)
     plyretrunc.r $e |- ( ph -> R e. RR+ ) $.
     plyretrunc.n $e |- ( ph -> N e. NN ) $.
     plyretrunc.m $e |- ( ph -> M e. RR ) $.
-    plyretrunc.c $e |- ( ph -> A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w
-      ) ) <_ M ) ) $.
+    plyretrunc.c $e |- ( ph ->
+      A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w ) ) <_ M ) ) $.
     plyretrunc.z $e |- ( ph -> Z e. CC ) $.
     plyretrunc.l $e |- ( ph -> ( abs ` Z ) < R ) $.
     $( Estimate the error of truncating a polynomial from its real part on a
        circle and its value at zero.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyretrunc $p |- ( ph -> ( abs ` ( ( P ` Z ) - sum_ j e. ( 0 ..^ N ) ( ( (
-      coeff ` P ) ` j ) x. ( Z ^ j ) ) ) ) <_ ( ( 2 x. ( M - ( Re ` ( P ` 0 )
-      ) ) ) x. ( ( ( ( abs ` Z ) / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) )
-      ) $=
+    plyretrunc $p |- ( ph ->
+      ( abs ` ( ( P ` Z ) -
+                sum_ j e. ( 0 ..^ N )
+                  ( ( ( coeff ` P ) ` j ) x. ( Z ^ j ) ) ) ) <_
+      ( ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) x.
+        ( ( ( ( abs ` Z ) / R ) ^ N ) / ( 1 - ( ( abs ` Z ) / R ) ) ) ) ) $=
       ( cc0 co cv wcel cfv cfzo ccoe cexp cmul csu cmin cabs cdgr caddc c1 cdiv
       c2 cre cle cfn fzofi a1i wa cn0 cc wf cply eqid coef3 syl adantr elfzonn0
       adantl ffvelcdmd expcld mulcld fsumcl cuz nnnn0d elfzouz eluznn0 cfz wceq
@@ -902110,8 +902653,8 @@ $)
     geotailmo.r $e |- ( ph -> B < 1 ) $.
     $( The tail of the geometric series increases with its real ratio between
        zero and one.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    geotailmo $p |- ( ph -> ( ( A ^ N ) / ( 1 - A ) ) <_ ( ( B ^ N ) / ( 1 - B
-      ) ) ) $=
+    geotailmo $p |- ( ph ->
+      ( ( A ^ N ) / ( 1 - A ) ) <_ ( ( B ^ N ) / ( 1 - B ) ) ) $=
       ( cexp co c1 cmin reexpcld clt wbr wcel cr 1red wb difrp syl2anc resubcld
       crp mpbid expge0d leexp1ad lesub2dd lediv12ad ) ABDKLCDKLMCNLZMBNLABDEGOA
       CDFGOACMPQZUKUERZJACSRMSRULUMUAFATCMUBUCUFAMBATEUDABDEGHUGABCDEFGHIUHABCM
@@ -902127,7 +902670,8 @@ $)
     fsumlintrans.v $e |- ( ( ph /\ ( i e. I /\ k e. J ) ) -> V e. CC ) $.
     $( Interchange finite weighted sums and collect their scalar factors.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumlintrans $p |- ( ph -> sum_ i e. I ( W x. sum_ k e. J ( A x. V ) ) =
+    fsumlintrans $p |- ( ph ->
+      sum_ i e. I ( W x. sum_ k e. J ( A x. V ) ) =
       sum_ k e. J ( A x. sum_ i e. I ( W x. V ) ) ) $=
       ( cmul co csu wcel wa adantr mulcld cv adantlr anassrs fsummulc2 sumeq2dv
       cfn cc mul12d eqtrd adantrl adantrr fsumcom anass1rs eqcomd 3eqtrd ) AEHF
@@ -902147,14 +902691,14 @@ $)
     fsumlinerr.v $e |- ( ( ph /\ ( i e. I /\ k e. J ) ) -> V e. CC ) $.
     fsumlinerr.f $e |- ( ( ph /\ i e. I ) -> F e. CC ) $.
     fsumlinerr.c $e |- ( ( ph /\ i e. I ) -> B e. RR ) $.
-    fsumlinerr.b $e |- ( ( ph /\ i e. I ) -> ( abs ` ( F - sum_ k e. J ( A x.
-      V ) ) ) <_ B ) $.
+    fsumlinerr.b $e |- ( ( ph /\ i e. I ) ->
+      ( abs ` ( F - sum_ k e. J ( A x. V ) ) ) <_ B ) $.
     fsumlinerr.z $e |- ( ( ph /\ k e. J ) -> sum_ i e. I ( W x. V ) = 0 ) $.
     $( Bound a finite weighted sum by the sum of the absolute weights times
        individual bounds on its terms.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fsumlinerr $p |- ( ph -> ( abs ` sum_ i e. I ( W x. F ) ) <_ sum_ i e. I (
-      ( abs ` W ) x. B ) ) $=
+    fsumlinerr $p |- ( ph ->
+      ( abs ` sum_ i e. I ( W x. F ) ) <_ sum_ i e. I ( ( abs ` W ) x. B ) ) $=
       ( co cmul csu cmin cabs cfv cle cc0 cv wcel wa cfn adantr adantlr anassrs
       cc mulcld fsumcl subdid sumeq2dv fsumsub eqtrd fsumlintrans oveq2d mul01d
       cuz wss wceq olcd sumz syl 3eqtrd subid1d fveq2d subcld fsumrecl remulcld
@@ -902176,21 +902720,23 @@ $)
     plyremom.r $e |- ( ph -> R e. RR+ ) $.
     plyremom.n $e |- ( ph -> N e. NN ) $.
     plyremom.m $e |- ( ph -> M e. RR ) $.
-    plyremom.c $e |- ( ph -> A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w )
-      ) <_ M ) ) $.
+    plyremom.c $e |- ( ph ->
+      A. w e. CC ( ( abs ` w ) = R -> ( Re ` ( P ` w ) ) <_ M ) ) $.
     plyremom.i $e |- ( ph -> I e. Fin ) $.
     plyremom.t $e |- ( ph -> T e. RR ) $.
     plyremom.l $e |- ( ph -> T < R ) $.
     plyremom.x $e |- ( ( ph /\ i e. I ) -> X e. CC ) $.
     plyremom.w $e |- ( ( ph /\ i e. I ) -> W e. CC ) $.
     plyremom.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plyremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. ( X ^
-      k ) ) = 0 ) $.
+    plyremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
     $( Estimate a weighted sum of polynomial values when the sample moments of
        low degree vanish.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyremom $p |- ( ph -> ( abs ` sum_ i e. I ( W x. ( P ` X ) ) ) <_ ( sum_
-      i e. I ( abs ` W ) x. ( ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) x. ( ( ( T /
-      R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
+    plyremom $p |- ( ph ->
+      ( abs ` sum_ i e. I ( W x. ( P ` X ) ) ) <_
+      ( sum_ i e. I ( abs ` W ) x.
+        ( ( 2 x. ( M - ( Re ` ( P ` 0 ) ) ) ) x.
+          ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
       ( cfv cmul co csu cabs c2 cc0 cre cmin cdiv cexp c1 cle cv ccoe cfzo wcel
       cfn fzofi a1i wa cn0 cc wf cply eqid syl adantr elfzonn0 adantl ffvelcdmd
       coef3 adantrr ad2antll expcld plyf 2re recld resubcld remulcld rerpdivcld
@@ -902248,8 +902794,10 @@ $)
     fsumwtpert.b $e |- ( ( ph /\ i e. I ) -> ( abs ` ( F - G ) ) <_ H ) $.
     $( Bound the effect of a uniform perturbation on a finite weighted sum.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumwtpert $p |- ( ph -> ( abs ` sum_ i e. I ( W x. F ) ) <_ ( ( abs `
-      sum_ i e. I ( W x. G ) ) + ( sum_ i e. I ( abs ` W ) x. H ) ) ) $=
+    fsumwtpert $p |- ( ph ->
+      ( abs ` sum_ i e. I ( W x. F ) ) <_
+      ( ( abs ` sum_ i e. I ( W x. G ) ) +
+        ( sum_ i e. I ( abs ` W ) x. H ) ) ) $=
       ( cmul co csu cabs cfv cmin abscld caddc cv mulcld fsumcl subcld readdcld
       wcel wa fsumrecl remulcld pncan3d fveq2d abstrid eqbrtrrd subdid sumeq2dv
       cle fsumsub eqtrd fsumabsweights leadd2dd letrd ) AFGCNOZBPZQRZFGDNOZBPZQ
@@ -902275,21 +902823,24 @@ $)
     plyapremom.t $e |- ( ph -> T e. RR ) $.
     plyapremom.g $e |- ( ph -> 0 <_ T ) $.
     plyapremom.l $e |- ( ph -> T < R ) $.
-    plyapremom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) -> ( w e. Y
-      /\ ( Re ` ( F ` w ) ) <_ M ) ) $.
+    plyapremom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) ->
+      ( w e. Y /\ ( Re ` ( F ` w ) ) <_ M ) ) $.
     plyapremom.x $e |- ( ( ph /\ i e. I ) -> X e. Y ) $.
     plyapremom.w $e |- ( ( ph /\ i e. I ) -> W e. CC ) $.
     plyapremom.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plyapremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. ( X
-      ^ k ) ) = 0 ) $.
-    plyapremom.a $e |- ( ph -> A. u e. RR+ E. q e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( q ` z ) - ( F ` z ) ) ) < u ) $.
+    plyapremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
+    plyapremom.a $e |- ( ph ->
+      A. u e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( q ` z ) - ( F ` z ) ) ) < u ) $.
     $( A real-part bound on a circle controls vanishing-moment sums of a
        function uniformly approximable by polynomials.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    plyapremom $p |- ( ph -> ( abs ` sum_ i e. I ( W x. ( F ` X ) ) ) <_ (
-      sum_ i e. I ( abs ` W ) x. ( ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) x. ( (
-      ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
+    plyapremom $p |- ( ph ->
+      ( abs ` sum_ i e. I ( W x. ( F ` X ) ) ) <_
+      ( sum_ i e. I ( abs ` W ) x.
+        ( ( 2 x. ( M - ( Re ` ( F ` 0 ) ) ) ) x.
+          ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
       ( ve vg cfv cmul co csu cabs c2 cc0 cmin cdiv cexp c1 caddc cv wcel wa cc
       cre wf adantr ffvelcdmd mulcld fsumcl abscld rexrd fsumrecl 2re a1i recld
       resubcld remulcld rerpdivcld nnnn0d reexpcld clt wbr crp divlt1lt syl2anc
@@ -902352,12 +902903,12 @@ $)
     fsumprodhom.b $e |- ( ( ph /\ i e. I ) -> B e. CC ) $.
     fsumprodhom.f $e |- ( ph -> F : CC --> CC ) $.
     fsumprodhom.z $e |- ( ph -> ( F ` 0 ) = 1 ) $.
-    fsumprodhom.h $e |- ( ph -> A. a e. CC A. b e. CC ( F ` ( a + b ) ) = ( (
-      F ` a ) x. ( F ` b ) ) ) $.
+    fsumprodhom.h $e |- ( ph ->
+      A. a e. CC A. b e. CC ( F ` ( a + b ) ) = ( ( F ` a ) x. ( F ` b ) ) ) $.
     $( A map from addition to multiplication carries a finite sum to a finite
        product.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fsumprodhom $p |- ( ph -> ( F ` sum_ i e. I B ) = prod_ i e. I ( F ` B ) )
-      $=
+    fsumprodhom $p |- ( ph ->
+      ( F ` sum_ i e. I B ) = prod_ i e. I ( F ` B ) ) $=
       ( cv cfv wceq fveq2d wcel cmul co cc vx vy vz csu cprod c0 csn cun sumeq1
       prodeq1 eqeq12d cc0 c1 sum0 a1i prod0 3eqtr4d wss cdif wa csb simpr caddc
       oveq1d cvv nfv nfcsb1v cfn adantr simprl ssfid vex simprr eldifbd simplrl
@@ -902387,8 +902938,8 @@ $)
     $( Exponentiating a finite sum of integer-weighted logarithms gives the
        corresponding product of integer powers.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    efwsum $p |- ( ph -> ( exp ` sum_ i e. I ( W x. L ) ) = prod_ i e. I ( F ^
-      W ) ) $=
+    efwsum $p |- ( ph ->
+      ( exp ` sum_ i e. I ( W x. L ) ) = prod_ i e. I ( F ^ W ) ) $=
       ( va vb co ce cfv cexp cv wcel cc wceq cmul csu cprod zcnd mulcld eff a1i
       wa wf cc0 c1 caddc wral efadd adantll ralrimiva fsumprodhom efexp syl2anc
       ef0 cz oveq1d eqtrd prodeq2dv ) ADFEUAMZBUBNODVENOZBUCDCFPMZBUCAVEBNDKLGA
@@ -902412,23 +902963,28 @@ $)
     elogremom.t $e |- ( ph -> T e. RR ) $.
     elogremom.g $e |- ( ph -> 0 <_ T ) $.
     elogremom.l $e |- ( ph -> T < R ) $.
-    elogremom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) -> ( w e. Y
-      /\ ( abs ` ( F ` w ) ) <_ ( exp ` M ) ) ) $.
+    elogremom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) ->
+      ( w e. Y /\ ( abs ` ( F ` w ) ) <_ ( exp ` M ) ) ) $.
     elogremom.x $e |- ( ( ph /\ i e. I ) -> X e. Y ) $.
     elogremom.w $e |- ( ( ph /\ i e. I ) -> W e. ZZ ) $.
     elogremom.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    elogremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. ( X ^
-      k ) ) = 0 ) $.
-    elogremom.e $e |- ( ph -> E. h e. ( CC ^m Y ) ( A. z e. Y ( exp ` ( h ` z
-      ) ) = ( F ` z ) /\ A. u e. RR+ E. q e. ( Poly ` CC ) A. z e. Y ( abs ` (
-      ( q ` z ) - ( h ` z ) ) ) < u ) ) $.
+    elogremom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
+    elogremom.e $e |- ( ph ->
+      E. h e. ( CC ^m Y )
+        ( A. z e. Y ( exp ` ( h ` z ) ) = ( F ` z ) /\
+          A. u e. RR+ E. q e. ( Poly ` CC ) A. z e. Y
+            ( abs ` ( ( q ` z ) - ( h ` z ) ) ) < u ) ) $.
     $( A polynomially approximable logarithm gives a bounded logarithm of the
        weighted product of the sampled function values.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    elogremom $p |- ( ph -> E. v e. CC ( ( exp ` v ) = prod_ i e. I ( ( F ` X
-      ) ^ W ) /\ ( abs ` v ) <_ ( sum_ i e. I ( abs ` W ) x. ( ( 2 x. ( M - (
-      log ` ( abs ` ( F ` 0 ) ) ) ) ) x. ( ( ( T / R ) ^ N ) / ( 1 - ( T / R )
-      ) ) ) ) ) ) $=
+    elogremom $p |- ( ph ->
+      E. v e. CC
+        ( ( exp ` v ) = prod_ i e. I ( ( F ` X ) ^ W ) /\
+          ( abs ` v ) <_
+          ( sum_ i e. I ( abs ` W ) x.
+            ( ( 2 x. ( M - ( log ` ( abs ` ( F ` 0 ) ) ) ) ) x.
+              ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) ) $=
       ( cv cfv ce wceq wral cmin co cabs clt wbr cc cply wrex crp wa cexp cprod
       csu c2 cc0 clog cmul cdiv c1 cle cmap fveqeq2 fveq2 breq1d anbi12d adantr
       wcel cfn cz adantlr zcnd wf simprl elmaprd ffvelcdmd mulcld fsumcl 2fveq3
@@ -902472,21 +903028,24 @@ $)
     plydiskmom.t $e |- ( ph -> T e. RR ) $.
     plydiskmom.g $e |- ( ph -> 0 <_ T ) $.
     plydiskmom.l $e |- ( ph -> T < R ) $.
-    plydiskmom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) -> ( abs ` (
-      F ` w ) ) <_ ( exp ` M ) ) $.
+    plydiskmom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) ->
+      ( abs ` ( F ` w ) ) <_ ( exp ` M ) ) $.
     plydiskmom.x $e |- ( ( ph /\ i e. I ) -> X e. CC ) $.
     plydiskmom.w $e |- ( ( ph /\ i e. I ) -> W e. ZZ ) $.
     plydiskmom.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plydiskmom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. ( X
-      ^ k ) ) = 0 ) $.
-    plydiskmom.a $e |- ( ph -> A. x e. CC ( ( abs ` x ) <_ R -> ( F ` x ) =/=
-      0 ) ) $.
+    plydiskmom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
+    plydiskmom.a $e |- ( ph ->
+      A. x e. CC ( ( abs ` x ) <_ R -> ( F ` x ) =/= 0 ) ) $.
     $( Bound a logarithm of a weighted product of values of a polynomial with
        no zeros on a disk.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plydiskmom $p |- ( ph -> E. v e. CC ( ( exp ` v ) = prod_ i e. I ( ( F ` X
-      ) ^ W ) /\ ( abs ` v ) <_ ( sum_ i e. I ( abs ` W ) x. ( ( 2 x. ( M - (
-      log ` ( abs ` ( F ` 0 ) ) ) ) ) x. ( ( ( T / R ) ^ N ) / ( 1 - ( T / R )
-      ) ) ) ) ) ) $=
+    plydiskmom $p |- ( ph ->
+      E. v e. CC
+        ( ( exp ` v ) = prod_ i e. I ( ( F ` X ) ^ W ) /\
+          ( abs ` v ) <_
+          ( sum_ i e. I ( abs ` W ) x.
+            ( ( 2 x. ( M - ( log ` ( abs ` ( F ` 0 ) ) ) ) ) x.
+              ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) ) $=
       ( vz vu vh vt vq cv cabs cfv cle wbr crab wss ssrab2 a1i cc0 fveq2 breq1d
       cc wceq 0cnd abs0 rpge0d eqbrtrid elrabd wa ce simprl abscld simprr eqled
       wcel jca adantr rpred clt ltled letrd simpr elrabrd plydiskelog elogremom
@@ -902528,8 +903087,8 @@ $)
     $( The modulus of a continuous nowhere-zero complex function on a compact
        space has a positive lower bound.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    cmpcnabssep $p |- ( ph -> E. v e. RR+ A. z e. X v <_ ( abs ` ( F ` z ) ) )
-      $=
+    cmpcnabssep $p |- ( ph ->
+      E. v e. RR+ A. z e. X v <_ ( abs ` ( F ` z ) ) ) $=
       ( cv cabs cfv crp wcel cc adantr ccom cle wbr wral wrex ccn cioo crn eqid
       co ctg abscn cnco sylancl wa cuni cnfldtopon toponunii cnf syl simpr wceq
       eleqtrd fvco3d ffvelcdmd absrpcld eqeltrd cmpcnposlb breq2d rexbidv mpbid
@@ -902541,12 +903100,12 @@ $)
   $}
 
   ${
-    $d A v x z $.  $d R v x z $.  $d J v $.  $d J x $.
+    $d A v x z $.  $d J v x $.  $d R v x z $.
     cncblcmp.j $e |- J = ( TopOpen ` CCfld ) $.
     $( A closed disk about an arbitrary complex center is compact in the
        complex topology.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cncblcmp $p |- ( ( A e. CC /\ R e. RR ) -> ( J |`t { z
-      e. CC | ( abs ` ( z - A ) ) <_ R } ) e. Comp ) $=
+    cncblcmp $p |- ( ( A e. CC /\ R e. RR ) ->
+      ( J |`t { z e. CC | ( abs ` ( z - A ) ) <_ R } ) e. Comp ) $=
       ( vx vv cc wcel cr wa cv cmin co cabs cfv cle wbr wceq abscld crab simpll
       crest ccmp ccld wral wrex ccom eqid cnmetdval adantlr simpr abssubd eqtrd
       breq1d rabbidva cxmet cmet cnmet metxmet mp1i simpl rexrd cnfldtopn blcld
@@ -902571,15 +903130,17 @@ $)
     apomit.d $e |- ( ph -> D e. RR+ ) $.
     apomit.f $e |- ( ( ph /\ z e. Y ) -> ( F ` z ) e. CC ) $.
     apomit.g $e |- ( ( ph /\ ( g e. K /\ z e. Y ) ) -> ( g ` z ) e. CC ) $.
-    apomit.s $e |- ( ( ph /\ z e. Y ) -> A. c e. S D <_ ( abs ` ( c - ( F ` z
-      ) ) ) ) $.
-    apomit.a $e |- ( ph -> A. u e. RR+ E. g e. K A. z e. Y ( abs ` ( ( g ` z )
-      - ( F ` z ) ) ) < u ) $.
+    apomit.s $e |- ( ( ph /\ z e. Y ) ->
+      A. c e. S D <_ ( abs ` ( c - ( F ` z ) ) ) ) $.
+    apomit.a $e |- ( ph ->
+      A. u e. RR+ E. g e. K A. z e. Y
+        ( abs ` ( ( g ` z ) - ( F ` z ) ) ) < u ) $.
     $( If a function stays uniformly separated from a set, its uniform
        approximants can be chosen to omit that set.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    apomit $p |- ( ph -> A. e e. RR+ E. q e. K A. z e. Y ( ( abs ` ( ( q ` z )
-      - ( F ` z ) ) ) < e /\ ( q ` z ) e/ S ) ) $=
+    apomit $p |- ( ph ->
+      A. e e. RR+ E. q e. K A. z e. Y
+        ( ( abs ` ( ( q ` z ) - ( F ` z ) ) ) < e /\ ( q ` z ) e/ S ) ) $=
       ( cv wbr wcel cfv cmin co cabs clt wnel wral wrex crp cle wceq rexralbidv
       cif breq2 adantr simpr ifcld rspcdva fveq1 fvoveq1d breq1d neleq1 anbi12d
       wa wb syl ralbidv simprl nfv nfra1 nfan cc simplll simplrl syl2anc subcld
@@ -902610,13 +903171,15 @@ $)
     cmpapnz.f $e |- ( ph -> F e. ( J Cn L ) ) $.
     cmpapnz.n $e |- ( ( ph /\ x e. Y ) -> ( F ` x ) =/= 0 ) $.
     cmpapnz.g $e |- ( ( ph /\ ( g e. K /\ z e. Y ) ) -> ( g ` z ) e. CC ) $.
-    cmpapnz.a $e |- ( ph -> A. u e. RR+ E. g e. K A. z e. Y ( abs ` ( ( g ` z
-      ) - ( F ` z ) ) ) < u ) $.
+    cmpapnz.a $e |- ( ph ->
+      A. u e. RR+ E. g e. K A. z e. Y
+        ( abs ` ( ( g ` z ) - ( F ` z ) ) ) < u ) $.
     $( On a compact space a continuous nowhere-zero function can be uniformly
        approximated by nowhere-zero members of its approximating family.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cmpapnz $p |- ( ph -> A. e e. RR+ E. q e. K A. z e. Y ( ( abs ` ( ( q ` z
-      ) - ( F ` z ) ) ) < e /\ ( q ` z ) =/= 0 ) ) $=
+    cmpapnz $p |- ( ph ->
+      A. e e. RR+ E. q e. K A. z e. Y
+        ( ( abs ` ( ( q ` z ) - ( F ` z ) ) ) < e /\ ( q ` z ) =/= 0 ) ) $=
       ( cfv vv vy vc cv cmin co cabs clt wbr cc0 csn wnel wral wrex crp wne cle
       wa cmpcnabssep wcel simprl cuni cc ccn wf simpll cnfldtopon toponunii cnf
       eqid 3syl wceq syl eleqtrd ffvelcdmd adantlr 2fveq3 breq2d simplrr adantr
@@ -902641,8 +903204,8 @@ $)
     $( The modulus of the principal logarithm of one minus a point of the open
        unit disk is bounded by minus the logarithm of one minus its modulus.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    log1maj $p |- ( ph -> ( abs ` ( log ` ( 1 - Z ) ) ) <_ -u ( log ` ( 1 - (
-      abs ` Z ) ) ) ) $=
+    log1maj $p |- ( ph ->
+      ( abs ` ( log ` ( 1 - Z ) ) ) <_ -u ( log ` ( 1 - ( abs ` Z ) ) ) ) $=
       ( vk c1 co cfv cabs wceq syl cn cexp cdiv eqid cc wcel clt wbr oveq12d vj
       cmin clog cneg cle 1cnd subcld wne abscld ltned abs1 a1i neeqtrrd necon3i
       fveq2 necomd subne0d logcld absnegd cv cmpt cuz caddc cli logtayl syl2anc
@@ -902683,10 +903246,8 @@ $)
   ${
     abscartle.a $e |- ( ph -> A e. CC ) $.
     abscartle.b $e |- ( ph -> B e. CC ) $.
-    abscartle.r $e |- ( ph -> ( abs ` ( Re ` A ) ) <_ ( abs ` ( Re ` B ) ) )
-      $.
-    abscartle.i $e |- ( ph -> ( abs ` ( Im ` A ) ) <_ ( abs ` ( Im ` B ) ) )
-      $.
+    abscartle.r $e |- ( ph -> ( abs ` ( Re ` A ) ) <_ ( abs ` ( Re ` B ) ) ) $.
+    abscartle.i $e |- ( ph -> ( abs ` ( Im ` A ) ) <_ ( abs ` ( Im ` B ) ) ) $.
     $( Compare moduli of complex numbers with equal real parts by comparing the
        absolute values of their imaginary parts.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
@@ -902705,8 +903266,8 @@ $)
     $( The principal logarithm has the smallest modulus among the complex
        logarithms of a nonzero complex number.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    abslogefle $p |- ( A e. CC -> ( abs ` ( log ` ( exp ` A ) ) ) <_ ( abs ` A
-      ) ) $=
+    abslogefle $p |- ( A e. CC ->
+      ( abs ` ( log ` ( exp ` A ) ) ) <_ ( abs ` A ) ) $=
       ( cc wcel ce cfv clog cre cabs recnd abscld fveq2d cim cpi clt wbr cle wa
       cr imcld adantr efcl efne0 logcld id recld cc0 wne relog syl2anc relogefd
       wceq absef 3eqtrd eqled crn cneg simpl simpr pire a1i absltd mpbid simpld
@@ -902728,14 +903289,15 @@ $)
     logprodpert.a $e |- ( ( ph /\ i e. I ) -> A e. CC ) $.
     logprodpert.n $e |- ( ( ph /\ i e. I ) -> A =/= 0 ) $.
     logprodpert.b $e |- ( ( ph /\ i e. I ) -> B e. CC ) $.
-    logprodpert.c $e |- ( ( ph /\ i e. I ) -> ( abs ` ( 1 - ( ( exp ` B ) / A
-      ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $.
+    logprodpert.c $e |- ( ( ph /\ i e. I ) ->
+      ( abs ` ( 1 - ( ( exp ` B ) / A ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $.
     $( Bound the principal logarithm of a finite product using separate
        logarithms for its factors and a uniform perturbation estimate.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    logprodpert $p |- ( ph -> ( abs ` ( log ` prod_ i e. I ( A ^ W ) ) ) <_ (
-      ( abs ` sum_ i e. I ( W x. B ) ) + ( sum_ i e. I ( abs ` W ) x. E ) ) )
-      $=
+    logprodpert $p |- ( ph ->
+      ( abs ` ( log ` prod_ i e. I ( A ^ W ) ) ) <_
+      ( ( abs ` sum_ i e. I ( W x. B ) ) +
+        ( sum_ i e. I ( abs ` W ) x. E ) ) ) $=
       ( co clog cfv cabs cc wcel cexp cprod ce cdiv cmin cmul caddc cv wa efcld
       csu divcld efne0d divne0d logcld subcld wceq efsub syl2anc cc0 wne oveq2d
       ddcand 3eqtrd efwsum fveq2d zcnd mulcld fsumcl eqeltrrd fsumrecl remulcld
@@ -902758,8 +903320,8 @@ $)
     $( The modulus of one minus a quotient is the distance between numerator
        and denominator divided by the modulus of the denominator.  (Contributed
        by Zhi Wang, 26-Nov-2026.) $)
-    absreldif $p |- ( ph -> ( abs ` ( 1 - ( A / B ) ) ) = ( ( abs ` ( A - B )
-      ) / ( abs ` B ) ) ) $=
+    absreldif $p |- ( ph ->
+      ( abs ` ( 1 - ( A / B ) ) ) = ( ( abs ` ( A - B ) ) / ( abs ` B ) ) ) $=
       ( c1 cdiv co cmin cabs cfv 1cnd divcld abssubd cc wcel cc0 wne wceq divid
       w3a wa 3simpc syl eqcomd oveq2d divsubdir syld3an3 eqtr4d syl3anc absdivd
       fveq2d subcld 3eqtrd ) AGBCHIZJIKLUPGJIZKLBCJIZCHIZKLURKLCKLHIAGUPAMABCDE
@@ -902773,13 +903335,13 @@ $)
     absrelwin.d $e |- ( ph -> D e. RR+ ) $.
     absrelwin.e $e |- ( ph -> E e. RR+ ) $.
     absrelwin.l $e |- ( ph -> D <_ ( abs ` B ) ) $.
-    absrelwin.bnd $e |- ( ph -> ( abs ` ( A - B ) ) <_ ( ( 1 - ( exp ` -u E )
-      ) x. D ) ) $.
+    absrelwin.bnd $e |- ( ph ->
+      ( abs ` ( A - B ) ) <_ ( ( 1 - ( exp ` -u E ) ) x. D ) ) $.
     $( An absolute error bound and a positive lower bound for the denominator
        imply a relative error bound.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    absrelwin $p |- ( ph -> ( abs ` ( 1 - ( A / B ) ) ) <_ ( 1 - ( exp ` -u E
-      ) ) ) $=
+    absrelwin $p |- ( ph ->
+      ( abs ` ( 1 - ( A / B ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $=
       ( c1 co cabs cfv cc0 wbr clt wcel cr cdiv cmin cneg ce cle abscld rpgecld
       wne rpne0d wceq abs0 a1i neeqtrrd fveq2 necon3i syl absreldif cmul subcld
       crp rpgt0d rpred lt0neg2d mpbid wb renegcld 0re eflt sylancl ef0 breqtrdi
@@ -902798,12 +903360,12 @@ $)
     logabsreldif.x $e |- ( ph -> A =/= 0 ) $.
     logabsreldif.y $e |- ( ph -> B =/= 0 ) $.
     logabsreldif.e $e |- ( ph -> E e. RR ) $.
-    logabsreldif.r $e |- ( ph -> ( abs ` ( 1 - ( A / B ) ) ) <_ ( 1 - ( exp `
-      -u E ) ) ) $.
+    logabsreldif.r $e |- ( ph ->
+      ( abs ` ( 1 - ( A / B ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $.
     $( Small relative error bounds the change in the logarithm of the modulus.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    logabsreldif $p |- ( ph -> ( abs ` ( ( log ` ( abs ` A ) ) - ( log ` ( abs
-      ` B ) ) ) ) <_ E ) $=
+    logabsreldif $p |- ( ph ->
+      ( abs ` ( ( log ` ( abs ` A ) ) - ( log ` ( abs ` B ) ) ) ) <_ E ) $=
       ( cdiv co clog cfv cabs cle cc wcel fveq2d absrpcld cre cmin cc0 wne wceq
       divcld divne0d relog syl2anc absdivd relogdivd 3eqtrd logcld recld abscld
       recnd wbr absrele syl log1rad letrd eqbrtrrd ) ABCKLZMNZUANZONZBONZMNCONZ
@@ -902825,9 +903387,10 @@ $)
     $( An exponential, a growing integer power and two linear factors admit a
        uniform quadratic exponential bound when each parameter is controlled by
        the radius.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    eflinpowbnd $p |- ( ph -> ( ( 1 + H ) x. ( ( ( exp ` ( ( H + H ) x. P ) )
-      x. ( ( H + M ) ^ M ) ) x. Z ) ) <_ ( exp ` ( ; 1 1 x. ( H x. H ) ) ) )
-      $=
+    eflinpowbnd $p |- ( ph ->
+      ( ( 1 + H ) x.
+        ( ( ( exp ` ( ( H + H ) x. P ) ) x. ( ( H + M ) ^ M ) ) x. Z ) ) <_
+      ( exp ` ( ; 1 1 x. ( H x. H ) ) ) ) $=
       ( c1 co cmul ce c2 cle caddc cfv cexp c9 cdc cn0 wcel a1i nn0red remulcld
       2nn0 9nn0 1nn0 readdcld reefcld reexpcld nn0ge0d cc0 letrd addge0d releef
       0red wbr 1le2 recnd mullidd breqtrrd leidd leaddfactor wceq 1p1e2 breqtrd
@@ -902873,10 +903436,13 @@ $)
     $( Bound the sum of two finite-approximation envelopes by a quadratic
        exponential, uniformly in a nonnegative integer order at most twice the
        radius.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    eflinfinbnd $p |- ( ph -> ( ( ( 1 + H ) x. ( M x. ( exp ` ( ( 1 + H ) x. (
-      L + ( ( A + M ) + M ) ) ) ) ) ) + ( M x. ( ( 2 ^ M ) x. ( exp ` ( ( 1 +
-      H ) x. ( L + ( ( A + M ) + M ) ) ) ) ) ) ) <_ ( exp ` ( ; 3 3 x. ( H x.
-      H ) ) ) ) $=
+    eflinfinbnd $p |- ( ph ->
+      ( ( ( 1 + H ) x.
+          ( M x. ( exp ` ( ( 1 + H ) x. ( L + ( ( A + M ) + M ) ) ) ) ) ) +
+        ( M x.
+          ( ( 2 ^ M ) x.
+            ( exp ` ( ( 1 + H ) x. ( L + ( ( A + M ) + M ) ) ) ) ) ) ) <_
+      ( exp ` ( ; 3 3 x. ( H x. H ) ) ) ) $=
       ( c1 co cmul c2 cle caddc ce cfv cexp c6 cdc c3 wcel 1nn0 nn0red readdcld
       cn0 a1i remulcld reefcld 2nn0 reexpcld 16nn0 nn0ge0d wbr letrd lemulge12d
       1le2 0red c4 4nn0 deccl addge0d releef recnd mullidd breqtrrd leaddfactor
@@ -902932,8 +903498,9 @@ $)
        disks of sufficiently large integer radius, uniformly over positive
        parameters controlled by that radius and its logarithmic bound.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzregquad $p |- ( ph -> ( abs ` ( ( S - 1 ) x. ( A HurZ S ) ) ) <_ ( exp
-      ` ( ; 4 5 x. ( H x. H ) ) ) ) $=
+    hurzregquad $p |- ( ph ->
+      ( abs ` ( ( S - 1 ) x. ( A HurZ S ) ) ) <_
+      ( exp ` ( ; 4 5 x. ( H x. H ) ) ) ) $=
       ( c1 co cmul caddc c2 wcel vk cmin churz cabs cfv cdc c3 ce c4 c5 cle cpi
       cexp cn cv cneg ccxp csu clog cc csn eldifad 1cnd subcld cmnf cc0 cioc cr
       cdif crp wi rpcnd eqid ellogdm sylanbrc hurzf fovcl syl2anc mulcld abscld
@@ -902970,8 +903537,9 @@ $)
     abslogefsub.b $e |- ( ph -> B e. CC ) $.
     $( Bound the principal logarithm after subtracting a complex perturbation
        from the exponent.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    abslogefsub $p |- ( ph -> ( abs ` ( log ` ( exp ` ( A - B ) ) ) ) <_ ( (
-      abs ` ( log ` ( exp ` A ) ) ) + ( abs ` B ) ) ) $=
+    abslogefsub $p |- ( ph ->
+      ( abs ` ( log ` ( exp ` ( A - B ) ) ) ) <_
+      ( ( abs ` ( log ` ( exp ` A ) ) ) + ( abs ` B ) ) ) $=
       ( cmin co cfv clog cabs subcld efcld efne0d abscld cdiv wcel wceq syl2anc
       ce cc caddc logcld readdcld cle cc0 wne eflog oveq1d efsub 3eqtr4d fveq2d
       wbr abslogefle syl eqbrtrrd abs2dif2d letrd ) ABCFGZSHZIHZJHZBSHZIHZCFGZJ
@@ -902990,13 +903558,14 @@ $)
     fprodlogpert.x $e |- ( ( ph /\ i e. I ) -> A =/= 0 ) $.
     fprodlogpert.b $e |- ( ( ph /\ i e. I ) -> B e. CC ) $.
     fprodlogpert.y $e |- ( ( ph /\ i e. I ) -> B =/= 0 ) $.
-    fprodlogpert.r $e |- ( ( ph /\ i e. I ) -> ( abs ` ( 1 - ( B / A ) ) ) <_
-      ( 1 - ( exp ` -u E ) ) ) $.
+    fprodlogpert.r $e |- ( ( ph /\ i e. I ) ->
+      ( abs ` ( 1 - ( B / A ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $.
     $( Bound the change in the modulus of the principal logarithm of a finite
        product of integer powers.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    fprodlogpert $p |- ( ph -> ( abs ` ( log ` prod_ i e. I ( A ^ W ) ) ) <_ (
-      ( abs ` ( log ` prod_ i e. I ( B ^ W ) ) ) + ( sum_ i e. I ( abs ` W )
-      x. E ) ) ) $=
+    fprodlogpert $p |- ( ph ->
+      ( abs ` ( log ` prod_ i e. I ( A ^ W ) ) ) <_
+      ( ( abs ` ( log ` prod_ i e. I ( B ^ W ) ) ) +
+        ( sum_ i e. I ( abs ` W ) x. E ) ) ) $=
       ( co clog cfv cabs ce cexp cprod cdiv cmul csu caddc cmin cc cv wa logcld
       wcel divcld divne0d subcld wceq efsub syl2anc cc0 wne eflog ddcand 3eqtrd
       oveq12d efwsum fveq2d mulcld fsumcl efcld efne0d eqeltrrd abscld readdcld
@@ -903029,29 +903598,32 @@ $)
     plydiskpert.t $e |- ( ph -> T e. RR ) $.
     plydiskpert.g $e |- ( ph -> 0 <_ T ) $.
     plydiskpert.l $e |- ( ph -> T < R ) $.
-    plydiskpert.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) -> ( abs `
-      ( F ` w ) ) <_ ( exp ` M ) ) $.
+    plydiskpert.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) ->
+      ( abs ` ( F ` w ) ) <_ ( exp ` M ) ) $.
     plydiskpert.x $e |- ( ( ph /\ i e. I ) -> X e. CC ) $.
     plydiskpert.w $e |- ( ( ph /\ i e. I ) -> W e. ZZ ) $.
     plydiskpert.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plydiskpert.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. ( X
-      ^ k ) ) = 0 ) $.
+    plydiskpert.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
     plydiskpert.p $e |- ( ph -> P e. ( Poly ` S ) ) $.
-    plydiskpert.u $e |- ( ph -> A. x e. CC ( ( abs ` x ) <_ R -> ( P ` x ) =/=
-      0 ) ) $.
+    plydiskpert.u $e |- ( ph ->
+      A. x e. CC ( ( abs ` x ) <_ R -> ( P ` x ) =/= 0 ) ) $.
     plydiskpert.e $e |- ( ph -> E e. RR ) $.
-    plydiskpert.f $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) -> ( F ` z
-      ) e. CC ) $.
-    plydiskpert.v $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) -> ( F ` z
-      ) =/= 0 ) $.
-    plydiskpert.h $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) -> ( abs `
-      ( 1 - ( ( P ` z ) / ( F ` z ) ) ) ) <_ ( 1 - ( exp ` -u E ) ) ) $.
+    plydiskpert.f $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) ->
+      ( F ` z ) e. CC ) $.
+    plydiskpert.v $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) ->
+      ( F ` z ) =/= 0 ) $.
+    plydiskpert.h $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) ->
+      ( abs ` ( 1 - ( ( P ` z ) / ( F ` z ) ) ) ) <_
+      ( 1 - ( exp ` -u E ) ) ) $.
     $( Transfer the logarithmic product estimate for a polynomial on a disk to
        a uniformly close function.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plydiskpert $p |- ( ph -> ( abs ` ( log ` prod_ i e. I ( ( F ` X ) ^ W ) )
-      ) <_ ( ( sum_ i e. I ( abs ` W ) x. ( ( 2 x. ( ( M + E ) - ( ( log ` (
-      abs ` ( F ` 0 ) ) ) - E ) ) ) x. ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) )
-      ) ) ) + ( sum_ i e. I ( abs ` W ) x. E ) ) ) $=
+    plydiskpert $p |- ( ph ->
+      ( abs ` ( log ` prod_ i e. I ( ( F ` X ) ^ W ) ) ) <_
+      ( ( sum_ i e. I ( abs ` W ) x.
+          ( ( 2 x. ( ( M + E ) - ( ( log ` ( abs ` ( F ` 0 ) ) ) - E ) ) ) x.
+            ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) +
+        ( sum_ i e. I ( abs ` W ) x. E ) ) ) $=
       ( vv cfv cexp co cprod clog cabs csu cmul caddc c2 cc0 cmin cdiv c1 cv wa
       wcel cle wbr cc abscld cr adantr crp rpred clt ltled letrd wi wceq breq1d
       eleq1d imbi12d wral expr ralrimiva rspcdva mpd wne neeq1d expclzd fprodcl
@@ -903119,8 +903691,8 @@ $)
   ${
     $( One minus the exponential of a negative real number lies strictly
        between zero and one.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    efnegwidth $p |- ( E e. RR+ -> ( ( 1 - ( exp ` -u E ) ) e. RR+ /\ ( 1 - (
-      exp ` -u E ) ) < 1 ) ) $=
+    efnegwidth $p |- ( E e. RR+ ->
+      ( ( 1 - ( exp ` -u E ) ) e. RR+ /\ ( 1 - ( exp ` -u E ) ) < 1 ) ) $=
       ( crp wcel c1 cneg ce cfv cmin co clt wbr rpgt0 rpre lt0neg2d mpbid cr wb
       cc0 renegcld syl2anc 0red eflt ef0 breqtrdi reefcld 1red difrp 1cnd efgt0
       subidd syl eqbrtrd ltsub23d jca ) ABCZDAEFGZHIZBCZUQDJKUOUPDJKZURUOUPRFGZ
@@ -903154,26 +903726,29 @@ $)
     plyapdiskmom.t $e |- ( ph -> T e. RR ) $.
     plyapdiskmom.g $e |- ( ph -> 0 <_ T ) $.
     plyapdiskmom.l $e |- ( ph -> T < R ) $.
-    plyapdiskmom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) -> ( abs `
-      ( F ` w ) ) <_ ( exp ` M ) ) $.
+    plyapdiskmom.c $e |- ( ( ph /\ ( w e. CC /\ ( abs ` w ) = R ) ) ->
+      ( abs ` ( F ` w ) ) <_ ( exp ` M ) ) $.
     plyapdiskmom.x $e |- ( ( ph /\ i e. I ) -> X e. CC ) $.
     plyapdiskmom.w $e |- ( ( ph /\ i e. I ) -> W e. ZZ ) $.
     plyapdiskmom.b $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plyapdiskmom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) -> sum_ i e. I ( W x. (
-      X ^ k ) ) = 0 ) $.
+    plyapdiskmom.z $e |- ( ( ph /\ k e. ( 0 ..^ N ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
     plyapdiskmom.d $e |- ( ph -> D e. RR+ ) $.
-    plyapdiskmom.f $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) -> ( F `
-      z ) e. CC ) $.
-    plyapdiskmom.v $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) -> D <_ (
-      abs ` ( F ` z ) ) ) $.
-    plyapdiskmom.a $e |- ( ph -> A. u e. RR+ E. g e. ( Poly ` CC ) A. a e. { t
-      e. CC | ( abs ` t ) <_ R } ( abs ` ( ( g ` a ) - ( F ` a ) ) ) < u ) $.
+    plyapdiskmom.f $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) ->
+      ( F ` z ) e. CC ) $.
+    plyapdiskmom.v $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) <_ R ) ) ->
+      D <_ ( abs ` ( F ` z ) ) ) $.
+    plyapdiskmom.a $e |- ( ph ->
+      A. u e. RR+ E. g e. ( Poly ` CC ) A. a e. { t e. CC | ( abs ` t ) <_ R }
+        ( abs ` ( ( g ` a ) - ( F ` a ) ) ) < u ) $.
     $( Bound the principal logarithm of an integer-weighted product of values
        of a uniformly polynomially approximable function bounded away from zero
        on a disk.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapdiskmom $p |- ( ph -> ( abs ` ( log ` prod_ i e. I ( ( F ` X ) ^ W )
-      ) ) <_ ( sum_ i e. I ( abs ` W ) x. ( ( 2 x. ( M - ( log ` ( abs ` ( F `
-      0 ) ) ) ) ) x. ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
+    plyapdiskmom $p |- ( ph ->
+      ( abs ` ( log ` prod_ i e. I ( ( F ` X ) ^ W ) ) ) <_
+      ( sum_ i e. I ( abs ` W ) x.
+        ( ( 2 x. ( M - ( log ` ( abs ` ( F ` 0 ) ) ) ) ) x.
+          ( ( ( T / R ) ^ N ) / ( 1 - ( T / R ) ) ) ) ) ) $=
       ( ve cfv cexp co cprod clog cabs csu c2 cc0 cmin cmul cdiv c1 caddc cv wa
       wcel cle wbr cc abscld cr adantr crp rpred clt ltled letrd wi wceq breq1d
       fveq2 eleq1d imbi12d wral ralrimiva rspcdva mpd wne 2fveq3 breq2d rpgecld
@@ -903234,8 +903809,9 @@ $)
     radtailcan.k $e |- ( ph -> K e. NN0 ) $.
     $( Cancel powers of the radius in a geometric remainder bound.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    radtailcan $p |- ( ph -> ( ( R ^ K ) x. ( ( ( T / R ) ^ ( K + 1 ) ) / ( 1
-      - ( T / R ) ) ) ) = ( ( T ^ ( K + 1 ) ) / ( R - T ) ) ) $=
+    radtailcan $p |- ( ph ->
+      ( ( R ^ K ) x. ( ( ( T / R ) ^ ( K + 1 ) ) / ( 1 - ( T / R ) ) ) ) =
+      ( ( T ^ ( K + 1 ) ) / ( R - T ) ) ) $=
       ( cexp co cdiv c1 caddc cmin cmul oveq1d oveq12d eqtrd cneg cn0 wcel 1nn0
       a1i nn0addcld expdivd dividd eqcomd divsubdird eqtr4d expcld subcld nn0zd
       expne0d subne0d expp1d negsubd oveq2d mulcld negcld adddid mulassd negeqd
@@ -903266,13 +903842,15 @@ $)
     radmomdec.r $e |- ( ph -> R e. RR+ ) $.
     radmomdec.l $e |- ( ph -> T < R ) $.
     radmomdec.k $e |- ( ph -> K e. NN0 ) $.
-    radmomdec.b $e |- ( ph -> A <_ ( S x. ( ( 2 x. M ) x. ( ( ( T / R ) ^ ( K
-      + 1 ) ) / ( 1 - ( T / R ) ) ) ) ) ) $.
+    radmomdec.b $e |- ( ph ->
+      A <_ ( S x.
+             ( ( 2 x. M ) x.
+               ( ( ( T / R ) ^ ( K + 1 ) ) / ( 1 - ( T / R ) ) ) ) ) ) $.
     radmomdec.h $e |- ( ph -> M <_ ( C x. ( R ^ K ) ) ) $.
     $( Convert a disk estimate with polynomial growth into an estimate
        decreasing with the radius.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    radmomdec $p |- ( ph -> ( A x. ( R - T ) ) <_ ( ( S x. ( 2 x. C ) ) x. ( T
-      ^ ( K + 1 ) ) ) ) $=
+    radmomdec $p |- ( ph ->
+      ( A x. ( R - T ) ) <_ ( ( S x. ( 2 x. C ) ) x. ( T ^ ( K + 1 ) ) ) ) $=
       ( cmin co cmul c2 c1 caddc cexp cle wbr cdiv wcel 2re remulcld rerpdivcld
       cr a1i cn0 1nn0 nn0addcld reexpcld clt crp wb divlt1lt syl2anc 1red difrp
       mpbird mpbid rpred divge0d expge0d cc0 0le2 lemul2ad lemul1ad letrd rpcnd
@@ -903304,8 +903882,8 @@ $)
     reunbaff.a $e |- ( ph -> A e. RR ) $.
     reunbaff.c $e |- ( ph -> C e. RR ) $.
     reunbaff.t $e |- ( ph -> T e. RR ) $.
-    reunbaff.u $e |- ( ( ph /\ v e. RR ) -> E. x e. RR ( v < x /\ ( A x. ( x -
-      T ) ) <_ C ) ) $.
+    reunbaff.u $e |- ( ( ph /\ v e. RR ) ->
+      E. x e. RR ( v < x /\ ( A x. ( x - T ) ) <_ C ) ) $.
     $( If a fixed upper bound bounds a linear function of an unbounded real
        parameter, its slope is nonpositive.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
@@ -903333,8 +903911,8 @@ $)
     $( A continuous nowhere-zero function stays uniformly away from zero on a
        compact restriction of its domain.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    cmpresabssep $p |- ( ph -> E. v e. RR+ A. z e. Y v <_ ( abs ` ( F ` z ) )
-      ) $=
+    cmpresabssep $p |- ( ph ->
+      E. v e. RR+ A. z e. Y v <_ ( abs ` ( F ` z ) ) ) $=
       ( cv cfv cabs cle crp wcel cres wbr wral wrex crest co ctop cuni wss wceq
       restuni syl2anc ccn cnrest wa cc0 simpr fvresd eqnetrd cmpcnabssep fveq2d
       eqid breq2d ralbidva rexbidv mpbid ) ADOCOEHUAZPZQPZRUBZCHUCZDSUDDOCOEPZQ
@@ -903347,13 +903925,14 @@ $)
     $d F v x z $.  $d R t v x z $.  $d ph t v x z $.
     cndiskmin.r $e |- ( ph -> R e. RR ) $.
     cndiskmin.f $e |- ( ph -> F e. ( CC -cn-> CC ) ) $.
-    cndiskmin.n $e |- ( ( ph /\ x e. { t e. CC | ( abs ` t ) <_ R } ) -> ( F `
-      x ) =/= 0 ) $.
+    cndiskmin.n $e |- ( ( ph /\ x e. { t e. CC | ( abs ` t ) <_ R } ) ->
+      ( F ` x ) =/= 0 ) $.
     $( A continuous nowhere-zero complex function has a positive lower bound
        for its modulus on each closed disk about zero.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    cndiskmin $p |- ( ph -> E. v e. RR+ A. z e. { t e. CC | ( abs ` t ) <_ R }
-      v <_ ( abs ` ( F ` z ) ) ) $=
+    cndiskmin $p |- ( ph ->
+      E. v e. RR+ A. z e. { t e. CC | ( abs ` t ) <_ R }
+        v <_ ( abs ` ( F ` z ) ) ) $=
       ( cfv cabs cle wbr cc crab wcel cc0 co crest ccnfld cv eqid ctop cnfldtop
       ctopn a1i cuni ssrab2 unicntop sseqtrdi cmin ccmp wa simpr subid1d fveq2d
       wss breq1d rabbidva oveq2d cr cncblcmp syl2anc eqeltrrd ccncf ccn cncfcn1
@@ -903378,12 +903957,13 @@ $)
     plyapmomid.z $e |- ( ph -> A. y e. CC ( F ` y ) =/= 0 ) $.
     plyapmomid.u $e |- ( ph -> U C_ RR+ ) $.
     plyapmomid.a $e |- ( ph -> A. y e. RR E. r e. U y < r ) $.
-    plyapmomid.p $e |- ( ( ph /\ r e. U ) -> A. u e. RR+ E. g e. ( Poly ` CC )
-      A. a e. { t e. CC | ( abs ` t ) <_ r } ( abs ` ( ( g ` a ) - ( F ` a ) )
-      ) < u ) $.
-    plyapmomid.b $e |- ( ( ( ph /\ r e. U ) /\ ( w e. CC /\ ( abs ` w ) = r )
-      ) -> ( abs ` ( F ` w ) ) <_ ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) + (
-      C x. ( r ^ K ) ) ) ) ) $.
+    plyapmomid.p $e |- ( ( ph /\ r e. U ) ->
+      A. u e. RR+ E. g e. ( Poly ` CC ) A. a e. { t e. CC | ( abs ` t ) <_ r }
+        ( abs ` ( ( g ` a ) - ( F ` a ) ) ) < u ) $.
+    plyapmomid.b $e |- ( ( ( ph /\ r e. U ) /\
+                           ( w e. CC /\ ( abs ` w ) = r ) ) ->
+      ( abs ` ( F ` w ) ) <_
+      ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) + ( C x. ( r ^ K ) ) ) ) ) $.
     plyapmomid.c $e |- ( ph -> C e. RR ) $.
     plyapmomid.k $e |- ( ph -> K e. NN0 ) $.
     plyapmomid.i $e |- ( ph -> I e. Fin ) $.
@@ -903392,8 +903972,8 @@ $)
     plyapmomid.x $e |- ( ( ph /\ i e. I ) -> X e. CC ) $.
     plyapmomid.w $e |- ( ( ph /\ i e. I ) -> W e. ZZ ) $.
     plyapmomid.l $e |- ( ( ph /\ i e. I ) -> ( abs ` X ) <_ T ) $.
-    plyapmomid.m $e |- ( ( ph /\ k e. ( 0 ..^ ( K + 1 ) ) ) -> sum_ i e. I ( W
-      x. ( X ^ k ) ) = 0 ) $.
+    plyapmomid.m $e |- ( ( ph /\ k e. ( 0 ..^ ( K + 1 ) ) ) ->
+      sum_ i e. I ( W x. ( X ^ k ) ) = 0 ) $.
     $( Under finite exponential growth on unbounded radii, integer weights
        annihilating the low-degree moments give an exact product identity for a
        nowhere-zero uniformly polynomially approximable function.  (Contributed
@@ -903453,10 +904033,13 @@ $)
     bcpowmomrec.k $e |- ( ph -> K e. NN0 ) $.
     $( Recurrence for alternating binomial sums of powers of shifted integers.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    bcpowmomrec $p |- ( ph -> sum_ i e. ( 0 ... ( N + 1 ) ) ( ( ( -u 1 ^ i )
-      x. ( ( N + 1 ) _C i ) ) x. ( ( B + i ) ^ K ) ) = -u sum_ j e. ( 0 ..^ K
-      ) ( ( K _C j ) x. sum_ i e. ( 0 ... N ) ( ( ( -u 1 ^ i ) x. ( N _C i ) )
-      x. ( ( B + i ) ^ j ) ) ) ) $=
+    bcpowmomrec $p |- ( ph ->
+      sum_ i e. ( 0 ... ( N + 1 ) )
+        ( ( ( -u 1 ^ i ) x. ( ( N + 1 ) _C i ) ) x. ( ( B + i ) ^ K ) ) =
+      -u sum_ j e. ( 0 ..^ K )
+           ( ( K _C j ) x.
+             sum_ i e. ( 0 ... N )
+               ( ( ( -u 1 ^ i ) x. ( N _C i ) ) x. ( ( B + i ) ^ j ) ) ) ) $=
       ( cc0 c1 co cexp cmul csu cmin wcel cn0 wceq adantr caddc cfz cneg cv cbc
       cfzo ccxp wa cc elfznn0 adantl nn0cnd addcld cxpexp syl2anc oveq2d eqcomd
       sumeq2dv cxpbindifp1 syl3anc 1cnd oveq12d 3eqtrd fzfid negcld expcld bccl
@@ -903488,8 +904071,9 @@ $)
     bcpowmom0.k $e |- ( ph -> K e. ( 0 ..^ N ) ) $.
     $( Alternating binomial weights of order N annihilate every shifted power
        of degree less than N. (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    bcpowmom0 $p |- ( ph -> sum_ i e. ( 0 ... N ) ( ( ( -u 1 ^ i ) x. ( N _C i
-      ) ) x. ( ( B + i ) ^ K ) ) = 0 ) $=
+    bcpowmom0 $p |- ( ph ->
+      sum_ i e. ( 0 ... N )
+        ( ( ( -u 1 ^ i ) x. ( N _C i ) ) x. ( ( B + i ) ^ K ) ) = 0 ) $=
       ( vk vj cc0 co cv cbc cmul csu wceq cfzo oveq2 wcel vn vm cneg cexp caddc
       cfz oveq2d sumeq2sdv eqeq1d cn0 wral sumeq1d oveq1 oveq1d eqtrd raleqbidv
       c1 c0 ral0 a1i fzo0 raleqtrrdv wa nfv nfra1 cc ad3antrrr simpllr elfzonn0
@@ -903529,8 +904113,10 @@ $)
     $( Alternating binomial weights annihilate powers of degree less than their
        order on any complex arithmetic progression.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    bcaffmom0 $p |- ( ph -> sum_ i e. ( 0 ... N ) ( ( ( -u 1 ^ i ) x. ( N _C i
-      ) ) x. ( ( A + ( H x. i ) ) ^ K ) ) = 0 ) $=
+    bcaffmom0 $p |- ( ph ->
+      sum_ i e. ( 0 ... N )
+        ( ( ( -u 1 ^ i ) x. ( N _C i ) ) x. ( ( A + ( H x. i ) ) ^ K ) ) =
+      0 ) $=
       ( cc0 co c1 cexp cmul caddc wcel eqtrd cc adantr cfz cneg cv cbc csu wceq
       wa simplr oveq1d cn0 elfznn0 adantl nn0cnd mul02d oveq2d ad2antrr addridd
       sumeq2dv fzfid cfzo elfzonn0 syl expcld 1cnd negcld cz nn0zd bccl syl2anc
@@ -903568,12 +904154,13 @@ $)
     plyapbcprod.z $e |- ( ph -> A. y e. CC ( F ` y ) =/= 0 ) $.
     plyapbcprod.u $e |- ( ph -> U C_ RR+ ) $.
     plyapbcprod.a $e |- ( ph -> A. y e. RR E. r e. U y < r ) $.
-    plyapbcprod.p $e |- ( ( ph /\ r e. U ) -> A. u e. RR+ E. g e. ( Poly ` CC
-      ) A. a e. { t e. CC | ( abs ` t ) <_ r } ( abs ` ( ( g ` a ) - ( F ` a )
-      ) ) < u ) $.
-    plyapbcprod.b $e |- ( ( ( ph /\ r e. U ) /\ ( w e. CC /\ ( abs ` w ) = r )
-      ) -> ( abs ` ( F ` w ) ) <_ ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) + (
-      C x. ( r ^ K ) ) ) ) ) $.
+    plyapbcprod.p $e |- ( ( ph /\ r e. U ) ->
+      A. u e. RR+ E. g e. ( Poly ` CC ) A. a e. { t e. CC | ( abs ` t ) <_ r }
+        ( abs ` ( ( g ` a ) - ( F ` a ) ) ) < u ) $.
+    plyapbcprod.b $e |- ( ( ( ph /\ r e. U ) /\
+                            ( w e. CC /\ ( abs ` w ) = r ) ) ->
+      ( abs ` ( F ` w ) ) <_
+      ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) + ( C x. ( r ^ K ) ) ) ) ) $.
     plyapbcprod.c $e |- ( ph -> C e. RR ) $.
     plyapbcprod.k $e |- ( ph -> K e. NN0 ) $.
     plyapbcprod.s $e |- ( ph -> A e. CC ) $.
@@ -903581,8 +904168,10 @@ $)
     $( A nowhere-zero function satisfying the disk approximation and growth
        hypotheses has alternating binomial product one on every complex
        arithmetic progression.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapbcprod $p |- ( ph -> prod_ i e. ( 0 ... ( K + 1 ) ) ( ( F ` ( A + ( H
-      x. i ) ) ) ^ ( ( -u 1 ^ i ) x. ( ( K + 1 ) _C i ) ) ) = 1 ) $=
+    plyapbcprod $p |- ( ph ->
+      prod_ i e. ( 0 ... ( K + 1 ) )
+        ( ( F ` ( A + ( H x. i ) ) ) ^
+          ( ( -u 1 ^ i ) x. ( ( K + 1 ) _C i ) ) ) = 1 ) $=
       ( vk cabs cfv c1 caddc co cmul cc0 cfz cneg cv cexp cbc fzfid abscld wcel
       cn0 1nn0 a1i nn0addcld nn0red remulcld absge0d nn0ge0d mulge0d addge0d wa
       readdcld cc adantr elfznn0 adantl nn0cnd mulcld addcld nn0zd m1expcl bccl
@@ -903606,15 +904195,16 @@ $)
     climfprodf.m $e |- ( ph -> M e. ZZ ) $.
     climfprodf.i $e |- ( ph -> I e. Fin ) $.
     climfprodf.l $e |- ( ( ph /\ i e. I ) -> ( F ` i ) ~~> ( L ` i ) ) $.
-    climfprodf.n $e |- ( ( ph /\ ( i e. I /\ n e. ( ZZ>= ` M ) ) ) -> ( ( F `
-      i ) ` n ) e. CC ) $.
+    climfprodf.n $e |- ( ( ph /\ ( i e. I /\ n e. ( ZZ>= ` M ) ) ) ->
+      ( ( F ` i ) ` n ) e. CC ) $.
     $d F w $.  $d I w $.  $d L w $.  $d M w $.  $d i w $.  $d n w $.
     $d ph w $.  $d w y $.  $d w z $.
     $( The pointwise finite product of convergent complex sequences converges
        to the product of their limits.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    climfprodf $p |- ( ph -> ( n e. ( ZZ>= ` M ) |-> prod_ i e. I ( ( F ` i )
-      ` n ) ) ~~> prod_ i e. I ( L ` i ) ) $=
+    climfprodf $p |- ( ph ->
+      ( n e. ( ZZ>= ` M ) |-> prod_ i e. I ( ( F ` i ) ` n ) ) ~~>
+      prod_ i e. I ( L ` i ) ) $=
       ( vy vz vw cfv cv cli wceq cc wcel vx cuz cprod cmpt wbr csn cun mpteq2dv
       c0 prodeq1 breq12d c1 fconstmpt cz 1cnd ssid climconst2 syl2anc eqbrtrrid
       cxp fvex prod0 a1i 3brtr4d wss cdif wa cmul co cvv simpll syl simpr mptex
@@ -903661,17 +904251,13 @@ $)
     climexpmptz.a $e |- ( ph -> A =/= 0 ) $.
     climexpmptz.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) =/= 0 ) $.
     climexpmptz.i $e |- ( ph -> N e. ZZ ) $.
-    $d A v $.  $d A w $.  $d A x $.  $d A y $.  $d A z $.  $d F v $.  $d F w $.
-    $d F x $.  $d F y $.  $d F z $.  $d M v $.  $d M w $.  $d M x $.  $d M y $.
-    $d M z $.  $d N v $.  $d N w $.  $d N x $.  $d N y $.  $d N z $.  $d n v $.
-    $d n w $.  $d n x $.  $d n y $.  $d n z $.  $d ph v $.  $d ph w $.
-    $d ph x $.  $d ph y $.  $d ph z $.  $d v w $.  $d v x $.  $d v y $.
-    $d v z $.  $d w x $.  $d w y $.  $d w z $.  $d x y $.  $d x z $.  $d y z $.
+    $d A v w x y z $.  $d F v w x y z $.  $d M v w x y z $.  $d N v w x y z $.
+    $d n v w x y z $.  $d ph v w x y z $.
     $( Integer powers of a sequence tending to a nonzero complex number
        converge to the same power of the limit.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    climexpmptz $p |- ( ph -> ( n e. ( ZZ>= ` M ) |-> ( ( F ` n ) ^ N ) ) ~~>
-      ( A ^ N ) ) $=
+    climexpmptz $p |- ( ph ->
+      ( n e. ( ZZ>= ` M ) |-> ( ( F ` n ) ^ N ) ) ~~> ( A ^ N ) ) $=
       ( vx vy wcel cfv cv co cc cneg vz vw vv cn0 cuz cexp cmpt cli wbr wa ccom
       cz adantr ccnfld ctopn ccn ccncf expcn adantl cncfcn1 eleqtrrdi wf climcl
       eqid syl climcncf eqidd wceq simpr oveq1d expcld fvmptd breqtrd cvv mptex
@@ -903745,8 +904331,8 @@ $)
     climaffsub.s $e |- ( ph -> ( B + ( H x. M ) ) e. ( ZZ>= ` M ) ) $.
     $( A positive-step affine subsequence of a convergent complex sequence has
        the same limit.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climaffsub $p |- ( ph -> ( n e. ( ZZ>= ` M ) |-> ( F ` ( B + ( H x. n ) )
-      ) ) ~~> A ) $=
+    climaffsub $p |- ( ph ->
+      ( n e. ( ZZ>= ` M ) |-> ( F ` ( B + ( H x. n ) ) ) ) ~~> A ) $=
       ( cfv cmul co caddc wcel vk cuz cmpt cvv nfv nfcv nfmpt1 eqid wceq oveq2d
       cv oveq2 uzidd fvmptd3 wa c1 peano2uz adantl ovexd cz weq simpr adantr cn
       eqeltrd nnzd eluzelz zmulcld peano2zd cle 1red nnred zred nnge1d leadd2dd
@@ -903793,8 +904379,9 @@ $)
     climaffpow.i $e |- ( ph -> N e. ZZ ) $.
     $( Pass to the limit in a fixed integer power of an affine subsequence.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climaffpow $p |- ( ph -> ( n e. ( ZZ>= ` M ) |-> ( ( F ` ( A + ( H x. n )
-      ) ) ^ N ) ) ~~> ( B ^ N ) ) $=
+    climaffpow $p |- ( ph ->
+      ( n e. ( ZZ>= ` M ) |-> ( ( F ` ( A + ( H x. n ) ) ) ^ N ) ) ~~>
+      ( B ^ N ) ) $=
       ( vk co wcel cc cuz cfv cv cmul caddc cmpt cexp cli wa cc0 cdif eqid wceq
       oveq2 oveq2d fveq2d simpr wf adantr cz cn nnnn0d uzaffcl ffvelcdmd oveq1d
       fvmptd3 mpteq2dva wral eldifad ralrimiva eleq1d cbvralvw sylib fmpt fvexd
@@ -903820,14 +904407,15 @@ $)
     climaffwprod.i $e |- ( ph -> I e. Fin ) $.
     climaffwprod.s $e |- ( ph -> I C_ NN ) $.
     climaffwprod.w $e |- ( ( ph /\ i e. I ) -> ( W ` i ) e. ZZ ) $.
-    climaffwprod.t $e |- ( ( ph /\ i e. I ) -> ( A + ( i x. M ) ) e. ( ZZ>= `
-      M ) ) $.
+    climaffwprod.t $e |- ( ( ph /\ i e. I ) ->
+      ( A + ( i x. M ) ) e. ( ZZ>= ` M ) ) $.
     $( Pass to the limit in a finite integer-weighted product of terms along
        positive-step affine subsequences.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    climaffwprod $p |- ( ph -> ( n e. ( ZZ>= ` M ) |-> prod_ i e. I ( ( F ` (
-      A + ( i x. n ) ) ) ^ ( W ` i ) ) ) ~~> prod_ i e. I ( B ^ ( W ` i ) ) )
-      $=
+    climaffwprod $p |- ( ph ->
+      ( n e. ( ZZ>= ` M ) |->
+        prod_ i e. I ( ( F ` ( A + ( i x. n ) ) ) ^ ( W ` i ) ) ) ~~>
+      prod_ i e. I ( B ^ ( W ` i ) ) ) $=
       ( co wcel vj vm cuz cfv cv cmul caddc cexp cmpt cprod cli wa cz adantr cc
       cc0 csn cdif wf wbr wne cn sselda climaffpow cvv eqid oveq1 oveq2d fveq2d
       wceq fveq2 oveq12d mpteq2dv simpr fvex mptex a1i fvmptd3 climcl syl oveq2
@@ -903854,8 +904442,8 @@ $)
     climfacid.b $e |- ( ph -> B e. CC ) $.
     climfacid.c $e |- ( ph -> C e. CC ) $.
     climfacid.n $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
-    climfacid.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( B x. ( F ` n ) ) = C
-      ) $.
+    climfacid.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( B x. ( F ` n ) ) = C ) $.
     $( A sequence identity with a fixed multiplicative factor passes to the
        limit.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
     climfacid $p |- ( ph -> ( B x. A ) = C ) $=
@@ -903878,16 +904466,16 @@ $)
     affwprodlimid.i $e |- ( ph -> I e. Fin ) $.
     affwprodlimid.s $e |- ( ph -> I C_ NN ) $.
     affwprodlimid.w $e |- ( ( ph /\ i e. I ) -> ( W ` i ) e. ZZ ) $.
-    affwprodlimid.t $e |- ( ( ph /\ i e. I ) -> ( A + ( i x. M ) ) e. ( ZZ>= `
-      M ) ) $.
+    affwprodlimid.t $e |- ( ( ph /\ i e. I ) ->
+      ( A + ( i x. M ) ) e. ( ZZ>= ` M ) ) $.
     affwprodlimid.d $e |- ( ph -> D e. CC ) $.
     affwprodlimid.c $e |- ( ph -> C e. CC ) $.
-    affwprodlimid.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( D x. prod_ i e. I
-      ( ( F ` ( A + ( i x. n ) ) ) ^ ( W ` i ) ) ) = C ) $.
+    affwprodlimid.e $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( D x. prod_ i e. I ( ( F ` ( A + ( i x. n ) ) ) ^ ( W ` i ) ) ) = C ) $.
     $( Pass an affine product identity to the limit while keeping its constant
        factor.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    affwprodlimid $p |- ( ph -> ( D x. prod_ i e. I ( B ^ ( W ` i ) ) ) = C )
-      $=
+    affwprodlimid $p |- ( ph ->
+      ( D x. prod_ i e. I ( B ^ ( W ` i ) ) ) = C ) $=
       ( vk cv cfv cexp cprod cuz cmul caddc cmpt cli oveq2 oveq2d fveq2d oveq1d
       co wceq prodeq2sdv cbvmptv climaffwprod eqbrtrrid wa cc a1i eqcomd fveq1d
       wcel simpr cfn adantr cc0 wne csn wf ad2antrr cz cn sseldd nnnn0d adantlr
@@ -903914,9 +904502,10 @@ $)
     affwprodrigid.s $e |- ( ph -> I C_ NN ) $.
     affwprodrigid.w $e |- ( ( ph /\ i e. I ) -> ( W ` i ) e. ZZ ) $.
     affwprodrigid.c $e |- ( ph -> C e. CC ) $.
-    affwprodrigid.e $e |- ( ( ( ph /\ a e. ( ZZ>= ` M ) ) /\ n e. ( ZZ>= ` M )
-      ) -> ( ( F ` a ) x. prod_ i e. I ( ( F ` ( a + ( i x. n ) ) ) ^ ( W ` i
-      ) ) ) = C ) $.
+    affwprodrigid.e $e |- ( ( ( ph /\ a e. ( ZZ>= ` M ) ) /\
+                              n e. ( ZZ>= ` M ) ) ->
+      ( ( F ` a ) x.
+        prod_ i e. I ( ( F ` ( a + ( i x. n ) ) ) ^ ( W ` i ) ) ) = C ) $.
     affwprodrigid.a $e |- ( ph -> A e. ( ZZ>= ` M ) ) $.
     $( An affine product identity determines every term of a sequence from its
        nonzero limit.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
@@ -903950,8 +904539,9 @@ $)
     $( A finite product of integer powers of nonzero quotients is the quotient
        of the corresponding products.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fprodexpdivz $p |- ( ph -> prod_ i e. I ( ( A / B ) ^ N ) = ( prod_ i e. I
-      ( A ^ N ) / prod_ i e. I ( B ^ N ) ) ) $=
+    fprodexpdivz $p |- ( ph ->
+      prod_ i e. I ( ( A / B ) ^ N ) =
+      ( prod_ i e. I ( A ^ N ) / prod_ i e. I ( B ^ N ) ) ) $=
       ( cdiv co cexp cprod cv wcel wa expclzd expdivzd prodeq2dv fproddiv eqtrd
       expne0d ) AEBCMNFONZDPEBFONZCFONZMNZDPEUGDPEUHDPMNAEUFUIDADQERSZBCFHIJKLU
       AUBAEUGUHDGUJBFHILTUJCFJKLTUJCFJKLUEUCUD $.
@@ -903960,15 +904550,15 @@ $)
   ${
     $d C i $.  $d N i $.  $d i ph $.
     bcprodhead.n $e |- ( ph -> N e. NN0 ) $.
-    bcprodhead.b $e |- ( ( ph /\ i e. ( 0 ... N ) ) -> B e. ( CC \ { 0 } ) )
-      $.
+    bcprodhead.b $e |- ( ( ph /\ i e. ( 0 ... N ) ) -> B e. ( CC \ { 0 } ) ) $.
     bcprodhead.s $e |- ( i = 0 -> B = C ) $.
     bcprodhead.c $e |- ( ph -> C e. CC ) $.
     $( Separate the initial term in an alternating binomial product.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    bcprodhead $p |- ( ph -> prod_ i e. ( 0 ... N ) ( B ^ ( ( -u 1 ^ i ) x. (
-      N _C i ) ) ) = ( C x. prod_ i e. ( 1 ... N ) ( B ^ ( ( -u 1 ^ i ) x. ( N
-      _C i ) ) ) ) ) $=
+    bcprodhead $p |- ( ph ->
+      prod_ i e. ( 0 ... N ) ( B ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
+      ( C x.
+        prod_ i e. ( 1 ... N ) ( B ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) ) $=
       ( cc0 cfz co c1 cexp cbc cmul cprod cn0 wcel oveq12d cneg caddc cuz nn0uz
       cv cfv eleqtrdi wa cc csn eldifad eldifsnbd cz elfzelz adantl m1expcl syl
       bccl syl2an nn0zd zmulcld expclzd wceq oveq2 1cnd negcld exp0d bcn0 1t1e1
@@ -903983,22 +904573,24 @@ $)
   ${
     $d A i $.  $d B i $.  $d N i $.  $d i ph $.
     bcprodqhead.n $e |- ( ph -> N e. NN0 ) $.
-    bcprodqhead.x $e |- ( ( ph /\ i e. ( 0 ... N ) ) -> X e. ( CC \ { 0 } ) )
-      $.
-    bcprodqhead.y $e |- ( ( ph /\ i e. ( 0 ... N ) ) -> Y e. ( CC \ { 0 } ) )
-      $.
+    bcprodqhead.x $e |- ( ( ph /\ i e. ( 0 ... N ) ) ->
+      X e. ( CC \ { 0 } ) ) $.
+    bcprodqhead.y $e |- ( ( ph /\ i e. ( 0 ... N ) ) ->
+      Y e. ( CC \ { 0 } ) ) $.
     bcprodqhead.s $e |- ( i = 0 -> X = A ) $.
     bcprodqhead.t $e |- ( i = 0 -> Y = B ) $.
     bcprodqhead.a $e |- ( ph -> A e. CC ) $.
     bcprodqhead.b $e |- ( ph -> B e. ( CC \ { 0 } ) ) $.
-    bcprodqhead.e $e |- ( ph -> prod_ i e. ( 0 ... N ) ( X ^ ( ( -u 1 ^ i ) x.
-      ( N _C i ) ) ) = prod_ i e. ( 0 ... N ) ( Y ^ ( ( -u 1 ^ i ) x. ( N _C i
-      ) ) ) ) $.
+    bcprodqhead.e $e |- ( ph ->
+      prod_ i e. ( 0 ... N ) ( X ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
+      prod_ i e. ( 0 ... N ) ( Y ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) $.
     $( Equal alternating binomial products give a product identity for the
        quotients with the initial quotient isolated.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    bcprodqhead $p |- ( ph -> ( ( A / B ) x. prod_ i e. ( 1 ... N ) ( ( X / Y
-      ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) = 1 ) $=
+    bcprodqhead $p |- ( ph ->
+      ( ( A / B ) x.
+        prod_ i e. ( 1 ... N )
+          ( ( X / Y ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) = 1 ) $=
       ( cc0 co cdiv wcel cc cfz c1 cneg cv cexp cbc cmul cprod fzfid wa eldifad
       csn eldifsnbd cz elfzelz adantl m1expcl syl cn0 bccl syl2an nn0zd zmulcld
       fprodexpdivz divcld divne0d eldifsnd wceq oveq12d expclzd fprodcl expne0d
@@ -904015,17 +904607,19 @@ $)
     $d M a i k n $.  $d N a i j n $.  $d a i k n ph $.
     bcprodratrigid.m $e |- ( ph -> M e. NN0 ) $.
     bcprodratrigid.n $e |- ( ph -> N e. NN0 ) $.
-    bcprodratrigid.f $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) -> ( F ` k ) e. ( CC
-      \ { 0 } ) ) $.
-    bcprodratrigid.g $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) -> ( G ` k ) e. ( CC
-      \ { 0 } ) ) $.
-    bcprodratrigid.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` k ) / ( G `
-      k ) ) ) ~~> B ) $.
+    bcprodratrigid.f $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) ->
+      ( F ` k ) e. ( CC \ { 0 } ) ) $.
+    bcprodratrigid.g $e |- ( ( ph /\ k e. ( ZZ>= ` M ) ) ->
+      ( G ` k ) e. ( CC \ { 0 } ) ) $.
+    bcprodratrigid.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( F ` k ) / ( G ` k ) ) ) ~~> B ) $.
     bcprodratrigid.b $e |- ( ph -> B =/= 0 ) $.
-    bcprodratrigid.e $e |- ( ( ( ph /\ a e. ( ZZ>= ` M ) ) /\ n e. ( ZZ>= ` M
-      ) ) -> prod_ i e. ( 0 ... N ) ( ( F ` ( a + ( i x. n ) ) ) ^ ( ( -u 1 ^
-      i ) x. ( N _C i ) ) ) = prod_ i e. ( 0 ... N ) ( ( G ` ( a + ( i x. n )
-      ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) $.
+    bcprodratrigid.e $e |- ( ( ( ph /\ a e. ( ZZ>= ` M ) ) /\
+                               n e. ( ZZ>= ` M ) ) ->
+      prod_ i e. ( 0 ... N )
+        ( ( F ` ( a + ( i x. n ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
+      prod_ i e. ( 0 ... N )
+        ( ( G ` ( a + ( i x. n ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) $.
     bcprodratrigid.a $e |- ( ph -> A e. ( ZZ>= ` M ) ) $.
     $( Equality of binomial products on all arithmetic progressions makes a
        convergent nowhere-zero quotient equal to its nonzero limit on the
@@ -904093,9 +904687,9 @@ $)
     affmptprgval.x $e |- ( ph -> X e. CC ) $.
     $( Evaluate an affine change of variables along an arithmetic progression.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    affmptprgval $p |- ( ph -> ( ( t e. CC |-> ( F ` ( D + ( E x. t ) ) ) ) `
-      ( A + ( X x. H ) ) ) = ( F ` ( ( D + ( E x. A ) ) + ( ( E x. H ) x. X )
-      ) ) ) $=
+    affmptprgval $p |- ( ph ->
+      ( ( t e. CC |-> ( F ` ( D + ( E x. t ) ) ) ) ` ( A + ( X x. H ) ) ) =
+      ( F ` ( ( D + ( E x. A ) ) + ( ( E x. H ) x. X ) ) ) ) $=
       ( cmul co caddc cfv oveq2d mulcld eqtrd cc cv cmpt eqid wceq oveq2 fveq2d
       cvv addcld fvexd fvmptd3 addassd addcomd mulcomd comraddd mulassd oveq12d
       adddid add12d 3eqtr4rd ) ACHGNOZPOZBUADEBUBZNOZPOZFQZUCZQDEVBNOZPOZFQZDEC
@@ -904124,21 +904718,27 @@ $)
     bcprodaffratio.d $e |- ( ph -> D e. CC ) $.
     bcprodaffratio.h $e |- ( ph -> H e. CC ) $.
     bcprodaffratio.l $e |- ( ph -> L e. CC ) $.
-    bcprodaffratio.p $e |- ( ph -> A. u e. CC A. h e. CC prod_ i e. ( 0 ... N
-      ) ( ( F ` ( u + ( h x. i ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) = 1 )
-      $.
-    bcprodaffratio.q $e |- ( ph -> A. u e. CC A. h e. CC prod_ i e. ( 0 ... N
-      ) ( ( G ` ( u + ( h x. i ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) = 1 )
-      $.
-    bcprodaffratio.v $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( C + ( H
-      x. k ) ) ) / ( G ` ( D + ( L x. k ) ) ) ) ) ~~> B ) $.
+    bcprodaffratio.p $e |- ( ph ->
+      A. u e. CC A. h e. CC
+        prod_ i e. ( 0 ... N )
+          ( ( F ` ( u + ( h x. i ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
+        1 ) $.
+    bcprodaffratio.q $e |- ( ph ->
+      A. u e. CC A. h e. CC
+        prod_ i e. ( 0 ... N )
+          ( ( G ` ( u + ( h x. i ) ) ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
+        1 ) $.
+    bcprodaffratio.v $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |->
+        ( ( F ` ( C + ( H x. k ) ) ) / ( G ` ( D + ( L x. k ) ) ) ) ) ~~>
+      B ) $.
     bcprodaffratio.b $e |- ( ph -> B =/= 0 ) $.
     bcprodaffratio.a $e |- ( ph -> A e. ( ZZ>= ` M ) ) $.
     $( A convergent quotient of two affine samples with equal binomial products
        equals its nonzero limit everywhere on the integer tail.  (Contributed
        by Zhi Wang, 26-Nov-2026.) $)
-    bcprodaffratio $p |- ( ph -> ( ( F ` ( C + ( H x. A ) ) ) / ( G ` ( D + (
-      L x. A ) ) ) ) = B ) $=
+    bcprodaffratio $p |- ( ph ->
+      ( ( F ` ( C + ( H x. A ) ) ) / ( G ` ( D + ( L x. A ) ) ) ) = B ) $=
       ( vt vn va cc cv cmul co caddc cfv cmpt cdiv cc0 csn cdif eqid wceq oveq2
       oveq2d fveq2d cuz eluzelcn syl fveq2 eleq1d mulcld addcld rspcdva fvmptd3
       wcel oveq12d wa adantl wral adantr eqeltrd cli mpteq2dva eqbrtrd cfz cneg
@@ -904187,12 +904787,13 @@ $)
     plyapaffratio.z $e |- ( ph -> A. y e. CC ( F ` y ) =/= 0 ) $.
     plyapaffratio.u $e |- ( ph -> U C_ RR+ ) $.
     plyapaffratio.r $e |- ( ph -> A. y e. RR E. r e. U y < r ) $.
-    plyapaffratio.p $e |- ( ( ph /\ r e. U ) -> A. v e. RR+ E. g e. ( Poly `
-      CC ) A. a e. { t e. CC | ( abs ` t ) <_ r } ( abs ` ( ( g ` a ) - ( F `
-      a ) ) ) < v ) $.
-    plyapaffratio.b $e |- ( ( ( ph /\ r e. U ) /\ ( w e. CC /\ ( abs ` w ) = r
-      ) ) -> ( abs ` ( F ` w ) ) <_ ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) +
-      ( C x. ( r ^ K ) ) ) ) ) $.
+    plyapaffratio.p $e |- ( ( ph /\ r e. U ) ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. a e. { t e. CC | ( abs ` t ) <_ r }
+        ( abs ` ( ( g ` a ) - ( F ` a ) ) ) < v ) $.
+    plyapaffratio.b $e |- ( ( ( ph /\ r e. U ) /\
+                              ( w e. CC /\ ( abs ` w ) = r ) ) ->
+      ( abs ` ( F ` w ) ) <_
+      ( exp ` ( ( log ` ( abs ` ( F ` 0 ) ) ) + ( C x. ( r ^ K ) ) ) ) ) $.
     plyapaffratio.c $e |- ( ph -> C e. RR ) $.
     plyapaffratio.k $e |- ( ph -> K e. NN0 ) $.
     plyapaffratio.m $e |- ( ph -> M e. NN0 ) $.
@@ -904200,16 +904801,18 @@ $)
     plyapaffratio.h $e |- ( ph -> H e. CC ) $.
     plyapaffratio.e $e |- ( ph -> P e. CC ) $.
     plyapaffratio.t $e |- ( ph -> L e. CC ) $.
-    plyapaffratio.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( J + ( H x.
-      k ) ) ) / ( F ` ( P + ( L x. k ) ) ) ) ) ~~> B ) $.
+    plyapaffratio.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |->
+        ( ( F ` ( J + ( H x. k ) ) ) / ( F ` ( P + ( L x. k ) ) ) ) ) ~~>
+      B ) $.
     plyapaffratio.n $e |- ( ph -> B =/= 0 ) $.
     plyapaffratio.a $e |- ( ph -> A e. ( ZZ>= ` M ) ) $.
     $( For a nowhere-zero function of finite exponential growth with uniform
        polynomial approximations on disks, a quotient along two complex affine
        progressions with a nonzero limit is constant on the integer tail.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapaffratio $p |- ( ph -> ( ( F ` ( J + ( H x. A ) ) ) / ( F ` ( P + ( L
-      x. A ) ) ) ) = B ) $=
+    plyapaffratio $p |- ( ph ->
+      ( ( F ` ( J + ( H x. A ) ) ) / ( F ` ( P + ( L x. A ) ) ) ) = B ) $=
       ( vu vh vi c1 caddc co cn0 wcel 1nn0 a1i nn0addcld cv cfv cc cc0 csn cdif
       wa ccncf wf cncff syl ffvelcdmda wne r19.21bi eldifsnd ralrimiva cfz cmul
       cneg cexp cbc cprod wceq wral ad2antrr crp wss clt wbr wrex cmin cabs cle
@@ -904231,17 +904834,14 @@ $)
     climsuccrat.e $e |- ( ph -> F e. V ) $.
     climsuccrat.l $e |- ( ph -> F ~~> A ) $.
     climsuccrat.a $e |- ( ph -> A =/= 0 ) $.
-    climsuccrat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. ( CC \ {
-      0 } ) ) $.
-    $d A v $.  $d A w $.  $d A x $.  $d A y $.  $d A z $.  $d F v $.  $d F w $.
-    $d F x $.  $d F y $.  $d F z $.  $d M w $.  $d M x $.  $d M y $.  $d M z $.
-    $d k x $.  $d n x $.  $d n z $.  $d ph v $.  $d ph w $.  $d ph x $.
-    $d ph y $.  $d ph z $.  $d v w $.  $d v x $.  $d v y $.  $d v z $.
-    $d w x $.  $d w y $.  $d w z $.  $d x y $.  $d x z $.  $d y z $.
+    climsuccrat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) e. ( CC \ { 0 } ) ) $.
+    $d A v w x y z $.  $d F v w x y z $.  $d M w x y z $.  $d k x $.
+    $d n x z $.  $d ph v w x y z $.
     $( Successive ratios of a sequence with a nonzero limit tend to one.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climsuccrat $p |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) ) / (
-      F ` k ) ) ) ~~> 1 ) $=
+    climsuccrat $p |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) ) / ( F ` k ) ) ) ~~> 1 ) $=
       ( vx vv cfv cv c1 co wcel cc vj vy vz vw cuz caddc cdiv cmpt cli cmul cvv
       eqid wbr 1zzd fvex mptex a1i cc0 csn cdif fvoveq1 simpr wceq fveq2 eleq1d
       wa ralrimiva cbvralvw sylib adantr peano2uz adantl rspcdva fvmptd3 eqcomd
@@ -904291,20 +904891,20 @@ $)
     $d A n $.  $d B n $.  $d F j k n $.  $d F n z $.  $d G j k n $.
     $d G n z $.  $d M j k n $.  $d M n z $.  $d n ph $.
     climasymprat.m $e |- ( ph -> M e. ZZ ) $.
-    climasymprat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. ( CC \
-      { 0 } ) ) $.
-    climasymprat.g $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( G ` n ) e. ( CC \
-      { 0 } ) ) $.
-    climasymprat.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` k ) / ( G ` k
-      ) ) ) ~~> A ) $.
+    climasymprat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) e. ( CC \ { 0 } ) ) $.
+    climasymprat.g $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( G ` n ) e. ( CC \ { 0 } ) ) $.
+    climasymprat.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( F ` k ) / ( G ` k ) ) ) ~~> A ) $.
     climasymprat.a $e |- ( ph -> A =/= 0 ) $.
-    climasymprat.r $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( G ` ( k + 1 ) ) /
-      ( G ` k ) ) ) ~~> B ) $.
+    climasymprat.r $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( G ` ( k + 1 ) ) / ( G ` k ) ) ) ~~> B ) $.
     $( Asymptotically proportional complex sequences have the same nonzero
        successive-ratio limit under the stated nonvanishing assumptions.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climasymprat $p |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) ) / (
-      F ` k ) ) ) ~~> B ) $=
+    climasymprat $p |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) ) / ( F ` k ) ) ) ~~> B ) $=
       ( cfv co cdiv cmul wcel cc vj vz cuz cv c1 caddc cmpt cli eqid fvex mptex
       cvv a1i cc0 wceq fveq2 oveq12d simpr csn eldifad eldifsnbd divcld fvmptd3
       wa eqeltrd divne0d eqnetrd eldifsnd climsuccrat fvoveq1 peano2uz syl cdif
@@ -904339,15 +904939,16 @@ $)
     $d M n t $.  $d n ph $.
     climgeorat.m $e |- ( ph -> M e. ZZ ) $.
     climgeorat.b $e |- ( ph -> B e. RR+ ) $.
-    climgeorat.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( B ^ k ) x. ( F ` k
-      ) ) ) ~~> A ) $.
+    climgeorat.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( B ^ k ) x. ( F ` k ) ) ) ~~> A ) $.
     climgeorat.a $e |- ( ph -> A =/= 0 ) $.
-    climgeorat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. ( CC \ {
-      0 } ) ) $.
+    climgeorat.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) e. ( CC \ { 0 } ) ) $.
     $( A nonzero geometric leading term determines the limit of successive
        ratios.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climgeorat $p |- ( ph -> ( j e. ( ZZ>= ` M ) |-> ( ( F ` ( j + 1 ) ) / ( F
-      ` j ) ) ) ~~> ( 1 / B ) ) $=
+    climgeorat $p |- ( ph ->
+      ( j e. ( ZZ>= ` M ) |-> ( ( F ` ( j + 1 ) ) / ( F ` j ) ) ) ~~>
+      ( 1 / B ) ) $=
       ( cfv c1 co cdiv cmul wcel cc vt cuz cv caddc cmpt cli cexp cvv eqid fvex
       mptex a1i wa cc0 wceq oveq2 fveq2 oveq12d simpr crp adantr cz eluzelz syl
       rpcnd csn eldifad mulcld fvmptd3 eqeltrd rpne0d eldifsnbd mulne0d eqnetrd
@@ -904379,17 +904980,18 @@ $)
     $d n ph $.
     climratlinmul.m $e |- ( ph -> M e. ZZ ) $.
     climratlinmul.j $e |- ( ph -> J e. ZZ ) $.
-    climratlinmul.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. ( CC \
-      { 0 } ) ) $.
-    climratlinmul.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 )
-      $.
-    climratlinmul.l $e |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) )
-      / ( F ` k ) ) ) ~~> A ) $.
+    climratlinmul.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
+      ( F ` n ) e. ( CC \ { 0 } ) ) $.
+    climratlinmul.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 ) $.
+    climratlinmul.l $e |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |-> ( ( F ` ( k + 1 ) ) / ( F ` k ) ) ) ~~> A ) $.
     $d J x $.  $d n x $.  $d ph x $.
     $( Multiplying by a shifted integer index preserves the successive-ratio
        limit.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climratlinmul $p |- ( ph -> ( k e. ( ZZ>= ` M ) |-> ( ( ( ( k + 1 ) + J )
-      x. ( F ` ( k + 1 ) ) ) / ( ( k + J ) x. ( F ` k ) ) ) ) ~~> A ) $=
+    climratlinmul $p |- ( ph ->
+      ( k e. ( ZZ>= ` M ) |->
+        ( ( ( ( k + 1 ) + J ) x. ( F ` ( k + 1 ) ) ) /
+          ( ( k + J ) x. ( F ` k ) ) ) ) ~~> A ) $=
       ( vx cv c1 caddc co cdiv wcel cc vz cuz cfv cmul cmpt cli cvv eqid wbr cz
       cmin cn cc0 nncn adantl zcnd 1cnd addcld subcld adantr wne divdird dividd
       wa nnne0 oveq1d eqtrd mpteq2dva nnuz 1zzd divcnv nnex mptex divcld fmpttd
@@ -904437,8 +905039,8 @@ $)
     $( An inhabited predicate on the positive integers holds at an index and
        fails at every positive integer preceding it.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    nnwosfirst $p |- ( E. m e. NN ph -> E. m e. NN ( ph /\ A. k e. ( 1 ... ( m
-      - 1 ) ) -. ps ) ) $=
+    nnwosfirst $p |- ( E. m e. NN ph ->
+      E. m e. NN ( ph /\ A. k e. ( 1 ... ( m - 1 ) ) -. ps ) ) $=
       ( cn wrex cv cle wbr wral wa wn c1 co wcel nfv nfan adantl nnred cmin cfz
       nnwos simprl nfra1 clt elfznn simpll 1red resubcld elfzle2 lelttrd ltnled
       wi ltm1d mpbid simplrr rsp sylc mtod ralrimia jca ex reximia syl ) ADFGAB
@@ -904455,15 +905057,17 @@ $)
     dirserfirst.c $e |- ( ph -> C e. RR ) $.
     dirserfirst.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirserfirst.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirserfirst.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i e.
-      NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirserfirst.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
     dirserfirst.v $e |- ( ph -> E. m e. NN ( F ` m ) =/= 0 ) $.
     $( A bounded Dirichlet series with a nonzero coefficient has a nonzero
        leading coefficient recovered by scaling its integer samples by powers
        of the index.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirserfirst $p |- ( ph -> E. m e. NN ( ( F ` m ) =/= 0 /\ ( n e. ( ZZ>= `
-      N ) |-> ( ( m ^ n ) x. ( G ` n ) ) ) ~~> ( ( F ` m ) / ( m ^ 2 ) ) ) )
-      $=
+    dirserfirst $p |- ( ph ->
+      E. m e. NN
+        ( ( F ` m ) =/= 0 /\
+          ( n e. ( ZZ>= ` N ) |-> ( ( m ^ n ) x. ( G ` n ) ) ) ~~>
+          ( ( F ` m ) / ( m ^ 2 ) ) ) ) $=
       ( cv cc0 c1 co cn wcel vk vj cfv wne wn cmin cfz wral wa cuz cexp cmul c2
       cmpt cdiv cli wbr simprl cn0 ad2antrr simplr cr cle cabs 0red wceq eleq1d
       cc fveq2 ralrimiva 1nn rspcdva abscld absge0d 2fveq3 letrd ad4ant14 caddc
@@ -904498,13 +905102,14 @@ $)
     dirserrigsupp.c $e |- ( ph -> C e. RR ) $.
     dirserrigsupp.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirserrigsupp.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirserrigsupp.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
-    dirserrigsupp.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. ( CC \
-      { 0 } ) ) $.
-    dirserrigsupp.r $e |- ( ph -> A. a e. ( CC \ { 0 } ) ( ( k e. ( ZZ>= ` N )
-      |-> ( ( G ` ( k + 1 ) ) / ( G ` k ) ) ) ~~> a -> A. n e. ( ZZ>= ` N ) (
-      ( G ` ( n + 1 ) ) / ( G ` n ) ) = a ) ) $.
+    dirserrigsupp.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirserrigsupp.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) e. ( CC \ { 0 } ) ) $.
+    dirserrigsupp.r $e |- ( ph ->
+      A. a e. ( CC \ { 0 } )
+        ( ( k e. ( ZZ>= ` N ) |-> ( ( G ` ( k + 1 ) ) / ( G ` k ) ) ) ~~> a ->
+          A. n e. ( ZZ>= ` N ) ( ( G ` ( n + 1 ) ) / ( G ` n ) ) = a ) ) $.
     dirserrigsupp.d $e |- ( ph -> D e. NN ) $.
     dirserrigsupp.x $e |- ( ph -> ( F ` K ) =/= 0 ) $.
     dirserrigsupp.y $e |- ( ph -> ( F ` D ) =/= 0 ) $.
@@ -904552,17 +905157,18 @@ $)
     dirserlinrig.c $e |- ( ph -> C e. RR ) $.
     dirserlinrig.f $e |- ( ( ph /\ i e. NN ) -> ( F ` i ) e. CC ) $.
     dirserlinrig.b $e |- ( ( ph /\ i e. NN ) -> ( abs ` ( F ` i ) ) <_ C ) $.
-    dirserlinrig.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) = sum_ i
-      e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
-    dirserlinrig.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( G ` n ) e. ( CC \
-      { 0 } ) ) $.
-    dirserlinrig.r $e |- ( ph -> A. a e. ( CC \ { 0 } ) ( ( k e. ( ZZ>= ` N )
-      |-> ( ( H ` ( k + 1 ) ) / ( H ` k ) ) ) ~~> a -> A. n e. ( ZZ>= ` N ) (
-      ( H ` ( n + 1 ) ) / ( H ` n ) ) = a ) ) $.
+    dirserlinrig.g $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) = sum_ i e. NN ( ( F ` i ) / ( i ^c ( n + 2 ) ) ) ) $.
+    dirserlinrig.v $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( G ` n ) e. ( CC \ { 0 } ) ) $.
+    dirserlinrig.r $e |- ( ph ->
+      A. a e. ( CC \ { 0 } )
+        ( ( k e. ( ZZ>= ` N ) |-> ( ( H ` ( k + 1 ) ) / ( H ` k ) ) ) ~~> a ->
+          A. n e. ( ZZ>= ` N ) ( ( H ` ( n + 1 ) ) / ( H ` n ) ) = a ) ) $.
     dirserlinrig.j $e |- ( ph -> J e. ZZ ) $.
     dirserlinrig.z $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( n + J ) =/= 0 ) $.
-    dirserlinrig.h $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) -> ( H ` n ) = ( ( n +
-      J ) x. ( G ` n ) ) ) $.
+    dirserlinrig.h $e |- ( ( ph /\ n e. ( ZZ>= ` N ) ) ->
+      ( H ` n ) = ( ( n + J ) x. ( G ` n ) ) ) $.
     $( If the nonzero integer samples of a bounded Dirichlet series multiplied
        by a nonvanishing shifted index have the stated successive-ratio
        rigidity, then each coefficient vanishes.  (Contributed by Zhi Wang,
@@ -904617,8 +905223,8 @@ $)
     $( For any two real numbers in a positive interval, the absolute logarithm
        of their quotient is bounded by the logarithm of the ratio of the
        endpoints.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    abslogdiviv $p |- ( ph -> ( abs ` ( log ` ( A / B ) ) ) <_ ( log ` ( U / L
-      ) ) ) $=
+    abslogdiviv $p |- ( ph ->
+      ( abs ` ( log ` ( A / B ) ) ) <_ ( log ` ( U / L ) ) ) $=
       ( clog cfv co cle relogcld wbr logled cmin cabs rpgecld rpred letrd mpbid
       cdiv absdifivbnd relogdivd fveq2d 3brtr4d ) ABNOZCNOZUAPZUBODNOZENOZUAPBC
       UGPNOZUBODEUGPNOQAULUMUOUPABABEGFJUCZRACACEHFLUCZRAEFRADADEIFAEBDAEFUDGIJ
@@ -904634,14 +905240,15 @@ $)
     ulmfamap.m $e |- ( ph -> M e. ZZ ) $.
     ulmfamap.f $e |- ( ph -> F : Z --> ( CC ^m Y ) ) $.
     ulmfamap.h $e |- ( ph -> H : Z --> T ) $.
-    ulmfamap.v $e |- ( ( ph /\ ( k e. Z /\ z e. Y ) ) -> ( ( F ` k ) ` z ) = (
-      ( H ` k ) ` z ) ) $.
+    ulmfamap.v $e |- ( ( ph /\ ( k e. Z /\ z e. Y ) ) ->
+      ( ( F ` k ) ` z ) = ( ( H ` k ) ` z ) ) $.
     ulmfamap.u $e |- ( ph -> F ( ~~>u ` Y ) G ) $.
     $( A uniform limit can be approximated to every positive tolerance by
        members of any family that represents the terms of the convergent
        sequence on the given set.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    ulmfamap $p |- ( ph -> A. e e. RR+ E. v e. T A. z e. Y ( abs ` ( ( v ` z )
-      - ( G ` z ) ) ) < e ) $=
+    ulmfamap $p |- ( ph ->
+      A. e e. RR+ E. v e. T A. z e. Y
+        ( abs ` ( ( v ` z ) - ( G ` z ) ) ) < e ) $=
       ( cfv wcel vj cv cmin co cabs clt wbr wral wrex crp wa cuz cz adantr cmap
       cc wf wceq adantlr eqidd culm simpr ulmi fvoveq1d breq1d ralbidv ad2antrr
       fveq1 simprl ffvelcdmd fveq1d simprr eleqtrdi eluzelz uzid 3syl rspcedvdw
@@ -904670,8 +905277,9 @@ $)
     $( Bound the regularized Hurwitz value uniformly for real parameters
        between the reciprocal of a fixed number and one, including the filled
        value at exponent one.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzgridquad $p |- ( ph -> ( abs ` if ( S = 1 , 1 , ( ( S - 1 ) x. ( ( A /
-      B ) HurZ S ) ) ) ) <_ ( exp ` ( ; 4 5 x. ( H x. H ) ) ) ) $=
+    hurzgridquad $p |- ( ph ->
+      ( abs ` if ( S = 1 , 1 , ( ( S - 1 ) x. ( ( A / B ) HurZ S ) ) ) ) <_
+      ( exp ` ( ; 4 5 x. ( H x. H ) ) ) ) $=
       ( c1 cle wbr wceq cmin co cdiv churz cmul cif cabs cfv c4 c5 cdc ce simpr
       wa iftrued fveq2d abs1 eqtrdi cc0 ef0 cn0 wcel 4nn0 5nn0 deccl a1i nn0red
       nnred remulcld nn0ge0d msqge0d mulge0d cr wb 0red syl2anc mpbid eqbrtrrid
@@ -904699,8 +905307,9 @@ $)
     $( Removing a point from a subset of a topological space preserves its
        closure exactly when the point, if present, is an accumulation point of
        the subset.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    clsdifsnlp $p |- ( ph -> ( ( ( cls ` J ) ` ( A \ { B } ) ) = ( ( cls ` J )
-      ` A ) <-> ( B e. A -> B e. ( ( limPt ` J ) ` A ) ) ) ) $=
+    clsdifsnlp $p |- ( ph ->
+      ( ( ( cls ` J ) ` ( A \ { B } ) ) = ( ( cls ` J ) ` A ) <->
+        ( B e. A -> B e. ( ( limPt ` J ) ` A ) ) ) ) $=
       ( vx cfv wceq wcel wa wss sscls syl2anc ad2antrr simpr sseldd simplr cdif
       csn ccl clp wi ctop eleqtrrd wb islp mpbird ex difssd syl3anc adantr ccld
       clsss ssdifssd clscld eqeltrrd simpllr mpd ad3antrrr mpbid eqeltrd neqned
@@ -904723,13 +905332,15 @@ $)
     ulmaprescn.y $e |- ( ph -> Y C_ X ) $.
     ulmaprescn.f $e |- ( ph -> F : Z --> T ) $.
     ulmaprescn.c $e |- ( ( ph /\ m e. Z ) -> ( F ` m ) e. ( X -cn-> CC ) ) $.
-    ulmaprescn.u $e |- ( ph -> ( m e. Z |-> ( ( F ` m ) |` Y ) ) ( ~~>u ` Y )
-      G ) $.
+    ulmaprescn.u $e |- ( ph ->
+      ( m e. Z |-> ( ( F ` m ) |` Y ) ) ( ~~>u ` Y ) G ) $.
     $( A uniform limit of restrictions of continuous complex functions remains
        continuous and can be approximated by members of the original family on
        the restricted domain.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    ulmaprescn $p |- ( ph -> ( G e. ( Y -cn-> CC ) /\ A. e e. RR+ E. v e. T A.
-      z e. Y ( abs ` ( ( v ` z ) - ( G ` z ) ) ) < e ) ) $=
+    ulmaprescn $p |- ( ph ->
+      ( G e. ( Y -cn-> CC ) /\
+        A. e e. RR+ E. v e. T A. z e. Y
+          ( abs ` ( ( v ` z ) - ( G ` z ) ) ) < e ) ) $=
       ( wcel cfv vk cc ccncf co cv cmin cabs clt wbr wral wrex crp cres cmpt wa
       wss adantr rescncf sylc fmpttd ulmcn culm cmap wf ffnd ulmf2 syl2anc wceq
       wfn fveq2 reseq1d eqid resex fvmpt ad2antrl fveq1d simprr fvresd ulmfamap
@@ -904749,15 +905360,17 @@ $)
     plyquotlimfac.v $e |- ( ph -> B e. Y ) $.
     plyquotlimfac.y $e |- ( ph -> S e. Y ) $.
     plyquotlimfac.x $e |- ( ph -> S e. U ) $.
-    plyquotlimfac.g $e |- ( ph -> ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ( ~~>u `
-      Y ) G ) $.
-    plyquotlimfac.q $e |- ( ph -> ( m e. NN0 |-> ( ( ( F ` m ) quot ( Xp oF -
-      ( CC X. { B } ) ) ) |` U ) ) ( ~~>u ` U ) Q ) $.
+    plyquotlimfac.g $e |- ( ph ->
+      ( m e. NN0 |-> ( ( F ` m ) |` Y ) ) ( ~~>u ` Y ) G ) $.
+    plyquotlimfac.q $e |- ( ph ->
+      ( m e. NN0 |->
+        ( ( ( F ` m ) quot ( Xp oF - ( CC X. { B } ) ) ) |` U ) ) ( ~~>u ` U )
+      Q ) $.
     $( Pass the linear-factor remainder identity to uniform limits of
        polynomials and of their quotient polynomials on possibly different
        sets.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyquotlimfac $p |- ( ph -> ( ( G ` S ) - ( G ` B ) ) = ( ( S - B ) x. ( Q
-      ` S ) ) ) $=
+    plyquotlimfac $p |- ( ph ->
+      ( ( G ` S ) - ( G ` B ) ) = ( ( S - B ) x. ( Q ` S ) ) ) $=
       ( cn0 cfv cc vi cv cmin co cmpt cli wbr cmul wceq cc0 cvv nn0uz wcel fvex
       0zd wa a1i ulmrespt nn0ex mptex fveq2 fveq1d eqid fvmpt adantl ffvelcdmda
       cply wf plyf syl adantr ffvelcdmd eqeltrd oveq12d ovex eqtrd climsub cidp
@@ -904790,10 +905403,15 @@ $)
     $( Bound a normalized finite combination of regularized Hurwitz values by
        the sum of the absolute weights times a common exponential disk bound.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    hurzgridwtbnd $p |- ( ph -> ( abs ` ( sum_ k e. ( 1 ... N ) ( C x. if ( S
-      = 1 , 1 , ( ( S - 1 ) x. ( ( k / N ) HurZ S ) ) ) ) / ( N ^c S ) ) ) <_
-      ( sum_ k e. ( 1 ... N ) ( abs ` C ) x. ( exp ` ( ; 4 6 x. ( H x. H ) ) )
-      ) ) $=
+    hurzgridwtbnd $p |- ( ph ->
+      ( abs ` ( sum_ k e. ( 1 ... N )
+                  ( C x.
+                    if ( S = 1 ,
+                         1 ,
+                         ( ( S - 1 ) x. ( ( k / N ) HurZ S ) ) ) ) /
+                ( N ^c S ) ) ) <_
+      ( sum_ k e. ( 1 ... N ) ( abs ` C ) x.
+        ( exp ` ( ; 4 6 x. ( H x. H ) ) ) ) ) $=
       ( c1 co cmul wcel cfz wceq cmin cv cdiv churz cif csu ccxp cabs cfv c4 c5
       cdc ce c6 cle cneg fzfid wa cc 1cnd wn ad2antrr subcld cmnf cc0 cioc cdif
       csn cr crp wi elfznn adantl nnrpd adantr rpdivcld rpcnd a1d eqid sylanbrc
@@ -904835,8 +905453,8 @@ $)
     hauseqcnpt.f $e |- ( ph -> F e. ( J Cn K ) ) $.
     hauseqcnpt.g $e |- ( ph -> G e. ( J Cn K ) ) $.
     hauseqcnpt.b $e |- ( ph -> ( B e. X -> B e. ( ( limPt ` J ) ` X ) ) ) $.
-    hauseqcnpt.e $e |- ( ( ph /\ x e. ( X \ { B } ) ) -> ( F ` x ) = ( G ` x )
-      ) $.
+    hauseqcnpt.e $e |- ( ( ph /\ x e. ( X \ { B } ) ) ->
+      ( F ` x ) = ( G ` x ) ) $.
     $( Continuous maps to a Hausdorff space agreeing off one point are equal if
        that point, whenever in the domain, is an accumulation point of the
        domain.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
@@ -904857,13 +905475,13 @@ $)
   $}
 
   ${
-    $d B x $.  $d F x $.  $d G x $.  $d U x $.  $d ph x $.  $d J x $.
+    $d B x $.  $d F x $.  $d G x $.  $d J x $.  $d U x $.  $d ph x $.
     cncfopnptuni.j $e |- J = ( TopOpen ` CCfld ) $.
     cncfopnptuni.o $e |- ( ph -> U e. J ) $.
     cncfopnptuni.f $e |- ( ph -> F e. ( U -cn-> CC ) ) $.
     cncfopnptuni.g $e |- ( ph -> G e. ( U -cn-> CC ) ) $.
-    cncfopnptuni.e $e |- ( ( ph /\ x e. ( U \ { B } ) ) -> ( F ` x ) = ( G ` x
-      ) ) $.
+    cncfopnptuni.e $e |- ( ( ph /\ x e. ( U \ { B } ) ) ->
+      ( F ` x ) = ( G ` x ) ) $.
     $( Two continuous complex functions on an open subset of the plane are
        determined by their values away from any one point.  (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
@@ -904883,10 +905501,10 @@ $)
   ${
     $d B m n v z $.  $d B m s $.  $d B m x z $.  $d G e f j v z $.
     $d G f j m n v z $.  $d G e f p z $.  $d G f j m s $.  $d G f j m x z $.
-    $d H f s $.  $d R z $.  $d T x z $.  $d X f m s $.  $d X f m v z $.
-    $d X f m x z $.  $d Y e f j v z $.  $d Y f j m n v z $.  $d Y e f p z $.
-    $d Y f j m s $.  $d Y f j m x z $.  $d e f j ph v z $.  $d m n ph v z $.
-    $d ph s $.  $d ph x z $.  $d J s $.
+    $d H f s $.  $d J s $.  $d R z $.  $d T x z $.  $d X f m s $.
+    $d X f m v z $.  $d X f m x z $.  $d Y e f j v z $.  $d Y f j m n v z $.
+    $d Y e f p z $.  $d Y f j m s $.  $d Y f j m x z $.  $d e f j ph v z $.
+    $d m n ph v z $.  $d ph s $.  $d ph x z $.
     plyapquotopn.j $e |- J = ( TopOpen ` CCfld ) $.
     plyapquotopn.o $e |- ( ph -> X e. J ) $.
     plyapquotopn.i $e |- ( ph -> X C_ Y ) $.
@@ -904894,24 +905512,28 @@ $)
     plyapquotopn.b $e |- ( ph -> B e. Y ) $.
     plyapquotopn.r $e |- ( ph -> R e. RR+ ) $.
     plyapquotopn.t $e |- ( ph -> T e. RR+ ) $.
-    plyapquotopn.a $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) -> ( z + B
-      ) e. Y ) $.
-    plyapquotopn.s $e |- ( ( ph /\ ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R )
-      ) ) -> ( z + x ) e. Y ) $.
-    plyapquotopn.d $e |- ( ( ph /\ ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R )
-      ) ) -> T <_ ( abs ` ( ( z + x ) - B ) ) ) $.
+    plyapquotopn.a $e |- ( ( ph /\ ( z e. CC /\ ( abs ` z ) = R ) ) ->
+      ( z + B ) e. Y ) $.
+    plyapquotopn.s $e |- ( ( ph /\
+                             ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R ) ) ) ->
+      ( z + x ) e. Y ) $.
+    plyapquotopn.d $e |- ( ( ph /\
+                             ( x e. X /\ ( z e. CC /\ ( abs ` z ) = R ) ) ) ->
+      T <_ ( abs ` ( ( z + x ) - B ) ) ) $.
     plyapquotopn.g $e |- ( ph -> G : Y --> CC ) $.
-    plyapquotopn.p $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
+    plyapquotopn.p $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
     plyapquotopn.h $e |- ( ph -> H e. ( X -cn-> CC ) ) $.
-    plyapquotopn.v $e |- ( ( ph /\ s e. X ) -> ( ( G ` s ) - ( G ` B ) ) = ( (
-      s - B ) x. ( H ` s ) ) ) $.
+    plyapquotopn.v $e |- ( ( ph /\ s e. X ) ->
+      ( ( G ` s ) - ( G ` B ) ) = ( ( s - B ) x. ( H ` s ) ) ) $.
     $( Uniform polynomial approximation passes to a continuous divided
        difference on an open set when the surrounding circles lie in the
        approximation set and stay a positive distance from the anchor.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapquotopn $p |- ( ph -> A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. X (
-      abs ` ( ( v ` z ) - ( H ` z ) ) ) < e ) $=
+    plyapquotopn $p |- ( ph ->
+      A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. X
+        ( abs ` ( ( v ` z ) - ( H ` z ) ) ) < e ) $=
       ( vf vj vm vn cn0 cc cply cfv cv wf cres cmpt culm wbr cmin cabs clt wral
       wa co wrex crp plyapseq cidp csn cxp cof cquot ccncf wcel cc0 nn0uz sstrd
       0zd wss adantr c0p wne simprl ffvelcdmda cdgr wceq ccnv cima w3a ad2antrr
@@ -904963,8 +905585,8 @@ $)
     $( Multiplication by a complex number of bounded modulus scales a strict
        bound on the distance of two complex numbers.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    absprddiflt $p |- ( ph -> ( abs ` ( ( A x. Y ) - ( B x. Y ) ) ) < ( U x. H
-      ) ) $=
+    absprddiflt $p |- ( ph ->
+      ( abs ` ( ( A x. Y ) - ( B x. Y ) ) ) < ( U x. H ) ) $=
       ( cmul co cmin cabs cfv abscld remulcld clt subdird eqcomd fveq2d absmuld
       subcld eqtrd rpred absge0d lemul2ad ltmul1dd lelttrd eqbrtrd ) ABFNOCFNOP
       OZQRZBCPOZQRZFQRZNOZDENOZUAAUOUPFNOZQRUSAUNVAQAVAUNABCFGHIUBUCUDAUPFABCGH
@@ -904985,15 +905607,18 @@ $)
     plyapbmul.k $e |- ( ph -> K e. RR+ ) $.
     plyapbmul.a $e |- ( ( ph /\ w e. Y ) -> ( abs ` ( F ` w ) ) <_ H ) $.
     plyapbmul.b $e |- ( ( ph /\ w e. Y ) -> ( abs ` ( G ` w ) ) <_ K ) $.
-    plyapbmul.p $e |- ( ph -> A. t e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( F ` z ) ) ) < t ) $.
-    plyapbmul.q $e |- ( ph -> A. t e. RR+ E. q e. ( Poly ` CC ) A. x e. Y (
-      abs ` ( ( q ` x ) - ( G ` x ) ) ) < t ) $.
+    plyapbmul.p $e |- ( ph ->
+      A. t e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < t ) $.
+    plyapbmul.q $e |- ( ph ->
+      A. t e. RR+ E. q e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( q ` x ) - ( G ` x ) ) ) < t ) $.
     $( The pointwise product of two bounded complex functions admitting uniform
        polynomial approximation also admits uniform polynomial approximation.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapbmul $p |- ( ph -> A. e e. RR+ E. u e. ( Poly ` CC ) A. w e. Y ( abs
-      ` ( ( u ` w ) - ( ( F ` w ) x. ( G ` w ) ) ) ) < e ) $=
+    plyapbmul $p |- ( ph ->
+      A. e e. RR+ E. u e. ( Poly ` CC ) A. w e. Y
+        ( abs ` ( ( u ` w ) - ( ( F ` w ) x. ( G ` w ) ) ) ) < e ) $=
       ( vj va cv cfv cmul co cmin cabs clt wbr wral cc cply wrex crp wcel wa c2
       cdiv wceq breq2 rexralbidv adantr simpr rphalfcld rpdivcld caddc ad2antrr
       rspcdva wss simprl rpaddcld wf plyf syl sselda ffvelcdmd ffvelcdmda rpred
@@ -905040,21 +905665,23 @@ $)
     plyapquotdisk.b $e |- ( ph -> B e. CC ) $.
     plyapquotdisk.r $e |- ( ph -> R e. RR+ ) $.
     plyapquotdisk.y $e |- ( ph -> Y C_ CC ) $.
-    plyapquotdisk.i $e |- ( ph -> ( B ( ball ` ( abs o. - ) ) ( ( R + R ) + R
-      ) ) C_ Y ) $.
+    plyapquotdisk.i $e |- ( ph ->
+      ( B ( ball ` ( abs o. - ) ) ( ( R + R ) + R ) ) C_ Y ) $.
     plyapquotdisk.g $e |- ( ph -> G : Y --> CC ) $.
-    plyapquotdisk.p $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
-      ( abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
-    plyapquotdisk.h $e |- ( ph -> H e. ( ( B ( ball ` ( abs o. - ) ) R ) -cn->
-      CC ) ) $.
+    plyapquotdisk.p $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( G ` z ) ) ) < e ) $.
+    plyapquotdisk.h $e |- ( ph ->
+      H e. ( ( B ( ball ` ( abs o. - ) ) R ) -cn-> CC ) ) $.
     plyapquotdisk.v $e |- ( ( ph /\ s e. ( B ( ball ` ( abs o. - ) ) R ) ) ->
       ( ( G ` s ) - ( G ` B ) ) = ( ( s - B ) x. ( H ` s ) ) ) $.
     $( Uniform polynomial approximation on a set containing the concentric disk
        of triple radius implies approximation of a continuous divided
        difference on the inner disk.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    plyapquotdisk $p |- ( ph -> A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. ( B
-      ( ball ` ( abs o. - ) ) R ) ( abs ` ( ( v ` z ) - ( H ` z ) ) ) < e ) $=
+    plyapquotdisk $p |- ( ph ->
+      A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. ( B ( ball ` ( abs o. - ) ) R )
+        ( abs ` ( ( v ` z ) - ( H ` z ) ) ) < e ) $=
       ( wcel vx caddc co ccnfld ctopn cfv cabs cmin ccom cbl eqid cc cxr cnxmet
       cxmet a1i rpxrd cnfldtopn blopn syl3anc cle wbr wss rpred ltaddrp2d ltled
       rpaddcld ssbl syl221anc sstrd crp blcntr sseldd cv wceq adantr clt simprl
@@ -905089,8 +905716,9 @@ $)
     $( A nonzero complex base raised to a polynomial exponent admits uniform
        polynomial approximation on any set where the polynomial is bounded.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapcxpply $p |- ( ph -> A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( v ` z ) - ( A ^c ( F ` z ) ) ) ) < e ) $=
+    plyapcxpply $p |- ( ph ->
+      A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( v ` z ) - ( A ^c ( F ` z ) ) ) ) < e ) $=
       ( cfv cc cmul co cabs wcel cv clog csn cxp cof ce cmin clt wral cply wrex
       wbr crp wss ssidd logcld plyconst syl2anc plymulcl abscld remulcld wa cle
       ccxp wfn cvv wceq wf adantr plyf syl ffnd cnex a1i sselda fnfvof syl22anc
@@ -905119,8 +905747,9 @@ $)
     $( A nonzero complex base raised to an arbitrary affine complex exponent
        admits uniform polynomial approximation on every bounded subset of the
        plane.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapcxpaff $p |- ( ph -> A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( v ` z ) - ( A ^c ( C + ( D x. z ) ) ) ) ) < e ) $=
+    plyapcxpaff $p |- ( ph ->
+      A. e e. RR+ E. v e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( v ` z ) - ( A ^c ( C + ( D x. z ) ) ) ) ) < e ) $=
       ( cfv cc co wcel csn cxp cidp cmul cof caddc ccxp cmin cabs clt wral cply
       cv wbr wrex crp wss ssidd plyconst syl2anc plyid plymulcl plyaddcl abscld
       c1 1cnd remulcld readdcld wa cle wfn cvv wceq wf adantr plyf syl ffnd a1i
@@ -905153,8 +905782,8 @@ $)
     cmpcnabsbnd.f $e |- ( ph -> F e. ( J Cn K ) ) $.
     $( The modulus of a continuous complex function on a compact space has a
        positive real upper bound.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    cmpcnabsbnd $p |- ( ph -> E. v e. RR+ A. z e. X ( abs ` ( F ` z ) ) <_ v )
-      $=
+    cmpcnabsbnd $p |- ( ph ->
+      E. v e. RR+ A. z e. X ( abs ` ( F ` z ) ) <_ v ) $=
       ( vy cv cabs cfv cle wbr co wcel cc vr ccom cuni wral crp wrex cr crn ctg
       cioo eqid ccn abscn cnco sylancl bndth wa caddc wceq breq2 ralbidv simprl
       c1 recnd abscld absge0d ge0p1rpd wf cnfldtopon toponunii cnf syl ad2antrr
@@ -905204,8 +905833,9 @@ $)
     plyapbdd.r $e |- ( ph -> R e. RR ) $.
     plyapbdd.f $e |- ( ph -> F : Y --> CC ) $.
     plyapbdd.b $e |- ( ( ph /\ x e. Y ) -> ( abs ` x ) <_ R ) $.
-    plyapbdd.p $e |- ( ph -> A. e e. RR+ E. g e. ( Poly ` CC ) A. z e. Y ( abs
-      ` ( ( g ` z ) - ( F ` z ) ) ) < e ) $.
+    plyapbdd.p $e |- ( ph ->
+      A. e e. RR+ E. g e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( g ` z ) - ( F ` z ) ) ) < e ) $.
     $( A complex function admitting uniform polynomial approximation on a
        bounded subset of the plane is bounded there.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
@@ -905243,15 +905873,18 @@ $)
     plyapmulbdd.f $e |- ( ph -> F : Y --> CC ) $.
     plyapmulbdd.g $e |- ( ph -> G : Y --> CC ) $.
     plyapmulbdd.b $e |- ( ( ph /\ a e. Y ) -> ( abs ` a ) <_ R ) $.
-    plyapmulbdd.p $e |- ( ph -> A. t e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( F ` z ) ) ) < t ) $.
-    plyapmulbdd.q $e |- ( ph -> A. t e. RR+ E. q e. ( Poly ` CC ) A. x e. Y (
-      abs ` ( ( q ` x ) - ( G ` x ) ) ) < t ) $.
+    plyapmulbdd.p $e |- ( ph ->
+      A. t e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < t ) $.
+    plyapmulbdd.q $e |- ( ph ->
+      A. t e. RR+ E. q e. ( Poly ` CC ) A. x e. Y
+        ( abs ` ( ( q ` x ) - ( G ` x ) ) ) < t ) $.
     $( On any bounded subset of the complex plane, the pointwise product of two
        uniformly polynomial-approximable functions is uniformly
        polynomial-approximable.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapmulbdd $p |- ( ph -> A. e e. RR+ E. u e. ( Poly ` CC ) A. w e. Y (
-      abs ` ( ( u ` w ) - ( ( F ` w ) x. ( G ` w ) ) ) ) < e ) $=
+    plyapmulbdd $p |- ( ph ->
+      A. e e. RR+ E. u e. ( Poly ` CC ) A. w e. Y
+        ( abs ` ( ( u ` w ) - ( ( F ` w ) x. ( G ` w ) ) ) ) < e ) $=
       ( vi vh vj vk cv cfv cabs cle wbr wral cmul co cmin cc cply wrex plyapbdd
       clt crp wcel wa adantr wss ad2antrr wf simprl 2fveq3 breq1d simplrr simpr
       wceq rspcdva plyapbmul rexlimddv ) AUBUFZIUGUHUGZUCUFZUIUJZUBKUKZDUFZEUFU
@@ -905273,8 +905906,8 @@ $)
     $( Absorb a change of constant term into the slope of an affine upper bound
        on the real interval starting at one.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    linshiftbnd $p |- ( ph -> ( A + ( C x. T ) ) <_ ( B + ( ( C + ( abs ` ( A
-      - B ) ) ) x. T ) ) ) $=
+    linshiftbnd $p |- ( ph ->
+      ( A + ( C x. T ) ) <_ ( B + ( ( C + ( abs ` ( A - B ) ) ) x. T ) ) ) $=
       ( cmul co caddc cle recnd remulcld wbr mulcld addcomd oveq2d cfv resubcld
       abscld readdcld leabsd absge0d lemulge11d letrd lesubadd2d mpbid leadd1dd
       cmin cabs oveq1d addassd add12d 3eqtrd adddird 3eqtrrd breqtrd ) ABDEKLZM
@@ -905322,14 +905955,16 @@ $)
     plyapwtcxp.c $e |- ( ph -> C e. CC ) $.
     plyapwtcxp.d $e |- ( ph -> D e. CC ) $.
     plyapwtcxp.u $e |- ( ( ph /\ a e. Y ) -> ( abs ` a ) <_ R ) $.
-    plyapwtcxp.p $e |- ( ph -> A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y (
-      abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
+    plyapwtcxp.p $e |- ( ph ->
+      A. e e. RR+ E. p e. ( Poly ` CC ) A. z e. Y
+        ( abs ` ( ( p ` z ) - ( F ` z ) ) ) < e ) $.
     $( Uniform polynomial approximation on a bounded set is preserved by
        multiplication by a nonzero complex base raised to an affine exponent.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    plyapwtcxp $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. s e. Y ( abs
-      ` ( ( g ` s ) - ( ( F ` s ) x. ( B ^c ( C + ( D x. s ) ) ) ) ) ) < v )
-      $=
+    plyapwtcxp $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. s e. Y
+        ( abs ` ( ( g ` s ) -
+                  ( ( F ` s ) x. ( B ^c ( C + ( D x. s ) ) ) ) ) ) < v ) $=
       ( vt vx vq cv cfv cmul co caddc ccxp cmpt cmin cabs clt wral cc cply wrex
       wbr crp wcel wa adantr sselda mulcld addcld cxpcld fmpttd cle wceq breq1d
       fveq2 ralrimiva simpr rspcdva plyapcxpaff oveq2 oveq2d eqid adantl eqcomd
@@ -905366,9 +906001,12 @@ $)
     $( The pole-cleared Dirichlet L-function, with its residue as the value at
        one, admits uniform polynomial approximation on every bounded subset of
        the plane.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dirlregap $p |- ( ph -> A. v e. RR+ E. g e. ( Poly ` CC ) A. s e. Y ( abs
-      ` ( ( g ` s ) - if ( s = 1 , ( if ( X = .1. , ( phi ` N ) , 0 ) / N ) ,
-      ( ( s - 1 ) x. ( ( N DirL X ) ` s ) ) ) ) ) < v ) $=
+    dirlregap $p |- ( ph ->
+      A. v e. RR+ E. g e. ( Poly ` CC ) A. s e. Y
+        ( abs ` ( ( g ` s ) -
+                  if ( s = 1 ,
+                       ( if ( X = .1. , ( phi ` N ) , 0 ) / N ) ,
+                       ( ( s - 1 ) x. ( ( N DirL X ) ` s ) ) ) ) ) < v ) $=
       ( vt vr vz ve vp cv cfv c1 cfz wceq cmin cdiv churz cmul cif csu cmpt cc0
       co cneg caddc ccxp cabs clt wbr wral cc cply wrex crp cphi cdirl rpred wa
       wcel fzfid ad2antrr cn elfznn adantl nnzd dchrzrhcl 1cnd wn sselda subcld
@@ -905412,6 +906050,7 @@ $)
       MUIEUEGHIJLOPQRAUWNVUFSXJTVUQUUMUUNYKYOYGYQYPYRYS $.
   $}
 
+
 $(
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   Primitive Dirichlet characters
@@ -905428,7 +906067,7 @@ $)
   cpdchr $a class PDChr $.
 
   ${
-    $d n x d a $.
+    $d a d n x $.
     $( Define the primitive Dirichlet characters modulo a positive integer.
        For each proper positive divisor of the modulus there is a unit
        congruent to one modulo the divisor on which the character differs from
@@ -905436,11 +906075,15 @@ $)
        Lemma 11.14(2) of
        ~ https://people.maths.bris.ac.uk/~~madjp/Teaching/lecture_dc.pdf .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    df-pdchr $a |- PDChr = ( n e. NN |->
-      { x e. ( Base ` ( DChr ` n ) ) |
-        A. d e. ( 1 ..^ n ) ( d || n -> E. a e. ( 1 ... n )
-          ( d || ( a - 1 ) /\
-            ( x ` ( ( ZRHom ` ( Z/nZ ` n ) ) ` a ) ) e/ { 0 , 1 } ) ) } ) $.
+    df-pdchr $a |- PDChr =
+      ( n e. NN |->
+        { x e. ( Base ` ( DChr ` n ) ) |
+          A. d e. ( 1 ..^ n )
+            ( d || n ->
+              E. a e. ( 1 ... n )
+                ( d || ( a - 1 ) /\
+                  ( x ` ( ( ZRHom ` ( Z/nZ ` n ) ) ` a ) ) e/
+                  { 0 , 1 } ) ) } ) $.
   $}
 
   ${
@@ -905448,9 +906091,15 @@ $)
     $( The set of primitive Dirichlet characters at a positive modulus.  Expand
        ~ df-pdchr at the given modulus.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    pdchrval $p |- ( N e. NN -> ( PDChr ` N ) = { x e. ( Base ` ( DChr ` N ) )
-      | A. d e. ( 1 ..^ N ) ( d || N -> E. a e. ( 1 ... N ) ( d || ( a - 1 )
-      /\ ( x ` ( ( ZRHom ` ( Z/nZ ` N ) ) ` a ) ) e/ { 0 , 1 } ) ) } ) $=
+    pdchrval $p |- ( N e. NN ->
+      ( PDChr ` N ) =
+      { x e. ( Base ` ( DChr ` N ) ) |
+        A. d e. ( 1 ..^ N )
+          ( d || N ->
+            E. a e. ( 1 ... N )
+              ( d || ( a - 1 ) /\
+                ( x ` ( ( ZRHom ` ( Z/nZ ` N ) ) ` a ) ) e/
+                { 0 , 1 } ) ) } ) $=
       ( vn cv cdvds wbr c1 co czn cfv czrh wnel wa cfz wrex cfzo cdchr cbs cmin
       cc0 cpr wi wral crab cn cpdchr 2fveq3 oveq2 breq2 wb fveq1d fveq2d neleq1
       wceq syl anbi2d rexeqbidv imbi12d raleqbidv rabeqbidv df-pdchr fvex rabex
@@ -905510,8 +906159,10 @@ $)
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     ispdchr $p |- ( X e. ( PDChr ` N ) <->
       ( X e. D /\
-        A. d e. ( 1 ..^ N ) ( d || N -> E. a e. ZZ
-          ( d || ( a - 1 ) /\ ( a gcd N ) = 1 /\ ( F ` a ) =/= 1 ) ) ) ) $=
+        A. d e. ( 1 ..^ N )
+          ( d || N ->
+            E. a e. ZZ
+              ( d || ( a - 1 ) /\ ( a gcd N ) = 1 /\ ( F ` a ) =/= 1 ) ) ) ) $=
       ( vi vj vv cfv wcel cv cdvds c1 co wa wceq cz vn cpdchr wbr cmin czn czrh
       vx vc cc0 cpr wnel cfz wrex wi cfzo wral cgcd wne w3a cdchr crab df-pdchr
       cn cbs mptrcl eqid dchrrcl adantr pdchrval eleq2d fveq1 neleq1 syl anbi2d
@@ -905580,8 +906231,8 @@ $)
        common divisor of their positive moduli divides the difference of their
        residues.  Use Bezout coefficients to construct a solution.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    gcdcongex $p |- ( ph -> E. t e. ZZ ( N || ( A - t ) /\ K || ( t - B ) ) )
-      $=
+    gcdcongex $p |- ( ph ->
+      E. t e. ZZ ( N || ( A - t ) /\ K || ( t - B ) ) ) $=
       ( co cmul cz cmin cdvds wbr wcel ad2antrr zcnd vx vy cgcd caddc wceq wrex
       cv wa nnzd bezout syl2anc cdiv oveq2 breq2d oveq1 anbi12d simplrl cc0 wne
       wb gcdnncl nnne0d zsubcld dvdsval2 syl3anc mpbid zmulcld zaddcld dvdsmul1
@@ -905607,16 +906258,20 @@ $)
     dchrqpergcd.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
     dchrqpergcd.n $e |- ( ph -> N e. NN ) $.
     dchrqpergcd.k $e |- ( ph -> K e. NN ) $.
-    dchrqpergcd.q $e |- ( ph -> A. a e. ZZ A. b e. ZZ ( ( K || ( a - b ) /\ (
-      ( a x. b ) gcd N ) = 1 ) -> ( F ` a ) = ( F ` b ) ) ) $.
+    dchrqpergcd.q $e |- ( ph ->
+      A. a e. ZZ A. b e. ZZ
+        ( ( K || ( a - b ) /\ ( ( a x. b ) gcd N ) = 1 ) ->
+          ( F ` a ) = ( F ` b ) ) ) $.
     $( The greatest common divisor of a quasiperiod and the modulus is a
        quasiperiod.  A simultaneous solution of the congruences in ~ gcdcongex
        lets us compare the character values through an intermediate unit.  See
        the proof of Lemma 11.11 of
        ~ https://people.maths.bris.ac.uk/~~madjp/Teaching/lecture_dc.pdf .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrqpergcd $p |- ( ph -> A. a e. ZZ A. b e. ZZ ( ( ( K gcd N ) || ( a - b
-      ) /\ ( ( a x. b ) gcd N ) = 1 ) -> ( F ` a ) = ( F ` b ) ) ) $=
+    dchrqpergcd $p |- ( ph ->
+      A. a e. ZZ A. b e. ZZ
+        ( ( ( K gcd N ) || ( a - b ) /\ ( ( a x. b ) gcd N ) = 1 ) ->
+          ( F ` a ) = ( F ` b ) ) ) $=
       ( cgcd co cmin cdvds cmul c1 wceq wa cz vi vj vt cv wbr cfv wral ad2antrr
       wi wcel cn simplrl simplrr simprl gcdcongex ad3antrrr simprrl dchrintcong
       adantr simprrr cmo nnrpd wb moddvds syl3anc mpbird eqidd modmul12d oveq1d
@@ -905647,8 +906302,11 @@ $)
     $d X i j $.
     dchrconddvds.d $e |- D = ( Base ` ( DChr ` N ) ) $.
     dchrconddvds.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
-    dchrconddvds.s $e |- S = { d e. NN | A. a e. ZZ A. b e. ZZ ( ( d || ( a -
-      b ) /\ ( ( a x. b ) gcd N ) = 1 ) -> ( F ` a ) = ( F ` b ) ) } $.
+    dchrconddvds.s $e |- S =
+      { d e. NN |
+        A. a e. ZZ A. b e. ZZ
+          ( ( d || ( a - b ) /\ ( ( a x. b ) gcd N ) = 1 ) ->
+            ( F ` a ) = ( F ` b ) ) } $.
     $( The conductor of a Dirichlet character divides its modulus.  Here ` S `
        is the set of all quasiperiods of ` X ` and ` inf ( S , RR , < ) ` is
        the conductor of ` X ` .  See Lemma 11.11 of
@@ -905696,9 +906354,11 @@ $)
        kernel test in Lemma 11.14(2) of
        ~ https://people.maths.bris.ac.uk/~~madjp/Teaching/lecture_dc.pdf .
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrqperker $p |- ( ph -> ( E. a e. ZZ ( K || ( a - 1 ) /\ ( a gcd N ) = 1
-      /\ ( F ` a ) =/= 1 ) <-> -. A. i e. ZZ A. j e. ZZ ( ( K || ( i - j ) /\
-      ( ( i x. j ) gcd N ) = 1 ) -> ( F ` i ) = ( F ` j ) ) ) ) $=
+    dchrqperker $p |- ( ph ->
+      ( E. a e. ZZ ( K || ( a - 1 ) /\ ( a gcd N ) = 1 /\ ( F ` a ) =/= 1 ) <->
+        -. A. i e. ZZ A. j e. ZZ
+             ( ( K || ( i - j ) /\ ( ( i x. j ) gcd N ) = 1 ) ->
+               ( F ` i ) = ( F ` j ) ) ) ) $=
       ( cv co c1 wceq cfv cz cmin cdvds wbr cmul cgcd wa wral wne w3a wrex wcel
       wi wn czn czrh simpr1 simplr zcnd oveq1d simpr2 eqtrd oveq1 breq2d eqeq1d
       mulridd anbi12d fveqeq2 imbi12d oveq2 fveq2 eqeq2d simpllr rspc2dv mp2and
@@ -905764,8 +906424,11 @@ $)
     $d N i j k m $.  $d S i j k m $.  $d S i j k r $.  $d X i j k m $.
     ispdchrcond.d $e |- D = ( Base ` ( DChr ` N ) ) $.
     ispdchrcond.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
-    ispdchrcond.s $e |- S = { d e. NN | A. a e. ZZ A. b e. ZZ ( ( d || ( a - b
-      ) /\ ( ( a x. b ) gcd N ) = 1 ) -> ( F ` a ) = ( F ` b ) ) } $.
+    ispdchrcond.s $e |- S =
+      { d e. NN |
+        A. a e. ZZ A. b e. ZZ
+          ( ( d || ( a - b ) /\ ( ( a x. b ) gcd N ) = 1 ) ->
+            ( F ` a ) = ( F ` b ) ) } $.
     $( A Dirichlet character is primitive exactly when its conductor equals its
        modulus.  Here ` S ` is the set of all quasiperiods of ` X ` and
        ` inf ( S , RR , < ) ` is the conductor of ` X ` .  See Definitions
@@ -905817,8 +906480,8 @@ $)
 
   ${
     $d A x y $.  $d C x y $.  $d F y $.  $d M x y $.  $d ph x y $.
-    modafff1o.f $e |- F = ( x e. ( 0 ..^ M ) |-> ( ( ( x x. C ) + A ) mod M )
-      ) $.
+    modafff1o.f $e |- F =
+      ( x e. ( 0 ..^ M ) |-> ( ( ( x x. C ) + A ) mod M ) ) $.
     modafff1o.m $e |- ( ph -> M e. NN ) $.
     modafff1o.a $e |- ( ph -> A e. ZZ ) $.
     modafff1o.c $e |- ( ph -> C e. ZZ ) $.
@@ -905854,8 +906517,10 @@ $)
     $( Multiplication by an integer congruent to one modulo the progression
        step induces an affine change of its index modulo the progression
        length.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    modprogmul $p |- ( ph -> ( K x. M ) || ( ( 1 + ( K x. ( ( ( I x. C ) + B )
-      mod M ) ) ) - ( C x. ( 1 + ( K x. I ) ) ) ) ) $=
+    modprogmul $p |- ( ph ->
+      ( K x. M ) ||
+      ( ( 1 + ( K x. ( ( ( I x. C ) + B ) mod M ) ) ) -
+        ( C x. ( 1 + ( K x. I ) ) ) ) ) $=
       ( cmul co caddc cmin c1 wcel zmulcld zcnd cmo cdvds wbr wceq zaddcld zred
       cr crp nnrpd modabs2 syl2anc cn cz wb zmodcld nn0zd moddvds syl3anc mpbid
       wi nnzd zsubcld dvdscmul subdid 1cnd pnpcand eqcomd oveq1d addcomd oveq2d
@@ -905886,9 +906551,10 @@ $)
        is fixed by multiplication by the character value of any unit congruent
        to one modulo that divisor.  The affine index permutation preserves the
        terms up to this factor.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrprogsum $p |- ( ph -> sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x.
-      j ) ) ) = ( ( F ` C ) x. sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K
-      x. j ) ) ) ) ) $=
+    dchrprogsum $p |- ( ph ->
+      sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. j ) ) ) =
+      ( ( F ` C ) x.
+        sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. j ) ) ) ) ) $=
       ( co cfv wcel cz vi vx cc0 cdiv cfzo c1 cmul caddc csu wceq oveq2d fveq2d
       cv oveq2 cbvsumv cmin cmo wa czn czrh ccom fveq1i wfn cn0 cbs wfo cn eqid
       cdchr dchrrcl syl adantr nnnn0d znzrhfo fofn 3syl elfzoelz adantl zmulcld
@@ -905936,9 +906602,9 @@ $)
        that class has character value different from one.  In the absence of
        such a unit all terms are zero or one, and the first term is one.
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrprogsum0 $p |- ( ph -> ( E. a e. ZZ ( K || ( a - 1 ) /\ ( a gcd N ) =
-      1 /\ ( F ` a ) =/= 1 ) <-> sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K
-      x. j ) ) ) = 0 ) ) $=
+    dchrprogsum0 $p |- ( ph ->
+      ( E. a e. ZZ ( K || ( a - 1 ) /\ ( a gcd N ) = 1 /\ ( F ` a ) =/= 1 ) <->
+        sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. j ) ) ) = 0 ) ) $=
       ( cv c1 wceq cfv cz cc0 wcel cmin co wbr cgcd wne w3a wrex cdiv cfzo cmul
       cdvds caddc csu wa wn simprr3 neneqd czn czrh ccom fveq1i wfn cn0 cbs wfo
       cc cn adantr cdchr eqid dchrrcl syl nnnn0d znzrhfo fofn 3syl simprl fvco2
@@ -905991,8 +906657,10 @@ $)
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     ispdchrsum $p |- ( X e. ( PDChr ` N ) <->
       ( X e. D /\
-        A. d e. ( 1 ..^ N ) ( d || N ->
-          sum_ k e. ( 0 ..^ ( N / d ) ) ( F ` ( 1 + ( d x. k ) ) ) = 0 ) ) ) $=
+        A. d e. ( 1 ..^ N )
+          ( d || N ->
+            sum_ k e. ( 0 ..^ ( N / d ) ) ( F ` ( 1 + ( d x. k ) ) ) =
+            0 ) ) ) $=
       ( vi vj vm cfv wcel cv c1 co wceq cc0 cmul caddc cpdchr wbr cmin cgcd wne
       cdvds w3a cz wrex cfzo wral cdiv csu ispdchr simpll fzossnn simplr sselid
       wi wa cn simpr dchrprogsum0 pm5.74da ralbidva wb breq1 oveq2 oveq2d oveq1
@@ -906009,8 +906677,8 @@ $)
 
   ${
     $d C x y $.  $d F y $.  $d N x y $.  $d ph x y $.
-    fz1mulperm.f $e |- F = ( x e. ( 1 ... N ) |-> ( ( ( ( x x. C ) - 1 ) mod N
-      ) + 1 ) ) $.
+    fz1mulperm.f $e |- F =
+      ( x e. ( 1 ... N ) |-> ( ( ( ( x x. C ) - 1 ) mod N ) + 1 ) ) $.
     fz1mulperm.n $e |- ( ph -> N e. NN ) $.
     fz1mulperm.c $e |- ( ph -> C e. ZZ ) $.
     fz1mulperm.g $e |- ( ph -> ( C gcd N ) = 1 ) $.
@@ -906051,15 +906719,17 @@ $)
     dchrindorth.y $e |- ( ph -> Y e. ( Base ` ( DChr ` K ) ) ) $.
     dchrindorth.c $e |- ( ph -> C e. ZZ ) $.
     dchrindorth.g $e |- ( ph -> ( C gcd N ) = 1 ) $.
-    dchrindorth.e $e |- ( ph -> ( F ` C ) =/= ( Y ` ( ( ZRHom ` ( Z/nZ ` K ) )
-      ` C ) ) ) $.
+    dchrindorth.e $e |- ( ph ->
+      ( F ` C ) =/= ( Y ` ( ( ZRHom ` ( Z/nZ ` K ) ) ` C ) ) ) $.
     $( If characters at two divisor-related moduli differ on a unit of the
        larger modulus, their inner product over a full period of that modulus
        vanishes.  Multiplication by the distinguishing unit permutes the sum;
        the conjugated lower character has unit magnitude there.  (Contributed
        by Zhi Wang, 26-Nov-2026.) $)
-    dchrindorth $p |- ( ph -> sum_ j e. ( 1 ... N ) ( ( F ` j ) x. ( * ` ( Y `
-      ( ( ZRHom ` ( Z/nZ ` K ) ) ` j ) ) ) ) = 0 ) $=
+    dchrindorth $p |- ( ph ->
+      sum_ j e. ( 1 ... N )
+        ( ( F ` j ) x. ( * ` ( Y ` ( ( ZRHom ` ( Z/nZ ` K ) ) ` j ) ) ) ) =
+      0 ) $=
       ( co cfv vi vx c1 cfz cv czn czrh ccj cmul csu cc0 wn wceq neneqd wa ccom
       wne cc fveq1i cz wfn wcel cn0 cbs wfo cn adantr cdchr eqid dchrrcl nnnn0d
       znzrhfo fofn 3syl fvco2 syl2anc eqtrid dchrzrhcl eqeltrd cjcld cgcd cdvds
@@ -906145,9 +906815,9 @@ $)
        Decompose the interval into consecutive blocks.  Only the chosen
        representative contributes in each block.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    fsumrescls $p |- ( ph -> sum_ a e. ( 1 ... N ) if ( K || ( a - R ) , ( F `
-      a ) , 0 ) = sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( R + ( j x. K ) ) ) )
-      $=
+    fsumrescls $p |- ( ph ->
+      sum_ a e. ( 1 ... N ) if ( K || ( a - R ) , ( F ` a ) , 0 ) =
+      sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( R + ( j x. K ) ) ) ) $=
       ( vi co cv cn cdvds cc0 wcel wceq cdiv cmul cfz cmin wbr cfv cif cmpt csu
       vx c1 cfzo caddc wb nndivdvds syl2anc mpbid cc wa ffvelcdmda ifcld fmpttd
       0cnd fsumblocks mpdan nncnd nnne0d divcan1d oveq2d elfznn adantl ifbieq1d
@@ -906192,10 +906862,11 @@ $)
        by the Euler totient of the divisor.  This follows from the character
        orthogonality relation ~ sumdchr .  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dchrorthsum $p |- ( ph -> sum_ y e. ( Base ` ( DChr ` K ) ) sum_ a e. ( 1
-      ... N ) ( ( F ` a ) x. ( * ` ( y ` ( ( ZRHom ` ( Z/nZ ` K ) ) ` a ) ) )
-      ) = ( sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. j ) ) ) x. ( phi
-      ` K ) ) ) $=
+    dchrorthsum $p |- ( ph ->
+      sum_ y e. ( Base ` ( DChr ` K ) ) sum_ a e. ( 1 ... N )
+        ( ( F ` a ) x. ( * ` ( y ` ( ( ZRHom ` ( Z/nZ ` K ) ) ` a ) ) ) ) =
+      ( sum_ j e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. j ) ) ) x.
+        ( phi ` K ) ) ) $=
       ( cfv c1 cv cmul cc0 wcel vx cdchr cbs cfz co czn czrh ccj csu cmin cdvds
       wbr cphi cif cn cmpt cdiv cfzo caddc cfn eqid dchrfi syl fzfid wa cc ccom
       fveq1i cz wfn wceq cn0 wfo adantr dchrrcl nnnn0d znzrhfo fofn 3syl simprr
@@ -906259,9 +906930,13 @@ $)
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     ispdchrorth $p |- ( X e. ( PDChr ` N ) <->
       ( X e. D /\
-        A. d e. ( 1 ..^ N ) ( d || N -> A. y e. ( Base ` ( DChr ` d ) )
-          sum_ a e. ( 1 ... N ) ( ( F ` a ) x.
-            ( * ` ( y ` ( ( ZRHom ` ( Z/nZ ` d ) ) ` a ) ) ) ) = 0 ) ) ) $=
+        A. d e. ( 1 ..^ N )
+          ( d || N ->
+            A. y e. ( Base ` ( DChr ` d ) )
+              sum_ a e. ( 1 ... N )
+                ( ( F ` a ) x.
+                  ( * ` ( y ` ( ( ZRHom ` ( Z/nZ ` d ) ) ` a ) ) ) ) =
+              0 ) ) ) $=
       ( vi vz vv cfv wcel cv co wceq cz wa cc0 vt vj cpdchr cdvds wbr cmin cgcd
       c1 wne w3a wrex wi cfzo wral cfz czn czrh ccj cmul csu cbs ispdchr simpr2
       cdchr simpr3 eqid simpllr simplr simpr1 dchrzrhcong1 neeqtrrd ex reximdva
@@ -906315,9 +906990,12 @@ $)
        (Contributed by Zhi Wang, 26-Nov-2026.) $)
     ispdchrind $p |- ( X e. ( PDChr ` N ) <->
       ( X e. D /\
-        A. d e. ( 1 ..^ N ) ( d || N -> A. y e. ( Base ` ( DChr ` d ) )
-          E. a e. ZZ ( ( a gcd N ) = 1 /\
-            ( F ` a ) =/= ( y ` ( ( ZRHom ` ( Z/nZ ` d ) ) ` a ) ) ) ) ) ) $=
+        A. d e. ( 1 ..^ N )
+          ( d || N ->
+            A. y e. ( Base ` ( DChr ` d ) ) E. a e. ZZ
+              ( ( a gcd N ) = 1 /\
+                ( F ` a ) =/=
+                ( y ` ( ( ZRHom ` ( Z/nZ ` d ) ) ` a ) ) ) ) ) ) $=
       ( vi vz vv cfv wcel cv c1 wa cz wral wi vt cpdchr cdvds wbr cgcd wceq czn
       co czrh wne wrex cdchr cbs cfzo cmin ispdchr simpr2 simpr3 simpllr simplr
       w3a eqid simpr1 dchrzrhcong1 neeqtrrd jca reximdva ralrimdva a2d ralimdva
@@ -906352,8 +907030,8 @@ $)
     $( The sum of the first positive powers of an Nth root of unity is zero
        unless the root is one, in which case the sum is N. (Contributed by Zhi
        Wang, 26-Nov-2026.) $)
-    fsumroot1 $p |- ( ph -> sum_ i e. ( 1 ... N ) ( A ^ i ) = if ( A = 1 , N ,
-      0 ) ) $=
+    fsumroot1 $p |- ( ph ->
+      sum_ i e. ( 1 ... N ) ( A ^ i ) = if ( A = 1 , N , 0 ) ) $=
       ( c1 wceq cfz co cexp csu cc0 wa wcel syl eqtrd adantr cmin cif chash cfv
       cv simplr oveq1d cz simpr elfzelzd 1exp sumeq2dv cfn fzfid fsumconst1 cn0
       cn nnnn0d hashfz1 3eqtrd iftrued eqtr4d wn caddc cfzo cdiv cc neqned 1nn0
@@ -906381,9 +907059,11 @@ $)
        is a product, summing the quotient of two root-of-unity characters at
        equally spaced frequencies detects congruence modulo the number of
        frequencies.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    root1ressum $p |- ( ph -> sum_ j e. ( 1 ... K ) ( ( ( -u 1 ^c ( 2 / N ) )
-      ^ ( A x. ( M x. j ) ) ) / ( ( -u 1 ^c ( 2 / N ) ) ^ ( R x. ( M x. j ) )
-      ) ) = if ( K || ( A - R ) , K , 0 ) ) $=
+    root1ressum $p |- ( ph ->
+      sum_ j e. ( 1 ... K )
+        ( ( ( -u 1 ^c ( 2 / N ) ) ^ ( A x. ( M x. j ) ) ) /
+          ( ( -u 1 ^c ( 2 / N ) ) ^ ( R x. ( M x. j ) ) ) ) =
+      if ( K || ( A - R ) , K , 0 ) ) $=
       ( c1 co cmul cexp cdvds wcel cz zcnd cfz cneg cdiv ccxp csu cmin wceq cc0
       c2 cv cif wbr wa adantr zsubcld nnzd simpr mulassd mulcomd oveq1d zmulcld
       elfzelzd subdird 3eqtr3rd oveq2d cc neg1cn 2cnd cn nnmulcld eqeltrd nncnd
@@ -906415,10 +907095,12 @@ $)
     $( Summing equally spaced Fourier coefficients with an inverse phase gives
        the sum of the original coefficients in one residue class, multiplied by
        the number of frequencies.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dftresproj $p |- ( ph -> sum_ j e. ( 1 ... K ) ( sum_ i e. ( 1 ... N ) ( (
-      F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( M x. j ) ) ) ) / ( ( -u 1
-      ^c ( 2 / N ) ) ^ ( R x. ( M x. j ) ) ) ) = ( sum_ i e. ( 1 ... N ) if (
-      K || ( i - R ) , ( F ` i ) , 0 ) x. K ) ) $=
+    dftresproj $p |- ( ph ->
+      sum_ j e. ( 1 ... K )
+        ( sum_ i e. ( 1 ... N )
+            ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( M x. j ) ) ) ) /
+          ( ( -u 1 ^c ( 2 / N ) ) ^ ( R x. ( M x. j ) ) ) ) =
+      ( sum_ i e. ( 1 ... N ) if ( K || ( i - R ) , ( F ` i ) , 0 ) x. K ) ) $=
       ( co cmul csu cc0 wcel adantr zmulcld c1 cfz cfv cneg cdiv ccxp cexp cmin
       cv c2 cdvds wbr cif wa fzfid cc neg1cn a1i 2cnd cn nnmulcld eqeltrd nncnd
       nnne0d divcld cxpcld wne neg1ne0 cxpne0d cz nnzd elfzelz expclzd ad2antrr
@@ -906458,9 +907140,12 @@ $)
        ~ dftresproj to the full range of frequencies, so that only the
        coefficient at the chosen residue remains.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dftcoef $p |- ( ph -> sum_ j e. ( 1 ... N ) ( sum_ i e. ( 1 ... N ) ( ( F
-      ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. j ) ) ) / ( ( -u 1 ^c ( 2 / N
-      ) ) ^ ( R x. j ) ) ) = ( ( F ` R ) x. N ) ) $=
+    dftcoef $p |- ( ph ->
+      sum_ j e. ( 1 ... N )
+        ( sum_ i e. ( 1 ... N )
+            ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. j ) ) ) /
+          ( ( -u 1 ^c ( 2 / N ) ) ^ ( R x. j ) ) ) =
+      ( ( F ` R ) x. N ) ) $=
       ( c1 co cdiv cmul cexp csu cc0 wcel wa wceq oveq2d cfz cfv cneg ccxp cmin
       cv c2 cdvds wbr cif cn 1nn nncnd mullidd eqcomd elfzelzd dftresproj simpr
       a1i zcnd adantr sumeq2dv oveq12d csn cz wb moddvds syl3anc fz1cong bitr3d
@@ -906485,9 +907170,12 @@ $)
     $( Parseval identity for the unnormalized discrete Fourier transform.
        Expand the conjugate of the Fourier sum, interchange two finite sums and
        apply ~ dftcoef .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dftparseval $p |- ( ph -> sum_ j e. ( 1 ... N ) ( ( abs ` sum_ i e. ( 1
-      ... N ) ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. j ) ) ) ) ^ 2 )
-      = ( sum_ a e. ( 1 ... N ) ( ( abs ` ( F ` a ) ) ^ 2 ) x. N ) ) $=
+    dftparseval $p |- ( ph ->
+      sum_ j e. ( 1 ... N )
+        ( ( abs ` sum_ i e. ( 1 ... N )
+                    ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. j ) ) ) ) ^
+          2 ) =
+      ( sum_ a e. ( 1 ... N ) ( ( abs ` ( F ` a ) ) ^ 2 ) x. N ) ) $=
       ( c1 co cfv c2 cmul csu wcel wa a1i nncnd divcld elfzelzd cfz cv cneg ccj
       cdiv ccxp cexp cabs fzfid cc adantlr neg1cn 2cnd simpll syl nnne0d cxpcld
       cn cc0 wne neg1ne0 cxpne0d simplr zmulcld expclzd mulcld fsumcl absvalsqd
@@ -906545,9 +907233,13 @@ $)
        Dirichlet character.  The resulting change of frequency introduces the
        character value at that unit.  (Contributed by Zhi Wang,
        26-Nov-2026.) $)
-    dchrgausstwist $p |- ( ph -> sum_ i e. ( 1 ... N ) ( ( F ` i ) x. ( ( -u 1
-      ^c ( 2 / N ) ) ^ ( i x. V ) ) ) = ( ( F ` C ) x. sum_ i e. ( 1 ... N ) (
-      ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( V x. C ) ) ) ) ) ) $=
+    dchrgausstwist $p |- ( ph ->
+      sum_ i e. ( 1 ... N )
+        ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. V ) ) ) =
+      ( ( F ` C ) x.
+        sum_ i e. ( 1 ... N )
+          ( ( F ` i ) x.
+            ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( V x. C ) ) ) ) ) ) $=
       ( vj c1 co cv cfv cmul vx cfz cneg cdiv ccxp cexp csu cmin cmo caddc wcel
       c2 wa cn cdchr eqid dchrrcl syl adantr cn0 simpr elfzelzd cz zmulcld 1zzd
       zsubcld zmodcld nn0p1nn nnzd wceq cdvds wbr crp zred 1red nnrpd modaddmod
@@ -906607,8 +907299,9 @@ $)
        frequency vanishes.  Apply the kernel criterion to the modulus divided
        by its greatest common divisor with the frequency, then use
        ~ dchrgausstwist .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    pdchrgauss0 $p |- ( ph -> sum_ i e. ( 1 ... N ) ( ( F ` i ) x. ( ( -u 1 ^c
-      ( 2 / N ) ) ^ ( i x. V ) ) ) = 0 ) $=
+    pdchrgauss0 $p |- ( ph ->
+      sum_ i e. ( 1 ... N )
+        ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. V ) ) ) = 0 ) $=
       ( va co cv c1 cdvds cmul cz wcel cgcd cdiv cmin wbr wceq cfv wne w3a cneg
       vd cfz c2 ccxp cexp csu cc0 wrex cn wi cfzo wral cpdchr wa ispdchr simpld
       sylib cdchr eqid dchrrcl gcdnncl syl2anc nnzd gcddvds simprd wb nndivdvds
@@ -906663,15 +907356,16 @@ $)
     dftres0.n $e |- ( ph -> N e. NN ) $.
     dftres0.v $e |- ( ph -> K || N ) $.
     dftres0.f $e |- ( ( ph /\ x e. NN ) -> ( F ` x ) e. CC ) $.
-    dftres0.z $e |- ( ( ph /\ j e. ( 1 ... K ) ) -> sum_ i e. ( 1 ... N ) ( (
-      F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( ( N / K ) x. j ) ) ) ) = 0
-      ) $.
+    dftres0.z $e |- ( ( ph /\ j e. ( 1 ... K ) ) ->
+      sum_ i e. ( 1 ... N )
+        ( ( F ` i ) x.
+          ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. ( ( N / K ) x. j ) ) ) ) = 0 ) $.
     $( If the Fourier coefficients at all multiples of the complementary
        divisor vanish, the original coefficients sum to zero on the residue
        class of one.  Apply ~ dftresproj and ~ fsumrescls .  (Contributed by
        Zhi Wang, 26-Nov-2026.) $)
-    dftres0 $p |- ( ph -> sum_ a e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. a )
-      ) ) = 0 ) $=
+    dftres0 $p |- ( ph ->
+      sum_ a e. ( 0 ..^ ( N / K ) ) ( F ` ( 1 + ( K x. a ) ) ) = 0 ) $=
       ( c1 co cv cn cc0 cmul wcel cfz cmin cdvds wbr cfv cmpt cif csu cdiv cfzo
       caddc cc fmpttd cle 1nn nnge1d elfz1b syl3anbrc fsumrescls wa wceq elfznn
       a1i adantl fveq2 eqid fvex fvmpt syl ifeq1d sumeq2dv fzfid wral ralrimiva
@@ -906704,15 +907398,19 @@ $)
     $d i j ph v $.  $d i ph v x $.  $d i j v y $.
     pdchrgausssupp.d $e |- D = ( Base ` ( DChr ` N ) ) $.
     pdchrgausssupp.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
-    pdchrgausssupp.h $e |- H = ( b e. ZZ |-> sum_ i e. ( 1 ... N ) ( ( F ` i )
-      x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
+    pdchrgausssupp.h $e |- H =
+      ( b e. ZZ |->
+        sum_ i e. ( 1 ... N )
+          ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
     pdchrgausssupp.x $e |- ( ph -> X e. D ) $.
     $( A Dirichlet character is primitive if and only if its Fourier transform
        vanishes at every nonunit frequency.  The converse follows by projecting
        onto the residue class of one for each proper divisor and applying
        ~ ispdchrsum .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    pdchrgausssupp $p |- ( ph -> ( X e. ( PDChr ` N ) <-> A. v e. ( ( 1 ... N
-      ) \ { y e. ( 1 ... N ) | ( y gcd N ) = 1 } ) ( H ` v ) = 0 ) ) $=
+    pdchrgausssupp $p |- ( ph ->
+      ( X e. ( PDChr ` N ) <->
+        A. v e. ( ( 1 ... N ) \ { y e. ( 1 ... N ) | ( y gcd N ) = 1 } )
+          ( H ` v ) = 0 ) ) $=
       ( vd wcel cv wceq co wa va vx cpdchr cfv cc0 cfz cgcd crab cdif wral cneg
       vj c1 c2 cdiv ccxp cmul cexp csu cz wn simpr eldif a1i oveq1 eqeq1d elrab
       wb notbid anbi2d annotanannot 3bitrd mpbid simpld elfzelz oveq2d sumeq2dv
@@ -906764,15 +907462,18 @@ $)
     $d a i ph v $.
     dchrgaussnorm.d $e |- D = ( Base ` ( DChr ` N ) ) $.
     dchrgaussnorm.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
-    dchrgaussnorm.h $e |- H = ( b e. ZZ |-> sum_ i e. ( 1 ... N ) ( ( F ` i )
-      x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
+    dchrgaussnorm.h $e |- H =
+      ( b e. ZZ |->
+        sum_ i e. ( 1 ... N )
+          ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
     dchrgaussnorm.x $e |- ( ph -> X e. D ) $.
     $( The sum of the squared absolute values of the Fourier coefficients of a
        Dirichlet character is its modulus times its totient.  Apply
        ~ dftparseval and count the unit residue classes where the character has
        absolute value one.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    dchrgaussnorm $p |- ( ph -> sum_ v e. ( 1 ... N ) ( ( abs ` ( H ` v ) ) ^
-      2 ) = ( ( phi ` N ) x. N ) ) $=
+    dchrgaussnorm $p |- ( ph ->
+      sum_ v e. ( 1 ... N ) ( ( abs ` ( H ` v ) ) ^ 2 ) =
+      ( ( phi ` N ) x. N ) ) $=
       ( va c1 co cv cfv wcel wceq vy cfz cabs cexp csu cneg cdiv ccxp cmul cphi
       c2 wa cz simpr elfzelzd simpl oveq2d sumeq2dv sumex fvmpt fveq2d cn cdchr
       syl oveq1d eqid dchrrcl czn czrh cc ccom fveq1i wfn cbs wfo adantr nnnn0d
@@ -906809,17 +907510,20 @@ $)
     $d F b i v $.  $d H v $.  $d N b i v $.  $d N i v y $.  $d i ph v $.
     dchrgaussmag.d $e |- D = ( Base ` ( DChr ` N ) ) $.
     dchrgaussmag.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
-    dchrgaussmag.h $e |- H = ( b e. ZZ |-> sum_ i e. ( 1 ... N ) ( ( F ` i )
-      x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
+    dchrgaussmag.h $e |- H =
+      ( b e. ZZ |->
+        sum_ i e. ( 1 ... N )
+          ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( i x. b ) ) ) ) $.
     dchrgaussmag.x $e |- ( ph -> X e. D ) $.
     $( The Fourier transform of a Dirichlet character vanishes at every nonunit
        frequency if and only if its Gauss sum at frequency one has absolute
        value equal to the square root of the modulus.  Use ~ dftparseval and
        sum squared magnitudes separately over units and nonunits.  (Contributed
        by Zhi Wang, 26-Nov-2026.) $)
-    dchrgaussmag $p |- ( ph -> ( A. v e. ( ( 1 ... N ) \ { y e. ( 1 ... N ) |
-      ( y gcd N ) = 1 } ) ( H ` v ) = 0 <-> ( abs ` ( H ` 1 ) ) = ( sqrt ` N )
-      ) ) $=
+    dchrgaussmag $p |- ( ph ->
+      ( A. v e. ( ( 1 ... N ) \ { y e. ( 1 ... N ) | ( y gcd N ) = 1 } )
+          ( H ` v ) = 0 <->
+        ( abs ` ( H ` 1 ) ) = ( sqrt ` N ) ) ) $=
       ( cv cfv wceq c1 co cmul cc0 cgcd crab cdif wral cabs c2 cexp csqrt fzfid
       cfz csu difssd ssfid wcel wa cneg cdiv cc cz simpr eldifad elfzelzd simpl
       ccxp oveq2d sumeq2dv sumex fvmpt syl czn czrh ccom fveq1i wfn cn0 cbs wfo
@@ -906897,8 +907601,8 @@ $)
     ispdchrgauss $p |- ( X e. ( PDChr ` N ) <->
       ( X e. D /\
         ( abs ` sum_ a e. ( 1 ... N )
-          ( ( F ` a ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ a ) ) )
-        = ( sqrt ` N ) ) ) $=
+                  ( ( F ` a ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ a ) ) ) =
+        ( sqrt ` N ) ) ) $=
       ( vv vb vi cfv c1 co cv cexp cmul csu wceq cz oveq2d vt vu vk cpdchr wcel
       vy cfz cneg c2 cdiv ccxp cabs csqrt cdvds wbr cmin cgcd wne w3a wrex cfzo
       wi wral ispdchr simplbi cmpt cc0 crab fveq2 oveq1 oveq12d cbvsumv mpteq2i
