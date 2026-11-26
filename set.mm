@@ -907081,6 +907081,205 @@ $)
   $}
 
   ${
+    $d M n y $.  $d M y z $.  $d ph y $.
+    root1hashle.m $e |- ( ph -> M e. NN ) $.
+    $( There are at most ` M ` complex ` M `-th roots of unity: by ~ cxpeq they
+       are the values of a function on ` ( 0 ... ( M - 1 ) ) ` .  (Contributed
+       by Zhi Wang, 27-Nov-2026.) $)
+    root1hashle $p |- ( ph -> ( # ` { z e. CC | ( z ^ M ) = 1 } ) <_ M ) $=
+      ( vn vy cv cexp co c1 wceq cc chash cfv cc0 cvv wcel cle wbr syl crab cfz
+      cmin cdiv ccxp cneg cmul cmpt crn cxr cnex rabex hashxrcl mp1i ovex mptex
+      c2 rnex nnred rexrd wss wrex simpr oveq1 eqeq1d elrab sylib simprd simpld
+      wa cn wb adantr 1cnd cxpeq syl3anc mpbid eqid elrnmpt mpbird ssrdv hashss
+      ex sylancr cdom cfn wfo fzfi wfn fnmpti dffn4 mpbi fodomfi mp2an hashdomi
+      ax-mp a1i caddc cn0 nnm1nn0 hashfz0 nncnd npcand eqtrd breqtrd xrletrd )
+      ABGZCHIZJKZBLUAZMNZEOCJUCIZUBIZJJCUDIUEIZJUFUQCUDIUEIEGHIZUGIZUHZUIZMNZCX
+      JPQXKUJQAXIBLUKULXJPUMUNXRPQZXSUJQAXQEXMXPOXLUBUOUPURZXRPUMUNACACDUSUTAXT
+      XJXRVAXKXSRSYAAFXJXRAFGZXJQZYBXRQZAYCVJZYDYBXPKEXMVBZYEYBCHIZJKZYFYEYBLQZ
+      YHYEYCYIYHVJAYCVCXIYHBYBLXGYBKXHYGJXGYBCHVDVEVFVGZVHYEYICVKQZJLQYHYFVLYEY
+      IYHYJVIZAYKYCDVMYEVNYBJECVOVPVQYEYIYDYFVLYLEXMXPYBXQLXQVRZVSTVTWCWAXRXJPW
+      BWDAXSXMMNZCRXSYNRSZAXRXMWESZYOXMWFQXMXRXQWGZYPOXLWHXQXMWIYQEXMXPXQXNXOUG
+      UOYMWJXMXQWKWLXMXRXQWMWNXRXMWOWPWQAYNXLJWRIZCAXLWSQZYNYRKAYKYSDCWTTXLXATA
+      CJACDXBAVNXCXDXEXF $.
+  $}
+
+  ${
+    cnsubgexp.m $e |- M = ( ( mulGrp ` CCfld ) |`s ( CC \ { 0 } ) ) $.
+    cnsubgexp.s $e |- ( ph -> S e. ( SubGrp ` M ) ) $.
+    cnsubgexp.f $e |- ( ph -> S e. Fin ) $.
+    cnsubgexp.y $e |- ( ph -> Y e. S ) $.
+    $( Lagrange's theorem for a finite subgroup ` S ` of the multiplicative
+       group of nonzero complex numbers: each element raised to the order of
+       ` S ` is one.  (Contributed by Zhi Wang, 27-Nov-2026.) $)
+    cnsubgexp $p |- ( ph -> ( Y ^ ( # ` S ) ) = 1 ) $=
+      ( chash cfv cmg co wcel cc wceq cfn syl cbs eqid syl3anc cexp ccnfld cmgp
+      c1 cn cc0 csn cdif c0 ne0d wb hashnncl mpbird csubg subgss difss cnfldbas
+      wne wss mgpbas sseqtri ressbas2 ax-mp sseqtrrdi sseldd cminusg ressmulgnn
+      syl2anc cn0 eldifad hashcl cnfldexp eqtrd c0g cress cz nn0zd subgmulg cod
+      cdvds wbr subggrp subgbas eqeltrrd eleqtrd oddvds2 fveq2d breqtrrd oddvds
+      cgrp mpbid subg0 eqtr4d cnmgpid eqtrdi eqtr3d ) ABIJZDCKJZLZDWQUALZUDAWSW
+      QDUBUCJZKJZLZWTAWQUEMZDNUFUGZUHZMWSXCOAXDBUIURZABDHUJABPMZXDXGUKGBULQUMAB
+      XFDABCRJZXFABCUNJMZBXIUSFXIBCXISUOQXFXARJZUSXFXIOXFNXKNXEUPNUBXAXASUQUTVA
+      ZXFXKCXAEXKSVBVCVDHVEZXFXACXAVFJZXBWQDEXLXBSXNSVGVHADNMWQVIMZXCWTOADNXEXM
+      VJAXHXOGBVKQZDWQVLVHVMAWSCVNJZUDAWSCBVOLZVNJZXQAWSWQDXRKJZLZXSAXJWQVPMZDB
+      MWSYAOFAWQXPVQZHBXTWRCXRWQDWRSXRSZXTSZVRTADXRVSJZJZWQVTWAZYAXSOZAYGXRRJZI
+      JZWQVTAXRWJMZYJPMDYJMZYGYKVTWAAXJYLFBCXRYDWBQZABYJPAXJBYJOFBCXRYDWCQZGWDA
+      DBYJHYOWEZDXRYFYJYJSZYFSZWFTABYJIYOWGWHAYLYMYBYHYIUKYNYPYCDXTXRWQYFYJXSYQ
+      YRYEXSSWITWKVMAXJXQXSOFBCXRXQYDXQSWLQWMCEWNWOWP $.
+  $}
+
+  ${
+    $d A x y $.  $d G x y $.  $d K x $.  $d X x y $.  $d ph x y $.
+    dchrmulg.g $e |- G = ( DChr ` N ) $.
+    dchrmulg.z $e |- Z = ( Z/nZ ` N ) $.
+    dchrmulg.d $e |- D = ( Base ` G ) $.
+    dchrmulg.u $e |- U = ( Unit ` Z ) $.
+    dchrmulg.x $e |- ( ph -> X e. D ) $.
+    dchrmulg.a $e |- ( ph -> A e. U ) $.
+    dchrmulg.k $e |- ( ph -> K e. NN0 ) $.
+    $( The ` K `-th power of a Dirichlet character in the character group acts
+       on units as the pointwise ` K `-th power.  (Contributed by Zhi Wang,
+       27-Nov-2026.) $)
+    dchrmulg $p |- ( ph -> ( ( K ( .g ` G ) X ) ` A ) = ( ( X ` A ) ^ K ) ) $=
+      ( wcel cfv co wceq vx vy cn0 cmg cexp cv cc0 c1 caddc oveq1 oveq2 eqeq12d
+      fveq1d c0g mulg0 syl cn dchrrcl dchr1 eqtrd cc cbs dchrf unitss ffvelcdmd
+      eqid sselid exp0 eqtr4d wa cmul cof cplusg cmnd cgrp cabl ablgrp ad2antrr
+      dchrabl grpmnd simplr mulgnn0p1 syl3anc nn0zd mulgcl dchrmul wfn cvv ffnd
+      cz wf a1i fnfvof syl22anc simpr oveq1d 3eqtrd expp1 syl2anc nn0indd mpdan
+      fvex ) AFUCQBFHEUDRZSZRZBHRZFUESZTZPABUAUFZHXCSZRZXFXIUESZTBUGHXCSZRZXFUG
+      UESZTBUBUFZHXCSZRZXFXPUESZTZBXPUHUISZHXCSZRZXFYAUESZTXHUAUBFXIUGTZXKXNXLX
+      OYEBXJXMXIUGHXCUJUMXIUGXFUEUKULXIXPTZXKXRXLXSYFBXJXQXIXPHXCUJUMXIXPXFUEUK
+      ULXIYATZXKYCXLYDYGBXJYBXIYAHXCUJUMXIYAXFUEUKULXIFTZXKXEXLXGYHBXJXDXIFHXCU
+      JUMXIFXFUEUKULAXNUHXOAXNBEUNRZRUHABXMYIAHCQZXMYITNCXCEHYILYIVFZXCVFZUOUPU
+      MABDYIEGIJKYKMAYJGUQQZNCEGHJLURUPZOUSUTAXFVAQZXOUHTAIVBRZVABHAYPCEGHIJKLY
+      PVFZNVCZADYPBYPIDYQMVDOVGZVEZXFVHUPVIAXPUCQZVJZXTVJZYCXSXFVKSZYDUUCYCBXQH
+      VKVLSZRZXRXFVKSZUUDUUCBYBUUEUUCYBXQHEVMRZSZUUEUUCEVNQZUUAYJYBUUITUUCEVOQZ
+      UUJAUUKUUAXTAEVPQZUUKAYMUULYNEGJVSUPEVQUPVRZEVTUPAUUAXTWAZAYJUUAXTNVRZCUU
+      HXCEXPHLYLUUHVFZWBWCUUCCUUHEGXQHIJKLUUPUUCUUKXPWJQYJXQCQUUMUUCXPUUNWDUUOC
+      XCEXPHLYLWEWCZUUOWFUTUMUUCXQYPWGHYPWGYPWHQZBYPQZUUFUUGTUUCYPVAXQUUCYPCEGX
+      QIJKLYQUUQVCWIUUCYPVAHAYPVAHWKUUAXTYRVRWIUURUUCIVBXBWLAUUSUUAXTYSVRYPVKXQ
+      HWHBWMWNUUCXRXSXFVKUUBXTWOWPWQUUCYOUUAYDUUDTAYOUUAXTYTVRUUNXFXPWRWSVIWTXA
+      $.
+  $}
+
+  ${
+    $d G a $.  $d M a z $.  $d U a $.  $d X a z $.  $d a ph $.
+    dchrimaun.g $e |- G = ( DChr ` N ) $.
+    dchrimaun.z $e |- Z = ( Z/nZ ` N ) $.
+    dchrimaun.d $e |- D = ( Base ` G ) $.
+    dchrimaun.u $e |- U = ( Unit ` Z ) $.
+    dchrimaun.m $e |- M = ( ( od ` G ) ` X ) $.
+    dchrimaun.x $e |- ( ph -> X e. D ) $.
+    $( The values of a Dirichlet character on the units are exactly the complex
+       roots of unity whose exponent is the order ` M ` of the character in the
+       character group.  The image is a finite subgroup of the nonzero complex
+       numbers by ~ dchrghm , so ` M ` divides its size ( ~ cnsubgexp ,
+       ~ dchrresb ), while there are at most ` M ` such roots
+       ( ~ root1hashle ).  (Contributed by Zhi Wang, 27-Nov-2026.) $)
+    dchrimaun $p |- ( ph -> ( X " U ) = { z e. CC | ( z ^ M ) = 1 } ) $=
+      ( co wceq cc wcel cfv va cv cexp c1 crab cfn cima wss cen wbr cvv cn0 cle
+      chash cnex rabex a1i cod cgrp cabl dchrrcl syl dchrabl ablgrp 3syl dchrfi
+      cn eqid odcl2 syl3anc eqeltrid nnnn0d root1hashle hashbnd wa cbs wf dchrf
+      wral adantr unitss simpr sselid ffvelcdmd cmg oveq1i odid eqtrid dchrmulg
+      c0g fveq1d dchr1 3eqtr3d oveq1 eqeq1d elrab sylanbrc ralrimiva wfun ffund
+      cdm wb fdmd sseqtrrd funimass4 syl2anc mpbird hashss sylancr hashcl nnred
+      nn0red c0 wne cur wfn ffnd crg ccrg crngring 1unit fnfvima ne0d znfi ssfi
+      zncrng imafi hashnncl cdvds cres ccnfld cmgp cc0 cdif cress csubg cz nnzd
+      csn mpbid crn df-ima cghm dchrghm ghmrn cnsubgexp 3eqtr4d grpidcl fvreseq
+      mulgcl syl21anc dchrresb oddvds breq1i sylibr wi dvdsle mpd letrd letri3d
+      mpbir2and hashen fisseneq ) ABUBZFUCPZUDQZBRUEZUFSZHDUGZUVGUHZUVIUVGUIUJZ
+      UVIUVGQAUVGUKSZFULSUVGUNTZFUMUJUVHUVLAUVFBRUOUPZUQAFAFHEURTZTZVGNAEUSSZCU
+      FSZHCSZUVPVGSAGVGSZEUTSUVQAUVSUVTOCEGHJLVAVBZEGJVCEVDVEZAUVTUVRUWACEGJLVF
+      VBOHEUVOCLUVOVHZVIVJVKZVLABFUWDVMZUVGFUKVNVJZAUVJUAUBZHTZUVGSZUADVSZAUWIU
+      ADAUWGDSZVOZUWHRSUWHFUCPZUDQZUWIUWLIVPTZRUWGHAUWORHVQUWKAUWOCEGHIJKLUWOVH
+      ZOVRZVTUWLDUWOUWGUWOIDUWPMWAZAUWKWBZWCWDUWLUWGFHEWETZPZTUWGEWJTZTZUWMUDUW
+      LUWGUXAUXBUWLUVSUXAUXBQAUVSUWKOVTZUVSUXAUVPHUWTPUXBFUVPHUWTNWFHUWTEUVOCUX
+      BLUWCUWTVHZUXBVHZWGWHVBWKUWLUWGCDEFGHIJKLMUXDUWSUWLFAFVGSUWKUWDVTVLWIUWLU
+      WGDUXBEGIJKUXFMAUVTUWKUWAVTUWSWLZWMUVFUWNBUWHRUVDUWHQUVEUWMUDUVDUWHFUCWNW
+      OWPWQWRAHWSZDHXAZUHUVJUWJXBAUWORHUWQWTZADUWOUXIDUWOUHZAUWRUQZAUWORHUWQXCX
+      DUADUVGHXEXFXGZAUVIUNTZUVMQZUVKAUXOUXNUVMUMUJZUVMUXNUMUJAUVLUVJUXPUVNUXMU
+      VGUVIUKXHXIAUVMFUXNAUVMAUVHUVMULSUWFUVGXJVBXLZAFUWDXKAUXNAUXNVGSZUVIXMXNZ
+      AUVIIXOTZHTZAHUWOXPZUXKUXTDSZUYAUVISAUWORHUWQXQZUXLAIXRSZUYCAGULSIXSSUYEA
+      GUWAVLGIKYFIXTVEIDUXTMUXTVHYAVBUWODHUXTYBVJYCAUVIUFSZUXRUXSXBAUXHDUFSZUYF
+      UXJAUWOUFSZUXKUYGAUVTUYHUWAUWOGIKUWPYDVBUXLUWODYEXFHDYGXFZUVIYHVBXGZXKZUW
+      EAFUXNYIUJZFUXNUMUJZAUVPUXNYIUJZUYLAUYNUXNHUWTPZUXBQZAUYODYJUXBDYJQZUYPAU
+      YQUWGUYOTZUXCQZUADVSZAUYSUADUWLUWHUXNUCPUDUYRUXCUWLUVIYKYLTRYMYSYNYOPZUWH
+      VUAVHZAUVIVUAYPTZSUWKAUVIHDYJZUUAZVUCHDUUBAVUDIYLTDYOPZVUAUUCPSVUEVUCSACD
+      EVUFVUAGHIJKLMVUFVHVUBOUUDVUFVUAVUDUUEVBVKVTAUYFUWKUYIVTUWLUYBUXKUWKUWHUV
+      ISAUYBUWKUYDVTUXKUWLUWRUQUWSUWODHUWGYBVJUUFUWLUWGCDEUXNGHIJKLMUXDUWSAUXNU
+      LSUWKAUXNUYJVLVTWIUXGUUGWRAUYOUWOXPUXBUWOXPUXKUYQUYTXBAUWORUYOAUWOCEGUYOI
+      JKLUWPAUVQUXNYQSZUVSUYOCSUWBAUXNUYJYRZOCUWTEUXNHLUXEUUJVJZVRXQAUWORUXBAUW
+      OCEGUXBIJKLUWPAUVQUXBCSUWBCEUXBLUXFUUHVBZVRXQUXLUAUWODUYOUXBUUIUUKXGACDEG
+      UYOUXBIJKLMVUIVUJUULYTAUVQUVSVUGUYNUYPXBUWBOVUHHUWTEUXNUVOCUXBLUWCUXEUXFU
+      UMVJXGFUVPUXNYINUUNUUOAFYQSUXRUYLUYMUUPAFUWDYRUYJFUXNUUQXFUURUUSAUXNUVMUY
+      KUXQUUTUVAAUYFUVHUXOUVKXBUYIUWFUVIUVGUVBXFYTUVIUVGUVCVJ $.
+  $}
+
+  ${
+    $( The residue ring modulo one has a single element, the residue of one.
+       Every Dirichlet character takes the value one there by ~ dchrzrh1 .
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    dchrrn1 $p |- ( X e. ( Base ` ( DChr ` 1 ) ) -> ran X = { 1 } ) $=
+      ( c1 cdchr cfv cbs wcel crn czn czrh csn cop wfn wceq cc cvv ax-mp a1i cz
+      eqid fvex id dchrf ffnd chash cn 1nn znhash 1z wfo 1nn0 znzrhfo ffvelcdmi
+      wf cn0 fof hash1elsn fneq2d mpbid fnsnb sylib rneqd rnsnop dchrzrh1 sneqd
+      eqtrdi eqtrd ) ABCDZEDZFZAGZBBHDZIDZDZADZJZBJVIVJVMVNKJZGVOVIAVPVIAVMJZLZ
+      AVPMVIAVKEDZLVRVIVSNAVIVSVHVGBAVKVGSZVKSZVHSZVSSZVIUAZUBUCVIVSVQAVIVSVMOV
+      SUDDBMZVIBUEFWEUFVSBVKWAWCUGPQVMVSFZVIBRFWFUHRVSBVLRVSVLUIZRVSVLUMBUNFWGU
+      JVSVLBVKWAWCVLSZUKPRVSVLUOPULPQVSOFVIVKETQUPUQURVMABVLTZUSUTVAVMVNWIVBVEV
+      IVNBVIVHVGVLBAVKVTWAWBWHWDVCVDVF $.
+  $}
+
+  ${
+    dchr0elrn.g $e |- G = ( DChr ` N ) $.
+    dchr0elrn.d $e |- D = ( Base ` G ) $.
+    $( Zero occurs in the range of a Dirichlet character exactly when its
+       modulus differs from one.  For such a modulus the residue of zero is a
+       nonunit, so the character vanishes there by ~ dchrn0 .  At modulus one,
+       apply ~ dchrrn1 .  (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    dchr0elrn $p |- ( X e. D -> ( 0 e. ran X <-> N =/= 1 ) ) $=
+      ( wcel cbs cfv cc0 c1 wne wb wceq wn wa cdchr syl eqid cz crn eleq2i 0ne1
+      biimpi csn nelsn ax-mp a1i fveq2 eqtrid fveq2d eleq2d biimpd com12 notbid
+      imp dchrrn1 mpbird ex necon2ad czn czrh cui cgcd co id wfo wf cn0 dchrrcl
+      nnnn0d znzrhfo fof ffvelcdmd dchrn0 znunit syl2anc cabs nnzd gcd0id eqtrd
+      0z nn0absid eqeq1d 3bitrd necon1d cc dchrf ffnd fnfvelrnd adantr eqeltrrd
+      impbid ) DAGZDBHIZGZJDUAZGZCKLZMWNWPAWODFUBUDWPWRWSWPWRCKWPCKNZWROZWPWTPZ
+      XAJKUEZGZOZXEXBJKLXEUCJKUFUGUHXBWRXDXBWQXCJXBDKQIZHIZGZWQXCNWPWTXHWTWPXHW
+      TWPXHWTWOXGDWTBXFHWTBCQIXFECKQUIUJUKULUMUNUPDUQRULUOURUSUTWPWSWRWPWSPJCVA
+      IZVBIZIZDIZJWQWPWSXLJNWPXLJCKWPXLJLZWTWPXMXKXIVCIZGZJCVDVEZKNZWTWPXKXIHIZ
+      WOXNBCDXIEXISZWOSZXRSZXNSZWPVFZWPTXRJXJWPTXRXJVGZTXRXJVHWPCVIGZYDWPCWOBCD
+      EXTVJZVKZXRXJCXIXSYAXJSZVLRTXRXJVMRJTGZWPWBUHZVNZVOWPYEYIXOXQMYGYJJXNXJCX
+      IXSYBYHVPVQWPXPCKWPXPCVRIZCWPCTGXPYLNWPCYFVSCVTRWPYEYLCNYGCWCRWAWDWEUMWFU
+      PWPXLWQGWSWPXRXKDWPXRWGDWPXRWOBCDXIEXSXTYAYCWHWIYKWJWKWLUSWMR $.
+  $}
+
+  ${
+    $d D a $.  $d M z $.  $d N a $.  $d X a $.  $d X z $.
+    dchrrnn1.g $e |- G = ( DChr ` N ) $.
+    dchrrnn1.d $e |- D = ( Base ` G ) $.
+    dchrrnn1.m $e |- M = ( ( od ` G ) ` X ) $.
+    $( At a modulus other than one, the range of a Dirichlet character of order
+       ` M ` consists of all complex ` M `-th roots of unity together with
+       zero.  The values on units are the roots by ~ dchrimaun , the nonunits
+       give zero by ~ dchrn0 , and zero occurs by ~ dchr0elrn .  For modulus
+       one, see ~ dchrrn1 .  (Contributed by Zhi Wang, 27-Nov-2026.) $)
+    dchrrnn1 $p |- ( ( X e. D /\ N =/= 1 ) ->
+      ran X = ( { z e. CC | ( z ^ M ) = 1 } u. { 0 } ) ) $=
+      ( va wcel c1 wa cfv cc0 cun eqid a1i simpr syl wne crn czn cui cima cv co
+      csn cexp wceq cc crab cbs wfn wral wf simpl dchrf ffnd wss unitss fnfvima
+      ad2antrr syl3anc elun1 wn adantr dchrn0 necon1bbid biimpa c0ex snid elun2
+      eqeltrd pm2.61dan ralrimiva ffnfv sylanbrc imassrn dchr0elrn mpbird snssd
+      frnd wb unssd eqssd dchrimaun uneq1d eqtrd ) FBKZELUAZMZFUBZFEUCNZUDNZUEZ
+      OUHZPZAUFDUIUGLUJAUKULZWQPWLWMWRWLWNUMNZWRFWLFWTUNZJUFZFNZWRKZJWTUOWTWRFU
+      PWLWTUKFWLWTBCEFWNGWNQZHWTQZWJWKUQZURUSZWLXDJWTWLXBWTKZMZXBWOKZXDXJXKMZXC
+      WPKZXDXLXAWOWTUTZXKXMWLXAXIXKXHVCXNXLWTWNWOXFWOQZVARXJXKSWTWOFXBVBVDXCWPW
+      QVETXJXKVFZMZXCWQKXDXQXCOWQXJXPXCOUJXJXKXCOXJXBWTBWOCEFWNGXEHXFXOWLWJXIXG
+      VGWLXISVHVIVJOWQKXQOVKVLRVNXCWQWPVMTVOVPJWTWRFVQVRWCWLWPWQWMWPWMUTWLFWOVS
+      RWLOWMWLOWMKZWKWJWKSWLWJXRWKWDXGBCEFGHVTTWAWBWEWFWLWPWSWQWLABWOCDEFWNGXEH
+      XOIXGWGWHWI $.
+  $}
+
+  ${
     $d D i j v $.  $d F a d i $.  $d F a i j $.  $d F i j v $.  $d N a d i $.
     $d N c i j $.  $d N i j v $.  $d X c i j $.  $d X i j v $.  $d a d n x $.
     ispdchr.d $e |- D = ( Base ` ( DChr ` N ) ) $.
