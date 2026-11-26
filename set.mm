@@ -907003,6 +907003,20 @@ $)
   $}
 
   ${
+    $d N a d x $.  $d a d n x $.
+    $( Primitive Dirichlet characters are Dirichlet characters.  Outside the
+       positive integers the value is empty.  (Contributed by Zhi Wang,
+       27-Nov-2026.) $)
+    pdchrss $p |- ( PDChr ` N ) C_ ( Base ` ( DChr ` N ) ) $=
+      ( vd va vx vn cn wcel cpdchr cfv cdchr cbs cv cdvds wbr c1 co czn czrh wa
+      wnel wss cmin cc0 cpr cfz wrex wi cfzo wral crab pdchrval ssrab2 eqsstrdi
+      wn c0 cdm wceq df-pdchr dmmptss sseli con3i ndmfv syl 0ss pm2.61i ) AFGZA
+      HIZAJIKIZUAVFVGBLZAMNVICLZOUBPMNZVJAQIRIIDLZIUCOUDZTSCOAUEPUFUGBOAUHPUIZD
+      VHUJVHDACBUKVNDVHULUMVFUNZVGUOVHVOAHUPZGZUNVGUOUQVQVFVPFAEFVIELZMNVKVJVRQ
+      IRIIVLIVMTSCOVRUEPUFUGBOVRUHPUIDVRJIKIUJHDECBURUSUTVAAHVBVCVHVDUMVE $.
+  $}
+
+  ${
     dchrintcong.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
     dchrintcong.n $e |- ( ph -> N e. NN ) $.
     dchrintcong.a $e |- ( ph -> A e. ZZ ) $.
