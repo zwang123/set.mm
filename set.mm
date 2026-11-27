@@ -888648,7 +888648,9 @@ $)
   $}
 
   $( A positive real number lies in the complex plane slit along the
-     nonpositive real axis.  (Contributed by Zhi Wang, 27-Nov-2026.) $)
+     nonpositive real axis.  This is the real case of ~ ellogdm , by which a
+     complex number lies in the slit plane unless it is real and not positive.
+     (Contributed by Zhi Wang, 27-Nov-2026.) $)
   rplogdm $p |- ( A e. RR+ -> A e. ( CC \ ( -oo (,] 0 ) ) ) $=
     ( crp wcel cc cr wi cmnf cc0 cioc co cdif rpcn ax-1 eqid ellogdm sylanbrc )
     ABCZADCAECZQFADGHIJKZCALQRMASSNOP $.
@@ -890602,7 +890604,12 @@ $)
     hurznormcl.a $e |- ( ph -> A e. ( CC \ ( -oo (,] 0 ) ) ) $.
     hurznormcl.s $e |- ( ph -> S e. CC ) $.
     $( Closure of the Hurwitz zeta function multiplied by the argument minus
-       one, with the value one at the pole.  (Contributed by Zhi Wang,
+       one, with the value one at the argument one.  The test ` S = 1 ` is the
+       essential part: it keeps ` HurZ ` away from the argument one, which is
+       outside its domain.  The value at one and the factor ` ( S - 1 ) ` play
+       no role in the closure and could be arbitrary complex numbers.  They are
+       fixed here to give the function that ~ hurzpole shows to be
+       differentiable on all of ` CC ` .  (Contributed by Zhi Wang,
        27-Nov-2026.) $)
     hurznormcl $p |- ( ph ->
       if ( S = 1 , 1 , ( ( S - 1 ) x. ( A HurZ S ) ) ) e. CC ) $=
@@ -898261,7 +898268,11 @@ $)
     zetarecl.g $e |- ( ph -> 1 < S ) $.
     $( The series of the Riemann zeta function at a real argument greater than
        one has a real sum.  The series converges by ~ zetacvg and its terms are
-       real.  (Contributed by Zhi Wang, 27-Nov-2026.) $)
+       real.  The bound one cannot be lowered: at ` S = 1 ` the series is the
+       harmonic series, which diverges by ~ harmonic .  The same argument gives
+       a real sum when the summation starts at any positive integer, since a
+       tail of a convergent series converges ( ~ iserex ).  (Contributed by Zhi
+       Wang, 27-Nov-2026.) $)
     zetarecl $p |- ( ph -> sum_ k e. NN ( k ^c -u S ) e. RR ) $=
       ( vi cv cneg ccxp co cn cmpt c1 nnuz 1zzd wcel cfv wceq oveq1 eqid adantl
       ovex fvmpt wa simpr nnrpd cr renegcld adantr rpcxpcld rpred recnd cre clt
