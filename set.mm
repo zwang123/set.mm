@@ -890962,76 +890962,6 @@ $)
   $}
 
   ${
-    $d B j k x z $.  $d C j k z $.  $d F j k z $.  $d G j k z $.
-    $d H j k x z $.  $d M j k x z $.  $d S j k z $.  $d T j k x z $.
-    $d Z j k x z $.  $d j k ph x z $.
-    ulmextle.z $e |- Z = ( ZZ>= ` M ) $.
-    ulmextle.m $e |- ( ph -> M e. ZZ ) $.
-    ulmextle.f $e |- ( ph -> F : Z --> ( CC ^m S ) ) $.
-    ulmextle.h $e |- ( ph -> H : Z --> ( CC ^m T ) ) $.
-    ulmextle.b $e |- ( ph -> B : T --> CC ) $.
-    ulmextle.u $e |- ( ph -> F ( ~~>u ` S ) G ) $.
-    ulmextle.c $e |- ( ph -> C e. RR+ ) $.
-    ulmextle.l $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ z e. S ) ->
-      ( abs ` ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_
-      ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) ) ) ) ) $.
-    ulmextle.e $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ -. z e. S ) ->
-      ( ( H ` k ) ` z ) = ( B ` z ) ) $.
-    ulmextle.t $e |- ( ph -> T e. V ) $.
-    $( Transfer uniform convergence to a second domain by a fixed multiple of
-       the error on the overlap and exact equality off the first domain.
-       (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    ulmextle $p |- ( ph -> H ( ~~>u ` T ) B ) $=
-      ( vx vj culm cfv wbr cv cmin co cabs clt wral cuz wrex crp wcel wa adantr
-      cdiv cz cc cmap wf eqidd simpr rpdivcld ulmi nfv nfan cmul ad5antr uztrn2
-      nfra1 sylan ffvelcdmd elmapi subcld abscld ad6antr rpred remulcld simp-6r
-      syl ulmcl cle simplll rspa ad4ant24 ltmuldiv2d mpbird lelttrd wn cc0 wceq
-      jca32 oveq1d fveq2d subidd eqtrd a1i rpgt0d eqbrtrd pm2.61dan ralrimia ex
-      abs0 ralimdva reximdva mpd ralrimiva ulm2 ) AJCFUFUGUHBUIZGUIZJUGZUGZXNCU
-      GZUJUKZULUGZUDUIZUMUHZBFUNZGUEUIUOUGZUNZUEMUPZUDUQUNAYFUDUQAYAUQURZUSZXNX
-      OHUGZUGZXNIUGZUJUKZULUGZYADVAUKZUMUHZBEUNZGYDUNZUEMUPYFYHBYKYJYNEUEGHIKMN
-      AKVBURYGOUTAMVCEVDUKZHVEYGPUTYHXOMURZXNEURZUSUSYJVFYHYTUSYKVFAHIEUFUGUHZY
-      GSUTYHYADAYGVGADUQURZYGTUTVHVIYHYQYEUEMYHUEUIMURZUSZYPYCGYDUUDXOYDURZUSZY
-      PYCUUFYPUSZYBBFUUFYPBUUFBVJYOBEVOVKUUGXNFURZUSZYTYBUUIYTUSZXTDYMVLUKZYAUU
-      JXSUUJXQXRUUIXQVCURYTUUIFVCXNXPUUIXPVCFVDUKZURFVCXPVEUUIMUULXOJAMUULJVEYG
-      UUCUUEYPUUHQVMUUGYSUUHUUFYSYPUUDUUCUUEYSYHUUCVGKXOUEUIMNVNVPUTUTZVQXPVCFV
-      RWEUUGUUHVGZVQUTUUIXRVCURZYTUUIFVCXNCAFVCCVEYGUUCUUEYPUUHRVMUUNVQZUTVSVTU
-      UJDYMUUJDAUUBYGUUCUUEYPUUHYTTWAZWBUUJYLUUJYJYKUUJEVCXNYIUUJYIYRUREVCYIVEU
-      UJMYRXOHAMYRHVEYGUUCUUEYPUUHYTPWAUUIYSYTUUMUTVQYIVCEVRWEUUIYTVGZVQUUJEVCX
-      NIAEVCIVEZYGUUCUUEYPUUHYTAUUAUUSSEHIWFWEWAUURVQVSVTZWCUUJYAAYGUUCUUEYPUUH
-      YTWDWBZUUIAYSUUHUSUSZYTXTUUKWGUHUUIAYSUUHUUGAUUHUUFAYPAYGUUCUUEWHUTUTUUMU
-      UNWQZUAVPUUJUUKYAUMUHYOYPYTYOUUFUUHYOBEWIWJUUJYMYADUUTUVAUUQWKWLWMUUIYTWN
-      ZUSZXTWOYAUMUVEXTWOULUGZWOUVEXTXRXRUJUKZULUGUVFUVEXSUVGULUVEXQXRXRUJUUIUV
-      BUVDXQXRWPUVCUBVPWRWSUVEUVGWOULUVEXRUUIUUOUVDUUPUTWTWSXAUVFWOWPUVEXHXBXAU
-      VEYAAYGUUCUUEYPUUHUVDWDXCXDXEXFXGXIXJXKXLAUDBXRXQFUEGJCKLMNOQUVBXQVFAUUHU
-      SXRVFRUCXMWL $.
-  $}
-
-  ${
-    $d B k z $.  $d C k z $.  $d F k z $.  $d G k z $.  $d H k z $.
-    $d M k z $.  $d S k z $.  $d Z k z $.  $d k ph z $.
-    ulmle.z $e |- Z = ( ZZ>= ` M ) $.
-    ulmle.m $e |- ( ph -> M e. ZZ ) $.
-    ulmle.f $e |- ( ph -> F : Z --> ( CC ^m S ) ) $.
-    ulmle.h $e |- ( ph -> H : Z --> ( CC ^m S ) ) $.
-    ulmle.b $e |- ( ph -> B : S --> CC ) $.
-    ulmle.u $e |- ( ph -> F ( ~~>u ` S ) G ) $.
-    ulmle.c $e |- ( ph -> C e. RR+ ) $.
-    ulmle.l $e |- ( ( ph /\ ( k e. Z /\ z e. S ) ) ->
-      ( abs ` ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_
-      ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) ) ) ) ) $.
-    $( Transfer uniform convergence when the error of one sequence of functions
-       is bounded by a positive constant times the error of another.  This is
-       ~ ulmextle with equal domains.  (Contributed by Zhi Wang,
-       25-Nov-2026.) $)
-    ulmle $p |- ( ph -> H ( ~~>u ` S ) B ) $=
-      ( cfv cvv cv wcel wa cmin co cabs cmul cle wbr adantr wn simplrr pm2.21dd
-      wceq simpr culm ulmscl syl ulmextle ) ABCDEEFGHIJUAKLMNOPQRAFUBZKUCZBUBZE
-      UCZUDUDZVCVAITTZVCCTZUEUFUGTDVCVAGTTVCHTUEUFUGTUHUFUIUJVDSUKVEVDULZUDVDVF
-      VGUOAVBVDVHUMVEVHUPUNAGHEUQTUJEUAUCQEGHURUSUT $.
-  $}
-
-  ${
     $d D y $.  $d E y $.  $d H z $.  $d N k m n x z $.  $d S k m n x y z $.
     $d X k m n x y z $.  $d k m n ph x y z $.
     hurzfixulma.d $e |- D = ( CC \ ( -oo (,] 0 ) ) $.
@@ -891081,6 +891011,52 @@ $)
   $}
 
   ${
+    $d B j k x z $.  $d C j k z $.  $d F j k z $.  $d G j k z $.
+    $d H j k x z $.  $d M j k x z $.  $d S j k z $.  $d T j k x z $.
+    $d Z j k x z $.  $d j k ph x z $.
+    ulmextle.z $e |- Z = ( ZZ>= ` M ) $.
+    ulmextle.m $e |- ( ph -> M e. ZZ ) $.
+    ulmextle.f $e |- ( ph -> F : Z --> ( CC ^m S ) ) $.
+    ulmextle.h $e |- ( ph -> H : Z --> ( CC ^m T ) ) $.
+    ulmextle.b $e |- ( ph -> B : T --> CC ) $.
+    ulmextle.u $e |- ( ph -> F ( ~~>u ` S ) G ) $.
+    ulmextle.c $e |- ( ph -> C e. RR+ ) $.
+    ulmextle.l $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ z e. S ) ->
+      ( abs ` ( ( ( H ` k ) ` z ) - ( B ` z ) ) ) <_
+      ( C x. ( abs ` ( ( ( F ` k ) ` z ) - ( G ` z ) ) ) ) ) $.
+    ulmextle.e $e |- ( ( ( ph /\ ( k e. Z /\ z e. T ) ) /\ -. z e. S ) ->
+      ( ( H ` k ) ` z ) = ( B ` z ) ) $.
+    ulmextle.t $e |- ( ph -> T e. V ) $.
+    $( Transfer uniform convergence to a second domain by a fixed multiple of
+       the error on the overlap and exact equality off the first domain.
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+    ulmextle $p |- ( ph -> H ( ~~>u ` T ) B ) $=
+      ( vx vj culm cfv wbr cv cmin co cabs clt wral cuz wrex crp wcel wa adantr
+      cdiv cz cc cmap wf eqidd simpr rpdivcld ulmi nfv nfan cmul ad5antr uztrn2
+      nfra1 sylan ffvelcdmd elmapi subcld abscld ad6antr rpred remulcld simp-6r
+      syl ulmcl cle simplll rspa ad4ant24 ltmuldiv2d mpbird lelttrd wn cc0 wceq
+      jca32 oveq1d fveq2d subidd eqtrd a1i rpgt0d eqbrtrd pm2.61dan ralrimia ex
+      abs0 ralimdva reximdva mpd ralrimiva ulm2 ) AJCFUFUGUHBUIZGUIZJUGZUGZXNCU
+      GZUJUKZULUGZUDUIZUMUHZBFUNZGUEUIUOUGZUNZUEMUPZUDUQUNAYFUDUQAYAUQURZUSZXNX
+      OHUGZUGZXNIUGZUJUKZULUGZYADVAUKZUMUHZBEUNZGYDUNZUEMUPYFYHBYKYJYNEUEGHIKMN
+      AKVBURYGOUTAMVCEVDUKZHVEYGPUTYHXOMURZXNEURZUSUSYJVFYHYTUSYKVFAHIEUFUGUHZY
+      GSUTYHYADAYGVGADUQURZYGTUTVHVIYHYQYEUEMYHUEUIMURZUSZYPYCGYDUUDXOYDURZUSZY
+      PYCUUFYPUSZYBBFUUFYPBUUFBVJYOBEVOVKUUGXNFURZUSZYTYBUUIYTUSZXTDYMVLUKZYAUU
+      JXSUUJXQXRUUIXQVCURYTUUIFVCXNXPUUIXPVCFVDUKZURFVCXPVEUUIMUULXOJAMUULJVEYG
+      UUCUUEYPUUHQVMUUGYSUUHUUFYSYPUUDUUCUUEYSYHUUCVGKXOUEUIMNVNVPUTUTZVQXPVCFV
+      RWEUUGUUHVGZVQUTUUIXRVCURZYTUUIFVCXNCAFVCCVEYGUUCUUEYPUUHRVMUUNVQZUTVSVTU
+      UJDYMUUJDAUUBYGUUCUUEYPUUHYTTWAZWBUUJYLUUJYJYKUUJEVCXNYIUUJYIYRUREVCYIVEU
+      UJMYRXOHAMYRHVEYGUUCUUEYPUUHYTPWAUUIYSYTUUMUTVQYIVCEVRWEUUIYTVGZVQUUJEVCX
+      NIAEVCIVEZYGUUCUUEYPUUHYTAUUAUUSSEHIWFWEWAUURVQVSVTZWCUUJYAAYGUUCUUEYPUUH
+      YTWDWBZUUIAYSUUHUSUSZYTXTUUKWGUHUUIAYSUUHUUGAUUHUUFAYPAYGUUCUUEWHUTUTUUMU
+      UNWQZUAVPUUJUUKYAUMUHYOYPYTYOUUFUUHYOBEWIWJUUJYMYADUUTUVAUUQWKWLWMUUIYTWN
+      ZUSZXTWOYAUMUVEXTWOULUGZWOUVEXTXRXRUJUKZULUGUVFUVEXSUVGULUVEXQXRXRUJUUIUV
+      BUVDXQXRWPUVCUBVPWRWSUVEUVGWOULUVEXRUUIUUOUVDUUPUTWTWSXAUVFWOWPUVEXHXBXAU
+      VEYAAYGUUCUUEYPUUHUVDWDXCXDXEXFXGXIXJXKXLAUDBXRXQFUEGJCKLMNOQUVBXQVFAUUHU
+      SXRVFRUCXMWL $.
+  $}
+
+  ${
     $d A i x z $.  $d B i x z $.  $d C i x z $.  $d F i u z $.  $d F k u z $.
     $d G k z $.  $d M i u z $.  $d M k u z $.  $d T i u z $.  $d X i u z $.
     $d X k u z $.  $d X i x z $.  $d Z i u z $.  $d Z k u z $.  $d Z i x z $.
@@ -891097,41 +891073,38 @@ $)
       ( T _D ( F ` i ) ) = ( x e. X |-> ( C x. ( ( A ` i ) ` x ) ) ) ) $.
     $( Differentiate a uniform limit when each derivative is the same constant
        times a member of another uniformly convergent sequence.  The derivative
-       of the limit is the constant times the second limit.  The error is
+       of the limit is the constant times the second limit.  The derivatives
+       converge uniformly by ~ ulmextle with equal domains: their error is
        bounded by one plus the magnitude of the constant times the unscaled
-       error, so the result also applies to a zero multiplier.  (Contributed by
-       Zhi Wang, 25-Nov-2026.) $)
+       error, so the result also applies to a zero multiplier.  Then ~ ulmdv
+       differentiates the limit.  (Contributed by Zhi Wang, 25-Nov-2026.) $)
     ulmdvsc $p |- ( ph -> ( T _D G ) = ( x e. X |-> ( C x. ( B ` x ) ) ) ) $=
       ( vz vu vk cv cfv cmul co cmpt culm wbr cc wf ulmcl syl wcel wa cz adantr
-      cvv cmap cuz fvex a1i eqeltrid mptexg wceq ffvelcdmd elmapi simplr fveq2d
-      simpr id fveq1d eqid fvmptg syl2anc eqcomd ulmclm caddc cdv mulcld fmpttd
-      cabs cnex ulmscl elmapd mpbird eqeltrd oveq2d cbvmptv feq1i sylib absge0d
-      abscld ge0p1rpd cmin cle simpl simprl jca ovex fvmpt eqtrd simprr oveq12d
-      c1 subdid subcld absmuld cr rpred lep1 lemul1ad eqbrtrd ulmle ulmdv ) AUB
-      FUCHIBKEBUEZDUFZUGUHZUIZJKLMONPAHIKUJUFUKZKULIUMRKHIUNUOAUBUEZKUPZUQZYCKU
-      DHIUCLYCUCUEZHUFZUFZUIZJUTLMAJURUPYDNUSALULKVAUHZHUMZYDPUSZAYDVLYELUTUPZY
-      IUTUPAYMYDALJVBUFZUTMYNUTUPAJVBVCVDVEUSUCLYHUTVFUOYEUDUEZLUPZUQZYOYIUFZYC
-      YOHUFZUFZYQYPYTULUPYRYTVGYEYPVLZYQKULYCYSYQYSYJUPKULYSUMYQLYJYOHYEYKYPYLU
-      SUUAVHYSULKVIUOAYDYPVJVHUCYOYHYTLULYIYFYOVGZYCYGYSUUBYFYOHUUBVMVKVNYIVOVP
-      VQVRAYBYDRUSVSAUBYAEWDUFZXGVTUHZKGCDUCLFYGWAUHZUIZJLMNQALYJGLFGUEHUFZWAUH
-      ZUIZUMLYJUUFUMAGLUUHYJAGUELUPZUQZUUHBKEXRGUECUFZUFZUGUHZUIZYJUAUUKUUOYJUP
-      KULUUOUMUUKBKUUNULUUKXRKUPZUQZEUUMUUKEULUPZUUPAUURUUJTUSUSUUQKULXRUULUUQU
-      ULYJUPZKULUULUMZUUQLYJGUECUUKLYJCUMZUUPAUVAUUJQUSUSAUUJUUPVJVHUULULKVIZUO
-      UUKUUPVLVHWBWCUUKULKUUOUTUTULUTUPUUKWEVDAKUTUPZUUJAYBUVCRKHIWFUOUSWGWHWIW
-      CLYJUUIUUFGUCLUUHUUEGUEYFVGZUUGYGFWAUVDGUEYFHUVDVMVKWJWKWLWMABKXTULAUUPUQ
-      ZEXSAUURUUPTUSUVEKULXRDAKULDUMZUUPACDKUJUFUKUVFSKCDUNUOZUSAUUPVLVHWBWCSAU
-      UCAETWOZAETWNWPZAUUJYDUQZUQZYCGUEUUFUFZUFZYCYAUFZWQUHZWDUFZUUCYCUULUFZYCD
-      UFZWQUHZWDUFZUGUHZUUDUVTUGUHWRUVKUVPEUVSUGUHZWDUFUWAUVKUVOUWBWDUVKUVOEUVQ
-      UGUHZEUVRUGUHZWQUHZUWBUVKUVMUWCUVNUWDWQUVKUVMYCUUOUFZUWCUVKYCUVLUUOUVKUUK
-      UVLUUOVGUVKAUUJAUVJWSAUUJYDWTZXAUUKUVLUUHUUOUUKUUJUVLUUHVGAUUJVLUCGUEUUEU
-      UHLUUFYFGUEVGZYGUUGFWAUWHYFGUEHUWHVMVKWJUUFVOFUUGWAXBXCUOUAXDUOVNUVKYDUWC
-      ULUPUWFUWCVGAUUJYDXEZUVKEUVQAUURUVJTUSZUVKKULYCUULUVKUUSUUTUVKLYJGUECAUVA
-      UVJQUSUWGVHUVBUOUWIVHZWBBYCUUNUWCKULUUOXRYCVGZUUMUVQEUGUWLXRYCUULUWLVMZVK
-      WJUUOVOVPVQXDUVKYDUWDULUPUVNUWDVGUWIUVKEUVRUWJUVKKULYCDAUVFUVJUVGUSUWIVHZ
-      WBBYCXTUWDKULYAUWLXSUVREUGUWLXRYCDUWMVKWJYAVOVPVQXFUVKUWBUWEUVKEUVQUVRUWJ
-      UWKUWNXHVRXDVKUVKEUVSUWJUVKUVQUVRUWKUWNXIZXJXDUVKUUCUUDUVTAUUCXKUPZUVJUVH
-      USAUUDXKUPUVJAUUDUVIXLUSUVKUVSUWOWOUVKUVSUWOWNAUUCUUDWRUKZUVJAUWPUWQUVHUU
-      CXMUOUSXNXOXPXQ $.
+      cvv cmap simpr cuz fvexi mptex wceq fveq2 fveq1d eqid fvmpt eqcomd adantl
+      a1i fvex ulmclm cabs c1 caddc cdv cnex ulmscl ad2antrr ffvelcdmda elmaprd
+      mulcld fmpttd elmapdd eqeltrd oveq2d cbvmptv feq1i sylib absge0d ge0p1rpd
+      abscld cmin cle ovex eqtrd adantrr ad2antll oveq12d anasss adantrl subdid
+      eqtr4d fveq2d absmuld cr rpred lep1d lemul1ad eqbrtrd wn simplrr pm2.21dd
+      subcld ulmextle ulmdv ) AUBFUCHIBKEBUEZDUFZUGUHZUIZJKLMONPAHIKUJUFZUKZKUL
+      IUMRKHIUNUOAUBUEZKUPZUQZYFKUDHIUCLYFUCUEZHUFZUFZUIZJUTLMAJURUPYGNUSALULKV
+      AUHZHUMYGPUSAYGVBYLUTUPYHUCLYKLJVCMVDVEVMUDUEZLUPZYFYNHUFZUFZYNYLUFZVFYHY
+      OYRYQUCYNYKYQLYLYIYNVFYFYJYPYIYNHVGVHYLVIYFYPVNVJVKVLAYEYGRUSVOAUBYCEVPUF
+      ZVQVRUHZKKGCDUCLFYJVSUHZUIZJUTLMNQALYMGLFGUEHUFZVSUHZUIZUMLYMUUBUMAGLUUDY
+      MAGUELUPZUQZUUDBKEXTGUECUFZUFZUGUHZUIZYMUAUUGULKUUKUTUTULUTUPUUGVTVMAKUTU
+      PZUUFAYEUULRKHIWAUOZUSUUGBKUUJULUUGXTKUPZUQEUUIAEULUPZUUFUUNTWBUUGKULXTUU
+      HUUGKULUUHALYMGUECQWCWDZWCWEWFWGWHWFLYMUUEUUBGUCLUUDUUAGUEYIVFUUCYJFVSGUE
+      YIHVGWIWJWKWLABKYBULAUUNUQEYAAUUOUUNTUSAKULXTDACDYDUKKULDUMSKCDUNUOZWCWEW
+      FSAYSAETWOZAETWMWNZAUUFYGUQZUQZYFGUEUUBUFZUFZYFYCUFZWPUHZVPUFZYTYFUUHUFZY
+      FDUFZWPUHZVPUFZUGUHZWQUKYGUVAUVFYSUVJUGUHZUVKWQUVAUVFEUVIUGUHZVPUFUVLUVAU
+      VEUVMVPUVAUVEEUVGUGUHZEUVHUGUHZWPUHUVMUVAUVCUVNUVDUVOWPUVAUVCYFUUKUFZUVNU
+      VAYFUVBUUKAUUFUVBUUKVFYGUUGUVBUUDUUKUUFUVBUUDVFAUCGUEUUAUUDLUUBYIGUEVFYJU
+      UCFVSYIGUEHVGWIUUBVIFUUCVSWRVJVLUAWSWTVHYGUVPUVNVFAUUFBYFUUJUVNKUUKXTYFVF
+      ZUUIUVGEUGXTYFUUHVGWIUUKVIEUVGUGWRVJXAWSYGUVDUVOVFAUUFBYFYBUVOKYCUVQYAUVH
+      EUGXTYFDVGWIYCVIEUVHUGWRVJXAXBUVAEUVGUVHAUUOUUTTUSZAUUFYGUVGULUPUUGKULYFU
+      UHUUPWCXCZAYGUVHULUPUUFAKULYFDUUQWCXDZXEXFXGUVAEUVIUVRUVAUVGUVHUVSUVTXQZX
+      HWSUVAYSYTUVJAYSXIUPUUTUURUSAYTXIUPUUTAYTUUSXJUSUVAUVIUWAWOUVAUVIUWAWMAYS
+      YTWQUKUUTAYSUURXKUSXLXMUSUVAYGXNZUQYGUVCUVDVFAUUFYGUWBXOUVAUWBVBXPUUMXRXS
+      $.
   $}
 
   ${
@@ -900280,24 +900253,6 @@ $)
   $}
 
   ${
-    $d A n $.  $d F n $.  $d J n $.  $d M n $.  $d n ph $.
-    climlinconst0.m $e |- ( ph -> M e. ZZ ) $.
-    climlinconst0.a $e |- ( ph -> A e. CC ) $.
-    climlinconst0.j $e |- ( ph -> J e. ZZ ) $.
-    climlinconst0.e $e |- ( ph -> F e. V ) $.
-    climlinconst0.f $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( F ` n ) e. CC ) $.
-    climlinconst0.z $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) -> ( n + J ) =/= 0 ) $.
-    climlinconst0.b $e |- ( ( ph /\ n e. ( ZZ>= ` M ) ) ->
-      ( ( n + J ) x. ( F ` n ) ) = A ) $.
-    $( A sequence tends to zero if multiplying its terms by a shifted integer
-       index gives a constant.  (Contributed by Zhi Wang, 26-Nov-2026.) $)
-    climlinconst0 $p |- ( ph -> F ~~> 0 ) $=
-      ( cuz cfv eqid cv wcel wa caddc co eluzelcn adantl adantr addcld mvllmuld
-      cc cz zcnd divcnvshft ) ABECDFGFOPZULQHIJKACRULSZTZCREUAUBCRDPBUNCREUMCRU
-      HSAFCRUCUDUNEAEUISUMJUEUJUFLMNUGUK $.
-  $}
-
-  ${
     $d A j n $.  $d A k n $.  $d F j n $.  $d G k n $.  $d J n $.  $d M j n $.
     $d M k n $.  $d j n ph $.
     uzgeolinzero.m $e |- ( ph -> M e. ZZ ) $.
@@ -900316,21 +900271,23 @@ $)
       ( ( F ` ( j + 1 ) ) / ( F ` j ) ) = ( 1 / A ) ) $.
     $( If a linear factor times a sequence has an exact geometric ratio, the
        geometrically rescaled original sequence can have only zero as a limit.
-       (Contributed by Zhi Wang, 26-Nov-2026.) $)
+       The rescaled sequence times the shifted index is constant by
+       ~ uzgeonorm , so it tends to zero by ~ divcnvshft .  (Contributed by Zhi
+       Wang, 26-Nov-2026.) $)
     uzgeolinzero $p |- ( ph -> B = 0 ) $=
-      ( cuz cfv cv cexp co cmul cmpt cli wbr cc0 wceq cvv expclzd csn cdif wcel
-      cc fveq2 eleq1d ralrimiva uzidd rspcdva eldifad mulcld fvex mptex wa eqid
-      a1i oveq2 oveq12d simpr adantr wne eluzelz syl fvmptd3 eqeltrd caddc zcnd
-      cz oveq2d addcld mul12d eqtrd eqcomd adantlr cdiv uzgeonorm climlinconst0
-      c1 3eqtrd climuni syl2anc ) AEJUAUBZBEUCZUDUEZWPHUBZUFUEZUGZCUHUIWTUJUHUI
-      CUJUKOABJUDUEZJGUBZUFUEZFWTIJULKAXAXBABJLMKUMAXBUQUJUNZADUCZGUBZUQXDUOZUP
-      ZXBXGUPDWOJXEJUKXFXBXGXEJGURUSAXHDWOSUTAJKVAVBVCVDNWTULUPAEWOWSJUAVEVFVIA
-      FUCZWOUPZVGZXIWTUBZBXIUDUEZXIHUBZUFUEZUQXKEXIWSXOWOWTUQWTVHWPXIUKWQXMWRXN
-      UFWPXIBUDVJWPXIHURVKAXJVLZXKXMXNXKBXIABUQUPXJLVMZABUJVNXJMVMZXKXJXIWAUPXP
-      JXIVOVPZUMZPVDZVQZYAVRQXKXIIVSUEZXLUFUEZXMYCXNUFUEZUFUEZXMXIGUBZUFUEXCXKY
-      DYCXOUFUEYFXKXLXOYCUFYBWBXKYCXMXNXKXIIXKXIXSVTXKIAIWAUPXJNVMVTWCXTPWDWEXK
-      YEYGXMUFXKYGYERWFWBXKXIBDGJXQXRAXEWOUPZXHXJSWGAYHXEWKVSUEGUBXFWHUEWKBWHUE
-      UKXJTWGXPWIWLWJCUJWTWMWN $.
+      ( cuz cfv cv cexp co cmul cmpt cli wbr cc0 wceq cvv eqid expclzd csn cdif
+      cc wcel fveq2 eleq1d ralrimiva uzidd rspcdva eldifad mulcld fvex mptex wa
+      a1i caddc cz simpr eluzelz syl zcnd adantr addcld oveq12d fvmptd3 eqeltrd
+      oveq2 wne oveq2d mul12d eqtrd eqcomd adantlr c1 uzgeonorm 3eqtrd mvllmuld
+      cdiv divcnvshft climuni syl2anc ) AEJUAUBZBEUCZUDUEZWQHUBZUFUEZUGZCUHUIXA
+      UJUHUICUJUKOABJUDUEZJGUBZUFUEZIFXAJULWPWPUMKAXBXCABJLMKUNAXCUQUJUOZADUCZG
+      UBZUQXEUPZURZXCXHURDWPJXFJUKXGXCXHXFJGUSUTAXIDWPSVAAJKVBVCVDVENXAULURAEWP
+      WTJUAVFVGVIAFUCZWPURZVHZXJIVJUEZXJXAUBZXDXLXJIXLXJXLXKXJVKURAXKVLZJXJVMVN
+      ZVOXLIAIVKURXKNVPVOVQZXLXNBXJUDUEZXJHUBZUFUEZUQXLEXJWTXTWPXAUQXAUMWQXJUKW
+      RXRWSXSUFWQXJBUDWAWQXJHUSVRXOXLXRXSXLBXJABUQURXKLVPZABUJWBXKMVPZXPUNZPVEZ
+      VSZYDVTQXLXMXNUFUEZXRXMXSUFUEZUFUEZXRXJGUBZUFUEXDXLYFXMXTUFUEYHXLXNXTXMUF
+      YEWCXLXMXRXSXQYCPWDWEXLYGYIXRUFXLYIYGRWFWCXLXJBDGJYAYBAXFWPURZXIXKSWGAYJX
+      FWHVJUEGUBXGWLUEWHBWLUEUKXKTWGXOWIWJWKWMCUJXAWNWO $.
   $}
 
   ${
@@ -904307,25 +904264,6 @@ $)
   $}
 
   ${
-    $d I i $.  $d i ph $.
-    fprodexpdivz.i $e |- ( ph -> I e. Fin ) $.
-    fprodexpdivz.a $e |- ( ( ph /\ i e. I ) -> A e. CC ) $.
-    fprodexpdivz.n $e |- ( ( ph /\ i e. I ) -> A =/= 0 ) $.
-    fprodexpdivz.b $e |- ( ( ph /\ i e. I ) -> B e. CC ) $.
-    fprodexpdivz.r $e |- ( ( ph /\ i e. I ) -> B =/= 0 ) $.
-    fprodexpdivz.z $e |- ( ( ph /\ i e. I ) -> N e. ZZ ) $.
-    $( A finite product of integer powers of nonzero quotients is the quotient
-       of the corresponding products.  (Contributed by Zhi Wang,
-       26-Nov-2026.) $)
-    fprodexpdivz $p |- ( ph ->
-      prod_ i e. I ( ( A / B ) ^ N ) =
-      ( prod_ i e. I ( A ^ N ) / prod_ i e. I ( B ^ N ) ) ) $=
-      ( cdiv co cexp cprod cv wcel wa expclzd expdivzd prodeq2dv fproddiv eqtrd
-      expne0d ) AEBCMNFONZDPEBFONZCFONZMNZDPEUGDPEUHDPMNAEUFUIDADQERSZBCFHIJKLU
-      AUBAEUGUHDGUJBFHILTUJCFJKLTUJCFJKLUEUCUD $.
-  $}
-
-  ${
     $d C i $.  $d N i $.  $d i ph $.
     bcprodhead.n $e |- ( ph -> N e. NN0 ) $.
     bcprodhead.b $e |- ( ( ph /\ i e. ( 0 ... N ) ) -> B e. ( CC \ { 0 } ) ) $.
@@ -904363,21 +904301,24 @@ $)
       prod_ i e. ( 0 ... N ) ( X ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) =
       prod_ i e. ( 0 ... N ) ( Y ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) $.
     $( Equal alternating binomial products give a product identity for the
-       quotients with the initial quotient isolated.  (Contributed by Zhi Wang,
-       26-Nov-2026.) $)
+       quotients with the initial quotient isolated.  The product of the powers
+       of the quotients is the quotient of the two products by ~ expdivzd and
+       ~ fproddiv , hence one, and ~ bcprodhead isolates its initial factor.
+       (Contributed by Zhi Wang, 26-Nov-2026.) $)
     bcprodqhead $p |- ( ph ->
       ( ( A / B ) x.
         prod_ i e. ( 1 ... N )
           ( ( X / Y ) ^ ( ( -u 1 ^ i ) x. ( N _C i ) ) ) ) = 1 ) $=
-      ( cc0 co cdiv wcel cc cfz c1 cneg cv cexp cbc cmul cprod fzfid wa eldifad
-      csn eldifsnbd cz elfzelz adantl m1expcl syl cn0 bccl syl2an nn0zd zmulcld
-      fprodexpdivz divcld divne0d eldifsnd wceq oveq12d expclzd fprodcl expne0d
-      bcprodhead fprodn0 diveq1bd 3eqtr3d ) APEUAQZFGRQZUBUCDUDZUEQZEVSUFQZUGQZ
-      UEQZDUHVQFWBUEQDUHZVQGWBUEQZDUHZRQBCRQZUBEUAQWCDUHUGQUBAFGDVQWBAPEUIZAVSV
-      QSZUJZFTPULZIUKZWJFTPIUMZWJGTWKJUKZWJGTPJUMZWJVTWAWJVSUNSZVTUNSWIWPAVSPEU
-      OZUPVSUQURWJWAAEUSSWPWAUSSWIHWQVSEUTVAVBVCZVDAVRWGDEHWJVRTPWJFGWLWNWOVEWJ
-      FGWLWNWMWOVFVGVSPVHFBGCRKLVIABCMACTWKNUKACTPNUMVEVMAWDWFAVQWEDWHWJGWBWNWO
-      WRVJZVKAVQWEDWHWSWJGWBWNWOWRVLVNOVOVP $.
+      ( cc0 co cdiv cprod cc cfz c1 cneg cv cexp cbc cmul wcel wa csn eldifsnbd
+      eldifad elfzelz adantl m1expcl syl cn0 bccl syl2an nn0zd zmulcld expdivzd
+      cz prodeq2dv fzfid expclzd expne0d fproddiv eqtrd divcld divne0d eldifsnd
+      wceq oveq12d bcprodhead fprodcl fprodn0 diveq1bd 3eqtr3d ) APEUAQZFGRQZUB
+      UCDUDZUEQZEWBUFQZUGQZUEQZDSZVTFWEUEQZDSZVTGWEUEQZDSZRQZBCRQZUBEUAQWFDSUGQ
+      UBAWGVTWHWJRQZDSWLAVTWFWNDAWBVTUHZUIZFGWEWPFTPUJZIULZWPFTPIUKZWPGTWQJULZW
+      PGTPJUKZWPWCWDWPWBVCUHZWCVCUHWOXBAWBPEUMZUNWBUOUPWPWDAEUQUHXBWDUQUHWOHXCW
+      BEURUSUTVAZVBVDAVTWHWJDAPEVEZWPFWEWRWSXDVFWPGWEWTXAXDVFZWPGWEWTXAXDVGZVHV
+      IAWAWMDEHWPWATPWPFGWRWTXAVJWPFGWRWTWSXAVKVLWBPVMFBGCRKLVNABCMACTWQNULACTP
+      NUKVJVOAWIWKAVTWJDXEXFVPAVTWJDXEXFXGVQOVRVS $.
   $}
 
   ${
