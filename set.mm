@@ -913458,6 +913458,913 @@ $)
       WFVKVLVMXJWHJXIWGWFGVPVNVOVQRVR $.
   $}
 
+  ${
+    dchrintmul.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrintmul.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dchrintmul.x $e |- ( ph -> X e. D ) $.
+    dchrintmul.a $e |- ( ph -> A e. ZZ ) $.
+    dchrintmul.c $e |- ( ph -> C e. ZZ ) $.
+    $( A Dirichlet character with integer arguments is multiplicative.
+       (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrintmul $p |- ( ph -> ( F ` ( A x. C ) )
+      = ( ( F ` A ) x. ( F ` C ) ) ) $=
+      ( cmul co czn cfv czrh eqid wcel dchrintval dchrzrhmul cn dchrrcl zmulcld
+      cdchr syl oveq12d 3eqtr4d ) ABCMNZFOPZQPZPGPBUKPGPZCUKPGPZMNUIEPBEPZCEPZM
+      NABCDFUEPZUKFGUJUPRZUJRHUKRJKLUAAUIEFGIAGDSFUBSJDUPFGUQHUCUFZABCKLUDTAUNU
+      LUOUMMABEFGIURKTACEFGIURLTUGUH $.
+  $}
+
+  ${
+    $d N r $.  $d ph r $.
+    dchrfsumfzo.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrfsumfzo.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dchrfsumfzo.x $e |- ( ph -> X e. D ) $.
+    dchrfsumfzo.n $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+    dchrfsumfzo.a $e |- ( ( ph /\ r e. ( 1 ... N ) ) -> A e. CC ) $.
+    $( In a sum over the integers from 1 to the modulus ` N ` whose terms carry
+       the value of a Dirichlet character as a factor, the last term vanishes
+       if ` N ` is at least 2.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrfsumfzo $p |- ( ph -> sum_ r e. ( 1 ... N ) ( ( F ` r ) x. A )
+      = sum_ r e. ( 1 ..^ N ) ( ( F ` r ) x. A ) ) $=
+      ( c1 co cfv wcel adantr cc0 wceq syl cfzo cv cmul csu cfz wss fzossfz a1i
+      cc sseli wa cz elfzelz adantl dchrintcl mulcld sylan2 cdif cle wbr eldifi
+      elfzle2 clt wn eldifn cuz elfzuz cdchr eqid dchrrcl nnzd elfzo2 syl3anbrc
+      cn simpr mtod zred lenltd mpbird letri3d mpbir2and fveq2d cgcd cabs gcdid
+      ex wne cn0 nnnn0d nn0absid eqtrd c2 eluz2b3 sylib simprd neneqd dchrintn0
+      eqnetrd mtbird nne oveq1d mul02d fzfid fsumss eqcomd ) AMEUANZGUBZDOZBUCN
+      ZGUDMEUENZXIGUDAXFXJXIGXFXJUFAMEUGZUHXGXFPZAXGXJPZXIUIPXFXJXGXKUJAXMUKZXH
+      BXNXGCDEFHIAFCPZXMJQXMXGULPZAXGMEUMZUNUOLUPUQAXGXJXFURPZUKZXIRBUCNRXSXHRB
+      UCXSXHEDOZRXSXGEDXSXGESXGEUSUTZEXGUSUTZXSXMYAXRXMAXGXJXFVAZUNZXGMEVBTXSYB
+      XGEVCUTZVDXSYEXLXRXLVDAXGXJXFVEUNXSYEXLXSYEUKXGMVFOPZEULPZYEXLXSYFYEXSXMY
+      FYDXGMEVGTQXSYGYEAYGXRAEAXOEVNPZJCEVHOZEFYIVIHVJTZVKZQZQXSYEVOXGMEVLVMWFV
+      PXSEXGXSEYLVQZXSXGXSXMXPYDXQTVQZVRVSXSXGEYNYMVTWAWBAXTRSZXRAXTRWGZVDYOAYP
+      EEWCNZMSAYQMAYQEMAYQEWDOZEAYGYQYRSYKEWETAEWHPYRESAEYJWIEWJTWKAYHEMWGZAEWL
+      VFOPYHYSUKKEWMWNWOWRWPAECDEFHIJYKWQWSXTRWTWNQWKXAXSBXRAXMBUIPYCLUQXBWKAME
+      XCXDXE $.
+  $}
+
+  ${
+    $d A k $.  $d B r $.  $d F k r $.  $d N k r $.  $d k ph r $.
+    dchrfzorev.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrfzorev.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dchrfzorev.x $e |- ( ph -> X e. D ) $.
+    dchrfzorev.a $e |- ( ( ph /\ r e. ( 1 ..^ N ) ) -> A e. CC ) $.
+    dchrfzorev.s $e |- ( r = ( N - k ) -> A = B ) $.
+    $( Reverse the order of a sum over the positive integers below the modulus
+       ` N ` whose terms carry the value of a Dirichlet character as a factor:
+       the index ` r ` is replaced by ` N - k ` , and the character contributes
+       its value at ` -u 1 ` .  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrfzorev $p |- ( ph -> sum_ r e. ( 1 ..^ N ) ( ( F ` r ) x. A )
+      = ( ( F ` -u 1 ) x. sum_ k e. ( 1 ..^ N ) ( ( F ` k ) x. B ) ) ) $=
+      ( c1 co cfv cmul wcel adantr cfzo cv csu cneg cmin cfz cz wceq cdchr eqid
+      cn dchrrcl syl nnzd fzoval sumeq1d 1zzd peano2zm elfzelz adantl dchrintcl
+      wa cc simpr eleqtrrd syldan mulcld fveq2 oveq12d fsumrev zcnd 1cnd nncand
+      eqtrd oveq1d zsubcld znegcld cdvds wbr caddc subnegd breqtrrd dchrintcong
+      iddvds npcand mulm1d fveq2d eqtr4d neg1z dchrintmul eleq1d wral ralrimiva
+      a1i fzrev syl22anc mpbid rspcdva mulassd sumeq2dv fzfid fsummulc2 oveq2d
+      wb ) AOGUAPZIUBZFQZBRPZIUCZOUDZFQZOGOUEPZUFPZEUBZFQZCRPZEUCZRPZXKXEXPEUCZ
+      RPAXIXMXKXPRPZEUCZXRAXIXMGXNUEPZFQZCRPZEUCZYAAXIGXLUEPZXLUFPZYDEUCZYEAXIX
+      MXHIUCYHAXEXMXHIAGUGSZXEXMUHZAGAHDSZGUKSZLDGUIQZGHYMUJJULUMZUNZOGUOUMZUPA
+      XHYDIEGOXLYOAUQZAYIXLUGSZYOGURUMZAXFXMSZVBZXGBUUAXFDFGHJKAYKYTLTYTXFUGSAX
+      FOXLUSUTVAAYTXFXESBVCSZUUAXFXMXEAYTVDAYJYTYPTVEMVFVGXFYBUHZXGYCBCRXFYBFVH
+      NVIVJVNAYGXMYDEAYFOXLUFAGOAGYOVKZAVLVMVOZUPVNAXMYDXTEAXNXMSZVBZYDXKXORPZC
+      RPXTUUGYCUUHCRUUGYCXJXNRPZFQZUUHUUGYCXNUDZFQUUJUUGYBUUKFGHKAYLUUFYNTUUGGX
+      NAYIUUFYOTZUUFXNUGSZAXNOXLUSUTZVPZUUGXNUUNVQUUGGGYBUUKUEPZVRUUGYIGGVRVSUU
+      LGWDUMUUGUUPYBXNVTPGUUGYBXNUUGYBUUOVKUUGXNUUNVKZWAUUGGXNAGVCSUUFUUDTUUQWE
+      VNWBWCUUGUUIUUKFUUGXNUUQWFWGWHUUGXJXNDFGHJKAYKUUFLTZXJUGSZUUGWIWNUUNWJVNV
+      OUUGXKXOCAXKVCSUUFAXJDFGHJKLUUSAWIWNVAZTUUGXNDFGHJKUURUUNVAZUUGUUBCVCSIXE
+      YBUUCBCVCNWKAUUBIXEWLUUFAUUBIXEMWMTUUGYBXMXEUUGXNYGSZYBXMSZUUGXNXMYGAUUFV
+      DAYGXMUHUUFUUETVEUUGOUGSZYRYIUUMUVBUVCXDAUVDUUFYQTAYRUUFYSTUULUUNGXNOXLWO
+      WPWQAYJUUFYPTVEWRZWSVNWTVNAXMXPXKEAOXLXAUUTUUGXOCUVAUVEVGXBWHAXSXQXKRAXEX
+      MXPEYPUPXCWH $.
+  $}
+
+  ${
+    $( A positive integer below ` N ` , divided by ` N ` , lies strictly
+       between 0 and 1.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    fzo1divioo $p |- ( R e. ( 1 ..^ N ) -> ( R / N ) e. ( 0 (,) 1 ) ) $=
+      ( c1 cfzo co wcel cdiv cc0 clt cioo elfzoelz zred elfzoel2 0red 1red 0lt1
+      cr wbr wb cxr elfzole1 ltletrd elfzolt2 gt0ne0d redivcld divgt0d divlt1lt
+      a1i lttrd crp elrpd syl2anc mpbird w3a 0xr 1xr elioo2 mp2an syl3anbrc ) A
+      CBDEFZABGEZQFZHVAIRZVACIRZVAHCJEFZUTABUTAACBKLZUTBACBMLZUTBUTHABUTNZVFVGU
+      THCAVHUTOVFHCIRUTPUHACBUAUBZACBUCZUIZUDUEUTABVFVGVIVKUFUTVDABIRZVJUTAQFBU
+      JFVDVLSVFUTBVGVKUKABUGULUMHTFCTFVEVBVCVDUNSUOUPHCVAUQURUS $.
+  $}
+
+  ${
+    $d F k r $.  $d K r $.  $d N k r $.  $d S k r $.  $d X r $.  $d k ph r $.
+    dirlhurzphi.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dirlhurzphi.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dirlhurzphi.x $e |- ( ph -> X e. D ) $.
+    dirlhurzphi.n $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+    dirlhurzphi.s $e |- ( ph -> S e. ( CC \ { 1 } ) ) $.
+    dirlhurzphi.k $e |- ( ph -> K e. CC ) $.
+    $( The character sum of the combinations
+       ` ( ( r / N ) HurZ S ) + ( K x. ( ( 1 - ( r / N ) ) HurZ S ) ) ` of
+       Hurwitz zeta values, for a Dirichlet character modulo ` N ` at least 2
+       and any constant ` K ` , in terms of the Dirichlet L-function: the
+       reflected values contribute the value of the character at ` -u 1 ` .
+       (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dirlhurzphi $p |- ( ph -> sum_ r e. ( 1 ..^ N ) ( ( F ` r ) x. ( ( ( r / N
+      ) HurZ S ) + ( K x. ( ( 1 - ( r / N ) ) HurZ S ) ) ) ) = ( ( 1 + ( ( F `
+      -u 1 ) x. K ) ) x. ( ( N ^c S ) x. ( ( N DirL X ) ` S ) ) ) ) $=
+      ( c1 co churz cmul caddc wcel vk cfzo cv cfv cdiv cmin cneg ccxp cdirl wa
+      csu adantr cz elfzoelz adantl dchrintcl cfz cc fzossfz cmnf cc0 cioc cdif
+      sseli csn cxp wf hurzf a1i crp cn elfznn nnrpd cdchr dchrrcl syl rpdivcld
+      eqid rplogdm fovcdmd sylan2 1red cioo fzo1divioo elioore resubcld clt wbr
+      cr eliooord simprd mpbid elrpd mulcld adddid mul12d oveq2d eqtrd sumeq2dv
+      posdifd cfn fzofi fsumadd fsummulc2 wceq oveq1 oveq1d dchrfzorev zcnd wne
+      nncnd nnne0d divsubdird dividd divcld nncand fveq2 oveq12d cbvsumv eqtrdi
+      1cnd eqtr3d neg1z fsumcl adddird mullidd mulassd eqtr4d czn czrh dirlhurz
+      elfzelz dchrintval dchrfsumfzo eldifi cxpcld cxpne0d divcan2d ) AOFUBPZHU
+      CZDUDZYTFUEPZCQPZEOUUBUFPZCQPZRPZSPRPZHUKZOOUGZDUDZERPZSPZYSUUAUUCRPZHUKZ
+      RPZUULFCUHPZCFGUIPUDZRPZRPAUUHUUNEUUJUUNRPZRPZSPZUUOAUUHUUNYSEUUAUUERPZRP
+      ZHUKZSPZUVAAUUHYSUUMUVCSPZHUKUVEAYSUUGUVFHAYTYSTZUJZUUGUUMUUAUUFRPZSPUVFU
+      VHUUAUUCUUFUVHYTBDFGIJAGBTZUVGKULUVGYTUMTZAYTOFUNUOUPZUVGAYTOFUQPZTZUUCUR
+      TYSUVMYTOFUSVDAUVNUJZUUBCURURUTVAVBPVCZUROVEZVCZQUVPUVRVFURQVGZUVOUVPUVRU
+      VPVRUVRVRVHZVIUVOUUBVJTUUBUVPTUVOYTFUVOYTUVNYTVKTAYTFVLUOVMAFVJTUVNAFAUVJ
+      FVKTZKBFVNUDZFGUWBVRZIVOVPZVMULVQUUBVSVPACUVRTZUVNMULVTZWAZUVHEUUEAEURTUV
+      GNULZUVHUUDCURUVPUVRQUVSUVHUVTVIUVHUUDVJTUUDUVPTUVHUUDUVHOUUBUVHWBZUVHUUB
+      VAOWCPTZUUBWITUVGUWJAYTFWDUOZUUBVAOWEVPZWFUVHUUBOWGWHZVAUUDWGWHUVHVAUUBWG
+      WHZUWMUVHUWJUWNUWMUJUWKUUBVAOWJVPWKUVHUUBOUWLUWIWTWLWMUUDVSVPAUWEUVGMULVT
+      ZWNWOUVHUVIUVCUUMSUVHUUAEUUEUVLUWHUWOWPWQWRWSAYSUUMUVCHYSXATAOFXBVIZUVHUU
+      AUUCUVLUWGWNZUVHEUVBUWHUVHUUAUUEUVLUWOWNZWNXCWRAUVDUUTUUNSAEYSUVBHUKZRPUV
+      DUUTAYSUVBEHUWPNUWRXDAUWSUUSERAUWSUUJYSUAUCZDUDZOFUWTUFPZFUEPZUFPZCQPZRPZ
+      UAUKZRPUUSAUUEUXEBUADFGHIJKUWOYTUXBXEZUUDUXDCQUXHUUBUXCOUFYTUXBFUEXFWQXGX
+      HAUXGUUNUUJRAUXGYSUXAUWTFUEPZCQPZRPZUAUKUUNAYSUXFUXKUAAUWTYSTZUJZUXEUXJUX
+      ARUXMUXDUXICQUXMUXDOOUXIUFPZUFPUXIUXMUXCUXNOUFUXMUXCFFUEPZUXIUFPUXNUXMFUW
+      TFAFURTUXLAFUWDXKZULZUXMUWTUXLUWTUMTAUWTOFUNUOXIZUXQAFVAXJUXLAFUWDXLZULZX
+      MUXMUXOOUXIUFUXMFUXQUXTXNXGWRWQUXMOUXIUXMYAUXMUWTFUXRUXQUXTXOXPWRXGWQWSYS
+      UXKUUMUAHUWTYTXEZUXAUUAUXJUUCRUWTYTDXQUYAUXIUUBCQUWTYTFUEXFXGXRXSXTWQWRWQ
+      YBWQWRAUUOOUUNRPZUUKUUNRPZSPUVAAOUUKUUNAYAAUUJEAUUIBDFGIJKUUIUMTAYCVIUPZN
+      WNAYSUUMHUWPUWQYDZYEAUYBUUNUYCUUTSAUUNUYEYFAUYCUUJEUUNRPRPUUTAUUJEUUNUYDN
+      UYEYGAUUJEUUNUYDNUYEWPWRXRWRYHAUURUUNUULRAUURUUPUUNUUPUEPZRPUUNAUUQUYFUUP
+      RAUUQUVMYTFYIUDZYJUDZUDGUDZUUCRPZHUKZUUPUEPUYFABCUWBUYHFGUYGHUWCUYGVRIUYH
+      VRKMYKAUYKUUNUUPUEAUVMUUMHUKUYKUUNAUVMUUMUYJHUVOUUAUYIUUCRUVOYTDFGJAUWAUV
+      NUWDULUVNUVKAYTOFYLUOYMXGWSAUUCBDFGHIJKLUWFYNYBXGWRWQAUUNUUPUYEAFCUXPAUWE
+      CURTMCURUVQYOVPZYPAFCUXPUXSUYLYQYRWRWQYH $.
+  $}
+
+  ${
+    $d F i $.  $d N i $.  $d V i $.  $d i ph $.
+    pdchrgausscj.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    pdchrgausscj.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    pdchrgausscj.x $e |- ( ph -> X e. ( PDChr ` N ) ) $.
+    pdchrgausscj.v $e |- ( ph -> V e. ZZ ) $.
+    $( Separability of the Gauss sums of a primitive Dirichlet character: the
+       sum twisted by an integer ` V ` is the Gauss sum times the conjugate of
+       the value of the character at ` V ` .  For ` V ` coprime to the modulus
+       this holds for every character ( ~ dchrgausstwist ); otherwise both
+       sides vanish ( ~ pdchrgauss0 ).  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    pdchrgausscj $p |- ( ph -> sum_ i e. ( 1 ... N ) ( ( F ` i ) x. ( ( -u 1 ^c
+      ( 2 / N ) ) ^ ( i x. V ) ) ) = ( ( * ` ( F ` V ) ) x. sum_ i
+      e. ( 1 ... N ) ( ( F ` i ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ i ) ) ) ) $=
+      ( c1 co cfv cmul cexp wceq wcel adantr cc0 cfz cv cneg cdiv ccxp csu cgcd
+      c2 ccj wa cpdchr cdchr cbs pdchrss sseqtrri sselid 1zzd cz dchrgausstwist
+      simpr elfzelz adantl zcnd mulridd oveq2d sumeq2dv mullidd dchrintcl cjcld
+      3eqtr3d fzfid cc neg1cn a1i 2cnd cn eqid dchrrcl syl nnne0d divcld cxpcld
+      nncnd wne neg1ne0 cxpne0d zmulcld expclzd mulcld fsumcl mulassd absvalsqd
+      mulcomd cabs czn czrh dchrintval fveq2d cui cn0 wb nnnn0d syl2anc biimpar
+      znunit dchrabs eqtrd oveq1d eqtrdi eqtr3d eqcomd pdchrgauss0 wn dchrintn0
+      sq1 neneqd mtbird nne sylib cj0 mul02d eqtr4d pm2.61dane ) ALEUAMZCUBZDNZ
+      LUCZUHEUDMZUEMZYEFOMZPMZOMZCUFZFDNZUINZYDYFYIYEPMZOMZCUFZOMZQFEUGMZLAYTLQ
+      ZUJZYSYMUUBYSYOYNYMOMZOMZYMUUBYRUUCYOOUUBYDYFYIYELOMZPMZOMZCUFZYNYDYFYIYE
+      LFOMZOMZPMZOMZCUFZOMZYRUUCUUBFBCDELGHIAGBRZUUAAEUKNZBGUUPEULNZUMNBEUNHUOJ
+      UPZSZUUBUQAFURRZUUAKSAUUAUTUSAUUHYRQUUAAYDUUGYQCAYEYDRZUJZUUFYPYFOUVBUUEY
+      EYIPUVBYEUVBYEUVAYEURRAYELEVAVBZVCVDVEVEVFSAUUNUUCQUUAAUUMYMYNOAYDUULYLCU
+      VBUUKYKYFOUVBUUJYJYIPUVBUUIFYEOUVBFUVBFAUUTUVAKSZVCVGVEVEVEVFVESVJVEUUBYO
+      YNOMZYMOMZUUDYMAUVFUUDQUUAAYOYNYMAYNAFBDEGHIUURKVHZVIZUVGAYDYLCALEVKZUVBY
+      FYKUVBYEBDEGHIAUUOUVAUURSUVCVHZUVBYIYJAYIVLRUVAAYGYHYGVLRAVMVNZAUHEAVOAEA
+      UUOEVPRUURBUUQEGUUQVQZHVRVSZWCAEUVMVTWAZWBSZAYITWDUVAAYGYHUVKYGTWDAWEVNUV
+      NWFSZUVBYEFUVCUVDWGWHWIWJZWKSUUBUVFLYMOMZYMUUBUVELYMOUUBUVEYNYOOMZLAUVEUV
+      SQUUAAYOYNUVHUVGWMSUUBYNWNNZUHPMZUVSLAUWAUVSQUUAAYNUVGWLSUUBUWALUHPMLUUBU
+      VTLUHPUUBUVTFEWONZWPNZNZGNZWNNZLAUVTUWFQUUAAYNUWEWNAFDEGIUVMKWQWRSUUBUWDB
+      UWBWSNZUUQEGUWBUVLHUUSUWBVQZUWGVQZAUWDUWGRZUUAAEWTRUUTUWJUUAXAAEUVMXBKFUW
+      GUWCEUWBUWHUWIUWCVQXEXCXDXFXGXHXOXIXJXGXHAUVRYMQUUAAYMUVQVGSXGXJXGXKAYTLW
+      DZUJZYMTYSUWLBCDEFGHIAGUUPRUWKJSAUUTUWKKSAUWKUTZXLUWLYSTYROMTUWLYOTYROUWL
+      YOTUINTUWLYNTUIUWLYNTWDZXMYNTQUWLUWNUUAUWLYTLUWMXPAUWNUUAXAUWKAFBDEGHIUUR
+      KXNSXQYNTXRXSWRXTXIXHUWLYRAYRVLRUWKAYDYQCUVIUVBYFYPUVJUVBYIYEUVOUVPUVCWHW
+      IWJSYAXGYBYC $.
+  $}
+
+  ${
+    dchrcjcl.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrcjcl.x $e |- ( ph -> X e. D ) $.
+    $( The complex conjugate of a Dirichlet character is a Dirichlet character
+       of the same modulus.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrcjcl $p |- ( ph -> ( * o. X ) e. D ) $=
+      ( cfv cminusg ccj ccom eqid dchrinv cgrp wcel cabl cn dchrrcl syl dchrabl
+      cdchr ablgrp grpinvcl syl2anc eqeltrrd ) ADCTGZHGZGZIDJBABUEUFCDUEKZEFUFK
+      ZLAUEMNZDBNZUGBNAUEONZUJACPNZULAUKUMFBUECDUHEQRUECUHSRUEUARFBUEUFDEUIUBUC
+      UD $.
+  $}
+
+  ${
+    dchrcjval.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrcjval.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dchrcjval.x $e |- ( ph -> X e. D ) $.
+    dchrcjval.a $e |- ( ph -> A e. ZZ ) $.
+    $( Value of the complex conjugate of a Dirichlet character at the residue
+       class of an integer.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrcjval $p |- ( ph -> ( ( * o. X ) ` ( ( ZRHom ` ( Z/nZ ` N ) ) ` A ) )
+      = ( * ` ( F ` A ) ) ) $=
+      ( czn cfv czrh ccj cc wf wcel eqid cz syl ccom cbs cdchr dchrf wfo cn0 cn
+      wceq dchrrcl nnnn0d znzrhfo fof ffvelcdmd fvco3 syl2anc dchrintval fveq2d
+      eqtr4d ) ABEKLZMLZLZNFUALZVAFLZNLZBDLZNLAUSUBLZOFPVAVFQVBVDUHAVFCEUCLZEFU
+      SVGRZUSRZGVFRZIUDASVFBUTASVFUTUEZSVFUTPAEUFQVKAEAFCQEUGQICVGEFVHGUITZUJVF
+      UTEUSVIVJUTRUKTSVFUTULTJUMVFOVANFUNUOAVEVCNABDEFHVLJUPUQUR $.
+  $}
+
+  ${
+    $d F j r $.  $d N j r t $.  $d N r t y $.  $d S j r t z $.  $d S r t y z $.
+    $d X r $.  $d j ph r t $.  $d ph r t y $.
+    dchrfeqneg.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dchrfeqneg.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    dchrfeqneg.x $e |- ( ph -> X e. D ) $.
+    dchrfeqneg.n $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+    dchrfeqneg.s $e |- ( ph -> S e. CC ) $.
+    dchrfeqneg.r $e |- ( ph -> ( Re ` S ) < 0 ) $.
+    $( The Dirichlet L-function of a character modulo ` N ` at least 2, in the
+       half-plane of negative real part, as a series whose coefficients are the
+       twisted Gauss sums of the character.  The factor in front of the series
+       is the coefficient integral of ~ hurzphiexp with index ` -u 1 ` at
+       height 1.  The character need not be primitive; see ~ pdchrgausscj for
+       the Gauss sums of a primitive character.  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    dchrfeqneg $p |- ( ph -> ( ( 1 + ( ( F ` -u 1 ) x. ( exp ` -u ( ( _i x. _pi
+      ) x. S ) ) ) ) x. ( ( N ^c S ) x. ( ( N DirL X ) ` S ) ) )
+      = ( S. ( 0 [,] 1 ) ( ( ( z e. ( `' Im " ( 0 (,) +oo ) ) |-> ( ( z HurZ S
+      ) + ( ( exp ` -u ( ( _i x. _pi ) x. S ) ) x. ( ( 1 - z ) HurZ S ) ) ) ) `
+      ( t + ( _i x. 1 ) ) ) x. ( exp ` ( ( ( _i x. ( 2 x. _pi ) ) x. -u 1 ) x.
+      ( t + ( _i x. 1 ) ) ) ) ) _d t x. sum_ j e. NN ( ( j ^c ( S - 1 ) ) x.
+      sum_ r e. ( 1 ... N ) ( ( F ` r ) x. ( ( -u 1 ^c ( 2 / N ) ) ^ ( r x. j )
+      ) ) ) ) ) $=
+      ( c1 cmul co wcel vy cneg cfv ci cpi ce caddc ccxp cdirl cc0 cicc cv ccnv
+      cim cpnf cioo cima churz cmin cmpt c2 citg cfzo cdiv cexp csu cfz wne csn
+      cn cc cdif cre recld 0red 1red clt wbr 0lt1 lttrd ltned wceq fveq2 eqtrdi
+      a1i re1 necon3i syl sylanbrc ax-icn picn mulcli mulcld negcld dirlhurzphi
+      eldifsn efcld oveq1 oveq2 oveq1d oveq2d oveq12d cbvmptv fzo1divioo adantl
+      cfn fzofi wa adantr elfzoelz dchrintcl crp 1rp hurzphibdysum eqtr3d cdchr
+      cz eqid dchrrcl ad2antrr fzossfz sseli elfznn nnzd efroot1 syl2anc neg1cn
+      2cnd nncnd nnne0d divcld cxpcld simplr nnnn0d expmuld eqtr4d sumeq2dv cuz
+      nnmulcld expcld dchrfsumfzo eqtrd ) AQQUBZGUCUDUERSZERSZUBZUFUCZRSUGSHEUH
+      SEHIUISUCRSRSZCUJQUKSCULUDQRSUGSZBUNUMUJUOUPSUQZBULZEURSZUUGQUUKUSSZEURSZ
+      RSZUGSZUTZUCUDVAUERSRSZUUCRSUUIRSUFUCRSVBZVJFULZEQUSSUHSZQHVCSZJULZGUCZUU
+      RUVCHVDSZRSUFUCZUUTVESZRSZJVFZRSZFVFZRSZUUSVJUVAQHVGSZUVDUUCVAHVDSZUHSZUV
+      CUUTRSZVESZRSZJVFZRSZFVFZRSAUVBUVDUVEEURSUUGQUVEUSSEURSRSUGSRSJVFUUHUVLAD
+      EGUUGHIJKLMNAEVKTEQVHZEVKQVIVLTOAEVMUCZQVHUWBAUWCQAEOVNZAUWCUJQUWDAVOAVPP
+      UJQVQVRAVSWEVTWAEQUWCQEQWBUWCQVMUCQEQVMWCWFWDWGWHEVKQWPWIZAUUFAUUEAUUDEUU
+      DVKTAUDUEWJWKWLWEOWMWNWQWOAUACUVBUVDEFJUUQUVEQBUAUUJUUPUAULZEURSZUUGQUWFU
+      SSZEURSZRSZUGSUUKUWFWBZUULUWGUUOUWJUGUUKUWFEURWRUWKUUNUWIUUGRUWKUUMUWHEUR
+      UUKUWFQUSWSWTXAXBXCUWEPUVBXFTAQHXGWEUVCUVBTZUVEUJQUPSTAUVCHXDXEAUWLXHUVCD
+      GHIKLAIDTZUWLMXIUWLUVCXQTZAUVCQHXJXEXKQXLTAXMWEXNXOAUVKUWAUUSRAVJUVJUVTFA
+      UUTVJTZXHZUVIUVSUVARUWPUVIUVBUVRJVFUVSUWPUVBUVHUVRJUWPUWLXHZUVGUVQUVDRUWQ
+      UVGUVOUVCVESZUUTVESUVQUWQUVFUWRUUTVEUWQHVJTZUWNUVFUWRWBAUWSUWOUWLAUWMUWSM
+      DHXPUCZHIUWTXRKXSWHZXTUWQUVCUWLUVCVJTZUWPUWLUVCUVMTZUXBUVBUVMUVCQHYAYBUVC
+      HYCZWHXEZYDUVCHYEYFWTUWQUVOUVCUUTAUVOVKTZUWOUWLAUUCUVNUUCVKTAYGWEAVAHAYHA
+      HUXAYIAHUXAYJYKYLZXTUWQUUTAUWOUWLYMYNUWQUVCUXEYNYOYPXAYQUWPUVQDGHIJKLAUWM
+      UWOMXIAHVAYRUCTUWONXIUWPUXCXHZUVOUVPAUXFUWOUXCUXGXTUXHUVPUXHUVCUUTUXCUXBU
+      WPUXDXEAUWOUXCYMYSYNYTUUAYPXAYQXAUUB $.
+  $}
+
+  ${
+    $d F j r $.  $d N i j m $.  $d N j r t $.  $d S i j m $.  $d S j r t z $.
+    $d X i j m $.  $d X j r $.  $d j m ph $.  $d ph r t $.
+    pdchrfeqneg.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    pdchrfeqneg.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    pdchrfeqneg.x $e |- ( ph -> X e. ( PDChr ` N ) ) $.
+    pdchrfeqneg.n $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+    pdchrfeqneg.s $e |- ( ph -> S e. CC ) $.
+    pdchrfeqneg.r $e |- ( ph -> ( Re ` S ) < 0 ) $.
+    $( Functional relation between the Dirichlet L-function of a primitive
+       character modulo ` N ` at least 2 and the L-function of the conjugate
+       character, in the half-plane of negative real part.  The constants are
+       the Gauss sum of the character and the coefficient integral of
+       ~ hurzphiexp with index ` -u 1 ` at height 1; no Gamma function occurs.
+       Instance of ~ dchrfeqneg by ~ pdchrgausscj .  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    pdchrfeqneg $p |- ( ph -> ( ( 1 + ( ( F ` -u 1 ) x. ( exp ` -u ( ( _i x.
+      _pi ) x. S ) ) ) ) x. ( ( N ^c S ) x. ( ( N DirL X ) ` S ) ) )
+      = ( S. ( 0 [,] 1 ) ( ( ( z e. ( `' Im " ( 0 (,) +oo ) ) |-> ( ( z HurZ S
+      ) + ( ( exp ` -u ( ( _i x. _pi ) x. S ) ) x. ( ( 1 - z ) HurZ S ) ) ) ) `
+      ( t + ( _i x. 1 ) ) ) x. ( exp ` ( ( ( _i x. ( 2 x. _pi ) ) x. -u 1 ) x.
+      ( t + ( _i x. 1 ) ) ) ) ) _d t x. ( sum_ r e. ( 1 ... N ) ( ( F ` r ) x.
+      ( ( -u 1 ^c ( 2 / N ) ) ^ r ) ) x. ( ( N DirL ( * o. X ) ) ` ( 1 - S ) )
+      ) ) ) $=
+      ( c1 cfv cmul co cn vj vi vm cneg ci cpi ce caddc ccxp cdirl cc0 cicc cim
+      cv ccnv cpnf cioo cima churz cmin cmpt c2 citg cfz cdiv cexp csu ccj ccom
+      cpdchr cdchr cbs pdchrss sseqtrri sselid dchrfeqneg czn czrh adantr simpr
+      wcel wa nnzd pdchrgausscj oveq2d nncnd 1cnd subcld cxpcld dchrintcl cjcld
+      cc fzfid elfznn adantl neg1cn a1i cuz eluz2nn nnne0d divcld nnnn0d expcld
+      syl mulcld fsumcl mulassd eqtr4d negsubdi2d cxpnegd eqtr3d oveq1d cxpne0d
+      2cnd wceq divrec2d dchrcjval eqeltrd mulcomd 3eqtrd sumeq2dv fveq2 fveq2d
+      nnuz 1zzd oveq1 oveq12d eqid ovex fvmpt cseq cli wbr cdm eleqtrdi adantlr
+      sylan2 wfn cre clt fsumser mpteq2dva cz 1z seqfn ax-mp fneq2i mpbir dffn5
+      mpbi eqtr4di dchrcjcl 1m0e1 recld 0red 1red ltsub2dd eqbrtrrid resubd re1
+      oveq1i breqtrrd dirlcvg eqbrtrrd climrel releldmi isummulc2 dirlsum eqtrd
+      eqtrdi ) APPUDZFQUEUFRSERSUDUGQZRSUHSGEUISEGHUJSQRSRSCUKPULSCUNUEPRSUHSZB
+      UMUOUKUPUQSURBUNZEUSSUVLPUVNUTSEUSSRSUHSVAQUEVBUFRSRSUVKRSUVMRSUGQRSVCZTU
+      AUNZEPUTSZUISZPGVDSZIUNZFQZUVKVBGVESZUISZUVTUVPRSVFSRSIVGZRSZUAVGZRSUVOUV
+      SUWAUWCUVTVFSZRSZIVGZPEUTSZGVHHVIZUJSQZRSZRSABCDEUAFGHIJKAGVJQZDHUWNGVKQZ
+      VLQDGVMJVNLVOZMNOVPAUWFUWMUVORAUWFUWITUVPGVQQZVRQZQZUWKQZUVPUWJUISZVESZUA
+      VGZRSZUWMAUWFTUWIUXBRSZUAVGUXDATUWEUXEUAAUVPTWAZWBZUWEUVRUVPFQZVHQZRSZUWI
+      RSZUXBUWIRSUXEUXGUWEUVRUXIUWIRSZRSUXKUXGUWDUXLUVRRUXGDIFGUVPHJKAHUWNWAUXF
+      LVSUXGUVPAUXFVTZWCZWDWEUXGUVRUXIUWIUXGUVPUVQUXGUVPUXMWFZAUVQWLWAUXFAEPNAW
+      GZWHVSWIUXGUXHUXGUVPDFGHJKAHDWAZUXFUWPVSZUXNWJWKZAUWIWLWAUXFAUVSUWHIAPGWM
+      AUVTUVSWAZWBZUWAUWGUYAUVTDFGHJKAUXQUXTUWPVSUYAUVTUXTUVTTWAAUVTGWNWOZWCWJU
+      YAUWCUVTAUWCWLWAUXTAUVKUWBUVKWLWAAWPWQAVBGAXNAGAGVBWRQWAGTWAMGWSXDZWFAGUY
+      CWTXAWIVSUYAUVTUYBXBXCXEXFZVSZXGXHUXGUXJUXBUWIRUXGUXJUXIUXAVESZUXBUXGUXJP
+      UXAVESZUXIRSUYFUXGUVRUYGUXIRUXGUVPUWJUDZUISUVRUYGUXGUYHUVQUVPUIAUYHUVQXOU
+      XFAPEUXPNXIVSWEUXGUVPUWJUXOUXGUVPUXMWTZAUWJWLWAUXFAPEUXPNWHZVSZXJXKXLUXGU
+      XIUXAUXSUXGUVPUWJUXOUYKWIZUXGUVPUWJUXOUYIUYKXMZXPXHUXGUWTUXIUXAVEUXGUVPDF
+      GHJKUXRUXNXQZXLXHXLUXGUXBUWIUXGUWTUXAUXGUWTUXIWLUYNUXSXRUYLUYMXAZUYEXSXTY
+      AAUXBUWIUAUBTUBUNZUWRQZUWKQZUYPUWJUISZVESZVAZPTYDAYEUXFUVPVUAQUXBXOZAUBUV
+      PUYTUXBTVUAUYPUVPXOZUYRUWTUYSUXAVEVUCUYQUWSUWKUYPUVPUWRYBYCUYPUVPUWJUIYFY
+      GVUAYHUWTUXAVEYIYJZWOUYOAUHVUAPYKZUWLYLYMVUEYLYNWAAUCTPUCUNZVDSZUXBUAVGZV
+      AZVUEUWLYLAVUIUCTVUFVUEQZVAZVUEAUCTVUHVUJAVUFTWAZWBZUXBUAVUAPVUFUVPVUGWAZ
+      VUBVUMVUNUXFVUBUVPVUFWNZVUDXDWOVUMVUFTPWRQZAVULVTYDYOAVUNUXBWLWAZVULVUNAU
+      XFVUQVUOUYOYQYPUUAUUBVUETYRZVUEVUKXOVURVUEVUPYRZPUUCWAVUSUUDUHVUAPUUEUUFT
+      VUPVUEYDUUGUUHUCTVUEUUIUUJUUKADUWJUAUCUWOUWRGUWKUWQUWOYHZUWQYHZJUWRYHZADG
+      HJUWPUULZUYJAPPEYSQZUTSZUWJYSQZYTAPPUKUTSVVEYTUUMAVVDUKPAENUUNAUUOAUUPOUU
+      QUURAVVFPYSQZVVDUTSVVEAPEUXPNUUSVVGPVVDUTUUTUVAUVJUVBZUVCUVDVUEUWLYLUVEUV
+      FXDUYDUVGXHAUWLUXCUWIRADUWJUAUWOUWRGUWKUWQVUTVVAJVVBVVCUYJVVHUVHWEXHWEUVI
+      $.
+  $}
+
+  ${
+    dirlholres.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    dirlholres.x $e |- ( ph -> X e. D ) $.
+    $( The Dirichlet L-function of any character, restricted to the complex
+       plane without the point 1, is holomorphic there.  This form of ~ dirlhol
+       needs no case distinction on the character.  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    dirlholres $p |- ( ph -> ( ( ( N DirL X ) |` ( CC \ { 1 } ) ) : ( CC \ { 1
+      } ) --> CC /\ dom ( CC _D ( ( N DirL X ) |` ( CC \ { 1 } ) ) )
+      = ( CC \ { 1 } ) ) ) $=
+      ( cdirl co cfv wceq cc c1 cdif eqid wss sseq2 mp2an a1i wcel ax-1cn ctopn
+      ccnfld cdchr c0g csn cif wf cdv cdm czrh dirlhol simpld simprd ssid difss
+      czn ifboth cpr dfsn2 difeq2i cndifpropn eqeltri holresopn ) ACDGHZUBUAIZD
+      CUCIZUDIZJZKLUEZMZKUFZVJVENZAVKKVDUGZKVDUHHUIVKJZABVGVFCUPIZUJIZCDVOVFNVO
+      NEVPNFVGNUKZULAVMVNVQUMVJVKOZAVJVJOZVJKOZVRVJUNKVIUOVHVSVTVRVJKVJVKVJPKVK
+      VJPUQQRVJVESAVJKLLURZMZVEVIWAKLUSUTLKSZWCWBVESTTLLVEVLVAQVBRVC $.
+  $}
+
+  ${
+    $( One minus a nonzero complex number is a complex number other than one.
+       (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    1mdifsn1 $p |- ( ( A e. CC /\ A =/= 0 ) -> ( 1 - A ) e. ( CC \ { 1 } ) ) $=
+      ( cc wcel cc0 wne wa c1 cmin co cdif 1cnd simpl subcld simpr wceq wb 0cnd
+      csn subcan syl3anc necon3bid mpbird 1m0e1 a1i neeqtrd eldifsn sylanbrc )
+      ABCZADEZFZGAHIZBCUKGEUKBGRJCUJGAUJKZUHUILZMUJUKGDHIZGUJUKUNEUIUHUINUJUKUN
+      ADUJGBCUHDBCUKUNOADOPULUMUJQGADSTUAUBUNGOUJUCUDUEUKBGUFUG $.
+  $}
+
+  ${
+    $d F r s $.  $d F s v $.  $d N r s t $.  $d N s v $.  $d W s t $.
+    $d W s v $.  $d X r s $.  $d ph r s t $.  $d ph s v $.  $d r s t z $.
+    pdchrzerosym.d $e |- D = ( Base ` ( DChr ` N ) ) $.
+    pdchrzerosym.f $e |- F = ( X o. ( ZRHom ` ( Z/nZ ` N ) ) ) $.
+    pdchrzerosym.x $e |- ( ph -> X e. ( PDChr ` N ) ) $.
+    pdchrzerosym.n $e |- ( ph -> N e. ( ZZ>= ` 2 ) ) $.
+    pdchrzerosym.w $e |- ( ph -> W e. ( CC \ { 0 , 1 } ) ) $.
+    pdchrzerosym.z $e |- ( ph -> ( ( N DirL ( * o. X ) ) ` ( 1 - W ) ) = 0 ) $.
+    $( Zero symmetry of the Dirichlet L-function of a primitive character
+       modulo ` N ` at least 2: a zero of the L-function of the conjugate
+       character at ` 1 - W ` gives a zero of the L-function of the character
+       at ` W ` , unless the elementary factor vanishes there.  Instance of
+       ~ hurzfeqlzero by the relation ~ pdchrfeqneg ; compare ~ zetalzerosym
+       for the Riemann zeta function.  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    pdchrzerosym $p |- ( ph -> ( ( 1 + ( ( F ` -u 1 ) x. ( exp ` -u ( ( _i x.
+      _pi ) x. W ) ) ) ) x. ( ( N DirL X ) ` W ) ) = 0 ) $=
+      ( vv c1 cfv cmul co cc0 wcel cc vz vt vr vs cneg ci caddc cdirl ccxp wceq
+      cpi ce cpdchr cdchr cbs pdchrss sseqtrri sselid cz neg1z dchrintcl ax-icn
+      1cnd a1i picn mulcli wne cpr w3a eldifpr sylib simp1d mulcld negcld efcld
+      cdif addcld c2 cuz cn eluz2nn syl cxpcld csn cres simp3d eldifsn sylanbrc
+      nncnd fvresd wf cdv cdm dirlholres simpld ffvelcdmd eqeltrrd mul32d oveq2
+      cv cmpt negeqd fveq2d oveq2d oveq12d eqid ovex cfz cdiv cexp csu ccj ccom
+      fvmpt simprd dchrcjcl wa adantr mulcl mpan adantl ccnfld ctopon holmptmul
+      ctopn holmptc simpr eqtrdi cre clt wbr churz ltned fveq2 necon3i 1mdifsn1
+      cmin syl2anc eqtr4d eqtr3d cnfldtopon ax-mp holmptefnegmul holmptadd clog
+      toponmax nnrpd dvcxp2 dmeqd dmmpti fzfid elfznn nnzd neg1cn nnne0d divcld
+      crp 2cnd nnnn0d expcld fsumcl cicc cim ccnv cpnf cioo cima citg 0red 1red
+      recld 0lt1 lttrd re1 mulassd pdchrfeqneg 3eqtrd simp2d eqtrd hurzfeqlzero
+      re0 mul02d 0cnd cxpne0d mulcan2d mpbid ) ANNUEZCOZUFUKPQZEPQZUEZULOZPQZUG
+      QZEDFUHQZOZPQZDEUIQZPQZRUWRPQZUJUWQRUJAUWSRUWTAUWNUWRPQZUWPPQZUWSRAUWNUWR
+      UWPANUWMAVCZAUWHUWLAUWGBCDFGHADUMOZBFUXDDUNOUOOBDUPGUQIURZUWGUSSAUTVDVAZA
+      UWKAUWJAUWIEUWITSZAUFUKVBVEVFZVDZAETSZERVGZENVGZAETRNVHVPSUXJUXKUXLVIKETR
+      NVJVKZVLZVMVNVOVMVQZADEADADVRVSOSZDVTSJDWAWBZWIZUXNWCZAEUWOTNWDVPZWEZOZUW
+      PTAEUXTUWOAUXJUXLEUXTSUXNAUXJUXKUXLUXMWFETNWGWHZWJZAUXTTEUYAAUXTTUYAWKZTU
+      YAWLQWMUXTUJZABDFGUXEWNZWOZUYCWPWQZWRAEMTNUWHUWIMWTZPQZUEZULOZPQZUGQZDUYJ
+      UIQZPQZXAZOZUYBPQUXBRAUYSUXAUYBUWPPAUXJUYSUXAUJUXNMEUYQUXATUYRUYJEUJZUYOU
+      WNUYPUWRPUYTUYNUWMNUGUYTUYMUWLUWHPUYTUYLUWKULUYTUYKUWJUYJEUWIPWSXBXCXDXDU
+      YJEDUIWSXEUYRXFZUWNUWRPXGXNWBUYDXEAUAUBNDXHQZUCWTZCOZUWGVRDXIQZUIQZVUCXJQ
+      ZPQZUCXKZUYRUYADXLFXMZUHQZUXTWEZEUDUYHAUYEUYFUYGXOAUXTTVULWKZTVULWLQWMUXT
+      UJZABDVUJGABDFGUXEXPWNZWOAVUMVUNVUOXOATTUYRWKZTUYRWLQWMTUJZAMUYOUYPTAUYJT
+      SZXQZNUYNVUSVCZVUSUWHUYMAUWHTSZVURUXFXRZVURUYMTSAVURUYLVURUYKUXGVURUYKTSU
+      XHUWIUYJXSXTVNVOYAZVMZVQATTMTUYOXAZWKTVVEWLQWMTUJAMNUYNTVUTATTMTNXAZWKTVV
+      FWLQWMTUJAMNYBYEOZTVVGXFZTVVGSZAVVGTYCOSVVIVVGVVHUUATVVGUUFUUBVDZUXCYFXOV
+      VDATTMTUYNXAZWKTVVKWLQWMTUJAMUWHUYMTVVBATTMTUWHXAZWKTVVLWLQWMTUJAMUWHVVGT
+      VVHVVJUXFYFXOVVCATTMTUYMXAZWKTVVMWLQWMTUJAMUWIUXIUUCXOYDXOUUDXOVUSDUYJADT
+      SZVURUXRXRAVURYGWCATMTUYPXAWLQZWMMTDUUEOZUYPPQZXAZWMTAVVOVVRADUUQSVVOVVRU
+      JADUXQUUGMDUUHWBUUIMTVVQVVRVVPUYPPXGVVRXFUUJYHYDZWOAVUPVUQVVSXOAVUBVUHUCA
+      NDUUKAVUCVUBSZXQZVUDVUGVWAVUCBCDFGHAFBSVVTUXEXRVWAVUCVVTVUCVTSAVUCDUULYAZ
+      UUMVAVWAVUFVUCAVUFTSVVTAUWGVUEUWGTSAUUNVDAVRDAUURUXRADUXQUUOZUUPWCXRVWAVU
+      CVWBUUSUUTVMUVAAUDWTZTSZVWDYIOZRYJYKZXQZXQZVWDUYROZVWDUYAOZPQZUBRNUVBQUBW
+      TUFNPQUGQZUAUVCUVDRUVEUVFQUVGUAWTZVWDYLQUWIVWDPQZUEZULOZNVWNYQQVWDYLQPQUG
+      QXAOUFVRUKPQPQUWGPQVWMPQULOPQUVHZVUINVWDYQQZVUKOZPQZPQZVWRVUIVWSVULOZPQZP
+      QVWIVWLNUWHVWQPQZUGQZDVWDUIQZPQZVWDUWOOZPQVXFVXGVXIPQPQVXBVWIVWJVXHVWKVXI
+      PVWIVWEVWJVXHUJVWIVWEVWGAVWHYGZWOZMVWDUYQVXHTUYRUYJVWDUJZUYOVXFUYPVXGPVXL
+      UYNVXENUGVXLUYMVWQUWHPVXLUYLVWPULVXLUYKVWOUYJVWDUWIPWSXBXCXDXDUYJVWDDUIWS
+      XEVUAVXFVXGPXGXNWBVWIVWDUXTUWOVWIVWEVWDNVGZVWDUXTSVXKVWIVWFNVGVXMVWIVWFNV
+      WIVWDVXKUVKZVWIVWFRNVXNVWIUVIVWIUVJVWIVWEVWGVXJXOZRNYJYKVWIUVLVDUVMYMVWDN
+      VWFNVWDNUJVWFNYIONVWDNYIYNUVNYHYOWBVWDTNWGWHZWJZXEVWIVXFVXGVXIVWINVXEVWIV
+      CVWIUWHVWQAVVAVWHUXFXRVWIVWPVWIVWOVWIUWIVWDUXGVWIUXHVDVXKVMVNVOVMVQVWIDVW
+      DAVVNVWHUXRXRVXKWCVWIVWKVXITVXQVWIUXTTVWDUYAAUYEVWHUYHXRVXPWPWQUVOVWIUAUB
+      BVWDCDFUCGHAFUXDSVWHIXRAUXPVWHJXRVXKVXOUVPUVQVWIVXDVXAVWRPVWIVXCVWTVUIPVW
+      IVWSUXTVUKVWIVWEVWDRVGZVWSUXTSVXKVWIVWFRVGVXRVWIVWFRVXNVXOYMVWDRVWFRVWDRU
+      JVWFRYIORVWDRYIYNUWAYHYOWBVWDYPYRWJXDXDYSKANEYQQZVULOVXSVUKORAVXSUXTVUKAU
+      XJUXKVXSUXTSUXNAUXJUXKUXLUXMUVREYPYRWJLUVSUVTYTYTAUWRUXSUWBYSAUWQRUWRAUWN
+      UWPUXOUYIVMAUWCUXSADEUXRVWCUXNUWDUWEUWF $.
+  $}
+
+  ${
+    $d N a d $.  $d X a d $.
+    $( The complex conjugate of a primitive Dirichlet character is primitive.
+       (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    pdchrcj $p |- ( X e. ( PDChr ` N ) -> ( * o. X ) e. ( PDChr ` N ) ) $=
+      ( vd va cfv wcel ccj ccom cv cdvds wbr c1 co wceq wne w3a cz wrex wi eqid
+      cpdchr cbs cmin cgcd czn czrh cfzo wral wa ispdchr biimpi simpld dchrcjcl
+      cdchr simprd cn dchrrcl adantr simpr dchrintval dchrcjval eqtrd eqeq1d cr
+      syl 1re cjre ax-mp eqeq2i cc wb dchrintcl 1cnd cj11 syl2anc bitr3id bitrd
+      necon3bid 3anbi3d rexbidva imbi2d ralbidv mpbird sylanbrc ) BAUAEZFZGBHZA
+      UNEZUBEZFCIZAJKZWJDIZLUCMJKZWLAUDMLNZWLWGAUEEUFEZHZEZLOZPZDQRZSZCLAUGMZUH
+      ZWGWEFWFWIABWITZWFBWIFZWKWMWNWLBWOHZEZLOZPZDQRZSZCXBUHZWFXEXLUIWIXFABDCXD
+      XFTZUJUKZULZUMWFXCXLWFXEXLXNUOWFXAXKCXBWFWTXJWKWFWSXIDQWFWLQFZUIZWRXHWMWN
+      XQWQLXGLXQWQLNXGGEZLNZXGLNZXQWQXRLXQWQWLWOEWGEXRXQWLWPAWGWPTZWFAUPFZXPWFX
+      EYBXOWIWHABWHTXDUQVEURWFXPUSZUTXQWLWIXFABXDXMWFXEXPXOURZYCVAVBVCXSXRLGEZN
+      ZXQXTYELXRLVDFYELNVFLVGVHVIXQXGVJFLVJFYFXTVKXQWLWIXFABXDXMYDYCVLXQVMXGLVN
+      VOVPVQVRVSVTWAWBWCWIWPAWGDCXDYAUJWD $.
+  $}
+
+  ${
+    efnegipinzne0.e $e |- ( ph -> E e. CC ) $.
+    efnegipinzne0.q $e |- ( ph -> ( E ^ 2 ) = 1 ) $.
+    efnegipinzne0.w $e |- ( ph -> W e. CC ) $.
+    efnegipinzne0.z $e |- ( ph -> -. W e. ZZ ) $.
+    $( The elementary factor of the functional relations of the zeta function
+       ( ` E = 1 ` ) and of the Dirichlet L-functions ( ` E ` the value of the
+       character at ` -u 1 ` ) does not vanish at a point that is not an
+       integer.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    efnegipinzne0 $p |- ( ph -> ( 1 + ( E x. ( exp ` -u ( ( _i x. _pi ) x. W )
+      ) ) ) =/= 0 ) $=
+      ( c1 cmul co cneg ce cc0 wceq cz wcel c2 a1i adantr cexp ci cpi cfv caddc
+      wa cdiv 2cnd wne 2ne0 divcan3d cc ax-icn picn mulcli mulcld mul12d negeqd
+      mulneg2d eqtrd fveq2d negcld 2z efexp syl2anc eqtr3d efcld mulexpd oveq1d
+      cn0 2nn0 expcld mullidd 3eqtrd cmin pncan2d simpr df-neg eqtr4di neg1sqe1
+      1cnd eqtrdi wb efnegipieq1 syl biimpa syldan eqeltrrd ex mtod neqned ) AH
+      BUAUBIJZCIJZKZLUCZIJZUDJZMAWPMNZCOPZGAWQWRAWQUEZQCIJZQUFJZCOAXACNWQACQFAU
+      GZQMUHAUIRUJSAWQWKWTIJZKZLUCZHNZXAOPZWSXEWNQTJZHAXEXHNWQAQWMIJZLUCZXEXHAX
+      IXDLAXIQWLIJZKXDAQWLXBAWKCWKUKPAUAUBULUMUNRZFUOZURAXKXCAQWKCXBXLFUPUQUSUT
+      AWMUKPQOPZXJXHNAWLXMVAZXNAVBRWMQVCVDVESWSWOQTJZXHHAXPXHNWQAXPBQTJZXHIJHXH
+      IJXHABWNQDAWMXOVFZQVIPAVJRZVGAXQHXHIEVHAXHAWNQXRXSVKVLVMSWSXPHKZQTJHWSWOX
+      TQTWSWOMHVNJZXTWSWPHVNJZWOYAAYBWONWQAHWOAVTABWNDXRUOVOSWSWPMHVNAWQVPVHVEH
+      VQVRVHVSWAVEUSAXFXGAWTUKPXFXGWBAQCXBFUOWTWCWDWEWFWGWHWIWJ $.
+  $}
+
+  ${
+    $( The Dirichlet L-function of every character modulo 1 is the Riemann zeta
+       function, because the principal character is the only character modulo
+       1.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dirl1zetal $p |- ( X e. ( Base ` ( DChr ` 1 ) ) -> ( 1 DirL X )
+      = ZetaL ) $=
+      ( c1 cdchr cfv cbs wcel cdirl co c0g czetal csn wceq c1o cen wbr cgrp 1nn
+      eqid ax-mp cvv cabl dchrabl ablgrp grpidcl chash cphi dchrhash phi1 eqtri
+      cn wb fvex hashen1 mpbi en1eqsn mp2an eleq2i biimpi elsni oveq2d df-zetal
+      syl eqtr4di ) ABCDZEDZFZBAGHBVDIDZGHJVFAVGBGVFAVGKZFZAVGLVFVIVEVHAVGVEFZV
+      EMNOZVEVHLVDPFZVJVDUAFZVLBUJFZVMQVDBVDRZUBSVDUCSVEVDVGVERZVGRUDSVEUEDZBLZ
+      VKVQBUFDZBVNVQVSLQVEVDBVOVPUGSUHUIVETFVRVKUKVDEULVETUMSUNVGVEUOUPUQURAVGU
+      SVBUTVAVC $.
+  $}
+
+  ${
+    pdchrzeroref.x $e |- ( ph -> X e. ( PDChr ` N ) ) $.
+    pdchrzeroref.s $e |- ( ph -> S e. CC ) $.
+    pdchrzeroref.r $e |- ( ph -> ( Re ` S ) e. ( 0 (,) 1 ) ) $.
+    pdchrzeroref.z $e |- ( ph -> ( ( N DirL X ) ` S ) = 0 ) $.
+    $( Reflection of the zeros in the open critical strip: if the Dirichlet
+       L-function of a primitive character vanishes at ` S ` , then the
+       L-function of the conjugate character vanishes at ` 1 - S ` .  Every
+       modulus is allowed; modulus 1 is the case of the Riemann zeta function
+       ( ~ dirl1zetal , ~ zetalzerosym ), the other moduli use ~ pdchrzerosym .
+       The elementary factor does not vanish in the strip by ~ efnegipinzne0 .
+       (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    pdchrzeroref $p |- ( ph -> ( ( N DirL ( * o. X ) ) ` ( 1 - S ) ) = 0 ) $=
+      ( c1 wceq co cfv cc0 wcel cmul cc clt syl adantr czetal cmin ccj cdirl c2
+      ccom cuz wa ci cpi cneg ce caddc csn cdif cres wne 1cnd subcld cz cre wbr
+      wn 0zd cioo eliooord simprd recld 1red posdifd mpbid resubd oveq1i eqtrdi
+      re1 breqtrrd simpld ltsubposd eqbrtrd 0p1e1 breqtrrdi btwnnz syl3anc rere
+      cr zre id eqeltrd 1z eleq1 mpbiri necon3bi eldifsn sylanbrc fvresd wf cdv
+      nsyl cdm cdchr cbs eqid cpdchr pdchrss sselid dchrcjcl ffvelcdmd eqeltrrd
+      dirlholres 0cnd ax-icn picn mulcli a1i mulcld negcld efcld addcld mullidd
+      oveq2d cexp efnegipinzne0 eqnetrrd oveq1 adantl 2fveq3 eleqtrd dirl1zetal
+      sq1 eqtrd fveq1d 0z fveq2d fveq12d syl2anc mul01d eqtr4d mulcanad dchrinv
+      cpr eqtr3d eldifpr syl3anbrc nncand zetalzerosym czn czrh neg1z dchrintcl
+      3eqtr3d sqvald dchrintmul neg1mulneg1e1 fveq2i cn dchrrcl 1zzd dchrintval
+      dchrzrh1 eqtrid 3eqtr2d pdchrcj simpr cminusg cgrp cabl dchrabl grpinvinv
+      ablgrp pdchrzerosym wo elnn1uz2 sylib mpjaodan ) ACIJZIBUAKZCUBDUEZUCKZLZ
+      MJCUDUFLNZAUVNUGZUVRMIUHUIOKZUVOOKZUJZUKLZULKZAUVRPNZUVNAUVOUVQPIUMUNZUOZ
+      LUVRPAUVOUWGUVQAUVOPNZUVOIUPZUVOUWGNAIBAUQZFURZAUVOUSNZVBZUWJAUVOUTLZUSNZ
+      UWMAMUSNZMUWOQVAUWOMIULKZQVAUWPVBAVCAMIBUTLZUAKZUWOQAUWSIQVAZMUWTQVAAMUWS
+      QVAZUXAAUWSMIVDKNUXBUXAUGGUWSMIVERZVFAUWSIABFVGZAVHZVIVJAUWOIUTLZUWSUAKUW
+      TAIBUWKFVKUXFIUWSUAVNVLVMZVOAUWOIUWRQAUWOUWTIQUXGAUXBUWTIQVAAUXBUXAUXCVPA
+      UWSIUXDUXEVQVJVRVSVTMUWOWAWBUWMUWOUVOUSUWMUVOWDNUWOUVOJUVOWEUVOWCRUWMWFWG
+      WQZUWMUVOIUVOIJUWMIUSNWHUVOIUSWIWJWKRZUVOPIWLWMZWNAUWGPUVOUWHAUWGPUWHWOPU
+      WHWPKWRUWGJACWSLZWTLZCUVPUXLXAZAUXLCDUXMACXBLZUXLDCXCEXDZXEZXHVPUXJXFXGZS
+      AMPNZUVNAXIZSAUWEPNUVNAIUWDUWKAUWCAUWBAUWAUVOUWAPNAUHUIXJXKXLXMUWLXNXOXPZ
+      XQZSAUWEMUPUVNAIIUWDOKZULKUWEMAUYBUWDIULAUWDUXTXRXSAIUVOUWKIUDXTKIJAYHXMU
+      WLUXHYAYBSUVTUWEUVROKZMUWEMOKZUVTUYCUWEUVOTLZOKZMUVTUVRUYEUWEOUVTUVOUVQTU
+      VTUVQIUVPUCKZTUVNUVQUYGJACIUVPUCYCYDUVTUVPIWSLWTLZNUYGTJUVTUVPUXLUYHAUVPU
+      XLNUVNUXPSUVNUXLUYHJACIWTWSYEYDZYFUVPYGRYIYJXSUVTUVOPMIYSUNNZIUVOUAKZTLZM
+      JUYFMJAUYJUVNAUWIUVOMUPZUWJUYJUWLAUWNUYMUXHUWMUVOMUVOMJUWMUWQYKUVOMUSWIWJ
+      WKRUXIUVOPMIUUAUUBZSUVTUYLBTLZMAUYLUYOJUVNAUYKBTAIBUWKFUUCZYLSUVTUYKCDUCK
+      ZLZBUYQLZUYOMAUYRUYSJUVNAUYKBUYQUYPYLSUVTUYKBUYQTUVTUYQIDUCKZTUVNUYQUYTJA
+      CIDUCYCYDUVTDUYHNUYTTJUVTDUXLUYHADUXLNZUVNUXOSUYIYFDYGRYIAUYKBJUVNUYPSYMA
+      UYSMJUVNHSUUIYIUVOUUDYNYIAUYDMJUVNAUWEUYAYOSYPYQAUVSUGZUVRMIIUJZUVPCUUELZ
+      UUFLZUEZLZUWDOKZULKZAUWFUVSUXQSAUXRUVSUXSSAVUIPNUVSAIVUHUWKAVUGUWDAVUCUXL
+      VUFCUVPUXMVUFXAZUXPVUCUSNAUUGXMZUUHZUXTXNXQZSAVUIMUPUVSAVUGUVOVULAVUGUDXT
+      KVUGVUGOKVUCVUCOKZVUFLZIAVUGVULUUJAVUCVUCUXLVUFCUVPUXMVUJUXPVUKVUKUUKAVUO
+      IVUFLZIVUNIVUFUULUUMAVUPIVUELUVPLIAIVUFCUVPVUJAVUACUUNNZUXOUXLUXKCDUXKXAZ
+      UXMUUORZAUUPUUQAUXLUXKVUECUVPVUDVURVUDXAUXMVUEXAUXPUURYIUUSUUTUWLUXHYASVU
+      BVUIUVROKMVUIMOKZVUBUXLVUFCUVOUVPUXMVUJAUVPUXNNZUVSADUXNNVVAECDUVARSAUVSU
+      VBAUYJUVSUYNSAUYKCUBUVPUEZUCKZLZMJUVSAVVDUYSMAUYKBVVCUYQAVVBDCUCAUVPUXKUV
+      CLZLZVVBDAUXLUXKVVECUVPVURUXMUXPVVEXAZYRADVVELZVVELZVVFDAVVHUVPVVEAUXLUXK
+      VVECDVURUXMUXOVVGYRYLAUXKUVDNZVUAVVIDJAUXKUVENZVVJAVUQVVKVUSUXKCVURUVFRUX
+      KUVHRUXOUXLUXKVVEDUXMVVGUVGYNYTYTXSUYPYMHYISUVIAVUTMJUVSAVUIVUMYOSYPYQAVU
+      QUVNUVSUVJVUSCUVKUVLUVM $.
+  $}
+
+  ${
+    pdchrhalfd.x $e |- ( ph -> X e. ( PDChr ` N ) ) $.
+    pdchrhalfd.s $e |- ( ph -> S e. CC ) $.
+    pdchrhalfd.r $e |- ( ph -> ( Re ` S ) e. ( 0 (,) 1 ) ) $.
+    pdchrhalfd.z $e |- ( ph -> ( ( N DirL X ) ` S ) = 0 ) $.
+    pdchrhalfd.p $e |- ( ( ph /\ ( S e. dom ( N DirL X ) /\ ( 1 / 2 )
+      < ( Re ` S ) ) ) -> ( ( N DirL X ) ` S ) =/= 0 ) $.
+    pdchrhalfd.q $e |- ( ( ph /\ ( ( 1 - S ) e. dom ( N DirL ( * o. X ) )
+      /\ ( 1 / 2 ) < ( Re ` ( 1 - S ) ) ) ) -> ( ( N DirL ( * o. X ) ) ` ( 1 -
+      S ) ) =/= 0 ) $.
+    $( A zero in the open critical strip of the Dirichlet L-function of a
+       primitive character lies on the critical line, if the L-functions of the
+       character and of its conjugate have no zero with real part above one
+       half at the two points concerned.  The last two hypotheses are instances
+       of the nonvanishing statement for all Dirichlet characters; with them
+       the zero is excluded right of the line directly and left of the line by
+       ~ pdchrzeroref .  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    pdchrhalfd $p |- ( ph -> ( Re ` S ) = ( 1 / 2 ) ) $=
+      ( cre cfv c1 co wceq clt cc0 wne wcel cc c2 cdiv wbr wn cmin pdchrzeroref
+      ccj ccom cdirl cdm wa csn cdif cres wss cdv cdchr cbs eqid cpdchr pdchrss
+      wf sselid dchrcjcl dirlholres simpld fdmd ssdmres sylibr eliooord gt0ne0d
+      cioo syl fveq2 eqtrdi necon3i 1mdifsn1 syl2anc sseldd adantr simpr syldan
+      re0 jca ex necon2bd mpd 1mhlfehlf cr recld halfre 1red ltsub2dd eqbrtrrid
+      a1i 1cnd resubd re1 oveq1i breqtrrd simprd ltned eldifsn sylanbrc lttri3d
+      mtod mpbir2and ) ABKLZMUAUBNZOXHXIPUCZUDXIXHPUCZUDZAXJXIMBUENZKLZPUCZAXMC
+      UGDUHZUINZLZQOXOUDABCDEFGHUFAXOXRQAXOXRQRZAXOXMXQUJZSZXOUKXSAXOUKYAXOAYAX
+      OATMULUMZXTXMAXQYBUNZUJYBOYBXTUOAYBTYCAYBTYCVBTYCUPNUJYBOACUQLURLZCXPYDUS
+      ZAYDCDYEACUTLYDDCVAEVCZVDVEVFVGYBXQVHVIABTSZBQRZXMYBSFAXHQRYHAXHAQXHPUCZX
+      HMPUCZAXHQMVLNSYIYJUKGXHQMVJVMZVFVKBQXHQBQOXHQKLQBQKVNWCVOVPVMBVQVRVSVTAX
+      OWAWDJWBWEWFWGAXJXOAXJUKZXIMXHUENZXNPYLXIMXIUENYMPWHYLXHXIMAXHWISXJABFWJZ
+      VTAXIWISZXJYOAWKWOZVTAMWISXJAWLVTAXJWAWMWNAXNYMOXJAXNMKLZXHUENYMAMBAWPFWQ
+      YQMXHUEWRWSVOVTWTWEXFABCDUINZLZQOXLHAXKYSQAXKYSQRZAXKBYRUJZSZXKUKYTAXKUKU
+      UBXKAUUBXKAYBUUABAYRYBUNZUJYBOYBUUAUOAYBTUUCAYBTUUCVBTUUCUPNUJYBOAYDCDYEY
+      FVEVFVGYBYRVHVIAYGBMRZBYBSFAXHMRUUDAXHMYNAYIYJYKXAXBBMXHMBMOXHYQMBMKVNWRV
+      OVPVMBTMXCXDVSVTAXKWAWDIWBWEWFWGAXHXIYNYPXEXG $.
+  $}
+
+  ${
+    $d N a b m y $.  $d S m y $.  $d X a b m y $.  $d a m ph y $.
+    dchrhalfd.x $e |- ( ph -> X e. ( Base ` ( DChr ` N ) ) ) $.
+    dchrhalfd.s $e |- ( ph -> S e. CC ) $.
+    dchrhalfd.r $e |- ( ph -> ( Re ` S ) e. ( 0 (,) 1 ) ) $.
+    dchrhalfd.z $e |- ( ph -> ( ( N DirL X ) ` S ) = 0 ) $.
+    dchrhalfd.p $e |- ( ( ( ph /\ ( m e. NN /\ y e. ( PDChr ` m ) ) ) /\ ( S
+      e. dom ( m DirL y ) /\ ( 1 / 2 ) < ( Re ` S ) ) ) -> ( ( m DirL y ) ` S )
+      =/= 0 ) $.
+    dchrhalfd.q $e |- ( ( ( ph /\ ( m e. NN /\ y e. ( PDChr ` m ) ) )
+      /\ ( ( 1 - S ) e. dom ( m DirL ( * o. y ) ) /\ ( 1 / 2 ) < ( Re ` ( 1 - S
+      ) ) ) ) -> ( ( m DirL ( * o. y ) ) ` ( 1 - S ) ) =/= 0 ) $.
+    $( A zero in the open critical strip of the Dirichlet L-function of any
+       character lies on the critical line, if the L-functions of the primitive
+       characters and of their conjugates have no zero with real part above one
+       half at the two points concerned.  The character is induced by a
+       primitive character ( ~ dchrindpdchr ) whose L-function has the same
+       zeros in the strip ( ~ dirlindeq0 ); then ~ pdchrhalfd applies.  The
+       last two hypotheses are instances of the nonvanishing statement for all
+       Dirichlet characters.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    dchrhalfd $p |- ( ph -> ( Re ` S ) = ( 1 / 2 ) ) $=
+      ( co c1 wceq cfv wa wcel ad2antrr cc0 vb va cv cdvds wbr cgcd czn czrh wi
+      cz wral cpdchr wrex cn cre c2 cdiv cdchr cbs dchrindpdchr simplrr cc cioo
+      syl cdirl pdchrss sseli oveq1 eqeq1d fveq2d eqeq12d imbi12d rspcva ancoms
+      fveq2 imp anasss adantll clt eliooord simpld wne recld simprd re1 necon3i
+      ltned eqtrdi dirlindeq0 mpbid cdm adantlr cmin ccom pdchrhalfd ex anassrs
+      ccj rexlimdva adantld mpd ) ADUCZEUDUEZUAUCZEUFMZNOZXDEUGPUHPZPZFPZXDXBUG
+      PUHPZPZBUCZPZOZUIZUAUJUKZBXBULPZUMZQZDUNUMZCUOPZNUPUQMZOZAFEURPUSPRZXTGBD
+      EFUAUTVDAXSYCDUNAXBUNRZQZXRYCXCYFXPYCBXQAYEXLXQRZXPYCUIAYEYGQZQZXPYCYIXPQ
+      ZCXBXLAYEYGXPVAZACVBRYHXPHSZAYATNVCMRZYHXPISYJCEFVEMPTOZCXBXLVEMZPZTOAYNY
+      HXPJSYJCXBEFXLUBAYDYHXPGSYJYGXLXBURPUSPZRYKXQYQXLXBVFVGVDXPUBUCZUJRZYREUF
+      MZNOZQYRXGPZFPZYRXJPZXLPZOZYIXPYSUUAUUFXPYSQUUAUUFYSXPUUAUUFUIZXOUUGUAYRU
+      JXDYROZXFUUAXNUUFUUHXEYTNXDYREUFVHVIUUHXIUUCXMUUEUUHXHUUBFXDYRXGVOVJUUHXK
+      UUDXLXDYRXJVOVJVKVLVMVNVPVQVRYLATYAVSUEZYHXPAUUIYANVSUEZAYMUUIUUJQIYATNVT
+      VDZWASACNWBZYHXPAYANWBUULAYANACHWCAUUIUUJUUKWDWGCNYANCNOYANUOPNCNUOVOWEWH
+      WFVDSWIWJYICYOWKRYBYAVSUEQYPTWBXPKWLYINCWMMZXBWRXLWNVEMZWKRYBUUMUOPVSUEQU
+      UMUUNPTWBXPLWLWOWPWQWSWTWSXA $.
+  $}
+
+  ${
+    $d C w $.  $d G w $.  $d R w $.  $d ph w $.  $d w z $.
+    holballper.g $e |- ( ph -> G : ( C ( ball ` ( abs o. - ) ) R ) --> CC ) $.
+    holballper.dg $e |- ( ph -> dom ( CC _D G ) = ( C ( ball ` ( abs o. - ) ) R
+      ) ) $.
+    holballper.c $e |- ( ph -> C e. CC ) $.
+    holballper.r $e |- ( ph -> R e. RR+ ) $.
+    holballper.p $e |- P = ( w e. ( `' Im " ( 0 (,) +oo ) ) |-> ( G ` ( C + ( R
+      x. ( exp ` ( ( _i x. ( 2 x. _pi ) ) x. w ) ) ) ) ) ) $.
+    $( A function holomorphic on a disc, composed with the exponential map from
+       the upper half-plane onto the punctured disc, is holomorphic on the
+       upper half-plane and has period 1.  This lift brings the expansion
+       ~ perexphh of periodic functions to functions on a disc.  (Contributed
+       by Zhi Wang, 28-Nov-2026.) $)
+    holballper $p |- ( ph -> ( ( P : ( `' Im " ( 0 (,) +oo ) ) --> CC
+      /\ dom ( CC _D P ) = ( `' Im " ( 0 (,) +oo ) ) ) /\ A. z e. ( `' Im " ( 0
+      (,) +oo ) ) ( P ` ( z + 1 ) ) = ( P ` z ) ) ) $=
+      ( cc0 co cc cdv wceq cfv cmul wcel cim ccnv cpnf cioo cima wf wa cv caddc
+      cdm c1 wral ci c2 cpi cmpt cabs cmin ccom cbl clt wbr adantr rpcnd ax-icn
+      ce 2cn picn mulcli a1i elimpreimaioopnf simplbi adantl mulcld addcld eqid
+      efcld cnmetdval syl2anc pncan2d fveq2d absmuld cr rpred cle rpge0d absidd
+      oveq1d 3eqtrd eqtrd abscld 1red crp efhhlt1 mulridd breqtrd eqbrtrd cxmet
+      ltmul2dd wb cnxmet rpxrd elbl3 syl22anc mpbird ccnfld ctopn impreimaioopn
+      holmptc simprd holmptid holmptmul holmptef holmptadd holmptco feq1i dmeqi
+      cxr oveq2i eqeq1i anbi12i sylibr biimpi simpld 1cnd adddid cz 1zzd oveq2d
+      efper imaddd im1 imcld recnd addridd eqtrid breqtrrd oveq2 fvex fvmpt syl
+      sylanbrc 3eqtr4d rgen jca ) AUAUBMUCUDNUEZOEUFZOEPNZUJZUUFQZUGZBUHZUKUINZ
+      ERZUULERZQZBUUFULZAUUFOCUUFDFUMUNUOSNZSNZCUHZSNZVFRZSNZUINZGRZUPZUFZOUVFP
+      NZUJZUUFQZUGUUKACUVDGUUFDFUQURUSZUTRNZAUUTUUFTZUGZUVDUVLTZUVDDUVKNZFVAVBZ
+      UVNUVPFUVBUQRZSNZFVAUVNUVPUVDDURNZUQRZUVSUVNUVDOTZDOTZUVPUWAQUVNDUVCAUWCU
+      VMJVCZUVNFUVBAFOTUVMAFKVDZVCZUVNUVAUVNUUSUUTUUSOTZUVNUMUURVEUNUOVGVHVIVIZ
+      VJZUVMUUTOTZAUVMUWJMUUTUARVAVBMUUTVKVLVMZVNZVQZVNZVOZUWDUVDDUVKUVKVPVRVSU
+      VNUWAUVCUQRFUQRZUVRSNUVSUVNUVTUVCUQUVNDUVCUWDUWNVTWAUVNFUVBUWFUWMWBUVNUWP
+      FUVRSUVNFAFWCTUVMAFKWDVCAMFWEVBUVMAFKWFVCWGWHWIWJUVNUVSFUKSNFVAUVNUVRUKFU
+      VNUVBUWMWKUVNWLAFWMTUVMKVCZUVMUVRUKVAVBAUUTWNVMWSUVNFUWFWOWPWQUVNUVKOWRRT
+      ZFXRTUWCUWBUVOUVQWTUWRUVNXAVJUVNFUWQXBUWDUWOUVDUVKDFOXCXDXEAUUFOCUUFUVDUP
+      ZUFOUWSPNUJUUFQACDUVCUUFUWDAUUFOCUUFDUPZUFOUWTPNUJUUFQACDXFXGRZUUFUXAVPZU
+      UFUXATAMUCUXAUXBXHVJZJXIXJUWNAUUFOCUUFUVCUPZUFOUXDPNUJUUFQACFUVBUUFUWFAUU
+      FOCUUFFUPZUFOUXEPNUJUUFQACFUXAUUFUXBUXCUWEXIXJUWMAUUFOCUUFUVBUPZUFOUXFPNU
+      JUUFQACUVAUUFUWLAUUFOCUUFUVAUPZUFOUXGPNUJUUFQACUUSUUTUUFUWIAUUFOCUUFUUSUP
+      ZUFOUXHPNUJUUFQACUUSUXAUUFUXBUXCUWGAUWHVJXIXJUWKAUUFOCUUFUUTUPZUFOUXIPNUJ
+      UUFQACUXAUUFUXBUXCXKXJXLXJXMXJXLXJXNXJHIXOUUGUVGUUJUVJUUFOEUVFLXPUUIUVIUU
+      FUUHUVHEUVFOPLXSXQXTYAYBUUQAUUPBUUFUULUUFTZDFUUSUUMSNZVFRZSNZUINZGRZDFUUS
+      UULSNZVFRZSNZUINZGRZUUNUUOUXJUXNUXSGUXJUXMUXRDUIUXJUXLUXQFSUXJUXLUXPUUSUK
+      SNUINZVFRZUXQUXJUXKUYAVFUXJUUSUULUKUWGUXJUWHVJZUXJUULOTZMUULUARZVAVBZUXJU
+      YDUYFUGMUULVKYCZYDZUXJYEZYFWAUXJUXPOTUKYGTUYBUXQQUXJUUSUULUYCUYHVNUXJYHUX
+      PUKYJVSWJYIYIWAUXJUUMUUFTZUUNUXOQUXJUUMOTMUUMUARZVAVBUYJUXJUULUKUYHUYIVOU
+      XJMUYEUYKVAUXJUYDUYFUYGXJUXJUYKUYEUKUARZUINZUYEUXJUULUKUYHUYIYKUXJUYMUYEM
+      UINUYEUYLMUYEUIYLXSUXJUYEUXJUYEUXJUULUYHYMYNYOYPWJYQMUUMVKUUBCUUMUVEUXOUU
+      FEUUTUUMQZUVDUXNGUYNUVCUXMDUIUYNUVBUXLFSUYNUVAUXKVFUUTUUMUUSSYRWAYIYIWALU
+      XNGYSYTUUACUULUVEUXTUUFEUUTUULQZUVDUXSGUYOUVCUXRDUIUYOUVBUXQFSUYOUVAUXPVF
+      UUTUULUUSSYRWAYIYIWALUXSGYSYTUUCUUDVJUUE $.
+  $}
+
+  ${
+    $d F k m t z $.  $d F k n t $.  $d H k m t z $.  $d M k n t $.
+    $d M k t z $.  $d N k m t z $.  $d N k n t $.  $d Y k m t z $.
+    $d Y k n t $.  $d k m ph t z $.
+    percoefhigh0.f $e |- ( ph -> F : ( `' Im " ( 0 (,) +oo ) ) --> CC ) $.
+    percoefhigh0.df $e |- ( ph -> dom ( CC _D F ) = ( `' Im " ( 0 (,) +oo ) ) )
+      $.
+    percoefhigh0.per $e |- ( ( ph /\ z e. ( `' Im " ( 0 (,) +oo ) ) )
+      -> ( F ` ( z + 1 ) ) = ( F ` z ) ) $.
+    percoefhigh0.n $e |- ( ph -> N e. NN ) $.
+    percoefhigh0.y $e |- ( ph -> Y e. RR+ ) $.
+    percoefhigh0.m $e |- ( ph -> M e. RR ) $.
+    percoefhigh0.h $e |- ( ph -> H e. RR+ ) $.
+    percoefhigh0.b $e |- ( ( ph /\ ( z e. ( `' Im " ( 0 (,) +oo ) ) /\ H
+      <_ ( Im ` z ) ) ) -> ( abs ` ( F ` z ) ) <_ M ) $.
+    $( A function that is holomorphic with period 1 on the upper half-plane and
+       bounded above some height has no coefficient integral of positive index:
+       the integral does not depend on the height ( ~ percoefhind2 ) and decays
+       exponentially as the height grows.  (Contributed by Zhi Wang,
+       28-Nov-2026.) $)
+    percoefhigh0 $p |- ( ph -> S. ( 0 [,] 1 ) ( ( F ` ( t + ( _i x. Y ) ) ) x.
+      ( exp ` ( ( ( _i x. ( 2 x. _pi ) ) x. N ) x. ( t + ( _i x. Y ) ) ) ) ) _d
+      t = 0 ) $=
+      ( cc0 co cmul wcel vm vk vn cv clt wbr c1 cicc ci caddc cfv cpi citg wceq
+      c2 ce cn cr wrex rpred arch syl cabs cle cvol cn0 cmpt cneg cexp cuz eqid
+      wa simprl nnzd cli cvv nn0uz 0zd nn0ex mptex nncnd percoefcl abscld recnd
+      a1i eqidd fvex fvmpt adantl climconst adantr crp pirp rpmulcl mp2an nnrpd
+      2rp rpmulcld renegcld rpefcld rpcnd rpge0d absidd rpgt0d lt0neg2d syl2anc
+      mpbid wb eqbrtrd 0re 1re remulcld cc ovex eqeltrd oveq2d ad2antrr cim cdm
+      simpr adantlr cz fveq2d eqtrd nnred ccncf unitssre ax-icn mulcli breqtrrd
+      wss mulcld ad3antrrr negeqd wi fveq2 mul12d 3eqtr4d mulneg2d breqtrd 0red
+      eflt breqtrdi expcnv iccvolcl oveq2 expcld eqtr4d climmulc2 eluznn nnnn0d
+      ef0 reexpcld ccnv cpnf cioo cima wf cdv percoefhind2 iccmbl cibl cnvimass
+      ssidd fdmi sseqtri dvcn syl31anc ax-resscn sstri picn sselid addcld crimd
+      imf elimpreimaioopnf sylanbrc percoefcn cniccibl syl3anc ffvelcdmd sseldd
+      efcld absmuld absef2pii simprr eluzle ltletrd ltled wral ralrimiva breq2d
+      2cn expr breq1d imbi12d rspcv sylc lemul1ad itgabsle mulcomd efexp mul32d
+      mpd climle mul01d absge0d letri3d mpbir2and abs00ad rexlimddv ) AEUAUDZUE
+      UFZCQUGUHRZCUDZUIHSRUJRZDUKUIUOULSRZSRZGSRZUXPSRUPUKSRUMZQUNZUAUQAEURTZUX
+      MUAUQUSAEOUTZEUAVAVBAUXLUQTZUXMVLZVLZUXTVCUKZQUNZUYAUYFUYHUYGQVDUFZQUYGVD
+      UFZUYFUYGFUXNVEUKZSRZQSRZQVDUYFUYGUYMUBUCVFUYGVGZUCVFUYLUXQGSRZVHZUPUKZUC
+      UDZVIRZSRZVGZUXLUXLVJUKZVUBVKUYFUXLAUYDUXMVMZVNAUYNUYGVOUFUYEAUYGUBUYNQVP
+      VFVQAVRZUYNVPTAUCVFUYGVSVTWEAUYGAUXTACDGHIJAGLWAZMWBZWCZWDUBUDZVFTZVUHUYN
+      UKZUYGUNZAUCVUHUYGUYGVFUYNUYRVUHUNZUYGWFUYNVKUXTVCWGWHZWIWJWKAVUAUYMVOUFU
+      YEAQUYLUBUCVFUYSVGZVUAQVPVFVQVUDAUYQUCAUYQAUYPAUYOAUYOAUXQGUXQWLTZAUOWLTU
+      LWLTVUOWQWMUOULWNWOWEZAGLWPWRZUTZWSZWTZXAZAUYQVCUKUYQUGUEAUYQAUYQVUTUTZAU
+      YQVUTXBXCAUYQQUPUKZUGUEAUYPQUEUFZUYQVVCUEUFZAQUYOUEUFVVDAUYOVUQXDAUYOVURX
+      EXGAUYPURTQURTZVVDVVEXHVUSAUUAZUYPQUUBXFXGUULUUCXIUUDAUYLAFUYKNUYKURTZAVV
+      FUGURTZVVHXJXKQUGUUEWOZWEXLZWDZVUAVPTAUCVFUYTVSVTWEAVUIVLZVUHVUNUKZUYQVUH
+      VIRZXMVUIVVNVVOUNAUCVUHUYSVVOVFVUNUYRVUHUYQVIUUFZVUNVKUYQVUHVIXNWHWIZVVMU
+      YQVUHAUYQXMTVUIVVAWKAVUIXTUUGXOVVMVUHVUAUKZUYLVVOSRZUYLVVNSRVUIVVRVVSUNZA
+      UCVUHUYTVVSVFVUAVULUYSVVOUYLSVVPXPVUAVKUYLVVOSXNWHZWIVVMVVNVVOUYLSVVQXPUU
+      HUUIWKUYFVUHVUBTZVLZVUJUYGURVWCVUIVUKVWCVUHVWCUYDVWBVUHUQTUYFUYDVWBVUCWKZ
+      UYFVWBXTVUHUXLUUJXFZUUKZVUMVBZAUYGURTUYEVWBVUGXQXOVWCVVRVVSURVWCVUIVVTVWF
+      VWAVBZVWCUYLVVOAUYLURTUYEVWBVVKXQVWCUYQVUHAUYQURTUYEVWBVVBXQVWFUUMXLXOVWC
+      VUJFGUXQVUHSRZVHZSRZUPUKZSRZUYKSRZVVRVDVWCVUJCUXNUXOUIVUHSRZUJRZDUKZUXSVW
+      PSRZUPUKZSRZUMZVCUKZVWNVDVWCVUJUYGVXBVWGVWCUXTVXAVCVWCBCHDGVUHAXRUUNQUUOU
+      UPRZUUQZXMDUURZUYEVWBIXQAXMDUUSRXSVXDUNZUYEVWBJXQUYFBUDZVXDTZVXGUGUJRDUKV
+      XGDUKZUNZVWBAVXHVXJUYEKYAYAAGYBTUYEVWBAGLVNXQAHWLTUYEVWBMXQVWCVUHVWEWPZUU
+      TYCYDVWCCUXNVWTVWMUXNVEXSTZVWCVVFVVIVXLXJXKQUGUVAWOWEVVHVWCVVJWEZVWCFVWLA
+      FURTZUYEVWBNXQVWCVWLVWCVWKVWCGVWJAGURTZUYEVWBAGLYEZXQVWCVWIVWCUXQVUHAUXQU
+      RTUYEVWBAUXQVUPUTXQVWCVUHVWEYEZXLWSXLWTZUTZXLVWCVVFVVICUXNVWTVGZUXNXMYFRT
+      VXTUVBTVVFVWCXJWEVVIVWCXKWEVWCCVXDDUXSUXNVUHADVXDXMYFRTZUYEVWBAXMXMYKVXEV
+      XDXMYKZVXFVYAAXMUVDIVYBAVXDXRXSXMXRVXCUVCXMURXRUVOUVEUVFZWEJVXDXMDUVGUVHX
+      QUXNXMYKVWCUXNURXMYGUVIUVJWEVWCVUHVWEWAZAUXSXMTZUYEVWBAUXRGUXRXMTAUIUXQYH
+      UOULUWMUVKYIZYIWEVUEYLZXQVWCUXOUXNTZVLZVWPXMTZQVWPXRUKZUEUFVWPVXDTZVYIUXO
+      VWOVYIUXOVYIUXNURUXOYGVWCVYHXTUVLZWDVYIUIVUHUIXMTVYIYHWEVYIVUHVWCVUHURTVY
+      HVXQWKZWDYLUVMVYIQVUHVYKUEVWCQVUHUEUFVYHVWCVUHVXKXDWKVYIUXOVUHVYMVYNUVNZY
+      JQVWPUVPUVQZUVRQUGVXTUVSUVTVYIVWQVWSVYIVXDXMVWPDAVXEUYEVWBVYHIYMVYPUWAZVY
+      IVWRVYIUXSVWPAVYEUYEVWBVYHVYGYMVYIVXDXMVWPVYBVYIVYCWEVYPUWBZYLUWCZYLVYIVW
+      TVCUKZVWQVCUKZVWLSRZVWMVDVYIVYTWUAVWSVCUKZSRWUBVYIVWQVWSVYQVYSUWDVYIWUCVW
+      LWUASVYIWUCGUXQVYKSRZVHZSRZUPUKZVWLVYIVXOVYJWUCWUGUNAVXOUYEVWBVYHVXPYMVYR
+      GVWPUWEXFVYIWUFVWKUPVYIWUEVWJGSVYIWUDVWIVYIVYKVUHUXQSVYOXPYNXPYCYDXPYDVYI
+      WUAFVWLVYIVWQVYQWCAVXNUYEVWBVYHNYMVWCVWLURTVYHVXSWKVWCQVWLVDUFVYHVWCVWLVX
+      RXBWKVYIEVYKVDUFZWUAFVDUFZVYIEVUHVYKVDVWCEVUHVDUFVYHVWCEVUHAUYBUYEVWBUYCX
+      QZVXQVWCEUXLVUHWUJVWCUXLVWDYEVXQUYFUXMVWBAUYDUXMUWFWKVWBUXLVUHVDUFUYFUXLV
+      UHUWGWIUWHUWIWKVYOYJVYIVYLEVXGXRUKZVDUFZVXIVCUKZFVDUFZYOZBVXDUWJZWUHWUIYO
+      ZVYPAWUPUYEVWBVYHAWUOBVXDAVXHWULWUNPUWNUWKYMWUOWUQBVWPVXDVXGVWPUNZWULWUHW
+      UNWUIWURWUKVYKEVDVXGVWPXRYPUWLWURWUMWUAFVDWURVXIVWQVCVXGVWPDYPYCUWOUWPUWQ
+      UWRUXDUWSXIUWTXIVWCUYLVWLSRVVSVWNVVRVWCVWLVVOUYLSVWCVWLVUHUYPSRZUPUKZVVOV
+      WCVWKWUSUPVWCGVWISRZVHVUHUYOSRZVHVWKWUSVWCWVAWVBVWCUXQGVUHSRZSRUXQVUHGSRZ
+      SRWVAWVBVWCWVCWVDUXQSVWCGVUHAGXMTUYEVWBVUEXQZVYDUXAXPVWCGUXQVUHWVEUXQXMTV
+      WCVYFWEZVYDYQVWCVUHUXQGVYDWVFWVEYQYRYNVWCGVWIWVEVWCUXQVUHWVFVYDYLYSVWCVUH
+      UYOVYDVWCUXQGWVFWVEYLYSYRYCVWCUYPXMTZVUHYBTWUTVVOUNAWVGUYEVWBAUYPVUSWDXQV
+      WCVUHVWEVNUYPVUHUXBXFYDXPVWCFVWLUYKAFXMTUYEVWBAFNWDXQVWCVWLVXSWDVWCUYKVXM
+      WDUXCVWHYRYTUXEAUYMQUNUYEAUYLVVLUXFWKYTAUYJUYEAUXTVUFUXGWKAUYHUYIUYJVLXHU
+      YEAUYGQVUGVVGUXHWKUXIAUYHUYAXHUYEAUXTVUFUXJWKXGUXK $.
+  $}
+
+  ${
+    $d C e t v z $.  $d C w z $.  $d G e t v z $.  $d G w z $.  $d N e t z $.
+    $d P e t z $.  $d R e t v z $.  $d R w z $.  $d Y e t z $.  $d e ph t z $.
+    $d ph w z $.
+    holballcoef0.g $e |- ( ph -> G : ( C ( ball ` ( abs o. - ) ) R ) --> CC )
+      $.
+    holballcoef0.dg $e |- ( ph -> dom ( CC _D G ) = ( C ( ball ` ( abs o. - ) )
+      R ) ) $.
+    holballcoef0.c $e |- ( ph -> C e. CC ) $.
+    holballcoef0.r $e |- ( ph -> R e. RR+ ) $.
+    holballcoef0.p $e |- P = ( w e. ( `' Im " ( 0 (,) +oo ) ) |-> ( G ` ( C + (
+      R x. ( exp ` ( ( _i x. ( 2 x. _pi ) ) x. w ) ) ) ) ) ) $.
+    holballcoef0.n $e |- ( ph -> N e. NN ) $.
+    holballcoef0.y $e |- ( ph -> Y e. RR+ ) $.
+    $( The periodic lift ~ holballper of a function holomorphic on a disc has
+       no coefficient integral of positive index: near the centre the function
+       is bounded by continuity, so the lift is bounded high up and
+       ~ percoefhigh0 applies.  (Contributed by Zhi Wang, 28-Nov-2026.) $)
+    holballcoef0 $p |- ( ph -> S. ( 0 [,] 1 ) ( ( P ` ( t + ( _i x. Y ) ) ) x.
+      ( exp ` ( ( ( _i x. ( 2 x. _pi ) ) x. N ) x. ( t + ( _i x. Y ) ) ) ) ) _d
+      t = 0 ) $=
+      ( co cfv c1 wcel vv ve vz cv cmin cabs clt wbr wi ccom cbl wral cicc cmul
+      cc0 ci caddc c2 cpi ce citg wceq crp cc ccncf wrex wss wf cdv ssidd cxmet
+      cdm cxr cnxmet a1i rpxrd blssm syl3anc dvcn syl31anc blcntr cncfi wa cdiv
+      1rp cim ccnv cpnf cioo cima holballper simpld adantr simprd adantlr cn cr
+      r19.21bi ffvelcdmd abscld 1red readdcld simprl rpdivcld 2rp rpmulcl mp2an
+      pirp cle oveq2 fveq2d oveq2d fvex fvmpt ad2antrr rpcnd ax-icn picn mulcli
+      syl 2cn mulcld syl2anc rpred oveq1d eqtrd breqtrd eqbrtrd mpbird remulcld
+      wb cneg renegcld reefcld fveq2i rpne0d simprr mpbid lelttrd breq1d addcld
+      elimpreimaioopnf simplbi efcld eqid pncan2d absmuld rpge0d absidd efhhlt1
+      cnmetdval 3eqtrd ltmul2dd mulridd elbl3 syl22anc resubcld subcld abs2difd
+      mulridi oveq1i absef2pii eqtr3id mullidd divcan2d lemul2d eqbrtrrd lenegd
+      imcld recnd efle lemul2ad efneg ltaddrp2d efgt1p lttrd rpefcld ltmuldiv2d
+      ltrecd recdivd oveq1 fveq2 imbi12d rspcv sylc mpd ltsubadd2d percoefhigh0
+      ltled rexlimddv ) AUAUDZDUEQZUFRZUBUDZUGUHZUWKGRZDGRZUEQZUFRZSUGUHZUIZUAD
+      FUFUEUJZUKRQZULZCUOSUMQCUDUPIUNQUQQZERUPURUSUNQZUNQZHUNQUXEUNQUTRUNQVAUOV
+      BUBVCAGUXCVDVEQTZDUXCTZSVCTZUXDUBVCVFAVDVDVGUXCVDGVHZUXCVDVGZVDGVIQVLUXCV
+      BUXHAVDVJJAUXBVDVKRTZDVDTZFVMTZUXLUXMAVNVOZLAFMVPZUXBDFVDVQVRKUXCVDGVSVTA
+      UXMUXNFVCTZUXIUXPLMUXBDFVDWAVRZUXJAWEVOUBUAUXCVDDSGWBVRAUWNVCTZUXDWCZWCZU
+      CCEFUWNWDQZUXFWDQZUWQUFRZSUQQZHIAWFWGUOWHWIQWJZVDEVHZUYAAUYHVDEVIQVLUYGVB
+      ZAUYHUYIWCZUCUDZSUQQERUYKERZVBZUCUYGULZAUCBDEFGJKLMNWKZWLZWLWMAUYIUYAAUYH
+      UYIUYPWNWMAUYKUYGTZUYMUYAAUYMUCUYGAUYJUYNUYOWNWRWOAHWPTUYAOWMAIVCTUYAPWMA
+      UYFWQTZUYAAUYESAUWQAUXCVDDGJUXSWSZWTAXAXBZWMUYBUYCUXFUYBFUWNAUXRUYAMWMZAU
+      XTUXDXCZXDZUXFVCTZUYBURVCTUSVCTVUDXEXHURUSXFXGZVOXDZUYBUYQUYDUYKWFRZXIUHZ
+      WCZWCZUYLUFRDFUXGUYKUNQZUTRZUNQZUQQZGRZUFRZUYFXIVUJUYLVUOUFVUJUYQUYLVUOVB
+      UYBUYQVUHXCZBUYKDFUXGBUDZUNQZUTRZUNQZUQQZGRVUOUYGEVURUYKVBZVVBVUNGVVCVVAV
+      UMDUQVVCVUTVULFUNVVCVUSVUKUTVURUYKUXGUNXJXKXLXLXKNVUNGXMXNXTXKVUJVUPUYFVU
+      JVUOVUJUXCVDVUNGAUXKUYAVUIJXOVUJVUNUXCTZVUNDUXBQZFUGUHZVUJVVEFVULUFRZUNQZ
+      FUGVUJVVEVUNDUEQZUFRZVVHVUJVUNVDTZUXNVVEVVJVBVUJDVUMAUXNUYAVUILXOZVUJFVUL
+      VUJFAUXRUYAVUIMXOZXPZVUJVUKVUJUXGUYKUXGVDTVUJUPUXFXQURUSYAXRXSXSZVOVUJUYQ
+      UYKVDTZVUQUYQVVPUOVUGUGUHUOUYKUUBUUCXTZYBUUDZYBZUUAZVVLVUNDUXBUXBUUEUUKYC
+      VUJVVJVUMUFRFUFRZVVGUNQVVHVUJVVIVUMUFVUJDVUMVVLVVSUUFXKVUJFVULVVNVVRUUGVU
+      JVWAFVVGUNVUJFVUJFVVMYDZVUJFVVMUUHZUUIYEUULZYFVUJVVHFSUNQFUGVUJVVGSFVUJVU
+      LVVRWTZVUJXAZVVMVUJUYQVVGSUGUHVUQUYKUUJXTUUMVUJFVVNUUNYGYHVUJUXMUXOUXNVVK
+      VVDVVFYKAUXMUYAVUIUXPXOAUXOUYAVUIUXQXOVVLVVTVUNUXBDFVDUUOUUPYIZWSZWTZAUYR
+      UYAVUIUYTXOVUJVUPUYEUEQZSUGUHVUPUYFUGUHVUJVWJVUOUWQUEQZUFRZSVUJVUPUYEVWIV
+      UJUWQAUWQVDTUYAVUIUYSXOZWTZUUQVUJVWKVUJVUOUWQVWHVWMUURWTVWFVUJVUOUWQVWHVW
+      MUUSVUJVVJUWNUGUHZVWLSUGUHZVUJVVJVVHUWNUGVWDVUJVVHFUYCYLZUTRZUNQZUWNVUJFV
+      VGVWBVWEYJVUJFVWRVWBUYBVWRWQTVUIUYBVWQUYBUYCUYBUYCVUCYDZYMYNZWMZYJUYBUWNW
+      QTVUIUYBUWNVUBYDZWMVUJVVGVWRFVWEVXBVWBVWCVUJVVGUXFVUGUNQZYLZUTRZVWRXIVUJV
+      VGSVXEUNQZUTRZVXFVUJVVGUXGSUNQZUYKUNQZUTRZUFRZVXHVXKVULUFVXJVUKUTVXIUXGUY
+      KUNUXGVVOUUTUVAYOYOVUJSWQTVVPVXLVXHVBVWFVVQSUYKUVBYCUVCVUJVXGVXEUTVUJVXEV
+      UJVXEVUJVXDVUJUXFVUGVUJUXFVUDVUJVUEVOZYDVUJUYKVVQUVIZYJZYMZUVJUVDXKYFVUJV
+      XEVWQXIUHZVXFVWRXIUHZVUJUYCVXDXIUHVXQVUJUXFUYDUNQZUYCVXDXIVUJUYCUXFUYBUYC
+      VDTZVUIUYBUYCVUCXPZWMVUJUXFVXMXPVUJUXFVXMYPUVEVUJVUHVXSVXDXIUHUYBUYQVUHYQ
+      VUJUYDVUGUXFUYBUYDWQTVUIUYBUYDVUFYDWMVXNVXMUVFYRUVGVUJUYCVXDUYBUYCWQTVUIV
+      WTWMZVXOUVHYRVUJVXEWQTVWQWQTVXQVXRYKVXPVUJUYCVYBYMVXEVWQUVKYCYRYHUVLUYBVW
+      SUWNUGUHZVUIUYBVYCVWRUWNFWDQZUGUHUYBVWRSUYCWDQZVYDUGUYBVWRSUYCUTRZWDQZVYE
+      UGUYBVXTVWRVYGVBVYAUYCUVMXTUYBUYCVYFUGUHVYGVYEUGUHUYBUYCSUYCUQQZVYFVWTUYB
+      SUYCUYBXAVWTXBUYBUYCVWTYNUYBUYCSVWTUXJUYBWEVOUVNUYBUYCVCTVYHVYFUGUHVUCUYC
+      UVOXTUVPUYBUYCVYFVUCUYBUYCVWTUVQUVSYRYHUYBFUWNUYBFVUAXPUYBUWNVUBXPUYBFVUA
+      YPUYBUWNVUBYPUVTYGUYBVWRUWNFVXAVXCVUAUVRYIWMYSYHVUJVVDUXDVWOVWPUIZVWGUYBU
+      XDVUIAUXTUXDYQWMUXAVYIUAVUNUXCUWKVUNVBZUWOVWOUWTVWPVYJUWMVVJUWNUGVYJUWLVV
+      IUFUWKVUNDUEUWAXKYTVYJUWSVWLSUGVYJUWRVWKUFVYJUWPVUOUWQUEUWKVUNGUWBYEXKYTU
+      WCUWDUWEUWFYSVUJVUPUYESVWIVWNVWFUWGYRUWIYHUWHUWJ $.
+  $}
+
+  ${
+    $d F j k m t $.  $d F k m t z $.  $d W j k m t $.  $d W k m t z $.
+    $d Y j k t $.  $d Y k t z $.  $d j k m ph t $.  $d ph t z $.
+    perexplaur.f $e |- ( ph -> F : ( `' Im " ( 0 (,) +oo ) ) --> CC ) $.
+    perexplaur.df $e |- ( ph -> dom ( CC _D F ) = ( `' Im " ( 0 (,) +oo ) ) )
+      $.
+    perexplaur.per $e |- ( ( ph /\ z e. ( `' Im " ( 0 (,) +oo ) ) )
+      -> ( F ` ( z + 1 ) ) = ( F ` z ) ) $.
+    perexplaur.w $e |- ( ph -> W e. ( `' Im " ( 0 (,) +oo ) ) ) $.
+    perexplaur.r0 $e |- ( ph -> 0 < ( Re ` W ) ) $.
+    perexplaur.r1 $e |- ( ph -> ( Re ` W ) < 1 ) $.
+    perexplaur.y $e |- ( ph -> Y e. RR+ ) $.
+    $( Laurent form of the expansion ~ perexphh of a holomorphic function of
+       period 1 on the upper half-plane: all coefficient integrals are taken at
+       one height ` Y ` , and the part of negative index is a polynomial in the
+       exponential of ` ( ( _i x. ( 2 x. _pi ) ) x. W ) ` .  (Contributed by
+       Zhi Wang, 28-Nov-2026.) $)
+    perexplaur $p |- ( ph -> ( m e. NN |-> ( sum_ k e. ( 0 ..^ m ) ( S. ( 0 [,]
+      1 ) ( ( F ` ( t + ( _i x. Y ) ) ) x. ( exp ` ( ( ( _i x. ( 2 x. _pi ) )
+      x. k ) x. ( t + ( _i x. Y ) ) ) ) ) _d t x. ( exp ` -u ( ( ( _i x. ( 2 x.
+      _pi ) ) x. k ) x. W ) ) ) + sum_ j e. ( 1 ... m ) ( S. ( 0 [,] 1 ) ( ( F
+      ` ( t + ( _i x. Y ) ) ) x. ( exp ` ( ( ( _i x. ( 2 x. _pi ) ) x. -u j )
+      x. ( t + ( _i x. Y ) ) ) ) ) _d t x. ( ( exp ` ( ( _i x. ( 2 x. _pi ) )
+      x. W ) ) ^ j ) ) ) ) ~~> ( F ` W ) ) $=
+      ( co cfv cmul wcel cn cc0 cv cfzo c1 cicc ci cim caddc c2 cpi ce citg csu
+      cneg cdiv cmpt cfz cexp cli wa ccnv cpnf cioo cima cc wf ad2antrr cdv cdm
+      wceq adantlr cn0 simpr elfzonn0 syl nn0zd crp clt elimpreimaioopnf simpld
+      wbr sylib imcld simprd 1rp a1i rpaddcld percoefhind2 oveq1d sumeq2dv cmin
+      elrpd simplr nnzd znegcld zaddcld rphalfcld nncnd nn0cnd negsubdid eqcomd
+      oveq2d fveq2d adantr itgeq2dv ax-icn picn mulcli fzonnsub mulneg2d mulcld
+      eqtrd 2cn mulneg1d negeqd negnegd mulcomd 3eqtrd mulassd cz efexp syl2anc
+      oveq12d 1zzd elfznn adantl negcld efcld nnnn0d expcld negeq oveq2 fsumrev
+      percoefcl zcnd subidd fzoval eqtr4d sumeq1d rphalflt rpred ltp1d perexphh
+      mpteq2dva eqbrtrrd ) AFUAUBFUCZUDQZCUBUEUFQZCUCZUGHUHRZUEUIQZSQUIQZGRUGUJ
+      UKSQZSQZEUCZSQZUUMSQULRSQUMZUUQHSQUOULRZSQZEUNZUUHCUUIUUJUGUUKUJUPQZSQUIQ
+      ZGRUUOUUGUOZUUPUIQZSQZUVCSQULRSQUMZUVFHSQZUOZULRZSQZEUNZUIQZUQFUAUUHCUUIU
+      UJUGISQUIQZGRZUUQUVNSQULRSQUMZUUSSQZEUNZUEUUGURQZCUUIUVOUUODUCZUOZSQZUVNS
+      QZULRZSQZUMZUUOHSQZULRZUVTUSQZSQZDUNZUIQZUQHGRUTAFUAUVMUWLAUUGUATZVAZUVAU
+      VRUVLUWKUIUWNUUHUUTUVQEUWNUUPUUHTZVAZUURUVPUUSSUWPBCUULGUUPIAUHVBUBVCVDQV
+      EZVFGVGZUWMUWOJVHZAVFGVIQVJUWQVKZUWMUWOKVHZUWNBUCZUWQTZUXBUEUIQGRUXBGRVKZ
+      UWOAUXCUXDUWMLVLVLZUWPUUPUWPUWOUUPVMTUWNUWOVNZUUPUUGVOVPZVQZAUULVRTUWMUWO
+      AUUKUEAUUKAHAHVFTZUBUUKVSWBZAHUWQTUXIUXJVAMUBHVTWCZWAZWDZAUXIUXJUXKWEWMZU
+      EVRTAWFWGWHZVHAIVRTZUWMUWOPVHZWIWJWKUWNUVLUUHCUUIUVOUUOUUGUUPWLQZUOZSQZUV
+      NSQZULRZSQZUMZUWHUXRUSQZSQZEUNZUWKUWNUUHUVKUYFEUWPUVGUYDUVJUYESUWPUVGCUUI
+      UVOUVFUVNSQZULRZSQZUMUYDUWPBCUVBGUVEIUWSUXAUXEUWPUVDUUPUWPUUGUWPUUGAUWMUW
+      OWNZWOWPUXHWQAUVBVRTUWMUWOAUUKUXNWRZVHUXQWIUWPCUUIUYJUYCUWPUYJUYCVKUUJUUI
+      TZUWPUYIUYBUVOSUWPUYHUYAULUWPUVFUXTUVNSUWPUVEUXSUUOSUWPUXSUVEUWPUUGUUPUWP
+      UUGUYKWSUWPUUPUXGWTXAXBXCZWJXDXCXEXFXMUWPUVJUXRUWGSQZULRZUYEUWPUVIUYOULUW
+      PUVIUXRUUOSQZHSQZUYOUWPUVIUUOUXRSQZHSQZUOZUOUYTUYRUWPUVHVUAUWPUVHUYSUOZHS
+      QVUAUWPUVFVUBHSUWPUVFUXTVUBUYNUWPUUOUXRAUUOVFTZUWMUWOVUCAUGUUNXGUJUKXNXHX
+      IXIWGZVHZUWPUXRUWPUWOUXRUATUXFUUPUBUUGXJVPZWSZXKXMWJUWPUYSHUWPUUOUXRVUEVU
+      GXLZAUXIUWMUWOUXLVHZXOXMXPUWPUYTUWPUYSHVUHVUIXLXQUWPUYSUYQHSUWPUUOUXRVUEV
+      UGXRWJXSUWPUXRUUOHVUGVUEVUIXTXMXDUWPUWGVFTZUXRYATUYPUYEVKAVUJUWMUWOAUUOHV
+      UDUXLXLZVHUWPUXRVUFWOUWGUXRYBYCXMYDWKUWNUWKUUGUUGWLQZUUGUEWLQZURQZUYFEUNU
+      YGUWNUWJUYFDEUUGUEUUGUWNUUGAUWMVNWOZUWNYEVUOUWNUVTUVSTZVAZUWFUWIVUQCGUWAI
+      AUWRUWMVUPJVHAUWTUWMVUPKVHVUQUVTVUQUVTVUPUVTUATUWNUVTUUGYFYGZWSYHAUXPUWMV
+      UPPVHYOVUQUWHUVTAUWHVFTUWMVUPAUWGVUKYIVHVUQUVTVURYJYKXLUVTUXRVKZUWFUYDUWI
+      UYESVUSCUUIUWEUYCVUSUWEUYCVKUYMVUSUWDUYBUVOSVUSUWCUYAULVUSUWBUXTUVNSVUSUW
+      AUXSUUOSUVTUXRYLXCWJXDXCXEXFUVTUXRUWHUSYMYDYNUWNVUNUUHUYFEUWNVUNUBVUMURQZ
+      UUHUWNVULUBVUMURUWNUUGUWNUUGVUOYPYQWJUWNUUGYATUUHVUTVKVUOUBUUGYRVPYSYTXMY
+      SYDUUEABCUVBUULEFGHJKLMNOUYLAUUKVRTUVBUUKVSWBUXNUUKUUAVPAUULUXOUUBAUUKUXM
+      UUCUUDUUF $.
+  $}
+
 $( (End of Zhi Wang's mathbox.) $)
 $( End $[ set-mbox-zw.mm $] $)
 
